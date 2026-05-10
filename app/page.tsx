@@ -1,118 +1,206 @@
-const regionalSignals = [
+import type { Metadata } from "next";
+import Link from "next/link";
+
+import { MapPanel } from "@/components/MapPanel";
+import { SourceList } from "@/components/SourceList";
+import {
+  collectSourceIds,
+  formatDateLabel,
+  getAlerts,
+  getCaseDataset,
+  getReservoirDataset,
+} from "@/lib/data";
+import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+
+export const metadata: Metadata = {
+  title: "Hantavirus map: Cases, Risk Areas and Public Health Alerts",
+  description:
+    "A source-linked hantavirus map dashboard for reported case summaries, public health alerts, rodent reservoir regions, prevention, symptoms, and methodology limits.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const layerExplanations = [
   {
-    region: "Americas",
-    focus: "Deer mouse exposure, rural housing, and outbreak advisories",
-    level: "Elevated watch",
+    title: "Reported cases",
+    body: "Historical surveillance summaries from CDC or state health departments. These records are state-level or agency-summary context, not live patient locations.",
   },
   {
-    region: "Europe",
-    focus: "Bank vole habitats, forest activity, and seasonal case reports",
-    level: "Seasonal risk",
+    title: "Public health alerts",
+    body: "Selected official notices such as WHO Disease Outbreak News, PAHO/WHO alerts, ECDC rapid assessments, and state Health Alert Network advisories.",
   },
   {
-    region: "Asia",
-    focus: "Rodent-borne transmission corridors and public health bulletins",
-    level: "Active monitoring",
+    title: "Rodent reservoir regions",
+    body: "Ecological host-virus context. A reservoir range does not mean infected animals are present, and it does not prove human cases.",
   },
 ];
 
-const resources = [
-  "Track official hantavirus outbreak notices by region.",
-  "Review prevention guidance for homes, cabins, farms, and field work.",
-  "Follow rodent exposure risk changes after storms, droughts, and seasonal shifts.",
+const faqs = [
+  {
+    question: "Is this live local hantavirus surveillance?",
+    answer:
+      "No. It is a static educational map and source guide. It does not show live infections, local personal risk, or exact exposure locations.",
+  },
+  {
+    question: "Does CDC publish public county-level hantavirus case locations?",
+    answer:
+      "CDC publishes public U.S. hantavirus geography by state and says county-level data cannot be provided publicly. This site follows that limit.",
+  },
+  {
+    question: "Does a reservoir region mean people are getting sick there?",
+    answer:
+      "No. Reservoir distribution is ecological evidence. It does not prove that a specific rodent is infected or that human cases are occurring.",
+  },
+  {
+    question: "What should I do if I feel sick after rodent exposure?",
+    answer:
+      "Contact a healthcare provider or public health authority and describe the exposure. Trouble breathing or rapidly worsening illness needs urgent medical attention.",
+  },
 ];
 
 export default function Home() {
+  const alerts = getAlerts();
+  const caseDataset = getCaseDataset();
+  const reservoirDataset = getReservoirDataset();
+  const sourceIds = collectSourceIds([
+    ...alerts,
+    ...caseDataset.records,
+    ...reservoirDataset.reservoirs,
+  ]);
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      <section className="relative overflow-hidden px-6 py-20 sm:px-10 lg:px-16">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,197,94,0.25),_transparent_32%),radial-gradient(circle_at_80%_20%,_rgba(59,130,246,0.2),_transparent_28%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div>
-            <p className="mb-4 inline-flex rounded-full border border-emerald-400/40 bg-emerald-400/10 px-4 py-2 text-sm font-medium text-emerald-200">
-              Hantavirus Tracker · Global risk intelligence
-            </p>
-            <h1 className="max-w-4xl text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
-              Hantavirus maps, outbreak signals, and prevention guidance in one place.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Hantavirus Tracker helps readers follow regional risk signals, understand rodent exposure patterns,
-              and find practical prevention steps before entering high-risk environments.
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#tracker"
-                className="rounded-full bg-emerald-400 px-6 py-3 text-center font-semibold text-slate-950 transition hover:bg-emerald-300"
-              >
-                View risk snapshot
-              </a>
-              <a
-                href="#prevention"
-                className="rounded-full border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
-              >
-                Prevention checklist
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-emerald-950/40 backdrop-blur">
-            <div className="rounded-[1.5rem] bg-slate-900 p-6">
-              <div className="mb-6 flex items-center justify-between">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Live map layer</p>
-                  <h2 className="mt-2 text-2xl font-semibold">Risk signal overview</h2>
-                </div>
-                <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-sm text-emerald-200">Beta</span>
-              </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-slate-950">
-                <div className="absolute inset-6 rounded-full border border-emerald-300/20" />
-                <div className="absolute inset-14 rounded-full border border-blue-300/20" />
-                <div className="absolute left-[18%] top-[36%] h-4 w-4 rounded-full bg-amber-300 shadow-[0_0_35px_12px_rgba(252,211,77,0.25)]" />
-                <div className="absolute left-[46%] top-[30%] h-5 w-5 rounded-full bg-emerald-300 shadow-[0_0_35px_12px_rgba(110,231,183,0.25)]" />
-                <div className="absolute left-[66%] top-[52%] h-4 w-4 rounded-full bg-sky-300 shadow-[0_0_35px_12px_rgba(125,211,252,0.25)]" />
-                <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-slate-900/90 p-4">
-                  <p className="text-sm text-slate-400">Prototype layer</p>
-                  <p className="mt-1 font-medium">Official-source map integrations will be added after source verification.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="px-4 py-5 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <MapPanel home />
         </div>
       </section>
 
-      <section id="tracker" className="px-6 py-16 sm:px-10 lg:px-16">
+      <section className="border-y border-white/10 bg-white/[0.03] px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-4">
+          <TrustStat label="Latest source check" value={LAST_REVIEWED_LABEL} />
+          <TrustStat label="Data policy" value="Reviewed only" />
+          <TrustStat label="CDC U.S. precision" value="State-level" />
+          <TrustStat label="Medical use" value="Educational only" />
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="recent-alerts">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-8 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">Risk snapshot</p>
-            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Regional monitoring priorities</h2>
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-semibold text-emerald-200">Official notices</p>
+            <h2 id="recent-alerts" className="mt-2 text-3xl font-semibold">
+              Recent Official Alerts
+            </h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              Alerts are selected from official agencies and summarized with their
+              limitations. They are not a complete public surveillance dataset.
+            </p>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {regionalSignals.map((item) => (
-              <article key={item.region} className="rounded-3xl border border-white/10 bg-white/[0.05] p-6">
-                <p className="text-sm text-emerald-200">{item.level}</p>
-                <h3 className="mt-3 text-2xl font-semibold">{item.region}</h3>
-                <p className="mt-4 leading-7 text-slate-300">{item.focus}</p>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {alerts.slice(0, 6).map((alert) => (
+              <article key={alert.id} className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+                <p className="text-sm font-semibold text-amber-100">
+                  {formatDateLabel(alert.date)} · {alert.agency}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold">{alert.title}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{alert.summary}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-500">{alert.riskLanguage}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="prevention" className="px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-7xl gap-8 rounded-[2rem] border border-white/10 bg-white/[0.06] p-8 lg:grid-cols-[0.8fr_1.2fr] lg:p-10">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">Prevention first</p>
-            <h2 className="mt-3 text-3xl font-semibold">Built for fast, plain-English public health awareness.</h2>
+      <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="layer-explanation">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-semibold text-emerald-200">Layer interpretation</p>
+            <h2 id="layer-explanation" className="mt-2 text-3xl font-semibold">
+              Data Layer Explanation
+            </h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              The map separates evidence types because each answers a different
+              question and carries different limits.
+            </p>
           </div>
-          <ul className="grid gap-4">
-            {resources.map((resource) => (
-              <li key={resource} className="rounded-2xl bg-slate-950/70 p-5 text-slate-200">
-                {resource}
-              </li>
+          <div className="grid gap-4 md:grid-cols-3">
+            {layerExplanations.map((layer) => (
+              <article key={layer.title} className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+                <h3 className="text-xl font-semibold">{layer.title}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{layer.body}</p>
+              </article>
             ))}
-          </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="faq">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-semibold text-emerald-200">FAQ</p>
+            <h2 id="faq" className="mt-2 text-3xl font-semibold">
+              Hantavirus Map Questions
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {faqs.map((faq) => (
+              <article key={faq.question} className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+                <h3 className="text-lg font-semibold">{faq.question}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="medical-disclaimer">
+        <div className="mx-auto grid max-w-7xl gap-6 rounded-lg border border-amber-200/25 bg-amber-200/[0.08] p-6 lg:grid-cols-[0.35fr_0.65fr]">
+          <div>
+            <p className="text-sm font-semibold text-amber-100">Required disclaimer</p>
+            <h2 id="medical-disclaimer" className="mt-2 text-2xl font-semibold">
+              Medical Disclaimer
+            </h2>
+          </div>
+          <p className="leading-8 text-amber-50/90">
+            This site is an educational data project. It is not diagnosis,
+            emergency care, professional medical advice, treatment guidance, a
+            case reporting system, or a substitute for public health authorities.
+            If you are sick after rodent exposure or have difficulty breathing,
+            contact healthcare or emergency services.
+          </p>
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SourceList sourceIds={sourceIds} compact />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/united-states/"
+              className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
+            >
+              View U.S. state context
+            </Link>
+            <Link
+              href="/prevention/"
+              className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
+            >
+              Read prevention guidance
+            </Link>
+          </div>
         </div>
       </section>
     </main>
+  );
+}
+
+function TrustStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-lg border border-white/10 bg-slate-950/80 p-4">
+      <p className="text-xs font-semibold text-slate-400">{label}</p>
+      <p className="mt-2 text-lg font-semibold text-white">{value}</p>
+    </div>
   );
 }

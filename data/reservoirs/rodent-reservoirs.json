@@ -1,0 +1,97 @@
+{
+  "lastReviewed": "2026-05-10",
+  "datasetStatus": "reviewed-sample",
+  "policy": "Reservoir records describe ecological evidence and known host-virus relationships. Reservoir distribution does not mean infected animals are present at a site, and it does not mean human cases have occurred there.",
+  "reservoirs": [
+    {
+      "id": "deer-mouse-sin-nombre",
+      "commonName": "Deer mouse",
+      "scientificName": "Peromyscus maniculatus",
+      "associatedVirus": "Sin Nombre virus and related North American hantaviruses",
+      "primarySyndrome": "Hantavirus pulmonary syndrome / hantavirus cardiopulmonary syndrome",
+      "evidenceRegion": "Much of North America, with important U.S. western and Four Corners context",
+      "mapRegion": "Western and broad North America reservoir context",
+      "summary": "CDC and state health agencies identify deer mice as the main U.S. reservoir associated with Sin Nombre virus, the most common cause of HPS in the United States.",
+      "sourceIds": ["cdc-about", "cdc-eid-reservoir-table", "cdph-hantavirus", "nmdoh-hantavirus"],
+      "limitations": [
+        "Seeing a deer mouse does not prove it is infected.",
+        "Reservoir distribution is ecological context, not a human case map."
+      ]
+    },
+    {
+      "id": "white-footed-mouse-new-york",
+      "commonName": "White-footed mouse",
+      "scientificName": "Peromyscus leucopus",
+      "associatedVirus": "New York virus",
+      "primarySyndrome": "Hantavirus cardiopulmonary syndrome",
+      "evidenceRegion": "Eastern and central North America",
+      "mapRegion": "Eastern United States ecological context",
+      "summary": "CDC Emerging Infectious Diseases lists white-footed mouse as the rodent reservoir for New York virus.",
+      "sourceIds": ["cdc-eid-reservoir-table"],
+      "limitations": [
+        "Reservoir evidence does not provide public human case locations.",
+        "This MVP does not model infection prevalence in rodents."
+      ]
+    },
+    {
+      "id": "cotton-rat-black-creek-canal",
+      "commonName": "Cotton rat",
+      "scientificName": "Sigmodon hispidus",
+      "associatedVirus": "Black Creek Canal virus",
+      "primarySyndrome": "Hantavirus cardiopulmonary syndrome",
+      "evidenceRegion": "Southeastern United States ecological context",
+      "mapRegion": "Southeastern United States",
+      "summary": "CDC Emerging Infectious Diseases lists cotton rat as the rodent reservoir for Black Creek Canal virus.",
+      "sourceIds": ["cdc-eid-reservoir-table"],
+      "limitations": [
+        "Host species distribution is not a measure of human risk at a property.",
+        "This MVP does not publish rodent testing results."
+      ]
+    },
+    {
+      "id": "rice-rat-bayou",
+      "commonName": "Rice rat",
+      "scientificName": "Oryzomys palustris",
+      "associatedVirus": "Bayou virus",
+      "primarySyndrome": "Hantavirus cardiopulmonary syndrome",
+      "evidenceRegion": "Southeastern United States and Gulf Coast ecological context",
+      "mapRegion": "Gulf Coast and southeastern United States",
+      "summary": "CDC Emerging Infectious Diseases lists rice rat as the rodent reservoir for Bayou virus.",
+      "sourceIds": ["cdc-eid-reservoir-table"],
+      "limitations": [
+        "A reservoir range should not be interpreted as a current outbreak area.",
+        "This MVP does not infer county-level human cases from reservoir ecology."
+      ]
+    },
+    {
+      "id": "bank-vole-puumala",
+      "commonName": "Bank vole",
+      "scientificName": "Clethrionomys glareolus",
+      "associatedVirus": "Puumala virus",
+      "primarySyndrome": "Hemorrhagic fever with renal syndrome / nephropathia epidemica",
+      "evidenceRegion": "Europe",
+      "mapRegion": "Northern, central, and parts of eastern Europe",
+      "summary": "ECDC describes Puumala virus, carried by bank voles, as the most frequent cause of notified orthohantavirus infections in Europe.",
+      "sourceIds": ["ecdc-factsheet", "ecdc-2023-aer"],
+      "limitations": [
+        "European HFRS surveillance is different from U.S. HPS reporting.",
+        "Rodent abundance and human case reporting fluctuate over time."
+      ]
+    },
+    {
+      "id": "south-america-andes-rodents",
+      "commonName": "Sigmodontine rodents",
+      "scientificName": "Multiple species",
+      "associatedVirus": "Andes virus and other New World hantaviruses",
+      "primarySyndrome": "Hantavirus cardiopulmonary syndrome",
+      "evidenceRegion": "South America, including Southern Cone countries",
+      "mapRegion": "Southern Cone ecological and surveillance context",
+      "summary": "WHO describes Andes virus as a South American hantavirus for which limited person-to-person transmission has been documented among close contacts, while primary acquisition remains linked to rodent exposure.",
+      "sourceIds": ["who-factsheet-2026", "paho-alert-2025", "who-don600-2026"],
+      "limitations": [
+        "This record does not map specific rodent species ranges.",
+        "Limited Andes virus person-to-person transmission is event-specific and should not be generalized to all hantaviruses."
+      ]
+    }
+  ]
+}

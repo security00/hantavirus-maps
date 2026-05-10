@@ -1,26 +1,128 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020617;
+  --foreground: #f8fafc;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  background: #020617;
+}
+
+a,
+button,
+input,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.32);
+  color: #ffffff;
+}
+
+.map-panel {
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98)),
+    #020617;
+}
+
+.layer-toggle {
+  align-items: center;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #cbd5e1;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 700;
+  gap: 0.625rem;
+  min-height: 44px;
+  padding: 0.625rem 0.75rem;
+  user-select: none;
+}
+
+.layer-toggle input {
+  accent-color: #34d399;
+  block-size: 1rem;
+  inline-size: 1rem;
+}
+
+.case-toggle {
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.alert-toggle {
+  border-color: rgba(248, 113, 113, 0.3);
+}
+
+.reservoir-toggle {
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+.map-viewport svg {
+  display: block;
+}
+
+.case-layer,
+.alert-layer,
+.reservoir-layer {
+  transition:
+    opacity 160ms ease,
+    filter 160ms ease;
+}
+
+.map-panel:has(#layer-cases:not(:checked)) .case-layer,
+.map-panel:has(#layer-alerts:not(:checked)) .alert-layer,
+.map-panel:has(#layer-reservoirs:not(:checked)) .reservoir-layer {
+  opacity: 0.08;
+  filter: grayscale(0.6);
+}
+
+.case-pin {
+  fill: #fbbf24;
+}
+
+.case-pin-ring {
+  fill: rgba(251, 191, 36, 0.12);
+  stroke: rgba(251, 191, 36, 0.92);
+  stroke-width: 2;
+}
+
+.alert-pin {
+  fill: rgba(248, 113, 113, 0.86);
+  stroke: rgba(254, 202, 202, 0.9);
+  stroke-width: 2;
+}
+
+.map-label {
+  fill: #d1fae5;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.map-caption {
+  fill: #94a3b8;
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  .map-label,
+  .map-caption {
+    font-size: 22px;
+  }
 }

@@ -1,31 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Hantavirus Tracker - Global Hantavirus Maps",
+  title: {
+    default: "Hantavirus map: Cases, Risk Areas and Public Health Alerts",
+    template: "%s | Hantavirus Maps",
+  },
   description:
-    "Track hantavirus risk signals, regional outbreak context, and prevention guidance for rodent exposure awareness.",
+    "A reviewed, source-linked hantavirus map and public health data explanation site for cases, alerts, reservoir regions, symptoms, and prevention.",
   metadataBase: new URL("https://hantavirusmaps.org"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Hantavirus Tracker",
+    title: "Hantavirus map: Cases, Risk Areas and Public Health Alerts",
     description:
-      "Global hantavirus maps, outbreak signals, and prevention guidance.",
+      "Reviewed hantavirus map context with official sources, conservative limits, and prevention education.",
     url: "https://hantavirusmaps.org",
-    siteName: "Hantavirus Tracker",
+    siteName: "Hantavirus Maps",
     type: "website",
   },
 };
@@ -36,11 +30,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full">{children}</body>
+    <html lang="en" className="h-full">
+      <body className="min-h-full bg-slate-950 text-white antialiased">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -1,0 +1,77 @@
+{
+  "lastReviewed": "2026-05-10",
+  "datasetStatus": "reviewed-sample",
+  "policy": "Official alerts are selected source-linked public health notices. They are not a complete surveillance dataset and should not be read as a live outbreak map.",
+  "alerts": [
+    {
+      "id": "who-don600-2026-cruise",
+      "title": "Hantavirus cluster linked to cruise ship travel, multi-country",
+      "agency": "World Health Organization",
+      "date": "2026-05-08",
+      "geography": "Multi-country / Atlantic cruise-associated event",
+      "layer": "Public health alerts",
+      "status": "Disease Outbreak News",
+      "severityLabel": "Official international notice",
+      "summary": "WHO reported a cruise-associated hantavirus cluster involving Andes virus and assessed the global population risk as low while investigations and contact tracing continued.",
+      "riskLanguage": "Event-specific. Does not indicate a general local U.S. risk map or a live local case service.",
+      "sourceIds": ["who-don600-2026", "paho-cruise-2026", "ecdc-cruise-2026"],
+      "mapPoint": { "x": 500, "y": 445 }
+    },
+    {
+      "id": "paho-alert-2025-americas",
+      "title": "Hantavirus pulmonary syndrome alert in the Americas Region",
+      "agency": "PAHO/WHO",
+      "date": "2025-12-19",
+      "geography": "Americas Region, especially Southern Cone countries",
+      "layer": "Public health alerts",
+      "status": "Regional epidemiological alert",
+      "severityLabel": "Regional surveillance alert",
+      "summary": "PAHO/WHO issued an alert after increases in reported hantavirus infections during 2025 in endemic countries of the Americas, particularly the Southern Cone, and urged strengthened surveillance and risk reduction.",
+      "riskLanguage": "Regional aggregate context. It should not be read as a neighborhood-level or travel-specific risk prediction.",
+      "sourceIds": ["paho-alert-2025"],
+      "mapPoint": { "x": 405, "y": 480 }
+    },
+    {
+      "id": "nmdoh-2026-santa-fe",
+      "title": "Hantavirus confirmed in Santa Fe County resident",
+      "agency": "New Mexico Department of Health",
+      "date": "2026-03-12",
+      "geography": "New Mexico, United States",
+      "layer": "Public health alerts",
+      "status": "Official state news release",
+      "severityLabel": "State case notice",
+      "summary": "NMDOH reported a Santa Fe County resident hospitalized with HPS who had recovered, and reminded residents to air out cabins, sheds, garages, and other spaces before spring cleaning.",
+      "riskLanguage": "Single official state notice. It does not create a county-level active risk map.",
+      "sourceIds": ["nmdoh-2026-case", "nmdoh-hantavirus"],
+      "mapPoint": { "x": 265, "y": 285 }
+    },
+    {
+      "id": "adhs-2024-increased-activity",
+      "title": "Increased hantavirus activity in Arizona",
+      "agency": "Arizona Department of Health Services",
+      "date": "2024-07-08",
+      "geography": "Arizona, United States",
+      "layer": "Public health alerts",
+      "status": "Health Alert Network advisory",
+      "severityLabel": "Provider advisory",
+      "summary": "ADHS advised healthcare providers to consider hantavirus in compatible illness with rodent exposure after increased 2024 activity.",
+      "riskLanguage": "Provider-oriented advisory. Values in the notice are a point-in-time snapshot.",
+      "sourceIds": ["adhs-han-2024", "adhs-protocol-2025"],
+      "mapPoint": { "x": 245, "y": 320 }
+    },
+    {
+      "id": "cdph-2025-workplace-prevention",
+      "title": "Preventing hantavirus infection in the workplace",
+      "agency": "California Department of Public Health",
+      "date": "2025-02",
+      "geography": "California, United States",
+      "layer": "Public health alerts",
+      "status": "Occupational health watch",
+      "severityLabel": "Prevention notice",
+      "summary": "CDPH highlighted worker risk in jobs that involve rodents or enclosed structures where deer mice may have infested, including parks, campgrounds, and maintenance work.",
+      "riskLanguage": "Prevention-oriented notice. It is not a case-count alert.",
+      "sourceIds": ["cdph-occupational-2025", "cdph-hantavirus"],
+      "mapPoint": { "x": 170, "y": 245 }
+    }
+  ]
+}

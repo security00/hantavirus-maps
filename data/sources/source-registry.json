@@ -1,0 +1,248 @@
+{
+  "lastReviewed": "2026-05-10",
+  "reviewPolicy": "Use official public health agencies, peer-reviewed CDC publications, or agency-linked surveillance summaries. Prefer conservative summaries over scraped granular counts.",
+  "sources": [
+    {
+      "id": "cdc-reported-cases",
+      "title": "Reported Cases of Hantavirus Disease",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/hantavirus/data-research/cases/index.html",
+      "publicationDate": "2024-06-26",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "National surveillance summary",
+      "use": "U.S. historical case context and the state-only geography limitation.",
+      "limitations": "CDC states public case data are reported by state only and county-level data cannot be provided publicly."
+    },
+    {
+      "id": "cdc-surveillance",
+      "title": "Hantavirus Case Definition and Reporting",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/hantavirus/php/surveillance/index.html",
+      "publicationDate": "2025-06-30",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Surveillance guidance",
+      "use": "Explains national notifiable condition reporting and surveillance definitions.",
+      "limitations": "Surveillance case definitions are for public health classification and are not clinical diagnostic guidance for individual patients."
+    },
+    {
+      "id": "cdc-about",
+      "title": "About Hantavirus",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/hantavirus/",
+      "publicationDate": "2024-05-13",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Public health overview",
+      "use": "General description of hantavirus diseases, transmission, reservoirs, symptoms, and risk reduction.",
+      "limitations": "Broad public overview; local health departments remain the source for local reporting requirements and investigations."
+    },
+    {
+      "id": "cdc-prevention",
+      "title": "Hantavirus Prevention",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/hantavirus/prevention/index.html",
+      "publicationDate": "2024-05-13",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Prevention guidance",
+      "use": "General prevention principles for avoiding rodent urine, droppings, saliva, and nesting materials.",
+      "limitations": "Does not replace local public health, occupational safety, or clinician guidance for high-risk settings."
+    },
+    {
+      "id": "cdc-rodent-cleanup",
+      "title": "How to Clean Up After Rodents",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/healthy-pets/rodent-control/clean-up.html",
+      "publicationDate": "2024-04-08",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Rodent cleanup guidance",
+      "use": "Safe cleanup steps for urine, droppings, dead rodents, nests, vehicles, and heavy infestations.",
+      "limitations": "People with illness after exposure should contact a healthcare provider; heavy infestations may require local health or occupational safety input."
+    },
+    {
+      "id": "cdc-eid-reservoir-table",
+      "title": "Bayou Hantavirus Cardiopulmonary Syndrome, Louisiana, USA, 2022-2023",
+      "publisher": "CDC Emerging Infectious Diseases",
+      "url": "https://wwwnc.cdc.gov/eid/article/31/2/24-1069-t1",
+      "publicationDate": "2025-01-31",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Peer-reviewed CDC table",
+      "use": "U.S. hantavirus and rodent reservoir relationships.",
+      "limitations": "Reservoir presence does not mean a specific animal is infected or that human cases are present."
+    },
+    {
+      "id": "nmdoh-hantavirus",
+      "title": "Hantavirus Pulmonary Syndrome",
+      "publisher": "New Mexico Department of Health",
+      "url": "https://www.nmhealth.org/about/erd/ideb/zdp/hps/",
+      "publicationDate": "2026",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "State health department disease page",
+      "use": "New Mexico case summaries, prevention resources, and cumulative historical context.",
+      "limitations": "State page summaries can update; this project stores the reviewed snapshot date with each derived record."
+    },
+    {
+      "id": "nmdoh-2026-case",
+      "title": "Hantavirus confirmed in Santa Fe County resident",
+      "publisher": "New Mexico Department of Health",
+      "url": "https://www.nmhealth.org/news/safety/2026/3/?view=2322",
+      "publicationDate": "2026-03-12",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Official news release",
+      "use": "Recent New Mexico official case notice.",
+      "limitations": "Single official release, not a complete live surveillance feed."
+    },
+    {
+      "id": "nmdoh-2025-death",
+      "title": "Hantavirus death confirmed in Santa Fe County woman",
+      "publisher": "New Mexico Department of Health",
+      "url": "https://www.nmhealth.org/news/awareness/2025/3/?view=2189",
+      "publicationDate": "2025-03-07",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Official news release",
+      "use": "Recent New Mexico official fatal case notice and prevention reminder.",
+      "limitations": "Single official release, not a complete live surveillance feed."
+    },
+    {
+      "id": "cdph-hantavirus",
+      "title": "Hantavirus Infection",
+      "publisher": "California Department of Public Health",
+      "url": "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/HantavirusPulmonarySyndrome.aspx",
+      "publicationDate": "2025",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "State health department disease page",
+      "use": "California prevention guidance, deer mouse context, and links to CDPH map and surveillance PDFs.",
+      "limitations": "This MVP links to CDPH surveillance products instead of extracting county-level values."
+    },
+    {
+      "id": "cdph-occupational-2025",
+      "title": "Preventing Hantavirus Infection in the Workplace",
+      "publisher": "California Department of Public Health",
+      "url": "https://www.cdph.ca.gov/Programs/CCDPHP/DEODC/OHB/Pages/February2025.aspx",
+      "publicationDate": "2025-02",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Occupational health guidance",
+      "use": "Worker risk contexts such as parks, cabins, campgrounds, and closed spaces with mice.",
+      "limitations": "Not a case surveillance dataset."
+    },
+    {
+      "id": "adhs-han-2024",
+      "title": "Increased Hantavirus Activity in Arizona: Consider Hantavirus in your Differential",
+      "publisher": "Arizona Department of Health Services",
+      "url": "https://www.azdhs.gov/documents/preparedness/epidemiology-disease-control/vector-borne-zoonotic-diseases/hantavirus-han.pdf",
+      "publicationDate": "2024-07-08",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Health Alert Network advisory",
+      "use": "Arizona official alert summary and 2024 activity snapshot.",
+      "limitations": "HAN advisories are incident communications and not complete public surveillance datasets."
+    },
+    {
+      "id": "adhs-protocol-2025",
+      "title": "Hantavirus Pulmonary Syndrome Protocol",
+      "publisher": "Arizona Department of Health Services",
+      "url": "https://www.azdhs.gov/documents/preparedness/epidemiology-disease-control/investigation-manual/vectorborne/hantavirus-protocol.pdf",
+      "publicationDate": "2025-07-16",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "State investigation protocol",
+      "use": "Arizona reporting, investigation, and source references.",
+      "limitations": "Written for public health investigation workflows, not for self-diagnosis."
+    },
+    {
+      "id": "cdphe-hantavirus",
+      "title": "Hanta (Hantavirus Pulmonary Syndrome)",
+      "publisher": "Colorado Department of Public Health and Environment",
+      "url": "https://cdphe.colorado.gov/communicable/animal-related-diseases/hantavirus",
+      "publicationDate": "2026",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "State health department disease page",
+      "use": "Colorado prevention, reporting, and state data links.",
+      "limitations": "The linked data product should be treated as the authoritative Colorado source for updated counts."
+    },
+    {
+      "id": "cdc-mmwr-denver-2018",
+      "title": "Notes from the Field: Hantavirus Pulmonary Syndrome - Denver, Colorado, 2018",
+      "publisher": "CDC MMWR",
+      "url": "https://www.cdc.gov/mmwr/volumes/68/wr/mm6835a5.htm",
+      "publicationDate": "2019-09-06",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "CDC field report",
+      "use": "Colorado context showing that apparent local acquisition can occur outside expected rural settings.",
+      "limitations": "Single field report; not a general risk map."
+    },
+    {
+      "id": "ecdc-2023-aer",
+      "title": "Hantavirus infection - Annual Epidemiological Report for 2023",
+      "publisher": "European Centre for Disease Prevention and Control",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/hantavirus-infection-annual-epidemiological-report-2023",
+      "publicationDate": "2025-03-07",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "European surveillance report",
+      "use": "EU/EEA annual case context and comparison across participating countries.",
+      "limitations": "European HFRS-oriented surveillance is not directly comparable to U.S. HPS surveillance."
+    },
+    {
+      "id": "ecdc-factsheet",
+      "title": "Factsheet on orthohantavirus infections",
+      "publisher": "European Centre for Disease Prevention and Control",
+      "url": "https://www.ecdc.europa.eu/en/hantavirus-infection/facts",
+      "publicationDate": "2026-05",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Public health factsheet",
+      "use": "European reservoir ecology and disease syndrome context.",
+      "limitations": "Broad factsheet; local national public health agencies remain authoritative for country-specific notices."
+    },
+    {
+      "id": "ecdc-cruise-2026",
+      "title": "Hantavirus-associated cluster of illness on a cruise ship: ECDC assessment and recommendations",
+      "publisher": "European Centre for Disease Prevention and Control",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/hantavirus-associated-cluster-illness-cruise-ship-ecdc-assessment-and",
+      "publicationDate": "2026-05-06",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Rapid assessment",
+      "use": "Official European assessment of a 2026 multi-country cruise-associated cluster.",
+      "limitations": "Rapid assessments can change as investigations continue."
+    },
+    {
+      "id": "who-factsheet-2026",
+      "title": "Hantavirus",
+      "publisher": "World Health Organization",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/hantavirus",
+      "publicationDate": "2026-05-06",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Global factsheet",
+      "use": "Global disease overview, syndromes, and Andes virus human-to-human transmission caveat.",
+      "limitations": "Global overview; local agencies provide country-specific surveillance."
+    },
+    {
+      "id": "who-don600-2026",
+      "title": "Hantavirus cluster linked to cruise ship travel, Multi-country",
+      "publisher": "World Health Organization",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600",
+      "publicationDate": "2026-05-08",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Disease Outbreak News",
+      "use": "Official international notice for the 2026 cruise-associated Andes virus cluster.",
+      "limitations": "Event-specific notice; not global live surveillance."
+    },
+    {
+      "id": "paho-alert-2025",
+      "title": "Epidemiological Alert Hantavirus Pulmonary Syndrome in Americas Region - 19 December 2025",
+      "publisher": "Pan American Health Organization / World Health Organization",
+      "url": "https://www.paho.org/en/documents/epidemiological-alert-hantavirus-pulmonary-syndrome-americas-region-19-december-2025",
+      "publicationDate": "2025-12-19",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Regional epidemiological alert",
+      "use": "Americas regional alert, Southern Cone context, and surveillance strengthening recommendations.",
+      "limitations": "Regional aggregate and alert language; country public health agencies remain authoritative for national counts."
+    },
+    {
+      "id": "paho-cruise-2026",
+      "title": "PAHO supports the international response to hantavirus pulmonary syndrome cases linked to a cruise ship in the Atlantic",
+      "publisher": "Pan American Health Organization",
+      "url": "https://www.paho.org/en/news/7-5-2026-paho-supports-international-response-hantavirus-pulmonary-syndrome-cases-linked",
+      "publicationDate": "2026-05-07",
+      "reviewedDate": "2026-05-10",
+      "sourceType": "Official response update",
+      "use": "PAHO coordination context and prevention summary for the cruise-associated event.",
+      "limitations": "Event-specific update; not a full surveillance dataset."
+    }
+  ]
+}
