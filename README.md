@@ -83,6 +83,16 @@ Page content lives in `lib/page-content.ts`.
 
 FAQ content lives in `lib/faq.ts`.
 
+## Internal source checker
+
+Draft source checks can be generated with:
+
+```bash
+python3 scripts/check_hantavirus_sources.py
+```
+
+The checker uses only Python stdlib, reads `data/sources/source-registry.json`, checks selected official/reliable endpoints, and writes `reports/source-check-YYYY-MM-DD.md`. Treat all report findings as internal review candidates only. The script must not update public JSON data, publish live/local risk claims, or replace human review.
+
 ## Local development
 
 ```bash
