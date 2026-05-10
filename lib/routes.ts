@@ -32,6 +32,14 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "weekly"
   },
   {
+    path: "/hantavirus/",
+    title: "What Is Hantavirus? Educational Disease Overview",
+    description:
+      "A conservative, source-linked hantavirus disease overview covering HPS, HFRS, transmission, geography, symptoms, prevention, cleanup, diagnosis limits, treatment boundaries, and map context.",
+    priority: 0.88,
+    changeFrequency: "monthly"
+  },
+  {
     path: "/united-states/",
     title: "Hantavirus Map by State in the United States",
     description:
