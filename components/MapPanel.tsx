@@ -34,11 +34,11 @@ export function MapPanel({ home = false }: MapPanelProps) {
             <div>
               <p className="text-sm font-semibold text-emerald-200">Reviewed public health map</p>
               <Heading className="mt-2 max-w-4xl text-3xl font-semibold leading-tight text-white sm:text-5xl">
-                Hantavirus map: Cases, Risk Areas and Public Health Alerts
+                Hantavirus map and hantavirus tracker for cases, alerts and risk areas
               </Heading>
               <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
-                Interactive MVP showing source-linked state case summaries, selected official
-                alerts, and reservoir regions on a free OpenStreetMap layer. It is not live local surveillance
+                Use this hantavirus map and reviewed hantavirus tracker to explore source-linked state case summaries,
+                selected official alerts, and rodent reservoir regions on a free OpenStreetMap layer. It is not live local surveillance
                 and does not publish county-precision cases.
               </p>
             </div>

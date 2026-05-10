@@ -78,6 +78,13 @@ export default function Home() {
       </section>
 
       <section className="border-y border-white/10 bg-white/[0.03] px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-6 max-w-7xl">
+          <p className="max-w-4xl text-base leading-7 text-slate-300">
+            Hantavirus Maps is built around two core search needs: a <strong className="text-white">hantavirus map</strong>
+            for geography and source context, and a <strong className="text-white">hantavirus tracker</strong> for reviewed
+            official alerts, historical case summaries, reservoir ecology, and prevention guidance.
+          </p>
+        </div>
         <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-4">
           <TrustStat label="Latest source check" value={LAST_REVIEWED_LABEL} />
           <TrustStat label="Data policy" value="Reviewed only" />
