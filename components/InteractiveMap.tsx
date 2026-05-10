@@ -3,7 +3,7 @@
 import "leaflet/dist/leaflet.css";
 
 import L from "leaflet";
-import { CircleMarker, LayerGroup, LayersControl, MapContainer, Popup, TileLayer, useMap } from "react-leaflet";
+import { CircleMarker, LayerGroup, LayersControl, MapContainer, Popup, TileLayer, Tooltip, useMap } from "react-leaflet";
 
 import type { CaseRecord, OfficialAlert, ReservoirRecord, SourceRecord } from "@/lib/data";
 
@@ -70,8 +70,8 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
         worldCopyJump
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
         />
         <FitMap points={fitPoints} />
 
@@ -82,10 +82,13 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                 <CircleMarker
                   key={record.id}
                   center={position}
-                  radius={8}
-                  pathOptions={{ color: "#fbbf24", fillColor: "#fbbf24", fillOpacity: 0.88, weight: 2 }}
+                  radius={12}
+                  pathOptions={{ color: "#fde68a", fillColor: "#f59e0b", fillOpacity: 0.96, opacity: 1, weight: 3 }}
                 >
-                  <Popup>
+                  <Tooltip direction="top" offset={[0, -10]} opacity={0.95}>
+                    Click for {record.jurisdiction} source summary
+                  </Tooltip>
+                  <Popup className="dark-map-popup" maxWidth={360} minWidth={260} closeButton>
                     <PopupCard title={record.jurisdiction} label="Reported case summary" sourceIds={record.sourceIds} sourcesById={sourcesById}>
                       <p>{record.reportLabel}</p>
                       <p>{record.summary}</p>
@@ -103,10 +106,13 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                 <CircleMarker
                   key={alert.id}
                   center={position}
-                  radius={8}
-                  pathOptions={{ color: "#f87171", fillColor: "#f87171", fillOpacity: 0.9, weight: 2 }}
+                  radius={12}
+                  pathOptions={{ color: "#fecaca", fillColor: "#ef4444", fillOpacity: 0.96, opacity: 1, weight: 3 }}
                 >
-                  <Popup>
+                  <Tooltip direction="top" offset={[0, -10]} opacity={0.95}>
+                    Click for official alert details
+                  </Tooltip>
+                  <Popup className="dark-map-popup" maxWidth={380} minWidth={280} closeButton>
                     <PopupCard title={alert.title} label={`${alert.agency} · ${alert.date}`} sourceIds={alert.sourceIds} sourcesById={sourcesById}>
                       <p>{alert.summary}</p>
                       <p className="popup-limit">{alert.riskLanguage}</p>
@@ -123,10 +129,13 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                 <CircleMarker
                   key={reservoir.id}
                   center={region.center}
-                  radius={24}
-                  pathOptions={{ color: region.color, fillColor: region.color, fillOpacity: 0.18, weight: 2 }}
+                  radius={32}
+                  pathOptions={{ color: region.color, fillColor: region.color, fillOpacity: 0.28, opacity: 0.95, weight: 3 }}
                 >
-                  <Popup>
+                  <Tooltip direction="top" offset={[0, -18]} opacity={0.95}>
+                    Click for {reservoir.commonName} ecology note
+                  </Tooltip>
+                  <Popup className="dark-map-popup" maxWidth={380} minWidth={280} closeButton>
                     <PopupCard title={reservoir.commonName} label={reservoir.scientificName} sourceIds={reservoir.sourceIds} sourcesById={sourcesById}>
                       <p>{reservoir.summary}</p>
                       <p className="popup-limit">{reservoir.limitations[0]}</p>
@@ -139,7 +148,7 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
         </LayersControl>
       </MapContainer>
       <p className="interactive-map-note">
-        Free OpenStreetMap/Leaflet MVP. Markers are source-linked reviewed snapshots, not live case locations or exact local risk.
+        Free Leaflet/CARTO dark map MVP. Click any colored marker or reservoir circle for source-linked text, limits, and official links. Not live case locations or exact local risk.
       </p>
     </div>
   );
