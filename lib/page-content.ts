@@ -316,7 +316,7 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["who-don600-2026", "ecdc-cruise-2026", "paho-cruise-2026", "paho-alert-2025"],
-    relatedPaths: ["/south-america/", "/europe/", "/sources-methodology/"]
+    relatedPaths: ["/outbreaks/", "/south-america/", "/europe/", "/sources-methodology/"]
   },
   "deer-mouse-hantavirus-map": {
     key: "deer-mouse-hantavirus-map",
