@@ -1,4 +1,4 @@
-import { SITE_ROUTES } from "@/lib/routes";
+import { SITE_ROUTES, SUPPORT_EMAIL } from "@/lib/routes";
 
 export type PageSection = {
   heading: string;
@@ -520,10 +520,10 @@ export const CONTENT_PAGES = {
   about: {
     key: "about",
     path: "/about/",
-    title: "About Hantavirus Maps",
+    title: "About Us - Hantavirus Maps",
     description:
-      "About this educational, source-linked public health map and data explanation project.",
-    eyebrow: "About",
+      "About Hantavirus Maps, an educational source-linked public health map and data explanation project.",
+    eyebrow: "About Us",
     intro:
       "Hantavirus Maps is a static, source-linked public health explanation site. It is designed to help readers find official context without implying live local case tracking.",
     keyPoints: [
@@ -533,10 +533,23 @@ export const CONTENT_PAGES = {
     ],
     sections: [
       {
-        heading: "Product stance",
+        heading: "What this site does",
         body: [
-          "This project treats hantavirus as a serious public health topic that deserves calm explanation. It avoids sensational live-local, exact-risk, and unsupported county-precision claims.",
-          "The first screen shows the map/data tool because the site is a data explanation product, not a marketing landing page."
+          "Hantavirus Maps organizes official-source summaries, selected public health alerts, and rodent reservoir ecology into readable map and guide pages.",
+          "This project treats hantavirus as a serious public health topic that deserves calm explanation. It avoids sensational live-local, exact-risk, and unsupported county-precision claims."
+        ]
+      },
+      {
+        heading: "What this site does not do",
+        body: [
+          "Hantavirus Maps does not provide medical diagnosis, emergency advice, treatment advice, live case reporting, or exact personal risk scoring.",
+          "If you are ill after rodent exposure, have trouble breathing, or need case reporting guidance, contact healthcare professionals, emergency services, or local public health authorities."
+        ]
+      },
+      {
+        heading: "Contact",
+        body: [
+          `For site questions, corrections, source suggestions, or policy requests, contact ${SUPPORT_EMAIL}.`
         ]
       },
       {
@@ -547,7 +560,112 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdc-reported-cases", "cdc-prevention", "who-factsheet-2026"],
-    relatedPaths: ["/sources-methodology/", "/", "/prevention/"]
+    relatedPaths: ["/sources-methodology/", "/privacy-policy/", "/terms-of-use/"]
+  },
+  privacyPolicy: {
+    key: "privacyPolicy",
+    path: "/privacy-policy/",
+    title: "Privacy Policy",
+    description:
+      "Privacy policy for Hantavirus Maps, including analytics, cookies, external links, and contact information.",
+    eyebrow: "Privacy",
+    intro:
+      "This Privacy Policy explains how Hantavirus Maps handles information when you visit this educational public health data site.",
+    keyPoints: [
+      "We do not ask users to submit personal health information through this website.",
+      "The site may use basic hosting, security, analytics, or performance logs to keep the service reliable.",
+      `Privacy questions can be sent to ${SUPPORT_EMAIL}.`
+    ],
+    sections: [
+      {
+        heading: "Information we do not collect intentionally",
+        body: [
+          "Hantavirus Maps is an informational website. It does not provide accounts, patient intake, diagnosis tools, case reporting forms, or emergency services.",
+          "Do not send personal medical details, protected health information, urgent symptoms, or emergency requests through this website or by email."
+        ]
+      },
+      {
+        heading: "Technical information",
+        body: [
+          "Like most websites, our hosting and security providers may process basic technical information such as IP address, browser type, requested URL, timestamps, referrer, and security events.",
+          "This information is used for site delivery, abuse prevention, debugging, performance measurement, and security."
+        ]
+      },
+      {
+        heading: "Cookies and analytics",
+        body: [
+          "The current static site does not require user accounts or login cookies. If analytics, advertising, or consent tools are added later, this policy should be updated before those tools are enabled.",
+          "Third-party map tiles and external links may be requested by your browser when you use the interactive map or open source links. Those providers may process requests under their own policies."
+        ]
+      },
+      {
+        heading: "External links",
+        body: [
+          "The site links to CDC, WHO, PAHO/WHO, ECDC, state health departments, and other external sources. We are not responsible for the privacy practices or content of external websites."
+        ]
+      },
+      {
+        heading: "Contact",
+        body: [
+          `For privacy questions or requests, email ${SUPPORT_EMAIL}.`
+        ]
+      }
+    ],
+    sourceIds: [],
+    relatedPaths: ["/about/", "/terms-of-use/", "/sources-methodology/"]
+  },
+  termsOfUse: {
+    key: "termsOfUse",
+    path: "/terms-of-use/",
+    title: "Terms of Use",
+    description:
+      "Terms of use for Hantavirus Maps, including educational-use limits, medical disclaimer, and source limitations.",
+    eyebrow: "Terms",
+    intro:
+      "These Terms of Use describe the conditions for using Hantavirus Maps. By using the site, you agree to these terms.",
+    keyPoints: [
+      "The site is for educational and informational use only.",
+      "It is not medical advice, diagnosis, treatment advice, emergency guidance, or a case reporting system.",
+      `Questions about these terms can be sent to ${SUPPORT_EMAIL}.`
+    ],
+    sections: [
+      {
+        heading: "Educational use only",
+        body: [
+          "Hantavirus Maps summarizes source-linked public health information, selected official alerts, and reservoir ecology. It is intended to help readers understand available public sources and their limitations.",
+          "The site does not provide clinical judgment, public health determinations, emergency response, occupational safety approval, pest-control services, or legal advice."
+        ]
+      },
+      {
+        heading: "Medical and emergency disclaimer",
+        body: [
+          "Do not use this website to diagnose symptoms, decide whether you have hantavirus infection, delay medical care, or determine whether a specific home, workplace, cabin, campsite, or county is safe.",
+          "If you are ill after rodent exposure, have difficulty breathing, or believe you may have an emergency, contact healthcare professionals, emergency services, or local public health authorities."
+        ]
+      },
+      {
+        heading: "Data and map limitations",
+        body: [
+          "Map markers and pages are reviewed snapshots, not live surveillance. Public case geography may be state-level or otherwise limited by official sources.",
+          "Reservoir ecology does not prove infected animals, human cases, or exact local risk. Official agencies remain the authoritative source for current investigations and local guidance."
+        ]
+      },
+      {
+        heading: "Source links and changes",
+        body: [
+          "External source pages may change, move, or become unavailable. Hantavirus Maps may update, correct, remove, or revise content at any time.",
+          "If you notice a source issue or correction, email the details to the support contact."
+        ]
+      },
+      {
+        heading: "Contact",
+        body: [
+          `For questions about these Terms of Use, email ${SUPPORT_EMAIL}.`
+        ]
+      }
+    ],
+    sourceIds: [],
+    relatedPaths: ["/privacy-policy/", "/about/", "/sources-methodology/"]
   }
 } satisfies Record<string, ContentPageData>;
 

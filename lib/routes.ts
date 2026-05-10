@@ -2,6 +2,7 @@ export const SITE_URL = "https://hantavirusmaps.org";
 export const SITE_HOST = "hantavirusmaps.org";
 export const LAST_REVIEWED_ISO = "2026-05-10";
 export const LAST_REVIEWED_LABEL = "May 10, 2026";
+export const SUPPORT_EMAIL = "support@hantavirusmaps.org";
 
 export type RouteFrequency = "weekly" | "monthly" | "yearly";
 
@@ -144,10 +145,26 @@ export const SITE_ROUTES: SiteRoute[] = [
   },
   {
     path: "/about/",
-    title: "About Hantavirus Maps",
+    title: "About Us - Hantavirus Maps",
     description:
-      "About this educational, source-linked public health map and data explanation project.",
+      "About Hantavirus Maps, an educational source-linked public health map and data explanation project.",
     priority: 0.62,
+    changeFrequency: "yearly"
+  },
+  {
+    path: "/privacy-policy/",
+    title: "Privacy Policy",
+    description:
+      "Privacy policy for Hantavirus Maps, including analytics, cookies, external links, and contact information.",
+    priority: 0.45,
+    changeFrequency: "yearly"
+  },
+  {
+    path: "/terms-of-use/",
+    title: "Terms of Use",
+    description:
+      "Terms of use for Hantavirus Maps, including educational-use limits, medical disclaimer, and source limitations.",
+    priority: 0.45,
     changeFrequency: "yearly"
   }
 ];

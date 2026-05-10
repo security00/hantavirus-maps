@@ -1,11 +1,12 @@
 import Link from "next/link";
 
-import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { LAST_REVIEWED_LABEL, SUPPORT_EMAIL } from "@/lib/routes";
 
 const footerLinks = [
-  { href: "/about/", label: "About" },
-  { href: "/sources-methodology/", label: "Sources and methodology" },
-  { href: "/symptoms/", label: "Symptoms" },
+  { href: "/about/", label: "About Us" },
+  { href: "/sources-methodology/", label: "Sources" },
+  { href: "/privacy-policy/", label: "Privacy Policy" },
+  { href: "/terms-of-use/", label: "Terms of Use" },
   { href: "/prevention/cleaning-mouse-droppings/", label: "Cleaning droppings" }
 ];
 
@@ -23,7 +24,11 @@ export function Footer() {
             emergency services.
           </p>
           <p className="mt-3 text-sm text-slate-400">
-            Source registry last reviewed {LAST_REVIEWED_LABEL}.
+            Source registry last reviewed {LAST_REVIEWED_LABEL}. Contact: {" "}
+            <a className="text-emerald-200 hover:text-white" href={`mailto:${SUPPORT_EMAIL}`}>
+              {SUPPORT_EMAIL}
+            </a>
+            .
           </p>
         </div>
 
