@@ -39,6 +39,34 @@ const layerExplanations = [
   },
 ];
 
+
+const seoUseCases = [
+  {
+    title: "Use the hantavirus map to see where cases have been reported",
+    body: "Start with the hantavirus map when you want geographic context: U.S. state-level historical records, selected regional pages, and official source links rather than unsourced local claims.",
+  },
+  {
+    title: "Use the hantavirus tracker to follow official alerts",
+    body: "The hantavirus tracker groups reviewed public health notices from sources such as WHO, PAHO/WHO, ECDC, CDC, and state health departments. It is not a live infection counter.",
+  },
+  {
+    title: "Check state and regional history before reading risk claims",
+    body: "State and region pages help readers separate historical case summaries from current alerts, reservoir ecology, and prevention guidance.",
+  },
+  {
+    title: "Read reservoir ecology without treating it as a case map",
+    body: "Rodent reservoir layers explain host and environment context. They do not prove infected animals, human cases, or exact risk at a cabin, home, campsite, or workplace.",
+  },
+  {
+    title: "Find cleanup guidance for mouse droppings and nests",
+    body: "Prevention pages connect the hantavirus map experience with practical CDC-style cleanup guidance for droppings, urine, nests, enclosed spaces, and heavy contamination.",
+  },
+  {
+    title: "Compare data, risk models, and news signals carefully",
+    body: "A responsible hantavirus tracker should label what is a reviewed case summary, what is an official alert, what is ecological context, and what is only an unreviewed signal.",
+  },
+];
+
 const homeFaqs = FAQ_ITEMS.slice(0, 4);
 
 const faqJsonLd = {
@@ -90,6 +118,32 @@ export default function Home() {
           <TrustStat label="Data policy" value="Reviewed only" />
           <TrustStat label="CDC U.S. precision" value="State-level" />
           <TrustStat label="Medical use" value="Educational only" />
+        </div>
+      </section>
+
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="seo-use-cases">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-semibold text-emerald-200">Search guide</p>
+            <h2 id="seo-use-cases" className="mt-2 text-3xl font-semibold">
+              How to use this hantavirus map and hantavirus tracker
+            </h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              The homepage is organized around the main questions people bring to a hantavirus map:
+              where the virus has appeared, whether a state or region has historical cases, whether
+              there are official outbreak alerts, which rodent reservoirs matter, and how to reduce
+              exposure during cleanup.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {seoUseCases.map((item) => (
+              <article key={item.title} className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{item.body}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
