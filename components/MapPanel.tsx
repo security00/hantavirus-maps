@@ -1,11 +1,13 @@
 import Link from "next/link";
 
+import { InteractiveMapLoader } from "@/components/InteractiveMapLoader";
 import {
   collectSourceIds,
   formatDateLabel,
   getAlerts,
   getCaseRecords,
   getReservoirs,
+  getSourceRegistry,
   getSourcesByIds
 } from "@/lib/data";
 import { LAST_REVIEWED_LABEL } from "@/lib/routes";
@@ -21,6 +23,7 @@ export function MapPanel({ home = false }: MapPanelProps) {
   const reservoirs = getReservoirs();
   const sourceIds = collectSourceIds([...casePoints, ...alertPoints, ...reservoirs]);
   const sources = getSourcesByIds(sourceIds).slice(0, 4);
+  const sourcesById = Object.fromEntries(getSourceRegistry().sources.map((source) => [source.id, source]));
   const Heading = home ? "h1" : "h2";
 
   return (
@@ -34,8 +37,8 @@ export function MapPanel({ home = false }: MapPanelProps) {
                 Hantavirus map: Cases, Risk Areas and Public Health Alerts
               </Heading>
               <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
-                Static MVP showing source-linked state case summaries, selected official
-                alerts, and reservoir regions. It is not live local surveillance
+                Interactive MVP showing source-linked state case summaries, selected official
+                alerts, and reservoir regions on a free OpenStreetMap layer. It is not live local surveillance
                 and does not publish county-precision cases.
               </p>
             </div>
@@ -68,107 +71,13 @@ export function MapPanel({ home = false }: MapPanelProps) {
             </div>
           </div>
 
-          <div className="map-viewport mt-5 overflow-hidden rounded-lg border border-white/10 bg-slate-950">
-            <svg
-              role="img"
-              aria-label="Static hantavirus map showing state-level case markers, official alert markers, and reservoir regions"
-              viewBox="0 0 1000 620"
-              className="h-auto w-full"
-            >
-              <defs>
-                <pattern id="map-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(148, 163, 184, 0.14)" strokeWidth="1" />
-                </pattern>
-                <filter id="map-glow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="6" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-
-              <rect width="1000" height="620" fill="#020617" />
-              <rect width="1000" height="620" fill="url(#map-grid)" />
-              <path
-                d="M96 160 C145 86 248 66 338 90 C408 109 440 152 475 205 C508 255 551 282 548 340 C545 412 474 438 404 421 C335 405 290 384 225 397 C159 410 102 370 84 312 C66 254 62 210 96 160Z"
-                fill="#122033"
-                stroke="rgba(226, 232, 240, 0.2)"
-                strokeWidth="2"
-              />
-              <path
-                d="M360 402 C405 390 454 415 475 464 C493 506 477 553 432 584 C391 612 357 592 348 548 C341 512 311 481 326 442 C333 424 342 410 360 402Z"
-                fill="#122033"
-                stroke="rgba(226, 232, 240, 0.2)"
-                strokeWidth="2"
-              />
-              <path
-                d="M665 132 C706 96 789 102 826 143 C864 184 837 245 786 259 C730 275 676 249 653 207 C636 176 642 151 665 132Z"
-                fill="#122033"
-                stroke="rgba(226, 232, 240, 0.2)"
-                strokeWidth="2"
-              />
-
-              <g className="reservoir-layer">
-                <path
-                  d="M150 202 C198 165 283 164 330 206 C377 248 358 330 286 352 C223 372 160 342 132 288 C113 251 119 226 150 202Z"
-                  fill="rgba(52, 211, 153, 0.2)"
-                  stroke="rgba(52, 211, 153, 0.78)"
-                  strokeWidth="3"
-                />
-                <path
-                  d="M676 145 C724 119 795 130 816 174 C836 219 791 251 737 245 C688 240 653 209 656 177 C657 164 664 154 676 145Z"
-                  fill="rgba(45, 212, 191, 0.17)"
-                  stroke="rgba(45, 212, 191, 0.72)"
-                  strokeWidth="3"
-                />
-                <path
-                  d="M374 424 C421 417 461 453 460 505 C459 546 420 581 383 569 C349 558 344 518 356 482 C363 458 358 432 374 424Z"
-                  fill="rgba(251, 191, 36, 0.14)"
-                  stroke="rgba(251, 191, 36, 0.7)"
-                  strokeWidth="3"
-                />
-                <text x="150" y="190" className="map-label">
-                  Deer mouse / SNV context
-                </text>
-                <text x="676" y="132" className="map-label">
-                  Bank vole / PUUV context
-                </text>
-                <text x="380" y="415" className="map-label">
-                  Andes virus context
-                </text>
-              </g>
-
-              <g className="case-layer" filter="url(#map-glow)">
-                {casePoints.map((record) => (
-                  <g key={record.id}>
-                    <circle cx={record.mapPoint?.x} cy={record.mapPoint?.y} r="10" className="case-pin-ring" />
-                    <circle cx={record.mapPoint?.x} cy={record.mapPoint?.y} r="5" className="case-pin" />
-                  </g>
-                ))}
-              </g>
-
-              <g className="alert-layer" filter="url(#map-glow)">
-                {alertPoints.map((alert) => (
-                  <g key={alert.id}>
-                    <path
-                      d={`M ${alert.mapPoint?.x ?? 0} ${(alert.mapPoint?.y ?? 0) - 13} l 12 23 h -24 Z`}
-                      className="alert-pin"
-                    />
-                    <circle cx={alert.mapPoint?.x} cy={(alert.mapPoint?.y ?? 0) - 3} r="3" fill="#020617" />
-                  </g>
-                ))}
-              </g>
-
-              <g>
-                <text x="80" y="520" className="map-caption">
-                  Layer visibility is a static CSS control. Geography is generalized for source explanation.
-                </text>
-                <text x="80" y="548" className="map-caption">
-                  Public CDC U.S. case geography is state-level; this site does not provide county case precision.
-                </text>
-              </g>
-            </svg>
+          <div className="mt-5 overflow-hidden rounded-lg border border-white/10 bg-slate-950">
+            <InteractiveMapLoader
+              casePoints={casePoints}
+              alertPoints={alertPoints}
+              reservoirs={reservoirs}
+              sourcesById={sourcesById}
+            />
           </div>
 
           <div className="mt-4 grid gap-3 md:grid-cols-3">
