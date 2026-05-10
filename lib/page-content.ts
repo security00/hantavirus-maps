@@ -448,34 +448,57 @@ export const CONTENT_PAGES = {
   "cleaning-mouse-droppings": {
     key: "cleaning-mouse-droppings",
     path: "/prevention/cleaning-mouse-droppings/",
-    title: "Cleaning Mouse Droppings Safely",
+    title: "Cleaning Mouse Droppings and Hantavirus: CDC-Based Safety Steps",
     description:
-      "Educational cleanup steps for mouse droppings and rodent contamination based on CDC guidance.",
+      "CDC-based educational guidance for cleaning mouse droppings, urine, nests, dead rodents, vehicles, and heavy contamination while reducing hantavirus-related dust exposure.",
     eyebrow: "Prevention / Cleaning",
     intro:
-      "CDC guidance emphasizes avoiding airborne dust from rodent urine, droppings, and nests. This page summarizes the public guidance and links back to CDC for details.",
+      "People searching for cleaning mouse droppings and hantavirus usually need practical safety steps. This page summarizes CDC-based public guidance for reducing dust exposure from rodent urine, droppings, nests, and contaminated materials, then links back to official sources for full details.",
     keyPoints: [
-      "Do not sweep or vacuum dry droppings before disinfection.",
-      "Ventilate enclosed spaces before cleanup when CDC guidance calls for it.",
-      "Use disinfectant or a CDC-described bleach solution and let contaminated material soak before wiping."
+      "Do not sweep or vacuum dry mouse droppings, urine, or nests before disinfection.",
+      "Ventilate enclosed spaces before cleanup when CDC guidance calls for it, especially cabins, sheds, garages, vehicles, and storage areas.",
+      "Use disinfectant or a CDC-described bleach solution, wet contaminated material thoroughly, and allow contact time before wiping.",
+      "This page is prevention education, not medical advice, diagnosis, emergency guidance, or a substitute for local public health or occupational safety direction."
     ],
     sections: [
       {
-        heading: "Basic cleanup flow",
+        heading: "Before you clean mouse droppings",
         body: [
-          "Put on rubber or plastic gloves, wet droppings and urine with disinfectant, allow contact time, wipe up with towels, dispose in covered trash, then wash hands after removing gloves.",
-          "For homes, outbuildings, vehicles, dead rodents, nests, porous materials, or heavy infestations, follow the full CDC page because details differ by situation."
+          "Treat visible rodent droppings, urine, nests, dead rodents, and contaminated dust as a cleanup situation rather than a dry sweeping job. CDC guidance focuses on avoiding airborne dust that may contain material from rodent urine, droppings, saliva, or nests.",
+          "If the space is enclosed, such as a cabin, shed, garage, storage room, vehicle, camper, or workplace area, ventilate first when official guidance calls for it and keep people who do not need to be involved away from the cleanup area."
+        ]
+      },
+      {
+        heading: "Basic CDC-style cleanup flow",
+        body: [
+          "Put on rubber or plastic gloves. Wet droppings, urine, nests, or contaminated surfaces with disinfectant or a CDC-described bleach solution. Let the material soak for the recommended contact time before wiping it up with towels or disposable materials.",
+          "Place contaminated waste in covered trash according to local rules, then clean and disinfect nearby surfaces. Wash hands after removing gloves. Follow the CDC page directly for details on dead rodents, nests, porous materials, vehicles, and heavy infestations because the steps differ by situation."
+        ]
+      },
+      {
+        heading: "What not to do",
+        body: [
+          "Do not sweep, vacuum, or use compressed air on dry droppings or nests before wet disinfection. Those actions can stir contaminated dust into the air, which is the exposure pathway CDC guidance is designed to reduce.",
+          "Do not treat a rodent reservoir map or a nearby case summary as proof that your home, cabin, workplace, campsite, or vehicle is contaminated. Cleanup decisions should be based on actual rodent evidence and official prevention guidance, not exact-risk claims."
         ]
       },
       {
         heading: "When cleanup is higher risk",
         body: [
-          "Heavy rodent infestation, workplace cleanup, ventilation contamination, and illness after exposure are reasons to involve professionals, local public health, occupational safety authorities, or healthcare providers."
+          "Heavy rodent infestation, contaminated ventilation systems, workplace cleanup, repeated rodent entry, dead rodents in difficult spaces, or large contaminated storage areas are reasons to involve professional pest control, local public health, occupational safety authorities, or building management.",
+          "If someone develops concerning symptoms after rodent exposure, especially breathing difficulty or rapidly worsening illness, this site cannot diagnose the cause. Contact healthcare or emergency services and mention the rodent exposure history."
+        ]
+      },
+      {
+        heading: "How this relates to the hantavirus map",
+        body: [
+          "The hantavirus map and tracker show reviewed source summaries, selected official alerts, and reservoir ecology. They do not show live household risk, infected mice, or patient locations.",
+          "Use this cleanup guide for practical prevention context, then use the source and methodology page to understand why map layers avoid exact local risk scoring."
         ]
       }
     ],
-    sourceIds: ["cdc-rodent-cleanup", "cdc-prevention", "cdph-hantavirus"],
-    relatedPaths: ["/prevention/", "/symptoms/", "/sources-methodology/"]
+    sourceIds: ["cdc-rodent-cleanup", "cdc-prevention", "cdph-hantavirus", "nmdoh-hantavirus"],
+    relatedPaths: ["/prevention/", "/symptoms/", "/hantavirus/", "/deer-mouse-hantavirus-map/", "/sources-methodology/"]
   },
   "sources-methodology": {
     key: "sources-methodology",
