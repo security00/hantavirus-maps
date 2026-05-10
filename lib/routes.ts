@@ -176,6 +176,22 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
+    path: "/feed.xml",
+    title: "Reviewed Updates RSS Feed",
+    description:
+      "Reviewed-only RSS feed for Hantavirus Maps site updates, official-source notes, and methodology updates; not a live case feed.",
+    priority: 0.35,
+    changeFrequency: "weekly"
+  },
+  {
+    path: "/feed.json",
+    title: "Reviewed Updates JSON Feed",
+    description:
+      "Reviewed-only JSON feed for Hantavirus Maps site updates, official-source notes, and methodology updates; not a live case feed.",
+    priority: 0.35,
+    changeFrequency: "weekly"
+  },
+  {
     path: "/faq/",
     title: "Hantavirus Map FAQ",
     description:
