@@ -13,7 +13,7 @@ import {
   getCaseDataset,
   getReservoirDataset,
 } from "@/lib/data";
-import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL, SITE_URL, SUPPORT_EMAIL } from "@/lib/routes";
 
 export const metadata: Metadata = {
   title: "Hantavirus Map and Tracker: Cases, Alerts, Risk Areas",
@@ -69,6 +69,81 @@ const seoUseCases = [
 
 const homeFaqs = FAQ_ITEMS.slice(0, 4);
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Hantavirus Maps",
+  url: SITE_URL,
+  email: SUPPORT_EMAIL,
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: SUPPORT_EMAIL,
+    contactType: "support",
+    availableLanguage: "en",
+  },
+};
+
+const webApplicationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": `${SITE_URL}/#web-application`,
+  name: "Hantavirus Maps",
+  url: SITE_URL,
+  applicationCategory: "EducationalApplication",
+  operatingSystem: "Web",
+  isAccessibleForFree: true,
+  creator: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  description:
+    "A reviewed, source-linked hantavirus map and tracker for public health context, official alerts, reservoir ecology, prevention, and methodology limits. It is not live surveillance, diagnosis, or exact local risk scoring.",
+};
+
+const datasetJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": `${SITE_URL}/#reviewed-data-snapshots`,
+  name: "Hantavirus Maps reviewed data snapshots",
+  url: `${SITE_URL}/sources-methodology/`,
+  description:
+    "Reviewed static snapshots of source-linked hantavirus case summaries, selected official public health alerts, rodent reservoir ecology, and source registry metadata. The dataset is educational and not a live case feed or patient-location dataset.",
+  creator: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  dateModified: LAST_REVIEWED_ISO,
+  isAccessibleForFree: true,
+  keywords: [
+    "hantavirus map",
+    "hantavirus tracker",
+    "official public health alerts",
+    "rodent reservoir ecology",
+    "reviewed source registry",
+  ],
+  variableMeasured: [
+    "Reviewed case summaries",
+    "Selected official public health alerts",
+    "Rodent reservoir ecology",
+    "Source limitations",
+  ],
+  measurementTechnique:
+    "Manual review of official public health sources, agency pages, source registry records, and static JSON snapshots.",
+  distribution: [
+    {
+      "@type": "DataDownload",
+      name: "Reviewed updates JSON feed",
+      encodingFormat: "application/feed+json",
+      contentUrl: `${SITE_URL}/feed.json`,
+    },
+    {
+      "@type": "DataDownload",
+      name: "Reviewed updates RSS feed",
+      encodingFormat: "application/rss+xml",
+      contentUrl: `${SITE_URL}/feed.xml`,
+    },
+  ],
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -94,6 +169,21 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <Script
+        id="organization-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      <Script
+        id="web-application-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationJsonLd) }}
+      />
+      <Script
+        id="dataset-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd) }}
+      />
       <Script
         id="faq-json-ld"
         type="application/ld+json"
