@@ -251,6 +251,12 @@ export default function Home() {
               Open hantavirus tracker guide
             </Link>
             <Link
+              href="/outbreaks/"
+              className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
+            >
+              Review official outbreak notes
+            </Link>
+            <Link
               href="/united-states/"
               className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
             >

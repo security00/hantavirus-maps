@@ -29,7 +29,7 @@ const intents = [
   {
     title: "Are there recent official outbreak notices?",
     body: "The alert layer summarizes selected WHO, PAHO/WHO, ECDC, CDC, and state public health notices with limitations.",
-    href: "/hantavirus-outbreak-map/",
+    href: "/outbreaks/",
   },
   {
     title: "Which rodents and environments matter?",

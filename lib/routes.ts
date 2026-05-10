@@ -104,6 +104,22 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "weekly"
   },
   {
+    path: "/outbreaks/",
+    title: "Hantavirus Outbreak Explainers: Official Source Notes",
+    description:
+      "Conservative official-source hantavirus outbreak explainers and reviewed source notes, with links to the outbreak map and tracker.",
+    priority: 0.77,
+    changeFrequency: "weekly"
+  },
+  {
+    path: "/outbreaks/mv-hondius-2026/",
+    title: "MV Hondius 2026 Hantavirus Cluster: Official Source Explainer",
+    description:
+      "Reviewed official-source notes for the 2026 cruise-associated hantavirus cluster, with clear limits on live tracking, local risk, and medical advice.",
+    priority: 0.74,
+    changeFrequency: "weekly"
+  },
+  {
     path: "/deer-mouse-hantavirus-map/",
     title: "Deer Mouse Hantavirus Map",
     description:
