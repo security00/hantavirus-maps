@@ -16,9 +16,9 @@ import {
 import { LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "Hantavirus map: Cases, Risk Areas and Public Health Alerts",
+  title: "Hantavirus Map and Tracker: Cases, Alerts, Risk Areas",
   description:
-    "A source-linked hantavirus map dashboard for reported case summaries, public health alerts, rodent reservoir regions, prevention, symptoms, and methodology limits.",
+    "A source-linked hantavirus map and reviewed tracker for historical case summaries, official alerts, rodent reservoir regions, prevention, symptoms, and methodology limits.",
   alternates: {
     canonical: "/",
   },
@@ -184,8 +184,14 @@ export default function Home() {
           <SourceList sourceIds={sourceIds} compact />
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/united-states/"
+              href="/hantavirus-tracker/"
               className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
+            >
+              Open hantavirus tracker guide
+            </Link>
+            <Link
+              href="/united-states/"
+              className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
             >
               View U.S. state context
             </Link>

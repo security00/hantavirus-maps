@@ -24,6 +24,14 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "weekly"
   },
   {
+    path: "/hantavirus-tracker/",
+    title: "Hantavirus Tracker: Reviewed Map, Cases, Alerts and Reservoirs",
+    description:
+      "A source-linked hantavirus tracker for reviewed map layers: historical case summaries, official outbreak alerts, rodent reservoir ecology, and prevention guidance.",
+    priority: 0.94,
+    changeFrequency: "weekly"
+  },
+  {
     path: "/united-states/",
     title: "Hantavirus Map by State in the United States",
     description:

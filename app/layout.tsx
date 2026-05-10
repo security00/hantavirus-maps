@@ -7,17 +7,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Hantavirus map: Cases, Risk Areas and Public Health Alerts",
+    default: "Hantavirus Map and Tracker: Cases, Alerts, Risk Areas",
     template: "%s | Hantavirus Maps",
   },
   description:
-    "A reviewed, source-linked hantavirus map and public health data explanation site for cases, alerts, reservoir regions, symptoms, and prevention.",
+    "A reviewed, source-linked hantavirus map and tracker for cases, official alerts, reservoir regions, symptoms, prevention, and source limitations.",
   metadataBase: new URL("https://hantavirusmaps.org"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Hantavirus map: Cases, Risk Areas and Public Health Alerts",
+    title: "Hantavirus Map and Tracker: Cases, Alerts, Risk Areas",
     description:
       "Reviewed hantavirus map context with official sources, conservative limits, and prevention education.",
     url: "https://hantavirusmaps.org",

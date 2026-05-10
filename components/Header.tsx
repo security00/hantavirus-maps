@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "Map" },
+  { href: "/hantavirus-tracker/", label: "Tracker" },
   { href: "/united-states/", label: "United States" },
   { href: "/hantavirus-risk-map/", label: "Risk" },
   { href: "/hantavirus-outbreak-map/", label: "Alerts" },
