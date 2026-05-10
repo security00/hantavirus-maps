@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Link from "next/link";
+
+import { FAQ_ITEMS } from "@/lib/faq";
 
 import { MapPanel } from "@/components/MapPanel";
 import { SourceList } from "@/components/SourceList";
@@ -36,28 +39,20 @@ const layerExplanations = [
   },
 ];
 
-const faqs = [
-  {
-    question: "Is this live local hantavirus surveillance?",
-    answer:
-      "No. It is a static educational map and source guide. It does not show live infections, local personal risk, or exact exposure locations.",
-  },
-  {
-    question: "Does CDC publish public county-level hantavirus case locations?",
-    answer:
-      "CDC publishes public U.S. hantavirus geography by state and says county-level data cannot be provided publicly. This site follows that limit.",
-  },
-  {
-    question: "Does a reservoir region mean people are getting sick there?",
-    answer:
-      "No. Reservoir distribution is ecological evidence. It does not prove that a specific rodent is infected or that human cases are occurring.",
-  },
-  {
-    question: "What should I do if I feel sick after rodent exposure?",
-    answer:
-      "Contact a healthcare provider or public health authority and describe the exposure. Trouble breathing or rapidly worsening illness needs urgent medical attention.",
-  },
-];
+const homeFaqs = FAQ_ITEMS.slice(0, 4);
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: homeFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer
+    }
+  }))
+};
 
 export default function Home() {
   const alerts = getAlerts();
@@ -71,6 +66,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <Script
+        id="faq-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <section className="px-4 py-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <MapPanel home />
@@ -145,13 +145,19 @@ export default function Home() {
             </h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
-            {faqs.map((faq) => (
+            {homeFaqs.map((faq) => (
               <article key={faq.question} className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
                 <h3 className="text-lg font-semibold">{faq.question}</h3>
                 <p className="mt-3 leading-7 text-slate-300">{faq.answer}</p>
               </article>
             ))}
           </div>
+          <Link
+            href="/faq/"
+            className="mt-6 inline-flex rounded-md border border-emerald-300/35 px-4 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white"
+          >
+            Read full FAQ
+          </Link>
         </div>
       </section>
 

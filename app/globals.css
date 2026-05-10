@@ -62,6 +62,40 @@ label {
   inline-size: 1rem;
 }
 
+.layer-toggle span {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.45rem;
+}
+
+.legend-dot {
+  border-radius: 999px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.legend-case {
+  background: #f59e0b;
+  block-size: 0.7rem;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+  inline-size: 0.7rem;
+}
+
+.legend-alert {
+  background: #ef4444;
+  block-size: 0.7rem;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  inline-size: 0.8rem;
+}
+
+.legend-reservoir {
+  background: rgba(52, 211, 153, 0.28);
+  block-size: 1rem;
+  border: 2px solid #34d399;
+  inline-size: 1rem;
+}
+
 .case-toggle {
   border-color: rgba(251, 191, 36, 0.3);
 }

@@ -6,7 +6,8 @@ const navItems = [
   { href: "/hantavirus-risk-map/", label: "Risk" },
   { href: "/hantavirus-outbreak-map/", label: "Alerts" },
   { href: "/prevention/", label: "Prevention" },
-  { href: "/sources-methodology/", label: "Sources" }
+  { href: "/sources-methodology/", label: "Sources" },
+  { href: "/faq/", label: "FAQ" }
 ];
 
 export function Header() {

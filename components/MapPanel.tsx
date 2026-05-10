@@ -48,26 +48,42 @@ export function MapPanel({ home = false }: MapPanelProps) {
             </div>
           </div>
 
-          <div className="mt-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="layer-controls grid gap-2 sm:grid-cols-3">
-              <label className="layer-toggle case-toggle">
-                <input id="layer-cases" type="checkbox" defaultChecked />
-                <span>Reported cases</span>
-              </label>
-              <label className="layer-toggle alert-toggle">
-                <input id="layer-alerts" type="checkbox" defaultChecked />
-                <span>Public health alerts</span>
-              </label>
-              <label className="layer-toggle reservoir-toggle">
-                <input id="layer-reservoirs" type="checkbox" defaultChecked />
-                <span>Rodent reservoirs</span>
-              </label>
+          <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_300px] lg:items-start">
+            <div className="rounded-lg border border-white/10 bg-white/[0.035] p-4">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-sm font-semibold text-white">Map legend</p>
+                  <p className="mt-1 text-xs leading-5 text-slate-400">
+                    Toggle layers below. Click any colored marker or circle for source notes and limits.
+                  </p>
+                </div>
+                <Link
+                  href="/sources-methodology/"
+                  className="inline-flex rounded-md border border-emerald-300/35 px-3 py-2 text-xs font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white"
+                >
+                  Show sources
+                </Link>
+              </div>
+              <div className="layer-controls mt-3 grid gap-2 sm:grid-cols-3">
+                <label className="layer-toggle case-toggle">
+                  <input id="layer-cases" type="checkbox" defaultChecked />
+                  <span><b className="legend-dot legend-case" /> Reported cases</span>
+                </label>
+                <label className="layer-toggle alert-toggle">
+                  <input id="layer-alerts" type="checkbox" defaultChecked />
+                  <span><b className="legend-dot legend-alert" /> Official alerts</span>
+                </label>
+                <label className="layer-toggle reservoir-toggle">
+                  <input id="layer-reservoirs" type="checkbox" defaultChecked />
+                  <span><b className="legend-dot legend-reservoir" /> Reservoir ecology</span>
+                </label>
+              </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 text-xs text-slate-400">
-              <span className="rounded-md border border-white/10 px-2 py-1">CDC state-level limits</span>
-              <span className="rounded-md border border-white/10 px-2 py-1">Reviewed records only</span>
-              <span className="rounded-md border border-white/10 px-2 py-1">Reservoir is not a case</span>
+            <div className="grid gap-2 text-xs text-slate-400">
+              <span className="rounded-md border border-white/10 px-2 py-1">Pin numbers or circles are source summaries, not confirmed local case counts</span>
+              <span className="rounded-md border border-white/10 px-2 py-1">CDC public U.S. case precision is state-level</span>
+              <span className="rounded-md border border-white/10 px-2 py-1">Reservoir presence is not human infection risk</span>
             </div>
           </div>
 
@@ -108,7 +124,12 @@ export function MapPanel({ home = false }: MapPanelProps) {
             </section>
 
             <section className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
-              <h2 className="text-sm font-semibold text-white">Source transparency</h2>
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="text-sm font-semibold text-white">Source transparency</h2>
+                <Link href="/sources-methodology/" className="text-xs font-semibold text-emerald-200 hover:text-white">
+                  Show all
+                </Link>
+              </div>
               <div className="mt-3 grid gap-2">
                 {sources.map((source) => (
                   <a
@@ -123,10 +144,10 @@ export function MapPanel({ home = false }: MapPanelProps) {
                 ))}
               </div>
               <Link
-                href="/sources-methodology/"
+                href="/faq/"
                 className="mt-4 inline-flex rounded-md bg-emerald-300 px-3 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
               >
-                View methodology
+                Read map FAQ
               </Link>
             </section>
           </div>

@@ -144,6 +144,14 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
+    path: "/faq/",
+    title: "Hantavirus Map FAQ",
+    description:
+      "Frequently asked questions about how to read the Hantavirus Maps source-linked layers, alerts, limitations, and medical disclaimers.",
+    priority: 0.68,
+    changeFrequency: "monthly"
+  },
+  {
     path: "/about/",
     title: "About Us - Hantavirus Maps",
     description:
