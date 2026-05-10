@@ -1,0 +1,15 @@
+name = "hantavirus-maps"
+account_id = "faae494a756090f5f9c0ad7b8d1ddb88"
+compatibility_date = "2026-05-10"
+
+[assets]
+directory = "./out"
+not_found_handling = "single-page-application"
+
+[[routes]]
+pattern = "hantavirusmaps.org"
+custom_domain = true
+
+[[routes]]
+pattern = "www.hantavirusmaps.org"
+custom_domain = true
