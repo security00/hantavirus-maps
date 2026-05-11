@@ -1,5 +1,9 @@
 import { getAlerts, getCaseRecords, getSourcesByIds } from "@/lib/data";
-import { SITE_URL, absoluteUrl } from "@/lib/routes";
+const SITE_URL = "https://hantavirusmaps.org";
+
+function absoluteUrl(path: string) {
+  return new URL(path, SITE_URL).toString();
+}
 
 export type EventPageRecord = {
   id: string;

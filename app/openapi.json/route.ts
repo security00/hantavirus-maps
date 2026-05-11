@@ -1,6 +1,64 @@
+import { EVENT_PAGE_IDS } from "@/lib/event-pages";
+import { SOURCE_PAGE_IDS, WHERE_PAGE_SLUGS } from "@/lib/programmatic-pages";
 import { SITE_URL, absoluteUrl } from "@/lib/routes";
 
 export const dynamic = "force-static";
+
+
+const eventPaths = Object.fromEntries(
+  EVENT_PAGE_IDS.flatMap((id) => [
+    [
+      `/event/${id}/`,
+      {
+        get: {
+          operationId: `getEventPage_${id.replaceAll("-", "_")}`,
+          summary: `Reviewed event page: ${id}`,
+          description: "Human-facing reviewed event/case page with Article, Dataset, ClaimReview, and BreadcrumbList structured data.",
+          responses: { "200": { description: "HTML event page" } },
+        },
+      },
+    ],
+    [
+      `/raw/event/${id}.md`,
+      {
+        get: {
+          operationId: `getRawEventMarkdown_${id.replaceAll("-", "_")}`,
+          summary: `Raw markdown event record: ${id}`,
+          description: "Plain markdown shadow for LLM retrieval and citation systems.",
+          responses: { "200": { description: "Markdown event record", content: { "text/markdown": { schema: { type: "string" } } } } },
+        },
+      },
+    ],
+  ]),
+);
+
+const sourcePaths = Object.fromEntries(
+  SOURCE_PAGE_IDS.map((id) => [
+    `/source/${id}/`,
+    {
+      get: {
+        operationId: `getSourcePage_${id.replaceAll("-", "_")}`,
+        summary: `Reviewed source page: ${id}`,
+        description: "Human-facing source note explaining source use, limitations, and linked map/event records.",
+        responses: { "200": { description: "HTML source page" } },
+      },
+    },
+  ]),
+);
+
+const wherePaths = Object.fromEntries(
+  WHERE_PAGE_SLUGS.map((slug) => [
+    `/where/${slug}/`,
+    {
+      get: {
+        operationId: `getWherePage_${slug.replaceAll("-", "_")}`,
+        summary: `Reviewed location page: ${slug}`,
+        description: "Human-facing location page for reviewed source-linked map context, not local live risk.",
+        responses: { "200": { description: "HTML location page" } },
+      },
+    },
+  ]),
+);
 
 export function GET() {
   return Response.json(
@@ -58,6 +116,23 @@ export function GET() {
             responses: { "200": { description: "Plain-text LLM manifest" } },
           },
         },
+        "/ai.txt": {
+          get: {
+            operationId: "getAiTxt",
+            summary: "AI crawler guidance",
+            responses: { "200": { description: "Plain-text AI crawler guidance" } },
+          },
+        },
+        "/sitemap.xml": {
+          get: {
+            operationId: "getSitemap",
+            summary: "Sitemap including human pages, data endpoints, and raw markdown records",
+            responses: { "200": { description: "XML sitemap" } },
+          },
+        },
+        ...sourcePaths,
+        ...wherePaths,
+        ...eventPaths,
       },
       components: {
         schemas: {
@@ -108,6 +183,18 @@ export function GET() {
               geography: { type: "string" },
               summary: { type: "string" },
               riskLanguage: { type: "string" },
+              sourceIds: { type: "array", items: { type: "string" } },
+            },
+          },
+          EventRecord: {
+            type: "object",
+            properties: {
+              id: { type: "string" },
+              type: { type: "string", enum: ["official-alert", "case-summary"] },
+              title: { type: "string" },
+              geography: { type: "string" },
+              status: { type: "string" },
+              summary: { type: "string" },
               sourceIds: { type: "array", items: { type: "string" } },
             },
           },

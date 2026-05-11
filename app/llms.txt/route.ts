@@ -1,22 +1,56 @@
+import { EVENT_PAGE_IDS, eventPath, rawEventPath } from "@/lib/event-pages";
+import { SOURCE_PAGE_IDS, WHERE_PAGE_SLUGS, sourcePath, wherePath } from "@/lib/programmatic-pages";
 import { SITE_URL, absoluteUrl } from "@/lib/routes";
 
 export const dynamic = "force-static";
 
+function listItems(paths: string[]) {
+  return paths.map((path) => `- ${absoluteUrl(path)}`).join("\n");
+}
+
 export function GET() {
+  const sourcePages = SOURCE_PAGE_IDS.map(sourcePath);
+  const wherePages = WHERE_PAGE_SLUGS.map(wherePath);
+  const eventPages = EVENT_PAGE_IDS.map(eventPath);
+  const rawEventPages = EVENT_PAGE_IDS.map(rawEventPath);
+
   const body = `# Hantavirus Maps
 
-> Reviewed official-source hantavirus map and tracker for public health alerts, state/national case summaries, reservoir ecology, source methodology, and prevention education. Educational use only — not medical advice, not live surveillance, and not patient-location tracking.
+> Reviewed official-source hantavirus map and tracker for public health alerts, state/national case summaries, reservoir ecology, source methodology, prevention education, and machine-readable records. Educational use only — not medical advice, not live surveillance, and not patient-location tracking.
 
-## What this site provides
+## Primary machine-readable resources
 
 - Reviewed map snapshots: ${absoluteUrl("/data/map-snapshots.json")}
 - Reviewed source registry: ${absoluteUrl("/data/sources.json")}
 - OpenAPI description: ${absoluteUrl("/openapi.json")}
-- Sources and methodology: ${absoluteUrl("/sources-methodology/")}
-- Hantavirus tracker guide: ${absoluteUrl("/hantavirus-tracker/")}
-- Official alert explainer: ${absoluteUrl("/hantavirus-outbreak-map/")}
+- XML sitemap: ${absoluteUrl("/sitemap.xml")}
+- AI crawler guidance: ${absoluteUrl("/ai.txt")}
 - RSS feed: ${absoluteUrl("/feed.xml")}
 - JSON feed: ${absoluteUrl("/feed.json")}
+
+## Human-facing hub pages
+
+- Homepage map dashboard: ${SITE_URL}
+- Hantavirus tracker guide: ${absoluteUrl("/hantavirus-tracker/")}
+- Sources and methodology: ${absoluteUrl("/sources-methodology/")}
+- Outbreak explainers: ${absoluteUrl("/outbreaks/")}
+- Where hantavirus is found: ${absoluteUrl("/where-is-hantavirus-found/")}
+
+## Reviewed source pages
+
+${listItems(sourcePages)}
+
+## Reviewed location pages
+
+${listItems(wherePages)}
+
+## Reviewed event pages
+
+${listItems(eventPages)}
+
+## Raw markdown event records
+
+${listItems(rawEventPages)}
 
 ## Data policy
 
@@ -24,17 +58,7 @@ This project publishes source-linked reviewed summaries only. It does not publis
 
 ## Preferred citation
 
-Hantavirus Maps, reviewed map snapshots, ${absoluteUrl("/data/map-snapshots.json")} (accessed YYYY-MM-DD). Always cite the underlying official source listed with each record when making a numeric or public-health claim.
-
-## Key human-facing pages
-
-- ${SITE_URL}
-- ${absoluteUrl("/hantavirus-tracker/")}
-- ${absoluteUrl("/sources-methodology/")}
-- ${absoluteUrl("/outbreaks/mv-hondius-2026/")}
-- ${absoluteUrl("/united-states/")}
-- ${absoluteUrl("/europe/")}
-- ${absoluteUrl("/south-america/")}
+Hantavirus Maps, reviewed map snapshots, ${absoluteUrl("/data/map-snapshots.json")} (accessed YYYY-MM-DD). For specific event records, cite the event page and its raw markdown record, then cite the underlying official source listed on that record.
 
 ## Out of scope
 
@@ -45,8 +69,6 @@ Hantavirus Maps, reviewed map snapshots, ${absoluteUrl("/data/map-snapshots.json
 `;
 
   return new Response(body, {
-    headers: {
-      "content-type": "text/plain; charset=utf-8",
-    },
+    headers: { "content-type": "text/plain; charset=utf-8" },
   });
 }
