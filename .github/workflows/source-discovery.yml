@@ -1,5 +1,8 @@
 name: Tavily Source Discovery
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 on:
   schedule:
     # Candidate discovery only. Does not deploy or publish public map data.
