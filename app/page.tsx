@@ -190,29 +190,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <section className="overflow-hidden border-b border-white/10 bg-slate-950 px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mb-6 max-w-4xl text-center">
-            <p className="text-sm font-semibold text-emerald-200">Reviewed public health map</p>
-            <h1 className="mt-3 text-4xl font-semibold leading-tight text-white sm:text-6xl">
-              Hantavirus map and official-source tracker
-            </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
-              Explore reviewed case summaries, official alerts, and reservoir ecology on an interactive map. This is educational context — not live surveillance, patient locations, or county-level risk prediction.
-            </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link href="/hantavirus-tracker/" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
-                Read tracker guide
-              </Link>
-              <Link href="/sources-methodology/" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
-                Review methodology
-              </Link>
-            </div>
-          </div>
-
-          <div id="interactive-map" className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-slate-950/60">
-            <MapPanel home />
-          </div>
+      <section className="overflow-hidden border-b border-white/10 bg-slate-950 px-2 py-3 sm:px-4 lg:px-6">
+        <div id="interactive-map" className="mx-auto max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-slate-950/60">
+          <MapPanel home />
         </div>
       </section>
 
