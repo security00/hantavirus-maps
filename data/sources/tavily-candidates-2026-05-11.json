@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-11T16:59:46Z",
+  "generatedAt": "2026-05-11T18:08:11Z",
   "reportDate": "2026-05-11",
   "reviewStatus": "candidate_discovery_only",
   "autoPublic": false,
@@ -81,19 +81,21 @@
     }
   ],
   "summary": {
-    "total": 9,
-    "newCount": 8,
+    "total": 10,
+    "newCount": 9,
     "knownCount": 1,
     "highPriorityCount": 5,
     "lowPriorityCount": 0,
     "weakCount": 0,
-    "rejectedCount": 3,
+    "rejectedCount": 2,
     "domains": [
-      "argentina.gob.ar",
       "canada.ca",
       "cdc.gov",
       "ecdc.europa.eu",
+      "iris.paho.org",
+      "mma.gob.cl",
       "stacks.cdc.gov",
+      "thl.fi",
       "who.int"
     ]
   },
@@ -115,13 +117,13 @@
       "rejectionReasons": [],
       "rejected": false,
       "knownBacklog": false,
-      "score": 0.81770587,
+      "score": 0.8127637,
       "snippet": "From: Public Health Agency of Canada. Since that time, the Public Health Agency of Canada and Global Affairs Canada, along with other Government of Canada departments and agencies, have been working with domestic and international partners, including the United States, the United Kingdom, Spain and the Netherlands, as well as the World Health Organization, to monitor the outbreak on the M*V Hondius* and to put in pl…",
       "extractExcerpt": "It is also important to note that the hantavirus is quite different from viruses like COVID-19. Infections with hantavirus are rare, but are a real risk in Canada. However in Canada the source of infection is typically through contact with infected rodents or their urine, droppings or saliva or through contact with contaminated surfaces or environments, particularly when cleaning rodent-infested spaces. The hantavir…"
     },
     {
-      "id": "cdc-hantavirus-case-definition-and-reporting-cdc",
-      "title": "Hantavirus Case Definition and Reporting - CDC",
+      "id": "cdc-hantavirus-case-definition-and-reporting-hantavirus-cdc",
+      "title": "Hantavirus Case Definition and Reporting | Hantavirus | CDC",
       "url": "https://www.cdc.gov/hantavirus/php/surveillance/index.html",
       "domain": "cdc.gov",
       "discoveryBatch": "cdc-surveillance",
@@ -136,7 +138,7 @@
       "rejectionReasons": [],
       "rejected": false,
       "knownBacklog": false,
-      "score": 0.7178241,
+      "score": 0.7147281,
       "snippet": "[Here's how you know](https://www.cdc.gov/hantavirus/php/surveillance/index.html#gov-notice). [Hantavirus](https://www.cdc.gov/hantavirus/about/index.html). * [Reported Cases of Hantavirus Disease](https://www.cdc.gov/hantavirus/data-research/cases/index.html). * [About Hantavirus](https://www.cdc.gov/hantavirus/about/index.html). * [Hantavirus Prevention](https://www.cdc.gov/hantavirus/prevention/index.html). * [FA…",
       "extractExcerpt": "## CDC surveillance data CDC publishes weekly and annual surveillance data for hantavirus cases in the NNDSS notifiable infectious disease data tables. Aggregated data from CRFs is published here: Reported Cases of Hantavirus Disease. ## On This Page Case definition Reporting criteria Reporting methods Report forms CDC surveillance data May 8, 2026 SourcesPrintShare ## Hantavirus Learn about Hantavirus, how it sprea…"
     },
@@ -157,7 +159,7 @@
       "rejectionReasons": [],
       "rejected": false,
       "knownBacklog": false,
-      "score": 0.68874115,
+      "score": 0.6821721,
       "snippet": "* [[Health Topics](https://www.who.int/mega-menu/health-topics)](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600#). * [[Resources](https://www.who.int/mega-menu/health-topics/resources)](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600#). * [Publications](https://www.who.int/mega-menu/health-topics/resources/publications). * [[Popular](https://www.who.int/mega-menu/health…"
     },
     {
@@ -177,7 +179,7 @@
       "rejectionReasons": [],
       "rejected": false,
       "knownBacklog": false,
-      "score": 0.6852132,
+      "score": 0.68191797,
       "snippet": "* [[Health Topics](https://www.who.int/mega-menu/health-topics)](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599#). * [[Resources](https://www.who.int/mega-menu/health-topics/resources)](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599#). * [Publications](https://www.who.int/mega-menu/health-topics/resources/publications). * [[Popular](https://www.who.int/mega-menu/health…"
     },
     {
@@ -197,32 +199,12 @@
       "rejectionReasons": [],
       "rejected": false,
       "knownBacklog": true,
-      "score": 0.7940821,
+      "score": 0.7923522,
       "snippet": "The Public Health Agency of Canada (PHAC) and Global Affairs Canada (GAC), along with other Government of Canada departments and agencies, are working with domestic public health authorities and international partners, including Spain, the World Health Organization (WHO), and the European Centre for Disease Prevention and Control to monitor the Andes Hantavirus outbreak on the MV Hondius and to put in place appropri…"
     },
     {
-      "id": "argentina-salud-sostiene-y-refuerza-la-vigilancia-epidemiol-gica-de-hantavirus",
-      "title": "Salud sostiene y refuerza la vigilancia epidemiológica de hantavirus ...",
-      "url": "https://www.argentina.gob.ar/noticias/salud-sostiene-y-refuerza-la-vigilancia-epidemiologica-de-hantavirus-en-el-pais",
-      "domain": "argentina.gob.ar",
-      "discoveryBatch": "south-america-official",
-      "tier": 2,
-      "status": "review_candidate",
-      "sourceType": "Official public health source candidate",
-      "candidateUse": "Candidate for human review and possible source registry/backlog expansion.",
-      "publicUseAllowed": false,
-      "reviewNeed": "Verify official publisher, publication date, disease context, geography, and safe public wording before use.",
-      "reviewPriority": "medium",
-      "weakSignals": [],
-      "rejectionReasons": [],
-      "rejected": false,
-      "knownBacklog": false,
-      "score": 0.9975466,
-      "snippet": "# Salud sostiene y refuerza la vigilancia epidemiológica de hantavirus en el país. El Ministerio de Salud de la Nación se reunió con autoridades sanitarias de las 24 jurisdicciones para actualizar la información vinculada al brote sucedido a bordo del crucero holandés y fortalecer las acciones de monitoreo. La cartera sanitaria nacional realizó un encuentro con referentes de epidemiología de los ministerios de salud…"
-    },
-    {
-      "id": "ecdc-pdf-2026-wcp-0024-draft-docx-ecdc",
-      "title": "[PDF] 2026-WCP-0024 Draft.docx - ECDC",
+      "id": "ecdc-2026-wcp-0024-draft-docx",
+      "title": "2026-WCP-0024 Draft.docx",
       "url": "https://www.ecdc.europa.eu/sites/default/files/documents/2026-WCP-0024%20Final.pdf",
       "domain": "ecdc.europa.eu",
       "discoveryBatch": "europe-official",
@@ -237,15 +219,15 @@
       "rejectionReasons": [],
       "rejected": false,
       "knownBacklog": false,
-      "score": 0.68140936,
+      "score": 0.69249696,
       "snippet": "In March 2026, 80 mpox clade I cases were reported by 10 countries. In March 2026, 22 mpox clade II cases were reported by seven countries. Hantavirus disease outbreak on cruise ship - South Atlantic - 2026 Overview: Update (data cut off 10:00 AM) Updates on new reported cases. Geographical distribution of confirmed cases of MERS-CoV by reporting country, April 2012 - April 2026. In March 2026, 80 mpox clade I cases…"
     },
     {
-      "id": "ecdc-hantavirus-associated-cluster-of-illness-on-a-cruise-ship-ecdc",
-      "title": "Hantavirus-associated cluster of illness on a cruise ship - ECDC",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/hantavirus-associated-cluster-illness-cruise-ship-ecdc-assessment-and",
-      "domain": "ecdc.europa.eu",
-      "discoveryBatch": "europe-official",
+      "id": "iris-pdf-164th-session-of-the-executive-committee-iris-paho",
+      "title": "[PDF] 164th SESSION OF THE EXECUTIVE COMMITTEE - Iris Paho",
+      "url": "https://iris.paho.org/bitstreams/986f8711-c0ec-4944-99bc-0cdb5f988270/download",
+      "domain": "iris.paho.org",
+      "discoveryBatch": "south-america-official",
       "tier": 2,
       "status": "review_candidate",
       "sourceType": "Official public health source candidate",
@@ -257,8 +239,28 @@
       "rejectionReasons": [],
       "rejected": false,
       "knownBacklog": false,
-      "score": 0.65252984,
-      "snippet": "[Skip to main content](https://www.ecdc.europa.eu/en/publications-data/hantavirus-associated-cluster-illness-cruise-ship-ecdc-assessment-and#main-content). [Accept all cookies](https://www.ecdc.europa.eu/en/publications-data/hantavirus-associated-cluster-illness-cruise-ship-ecdc-assessment-and#accept)[Accept only essential cookies](https://www.ecdc.europa.eu/en/publications-data/hantavirus-associated-cluster-illness…"
+      "score": 0.06151994,
+      "snippet": "Our Region faces a number of political, social, and economic challenges. I choose to focus on what we have in common: our desire for freedom, for justice,"
+    },
+    {
+      "id": "mma-pdf-tercera-comunicaci-n-nacional-de-chile-ante-la-convenci-n-marco",
+      "title": "[PDF] Tercera Comunicación Nacional de Chile ante la Convención Marco ...",
+      "url": "https://mma.gob.cl/wp-content/uploads/2017/12/TCN-2016b1.pdf",
+      "domain": "mma.gob.cl",
+      "discoveryBatch": "south-america-official",
+      "tier": 4,
+      "status": "review_candidate",
+      "sourceType": "Official PDF/report candidate",
+      "candidateUse": "Candidate for manual PDF review and source-linked context.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Requires PDF extraction, table/date review, language review where needed, and safe summary rules.",
+      "reviewPriority": "medium",
+      "weakSignals": [],
+      "rejectionReasons": [],
+      "rejected": false,
+      "knownBacklog": false,
+      "score": 0.032629862,
+      "snippet": "497 3a Comunicación Nacional de Chile ante la CMNUCC - Ministerio del Medio Ambiente 497 Anexos Ámbito Iniciativa Donante/Organizador Tipo de apoyo recibido Recursos financieros Creación de capacidad y asistencia técnica Transferencia de tecnología Programas que cuentan con apoyo internacional en recursos financieros M MRV de la Zona Verde de Santiago (2016) CAF • M Valorización energética de residuos orgánicos/ Pro…"
     },
     {
       "id": "stacks-hantavirus-infection-non-hantavirus-pulmonary-syndrome-week-16-weekly-ca",
@@ -277,8 +279,28 @@
       "rejectionReasons": [],
       "rejected": false,
       "knownBacklog": false,
-      "score": 0.7283819,
+      "score": 0.72207695,
       "snippet": "U.S. flag An official website of the United States government. A .gov website belongs to an official government organization in the United States. # Hantavirus infection, non-hantavirus pulmonary syndrome (Week 16) Weekly cases\\* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending April 25, 2026. This data includes weekly cases of notifiable diseases, United States, U.S. Terri…"
+    },
+    {
+      "id": "thl-haku-thl",
+      "title": "Haku - THL",
+      "url": "https://thl.fi/haku?p_p_id=fi_yja_fess_open_search_FessOpenSearchPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_fi_yja_fess_open_search_FessOpenSearchPortlet_orderByType=desc&_fi_yja_fess_open_search_FessOpenSearchPortlet_keywords=infectious+diseases&_fi_yja_fess_open_search_FessOpenSearchPortlet_navigation=all&_fi_yja_fess_open_search_FessOpenSearchPortlet_orderByCol=last_modified",
+      "domain": "thl.fi",
+      "discoveryBatch": "europe-official",
+      "tier": 2,
+      "status": "review_candidate",
+      "sourceType": "Official public health source candidate",
+      "candidateUse": "Candidate for human review and possible source registry/backlog expansion.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Verify official publisher, publication date, disease context, geography, and safe public wording before use.",
+      "reviewPriority": "medium",
+      "weakSignals": [],
+      "rejectionReasons": [],
+      "rejected": false,
+      "knownBacklog": false,
+      "score": 0.7159213,
+      "snippet": "1. ## Very low risk of hantavirus to the European population - THL. 8.5.2026 | The wider spread of disease caused by hantavirus in Europe is unlikely, and the risk to the public is very low, according to a risk assessment published by the European Centre for Disease Prevention and Control (ECDC). https://thl.fi/en/-/very-low-risk-of-hantavirus-to-the-european-population. 5.5.2026 | The Finnish Institute for Health a…"
     }
   ]
 }
