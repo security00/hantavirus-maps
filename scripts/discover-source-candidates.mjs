@@ -116,7 +116,9 @@ function classifySource(url, title, batch) {
   const parsed = new URL(url);
   const lower = `${url} ${title}`.toLowerCase();
   const weakSignals = [];
+  const rejectionReasons = [];
   const isSearchOrIndex = lower.includes('/search') || lower.includes('cbrowse') || parsed.searchParams.has('s') || parsed.searchParams.has('page') || lower.includes('news/?') || lower.includes('/news/?');
+  const isMinsalGeneralStatement = domain === 'minsal.cl' && lower.includes('declaracion-ministerio-de-salud');
   const isDataset = lower.includes('data.cdc.gov') || lower.includes('nndss') || lower.includes('surveillance');
   const isPdf = lower.includes('.pdf');
   const isAlert = lower.includes('don') || lower.includes('outbreak') || lower.includes('alert') || lower.includes('news');
@@ -130,6 +132,13 @@ function classifySource(url, title, batch) {
 
   if (isSearchOrIndex) {
     weakSignals.push('Search/index/listing page; prefer the underlying official article, dataset, or report URL.');
+    rejectionReasons.push('Rejected by review rule: search/index/listing pages are noisy and not structured evidence.');
+    reviewPriority = 'low';
+  }
+
+  if (isMinsalGeneralStatement) {
+    weakSignals.push('General Ministry statement without specific 2026 case data; keep as background only, not Tavily candidate evidence.');
+    rejectionReasons.push('Rejected by review rule: Minsal page lacks specific 2026 case/event data for this candidate queue.');
     reviewPriority = 'low';
   }
 
@@ -157,7 +166,7 @@ function classifySource(url, title, batch) {
     reviewNeed = 'Requires PDF extraction, table/date review, language review where needed, and safe summary rules.';
   }
 
-  return { domain, tier, sourceType, candidateUse, reviewNeed, reviewPriority, weakSignals };
+  return { domain, tier, sourceType, candidateUse, reviewNeed, reviewPriority, weakSignals, rejectionReasons, rejected: rejectionReasons.length > 0 };
 }
 
 async function readJson(filePath, fallback) {
@@ -243,6 +252,7 @@ function summarizeCandidates(candidates) {
     highPriorityCount: candidates.filter((candidate) => candidate.reviewPriority === 'high').length,
     lowPriorityCount: candidates.filter((candidate) => candidate.reviewPriority === 'low').length,
     weakCount: candidates.filter((candidate) => candidate.weakSignals?.length).length,
+    rejectedCount: candidates.filter((candidate) => candidate.rejected).length,
     domains: [...new Set(candidates.map((candidate) => candidate.domain))].sort()
   };
   return summary;
@@ -276,6 +286,7 @@ function buildMarkdown({ reportDate, generatedAt, dryRun, searchRuns, candidates
   lines.push(`- High-priority review candidates: ${summary.highPriorityCount}`);
   lines.push(`- Low-priority / weak candidates: ${summary.lowPriorityCount}`);
   lines.push(`- Candidates with weak signals: ${summary.weakCount}`);
+  lines.push(`- Rejected/noise candidates removed from queue: ${summary.rejectedCount}`);
   lines.push(`- Domains: ${summary.domains.map((domain) => `\`${domain}\``).join(', ') || 'n/a'}`);
   lines.push('');
   lines.push('## Human review digest');
@@ -405,6 +416,8 @@ async function main() {
           reviewNeed: classification.reviewNeed,
           reviewPriority: classification.reviewPriority,
           weakSignals: classification.weakSignals,
+          rejectionReasons: classification.rejectionReasons,
+          rejected: classification.rejected,
           knownBacklog: knownUrls.has(url),
           score: result.score ?? null,
           snippet: excerpt(result.content ?? result.snippet ?? result.raw_content ?? '')
@@ -413,8 +426,11 @@ async function main() {
     }
   }
 
+  const rejectedCandidates = [...byUrl.values()].filter((candidate) => candidate.rejected);
   const priorityRank = { high: 0, medium: 1, low: 2 };
-  const candidates = [...byUrl.values()].sort((a, b) => priorityRank[a.reviewPriority] - priorityRank[b.reviewPriority] || Number(a.knownBacklog) - Number(b.knownBacklog) || a.domain.localeCompare(b.domain));
+  const candidates = [...byUrl.values()]
+    .filter((candidate) => !candidate.rejected)
+    .sort((a, b) => priorityRank[a.reviewPriority] - priorityRank[b.reviewPriority] || Number(a.knownBacklog) - Number(b.knownBacklog) || a.domain.localeCompare(b.domain));
   const extractUrls = candidates.filter((candidate) => !candidate.knownBacklog).slice(0, options.extractTop).map((candidate) => candidate.url);
 
   if (!options.dryRun && extractUrls.length) {
@@ -444,8 +460,9 @@ async function main() {
     autoPublic: false,
     policy: 'Tavily discovery output is not public data. Human review is required before any public JSON or page copy changes.',
     searchBatches: trustedBatches,
-    summary: summarizeCandidates(candidates),
-    candidates
+    summary: summarizeCandidates([...candidates, ...rejectedCandidates]),
+    candidates,
+    rejectedCandidates
   };
 
   const jsonPath = path.join(options.outputDir, `tavily-candidates-${options.reportDate}.json`);
@@ -456,7 +473,7 @@ async function main() {
     generatedAt,
     dryRun: options.dryRun,
     searchRuns,
-    candidates,
+    candidates: [...candidates, ...rejectedCandidates],
     knownUrlCount: knownUrls.size,
     extractCount: extractUrls.length
   }));
