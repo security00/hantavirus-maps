@@ -35,7 +35,7 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Linked map records
 
-- Case summary: Argentina — Argentina national epidemiological bulletin linked
+- No current public map record directly uses this source.
 
 ## Cite this page
 

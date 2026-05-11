@@ -12,10 +12,11 @@
       "layer": "Public health alerts",
       "status": "Disease Outbreak News",
       "severityLabel": "Official international notice",
-      "summary": "WHO reported a cruise-associated hantavirus cluster involving Andes virus and assessed the global population risk as low while investigations and contact tracing continued.",
-      "riskLanguage": "Event-specific. Does not indicate a general local U.S. risk map or a live local case service.",
+      "summary": "WHO reported that, as of 8 May 2026, the MV Hondius cruise-associated Andes virus cluster included eight cases and three deaths, with six laboratory-confirmed hantavirus infections identified as Andes virus; WHO assessed the global population risk as low while investigations and contact tracing continued.",
+      "riskLanguage": "Event-specific international notice. It is not a live travel-risk tracker, patient-location dataset, or general local risk map.",
       "sourceIds": [
         "who-don600-2026",
+        "who-don599-2026",
         "paho-cruise-2026",
         "ecdc-cruise-2026"
       ],
@@ -112,10 +113,11 @@
       "layer": "Public health alerts",
       "status": "Official interdepartmental update",
       "severityLabel": "Official response update",
-      "summary": "Canadian federal agencies described coordination with public health partners for Canadian passengers linked to the MV Hondius Andes hantavirus event, including monitoring and isolation protocols for returning travellers.",
-      "riskLanguage": "Event-specific official response context. It is not a Canada-wide live case counter or travel clearance service.",
+      "summary": "Canadian federal agencies described coordination for Canadian passengers linked to the MV Hondius Andes hantavirus event, including screening, monitoring, isolation protocols, and a public risk assessment consistent with WHO that the overall risk in Canada remained low.",
+      "riskLanguage": "Event-specific official response context. Person-to-person Andes virus transmission is described as rare and requiring close, prolonged contact; this is not a Canada-wide live case counter.",
       "sourceIds": [
         "canada-mv-hondius-update-2026",
+        "canada-cpho-mv-hondius-2026",
         "canada-risk-2026",
         "who-don600-2026",
         "ecdc-cruise-2026"
@@ -155,8 +157,8 @@
       "layer": "Public health alerts",
       "status": "Official risk assessment and response updates",
       "severityLabel": "European response update",
-      "summary": "ECDC published a risk assessment and follow-up response updates for the cruise-associated Andes hantavirus cluster, coordinating with national authorities, WHO, and reference laboratories.",
-      "riskLanguage": "International event timeline context. It is not a complete European surveillance dataset or live outbreak feed.",
+      "summary": "ECDC reported seven symptomatic people and three deaths as of 6 May 2026 in its preliminary MV Hondius risk assessment, and framed all people on the ship as close contacts under the precautionary principle while investigations continued.",
+      "riskLanguage": "Preliminary rapid-assessment context for a closed-setting cruise event. It should not be read as a complete European surveillance dataset or live outbreak feed.",
       "sourceIds": [
         "ecdc-cruise-2026",
         "ecdc-cruise-response-activated-2026",
@@ -166,6 +168,27 @@
       "mapPoint": {
         "x": 510,
         "y": 190
+      }
+    },
+    {
+      "id": "argentina-health-vigilance-2026",
+      "title": "Argentina reinforces hantavirus surveillance after MV Hondius cluster",
+      "agency": "Argentina Ministry of Health",
+      "date": "2026-05-07",
+      "geography": "Argentina / national surveillance coordination",
+      "layer": "Public health alerts",
+      "status": "Official national health ministry update",
+      "severityLabel": "National surveillance update",
+      "summary": "Argentina’s Ministry of Health said national and jurisdictional epidemiology teams reviewed the MV Hondius outbreak, strengthened surveillance actions, and reported 42 hantavirus cases notified in Argentina so far in 2026 and 101 confirmed notifications since epidemiological week 27 of 2025.",
+      "riskLanguage": "National surveillance snapshot and response coordination only. It is not a live Argentina case feed, patient-location map, or local risk prediction.",
+      "sourceIds": [
+        "argentina-health-vigilance-2026",
+        "who-don600-2026",
+        "paho-cruise-2026"
+      ],
+      "mapPoint": {
+        "x": 345,
+        "y": 500
       }
     }
   ]

@@ -20,7 +20,7 @@ Hantavirus Maps uses Centers for Disease Control and Prevention material as revi
 | Publisher | Centers for Disease Control and Prevention |
 | Source type | Surveillance guidance |
 | Publication date | 2025-06-30 |
-| Reviewed date | 2026-05-10 |
+| Reviewed date | 2026-05-11 |
 | External URL | https://www.cdc.gov/hantavirus/php/surveillance/index.html |
 
 ## How this source is used

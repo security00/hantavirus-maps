@@ -14,30 +14,30 @@ This Argentina page is a reviewed, source-linked hantavirus map summary. It can 
 
 ## Snapshot
 
-Argentina national epidemiological bulletin linked
+Argentina official 2026 surveillance update
 
-Argentina.gob.ar publishes national epidemiological bulletins that include hantavirus as a monitored event. This project links the reviewed bulletin candidate as a source for future Spanish-language table extraction, without copying current counts into the public map.
+Argentina’s Ministry of Health reported 42 hantavirus cases notified so far in 2026 and 101 confirmed notifications since epidemiological week 27 of 2025, while describing national coordination after the MV Hondius cruise-associated outbreak.
 
 | Field | Value |
 |---|---|
 | Jurisdiction | Argentina |
 | Region | South America |
-| Period | 2025 bulletin source linked |
-| Reported cases | Linked official source |
-| Geography precision | National bulletin source linked |
-| Status | Official national bulletin source linked |
+| Period | 2026 year-to-date and SE 27 2025 onward snapshot |
+| Reported cases | 42 |
+| Geography precision | National surveillance snapshot |
+| Status | Official national health ministry update |
 
 ## Safe interpretation
 
-No Argentina case table has been extracted into this MVP. Spanish bulletin tables require a separate human review before public counts.
+Counts are an official national notification snapshot, not a live case feed. No patient locations or local-risk map are inferred from the national update. The broader 101 confirmed notifications since SE 27 of 2025 are retained in text only, not mixed into the 2026 year-to-date case field.
 
 This page does not publish patient locations, county-level current risk, or diagnosis/treatment guidance.
 
 ## Sources
 
-- Argentina Ministry of Health / Argentina.gob.ar: [Boletín Epidemiológico Nacional N°785, SE 48, Año 2025](https://www.argentina.gob.ar/sites/default/files/2025/01/ben-785-se-48-vf.pdf?utm_source) — reviewed 2026-05-11; use: Argentina official bulletin candidate for future Spanish-language surveillance extraction.
-- Pan American Health Organization: [Hantavirus in the Americas historical regional report](https://www1.paho.org/english/gov/ce/ce122_14.pdf) — reviewed 2026-05-11; use: Historical Americas context and source discovery for country-level surveillance history.
-- Pan American Health Organization / World Health Organization: [Epidemiological Alert Hantavirus Pulmonary Syndrome in Americas Region - 19 December 2025](https://www.paho.org/en/documents/epidemiological-alert-hantavirus-pulmonary-syndrome-americas-region-19-december-2025) — reviewed 2026-05-10; use: Americas regional alert, Southern Cone context, and surveillance strengthening recommendations.
+- Argentina Ministry of Health / Argentina.gob.ar: [Salud sostiene y refuerza la vigilancia epidemiológica de hantavirus en el país](https://www.argentina.gob.ar/noticias/salud-sostiene-y-refuerza-la-vigilancia-epidemiologica-de-hantavirus-en-el-pais) — reviewed 2026-05-11; use: Argentina national context for 2026 hantavirus notifications and public health surveillance coordination related to the MV Hondius event.
+- World Health Organization: [Hantavirus cluster linked to cruise ship travel, Multi-country](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600) — reviewed 2026-05-11; use: Official international notice for the 2026 cruise-associated Andes virus cluster.
+- Pan American Health Organization: [PAHO supports the international response to hantavirus pulmonary syndrome cases linked to a cruise ship in the Atlantic](https://www.paho.org/en/news/7-5-2026-paho-supports-international-response-hantavirus-pulmonary-syndrome-cases-linked) — reviewed 2026-05-10; use: PAHO coordination context and prevention summary for the cruise-associated event.
 
 ## Cite this page
 

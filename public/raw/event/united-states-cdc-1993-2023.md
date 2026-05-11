@@ -37,7 +37,7 @@ This record is a reviewed public health map note. It is not live surveillance, m
 ## Sources
 
 - Centers for Disease Control and Prevention: [Reported Cases of Hantavirus Disease](https://www.cdc.gov/hantavirus/data-research/cases/index.html) — reviewed 2026-05-10; use: U.S. historical case context and the state-only geography limitation.
-- Centers for Disease Control and Prevention: [Hantavirus Case Definition and Reporting](https://www.cdc.gov/hantavirus/php/surveillance/index.html) — reviewed 2026-05-10; use: Explains national notifiable condition reporting and surveillance definitions.
+- Centers for Disease Control and Prevention: [Hantavirus Case Definition and Reporting](https://www.cdc.gov/hantavirus/php/surveillance/index.html) — reviewed 2026-05-11; use: Explains national notifiable condition reporting and surveillance definitions.
 
 ## Cite this record
 

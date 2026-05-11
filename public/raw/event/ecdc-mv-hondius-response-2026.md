@@ -15,11 +15,11 @@ European Centre for Disease Prevention and Control · European response update
 
 ## Summary
 
-ECDC published a risk assessment and follow-up response updates for the cruise-associated Andes hantavirus cluster, coordinating with national authorities, WHO, and reference laboratories.
+ECDC reported seven symptomatic people and three deaths as of 6 May 2026 in its preliminary MV Hondius risk assessment, and framed all people on the ship as close contacts under the precautionary principle while investigations continued.
 
 ## Safe interpretation
 
-International event timeline context. It is not a complete European surveillance dataset or live outbreak feed.
+Preliminary rapid-assessment context for a closed-setting cruise event. It should not be read as a complete European surveillance dataset or live outbreak feed.
 
 This record is a reviewed public health map note. It is not live surveillance, medical advice, patient-location tracking, or county-level risk prediction.
 
@@ -36,10 +36,10 @@ This record is a reviewed public health map note. It is not live surveillance, m
 
 ## Sources
 
-- European Centre for Disease Prevention and Control: [Hantavirus-associated cluster of illness on a cruise ship: ECDC assessment and recommendations](https://www.ecdc.europa.eu/en/publications-data/hantavirus-associated-cluster-illness-cruise-ship-ecdc-assessment-and) — reviewed 2026-05-10; use: Official European assessment of a 2026 multi-country cruise-associated cluster.
+- European Centre for Disease Prevention and Control: [Hantavirus-associated cluster of illness on a cruise ship: ECDC assessment and recommendations](https://www.ecdc.europa.eu/en/publications-data/hantavirus-associated-cluster-illness-cruise-ship-ecdc-assessment-and) — reviewed 2026-05-11; use: Official European assessment of a 2026 multi-country cruise-associated cluster.
 - European Centre for Disease Prevention and Control: [Cruise ship hantavirus outbreak: ECDC response activated](https://www.ecdc.europa.eu/en/news-events/cruise-ship-hantavirus-outbreak-ecdc-response-activated) — reviewed 2026-05-11; use: ECDC response/timeline context for the cruise-associated Andes virus cluster.
 - European Centre for Disease Prevention and Control: [ECDC guidance for passengers linked to Andes hantavirus outbreak on cruise ship](https://www.ecdc.europa.eu/en/news-events/ecdc-publishes-guidance-management-passengers-linked-andes-hantavirus-outbreak-cruise) — reviewed 2026-05-11; use: ECDC response context for management of passengers linked to the cruise-associated outbreak.
-- World Health Organization: [Hantavirus cluster linked to cruise ship travel, Multi-country](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600) — reviewed 2026-05-10; use: Official international notice for the 2026 cruise-associated Andes virus cluster.
+- World Health Organization: [Hantavirus cluster linked to cruise ship travel, Multi-country](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600) — reviewed 2026-05-11; use: Official international notice for the 2026 cruise-associated Andes virus cluster.
 
 ## Cite this record
 

@@ -20,7 +20,7 @@ Hantavirus Maps uses European Centre for Disease Prevention and Control material
 | Publisher | European Centre for Disease Prevention and Control |
 | Source type | Rapid assessment |
 | Publication date | 2026-05-06 |
-| Reviewed date | 2026-05-10 |
+| Reviewed date | 2026-05-11 |
 | External URL | https://www.ecdc.europa.eu/en/publications-data/hantavirus-associated-cluster-illness-cruise-ship-ecdc-assessment-and |
 
 ## How this source is used

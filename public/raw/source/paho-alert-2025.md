@@ -35,7 +35,6 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Linked map records
 
-- Case summary: Argentina — Argentina national epidemiological bulletin linked
 - Official alert: Hantavirus pulmonary syndrome alert in the Americas Region — PAHO/WHO 2025-12-19
 
 ## Cite this page
