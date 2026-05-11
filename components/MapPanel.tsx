@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { InteractiveMapLoader } from "@/components/InteractiveMapLoader";
+import { MapQuickActions } from "@/components/MapQuickActions";
 import {
   collectSourceIds,
   formatDateLabel,
@@ -164,19 +165,10 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
                   Show sources
                 </Link>
               </div>
-              <div className="layer-controls mt-3 grid gap-2 sm:grid-cols-3">
-                <label className="layer-toggle case-toggle">
-                  <input id="layer-cases" type="checkbox" defaultChecked />
-                  <span><b className="legend-dot legend-case" /> Reported cases</span>
-                </label>
-                <label className="layer-toggle alert-toggle">
-                  <input id="layer-alerts" type="checkbox" defaultChecked />
-                  <span><b className="legend-dot legend-alert" /> Official alerts</span>
-                </label>
-                <label className="layer-toggle reservoir-toggle">
-                  <input id="layer-reservoirs" type="checkbox" defaultChecked />
-                  <span><b className="legend-dot legend-reservoir" /> Reservoir ecology</span>
-                </label>
+              <div className="layer-controls mt-3 grid gap-2 sm:grid-cols-3" aria-label="Map layer legend">
+                <div className="layer-toggle case-toggle cursor-default"><span><b className="legend-dot legend-case" /> Reported cases</span></div>
+                <div className="layer-toggle alert-toggle cursor-default"><span><b className="legend-dot legend-alert" /> Official alerts</span></div>
+                <div className="layer-toggle reservoir-toggle cursor-default"><span><b className="legend-dot legend-reservoir" /> Reservoir ecology</span></div>
               </div>
             </div>
 
@@ -187,7 +179,15 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             </div>
           </div>
 
-          <div className="mt-5 overflow-hidden rounded-lg border border-white/10 bg-slate-950">
+          <div className="mt-5">
+            <MapQuickActions />
+          </div>
+
+          <div className="mt-3 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.06] px-3 py-2 text-xs font-semibold leading-5 text-emerald-50 sm:hidden">
+            Drag the map, pinch to zoom, or tap a colored marker. Use the quick links above if you are looking for a state, Canada, alerts, or sources.
+          </div>
+
+          <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-slate-950">
             <InteractiveMapLoader
               casePoints={casePoints}
               alertPoints={alertPoints}

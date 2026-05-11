@@ -3,7 +3,7 @@
 import "leaflet/dist/leaflet.css";
 
 import L from "leaflet";
-import { CircleMarker, LayerGroup, LayersControl, MapContainer, Popup, TileLayer, Tooltip, useMap } from "react-leaflet";
+import { CircleMarker, LayerGroup, MapContainer, Popup, TileLayer, Tooltip, useMap } from "react-leaflet";
 
 import type { CaseRecord, OfficialAlert, ReservoirRecord, SourceRecord } from "@/lib/data";
 
@@ -66,6 +66,7 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
         minZoom={2}
         maxZoom={7}
         scrollWheelZoom={false}
+        zoomControl
         className="interactive-map"
         worldCopyJump
       >
@@ -75,9 +76,7 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
         />
         <FitMap points={fitPoints} />
 
-        <LayersControl position="topright">
-          <LayersControl.Overlay checked name="Reported case summaries">
-            <LayerGroup>
+        <LayerGroup>
               {caseMarkers.map(({ record, position }) => (
                 <CircleMarker
                   key={record.id}
@@ -97,11 +96,9 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                   </Popup>
                 </CircleMarker>
               ))}
-            </LayerGroup>
-          </LayersControl.Overlay>
+        </LayerGroup>
 
-          <LayersControl.Overlay checked name="Official public health alerts">
-            <LayerGroup>
+        <LayerGroup>
               {alertMarkers.map(({ alert, position }) => (
                 <LayerGroup key={alert.id}>
                   <CircleMarker
@@ -141,11 +138,9 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                   </CircleMarker>
                 </LayerGroup>
               ))}
-            </LayerGroup>
-          </LayersControl.Overlay>
+        </LayerGroup>
 
-          <LayersControl.Overlay checked name="Rodent reservoir ecology">
-            <LayerGroup>
+        <LayerGroup>
               {reservoirMarkers.map(({ reservoir, region }) => (
                 <CircleMarker
                   key={reservoir.id}
@@ -164,9 +159,7 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                   </Popup>
                 </CircleMarker>
               ))}
-            </LayerGroup>
-          </LayersControl.Overlay>
-        </LayersControl>
+        </LayerGroup>
       </MapContainer>
       <p className="interactive-map-note">
         Free Leaflet/CARTO dark map MVP. Click any colored marker or reservoir circle for source-linked text, limits, and official links. Not live case locations or exact local risk.
