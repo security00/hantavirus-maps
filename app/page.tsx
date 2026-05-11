@@ -190,7 +190,45 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <MapPanel home immersive />
+      <section className="overflow-hidden border-b border-white/10 bg-slate-950 px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.62fr_0.38fr] lg:items-start">
+          <div>
+            <p className="text-sm font-semibold text-emerald-200">Reviewed public health updates</p>
+            <h1 className="mt-3 max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-6xl">
+              Hantavirus map, tracker and official-source updates
+            </h1>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+              Follow reviewed hantavirus case summaries, official alerts, source notes and prevention guidance. The interactive map is available below the latest updates so the homepage loads like an information dashboard first, not a heavy live surveillance screen.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="#interactive-map" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
+                Open interactive map
+              </Link>
+              <Link href="/hantavirus-tracker/" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+                Read tracker guide
+              </Link>
+              <Link href="/sources-methodology/" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+                Review methodology
+              </Link>
+            </div>
+          </div>
+
+          <aside className="grid gap-4">
+            {alerts.slice(0, 3).map((alert) => (
+              <article key={alert.id} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-slate-950/30">
+                <p className="text-sm font-semibold text-amber-100">
+                  {formatDateLabel(alert.date)} · {alert.agency}
+                </p>
+                <h2 className="mt-3 text-xl font-semibold text-white">{alert.title}</h2>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{alert.summary}</p>
+                <Link href={`/event/${alert.id}/`} className="mt-4 inline-flex text-sm font-semibold text-emerald-200 hover:text-white">
+                  Read reviewed event →
+                </Link>
+              </article>
+            ))}
+          </aside>
+        </div>
+      </section>
 
       <section className="border-y border-white/10 bg-white/[0.03] px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto mb-6 max-w-7xl">
@@ -208,6 +246,22 @@ export default function Home() {
         </div>
       </section>
 
+
+
+      <section id="interactive-map" className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="interactive-map-heading">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-semibold text-emerald-200">Interactive map</p>
+            <h2 id="interactive-map-heading" className="mt-2 text-3xl font-semibold">
+              Reviewed hantavirus map layers
+            </h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              Open the map after reading the latest official-source context. Markers are reviewed summaries and alerts, not live patient locations or county-level risk predictions.
+            </p>
+          </div>
+          <MapPanel home />
+        </div>
+      </section>
 
       <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="seo-use-cases">
         <div className="mx-auto max-w-7xl">
