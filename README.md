@@ -83,7 +83,7 @@ Page content lives in `lib/page-content.ts`.
 
 FAQ content lives in `lib/faq.ts`.
 
-## Internal source checker
+## Internal source checker and human review
 
 Draft source checks can be generated with:
 
@@ -92,6 +92,18 @@ python3 scripts/check_hantavirus_sources.py
 ```
 
 The checker uses only Python stdlib, reads `data/sources/source-registry.json`, checks selected official/reliable endpoints, and writes `reports/source-check-YYYY-MM-DD.md`. Treat all report findings as internal review candidates only. The script must not update public JSON data, publish live/local risk claims, or replace human review.
+
+Human review is required before candidate data is promoted into public JSON snapshots or public page copy:
+
+- SOP: `docs/data-review-sop.md`
+- Template: `reports/data-review-template.md`
+
+Allowed review outcomes:
+
+- `approved_public_snapshot`
+- `approved_source_only`
+- `review_candidate`
+- `rejected`
 
 ## Local development
 
