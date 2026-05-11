@@ -35,7 +35,7 @@ export function eventPath(id: string) {
 }
 
 export function rawEventPath(id: string) {
-  return `/raw/event/${id}/`;
+  return `/raw/event/${id}.md`;
 }
 
 export function getEventRecords(): EventPageRecord[] {
