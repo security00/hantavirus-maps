@@ -201,3 +201,72 @@ Escalate or keep as `review_candidate` if:
 ## Reuse / compounding note
 
 This SOP is the reusable review gate for future official-source map MVP sites. If another health/YMYL map project appears, reuse this pattern instead of inventing a new ad hoc process: source registry, reviewed JSON snapshots, public limitations, no-live/no-diagnosis language, and a human review template before promotion.
+
+## Tavily-to-map update workflow
+
+Use this workflow when `scripts/discover-source-candidates.mjs` or the scheduled `Tavily Source Discovery` GitHub Action creates a candidate report/PR.
+
+### Stage A — discovery only
+
+1. Run discovery manually or let `.github/workflows/source-discovery.yml` run on schedule.
+2. Review generated files only:
+   - `reports/tavily-source-candidates-YYYY-MM-DD.md`
+   - `data/sources/tavily-candidates-YYYY-MM-DD.json`
+3. Treat Tavily output as untrusted discovery/extraction. Tavily never makes a source authoritative.
+4. Do not change public map JSON in Stage A.
+
+### Stage B — candidate-source review
+
+1. Inspect candidate URL quality, not map values.
+2. Remove or reject noise before merge:
+   - search/index/listing pages
+   - broad PDFs where a dedicated official notice exists
+   - generic factsheets without event or snapshot data
+   - local old-news notices outside the current review focus
+   - duplicated/superseded sources unless needed for timeline context
+3. Keep only official sources worth later data review.
+4. Merge the candidate PR only after it contains reviewable candidate sources and no obvious noise.
+
+### Stage C — data-level review before public map changes
+
+Candidate PR merge does **not** approve public map data. Before changing map JSON:
+
+1. Create a separate review report, for example `reports/data-review-YYYY-MM-DD-stage-c.md`.
+2. Open each retained official source and extract only safe public fields.
+3. For each candidate, assign one status:
+   - `approved_public_snapshot`
+   - `approved_source_only`
+   - `review_candidate`
+   - `rejected`
+4. Promote only the smallest safe data:
+   - event-level alert summaries to `data/alerts/official-alerts.json`
+   - country/state aggregate snapshots to `data/cases/us-state-historical.json`
+   - citations to `data/sources/source-registry.json`
+5. Regenerate machine-readable markdown:
+
+```bash
+npm run generate:event-markdown
+npm run generate:geo-markdown
+```
+
+6. Validate:
+
+```bash
+python3 -m json.tool data/sources/source-registry.json >/dev/null
+python3 -m json.tool data/alerts/official-alerts.json >/dev/null
+python3 -m json.tool data/cases/us-state-historical.json >/dev/null
+npm run lint
+npm run build
+npm run validate:seo
+```
+
+### Current-focus alert layer rule
+
+When the map is focused on an active event cluster such as the 2026 MV Hondius / Andes virus response, keep the `Public health alerts` layer limited to current official event/surveillance notices. Older local prevention advisories or single-state historical notices should remain as source registry entries and case/history pages, not pulsing alert markers, unless a human reviewer explicitly decides they are needed in the current alert layer.
+
+### Stage C safe examples from 2026-05-11
+
+- WHO DON600 was approved as a public snapshot: 8 cases / 3 deaths / 6 laboratory-confirmed Andes virus infections as of 2026-05-08.
+- WHO DON599 was approved source-only as earlier timeline context, not a separate count.
+- Argentina Ministry of Health was approved as a public national snapshot: 42 cases notified in 2026; 101 since SE 27 2025 retained in text only.
+- CDC NNDSS weekly and Stacks rows remained `review_candidate` until a display rule exists.

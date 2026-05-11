@@ -36,7 +36,6 @@ No patient address or exact exposure point is published from this source. Provis
 ## Linked map records
 
 - Case summary: New Mexico — NMDOH cumulative historical summary
-- Official alert: Hantavirus confirmed in Santa Fe County resident — New Mexico Department of Health 2026-03-12
 
 ## Cite this page
 

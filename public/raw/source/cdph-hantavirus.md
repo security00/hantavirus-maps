@@ -36,7 +36,6 @@ No patient address or exact exposure point is published from this source. Provis
 ## Linked map records
 
 - Case summary: California — CDPH surveillance products linked
-- Official alert: Preventing hantavirus infection in the workplace — California Department of Public Health 2025-02
 
 ## Cite this page
 

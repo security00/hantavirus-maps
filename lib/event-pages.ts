@@ -26,8 +26,6 @@ export const EVENT_PAGE_IDS = [
   "canada-mv-hondius-2026",
   "ecdc-mv-hondius-response-2026",
   "paho-alert-2025-americas",
-  "nmdoh-2026-santa-fe",
-  "adhs-2024-increased-activity",
   "utah-mv-hondius-2026",
   "united-states-cdc-1993-2023",
   "canada-phac-1994-2026",
