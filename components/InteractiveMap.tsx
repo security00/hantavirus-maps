@@ -3,6 +3,7 @@
 import "leaflet/dist/leaflet.css";
 
 import L from "leaflet";
+import { useEffect, useMemo } from "react";
 import { CircleMarker, LayerGroup, MapContainer, Popup, TileLayer, Tooltip, useMap } from "react-leaflet";
 
 import type { CaseRecord, OfficialAlert, ReservoirRecord, SourceRecord } from "@/lib/data";
@@ -36,27 +37,45 @@ function svgPointToLatLng(point: { x: number; y: number }): LatLng {
 
 function FitMap({ points }: { points: LatLng[] }) {
   const map = useMap();
+  const bounds = useMemo(() => {
+    if (points.length <= 1) return null;
 
-  if (points.length > 1) {
-    const bounds = L.latLngBounds(points.map(([lat, lng]) => L.latLng(lat, lng)));
-    map.fitBounds(bounds.pad(0.28), { animate: false });
-  }
+    return L.latLngBounds(points.map(([lat, lng]) => L.latLng(lat, lng))).pad(0.28);
+  }, [points]);
+
+  useEffect(() => {
+    if (!bounds) return;
+
+    map.fitBounds(bounds, { animate: false });
+  }, [bounds, map]);
 
   return null;
 }
 
 export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesById }: InteractiveMapProps) {
-  const caseMarkers = casePoints
-    .filter((record): record is CaseRecord & { mapPoint: NonNullable<CaseRecord["mapPoint"]> } => Boolean(record.mapPoint))
-    .map((record) => ({ record, position: svgPointToLatLng(record.mapPoint) }));
-  const alertMarkers = alertPoints
-    .filter((alert): alert is OfficialAlert & { mapPoint: NonNullable<OfficialAlert["mapPoint"]> } => Boolean(alert.mapPoint))
-    .map((alert) => ({ alert, position: svgPointToLatLng(alert.mapPoint) }));
-  const reservoirMarkers = reservoirs.map((reservoir) => ({
-    reservoir,
-    region: reservoirRegions[reservoir.id] ?? { center: DEFAULT_CENTER, radiusMeters: 500000, color: "#34d399" }
-  }));
-  const fitPoints = [...caseMarkers.map((marker) => marker.position), ...alertMarkers.map((marker) => marker.position)];
+  const caseMarkers = useMemo(
+    () => casePoints
+      .filter((record): record is CaseRecord & { mapPoint: NonNullable<CaseRecord["mapPoint"]> } => Boolean(record.mapPoint))
+      .map((record) => ({ record, position: svgPointToLatLng(record.mapPoint) })),
+    [casePoints]
+  );
+  const alertMarkers = useMemo(
+    () => alertPoints
+      .filter((alert): alert is OfficialAlert & { mapPoint: NonNullable<OfficialAlert["mapPoint"]> } => Boolean(alert.mapPoint))
+      .map((alert) => ({ alert, position: svgPointToLatLng(alert.mapPoint) })),
+    [alertPoints]
+  );
+  const reservoirMarkers = useMemo(
+    () => reservoirs.map((reservoir) => ({
+      reservoir,
+      region: reservoirRegions[reservoir.id] ?? { center: DEFAULT_CENTER, radiusMeters: 500000, color: "#34d399" }
+    })),
+    [reservoirs]
+  );
+  const fitPoints = useMemo(
+    () => [...caseMarkers.map((marker) => marker.position), ...alertMarkers.map((marker) => marker.position)],
+    [caseMarkers, alertMarkers]
+  );
 
   return (
     <div className="interactive-map-shell">

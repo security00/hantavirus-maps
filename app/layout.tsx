@@ -3,6 +3,7 @@ import Script from "next/script";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ChunkReloadGuard } from "@/components/ChunkReloadGuard";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -52,6 +53,7 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "wp2f5d6gfd");
           `}
         </Script>
+        <ChunkReloadGuard />
         <Header />
         {children}
         <Footer />
