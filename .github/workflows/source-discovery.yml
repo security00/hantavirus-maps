@@ -1,0 +1,104 @@
+name: Tavily Source Discovery
+
+on:
+  schedule:
+    # Candidate discovery only. Does not deploy or publish public map data.
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      max_results:
+        description: "Max Tavily search results per batch"
+        required: false
+        default: "5"
+      extract_top:
+        description: "Number of new candidate URLs to extract"
+        required: false
+        default: "8"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    env:
+      TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+      MAX_RESULTS: ${{ github.event.inputs.max_results || '5' }}
+      EXTRACT_TOP: ${{ github.event.inputs.extract_top || '8' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run candidate discovery
+        run: |
+          set -euo pipefail
+          DISCOVERY_DATE="$(date -u +%F)"
+          echo "DISCOVERY_DATE=$DISCOVERY_DATE" >> "$GITHUB_ENV"
+          npm run discover:sources -- \
+            --report-date "$DISCOVERY_DATE" \
+            --max-results "$MAX_RESULTS" \
+            --extract-top "$EXTRACT_TOP"
+      - name: Validate generated files
+        run: |
+          set -euo pipefail
+          test -s "reports/tavily-source-candidates-${DISCOVERY_DATE}.md"
+          test -s "data/sources/tavily-candidates-${DISCOVERY_DATE}.json"
+          node -e "JSON.parse(require('fs').readFileSync('data/sources/tavily-candidates-${DISCOVERY_DATE}.json','utf8'))"
+          npm run lint
+          npm run build
+          npm run validate:seo
+      - name: Create pull request for review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- reports data/sources; then
+            echo "No candidate report changes to propose."
+            exit 0
+          fi
+
+          BRANCH="automation/tavily-source-discovery-${DISCOVERY_DATE}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add "reports/tavily-source-candidates-${DISCOVERY_DATE}.md" "data/sources/tavily-candidates-${DISCOVERY_DATE}.json"
+          git commit -m "chore: add tavily source candidates ${DISCOVERY_DATE}"
+          git push --force-with-lease origin "$BRANCH"
+
+          BODY_FILE="/tmp/source-discovery-pr.md"
+          cat > "$BODY_FILE" <<EOF
+          ## Tavily source discovery candidate report
+
+          Generated candidate-only source discovery files for ${DISCOVERY_DATE}.
+
+          - Report: \`reports/tavily-source-candidates-${DISCOVERY_DATE}.md\`
+          - JSON: \`data/sources/tavily-candidates-${DISCOVERY_DATE}.json\`
+
+          Safety boundary:
+          - Candidate discovery only.
+          - No public map data, case counts, alert JSON, source registry, or page copy is changed by this PR.
+          - Human review is required before any source is promoted.
+
+          Validation run in workflow:
+          - JSON parse
+          - \`npm run lint\`
+          - \`npm run build\`
+          - \`npm run validate:seo\`
+          EOF
+
+          EXISTING_PR="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+          if [ -n "$EXISTING_PR" ]; then
+            gh pr edit "$EXISTING_PR" --title "chore: tavily source candidates ${DISCOVERY_DATE}" --body-file "$BODY_FILE"
+          else
+            gh pr create \
+              --title "chore: tavily source candidates ${DISCOVERY_DATE}" \
+              --body-file "$BODY_FILE" \
+              --base main \
+              --head "$BRANCH"
+          fi
