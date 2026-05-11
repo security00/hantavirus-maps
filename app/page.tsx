@@ -242,6 +242,38 @@ export default function Home() {
 
 
 
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="search-intent-paths">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-semibold text-emerald-200">Popular map searches</p>
+            <h2 id="search-intent-paths" className="mt-2 text-3xl font-semibold">
+              Find the right hantavirus map page
+            </h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              Search visitors often start on the homepage. These paths send common questions to the most relevant reviewed page instead of keeping every query on the front page.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <Link href="/where/canada/" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+              <span className="text-sm font-semibold text-emerald-200">Hantavirus map Canada</span>
+              <span className="mt-3 block text-xl font-semibold text-white">Canada source-linked map context</span>
+              <span className="mt-3 block leading-7 text-slate-300">Reviewed PHAC and Government of Canada context for confirmed infections, travel notices, and public health limits.</span>
+            </Link>
+            <Link href="/source/cdc-reported-cases/" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+              <span className="text-sm font-semibold text-emerald-200">CDC hantavirus map</span>
+              <span className="mt-3 block text-xl font-semibold text-white">CDC reported cases source note</span>
+              <span className="mt-3 block leading-7 text-slate-300">How CDC case summaries are used on the map, including state-level precision and why county-level risk is not inferred.</span>
+            </Link>
+            <Link href="/hantavirus-tracker/" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+              <span className="text-sm font-semibold text-emerald-200">Hantavirus map 2025–2026</span>
+              <span className="mt-3 block text-xl font-semibold text-white">Reviewed updates and alerts</span>
+              <span className="mt-3 block leading-7 text-slate-300">Follow recent reviewed official-source updates without treating the site as a live outbreak counter.</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="latest-official-alerts">
         <div className="mx-auto max-w-7xl">
           <div className="mb-6 max-w-3xl">

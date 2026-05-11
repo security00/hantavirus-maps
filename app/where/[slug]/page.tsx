@@ -35,11 +35,16 @@ export function generateStaticParams(): PageParams[] {
 export async function generateMetadata({ params }: { params: Promise<PageParams> }): Promise<Metadata> {
   const resolvedParams = await params;
   const record = getWhereRecord(resolvedParams.slug);
-  const title = record ? `${record.jurisdiction} Hantavirus Map and Source Context` : `${titleCaseSlug(resolvedParams.slug)} Hantavirus Map`;
+  const title = resolvedParams.slug === "canada"
+    ? "Hantavirus Map Canada: PHAC and Official Source Context"
+    : record ? `${record.jurisdiction} Hantavirus Map and Source Context` : `${titleCaseSlug(resolvedParams.slug)} Hantavirus Map`;
+  const description = resolvedParams.slug === "canada"
+    ? "Reviewed hantavirus map Canada context using PHAC and Government of Canada sources, with limits on confirmed infections, travel notices, geography, and live surveillance claims."
+    : `Reviewed source-linked hantavirus map context for ${record?.jurisdiction ?? titleCaseSlug(resolvedParams.slug)}, with limits on case counts, geography precision, and live surveillance claims.`;
 
   return {
     title,
-    description: `Reviewed source-linked hantavirus map context for ${record?.jurisdiction ?? titleCaseSlug(resolvedParams.slug)}, with limits on case counts, geography precision, and live surveillance claims.`,
+    description,
     alternates: { canonical: wherePath(resolvedParams.slug) },
   };
 }
@@ -82,6 +87,11 @@ export default async function WherePage({ params }: { params: Promise<PageParams
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
               This page gives reviewed map context for {record.jurisdiction}. It is a source-linked public health summary, not a live case counter or local risk predictor.
             </p>
+            {record.slug === "canada" && (
+              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
+                For searches such as <strong className="text-white">hantavirus map Canada</strong>, this page summarizes PHAC and Government of Canada source context while avoiding patient locations or unsupported local risk claims.
+              </p>
+            )}
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/hantavirus-tracker/" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
                 Open tracker

@@ -22,9 +22,13 @@ export async function generateMetadata({ params }: { params: Promise<PageParams>
     return {};
   }
 
+  const isCdcReportedCases = source.id === "cdc-reported-cases";
+
   return {
-    title: `${source.publisher}: ${source.title} | Hantavirus Maps Source`,
-    description: `Reviewed source note for ${source.title}, including how Hantavirus Maps uses it and what limits apply.`,
+    title: isCdcReportedCases ? "CDC Hantavirus Map Source: Reported Cases and Limits" : `${source.publisher}: ${source.title} | Hantavirus Maps Source`,
+    description: isCdcReportedCases
+      ? "How Hantavirus Maps uses CDC reported hantavirus case summaries, including state-level public precision and limits on county-level or live risk claims."
+      : `Reviewed source note for ${source.title}, including how Hantavirus Maps uses it and what limits apply.`,
     alternates: { canonical: sourcePath(source.id) },
   };
 }
@@ -74,6 +78,11 @@ export default async function SourcePage({ params }: { params: Promise<PageParam
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
               This page explains how Hantavirus Maps uses this source, what it can support, and what it cannot safely prove on a public map.
             </p>
+            {source.id === "cdc-reported-cases" && (
+              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
+                For searches such as <strong className="text-white">CDC hantavirus map</strong>, this source note explains how CDC reported case summaries support state-level map context without becoming a live local risk map.
+              </p>
+            )}
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={source.url} rel="noreferrer" target="_blank" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
                 Open official source
