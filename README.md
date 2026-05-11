@@ -75,6 +75,13 @@ Reviewed static JSON snapshots live under `data/`:
 - `data/reservoirs/rodent-reservoirs.json`
 - `data/sources/source-registry.json`
 
+Candidate source supply backlog:
+
+- `data/sources/source-backlog.json`
+- `docs/data-source-supply-inventory.md`
+
+The backlog is for candidate discovery and review only. It is not public case data and must not auto-publish into the map.
+
 Shared data helpers live in `lib/data.ts`.
 
 Route metadata lives in `lib/routes.ts`.

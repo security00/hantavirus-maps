@@ -1,0 +1,164 @@
+{
+  "lastReviewed": "2026-05-11",
+  "policy": "Official and reliable source backlog for candidate ingestion. Entries are not public data. They feed source checks and human review only.",
+  "tiers": [
+    {
+      "tier": 1,
+      "name": "Official surveillance datasets and dashboards",
+      "defaultDecision": "review_candidate",
+      "autoPublic": false
+    },
+    {
+      "tier": 2,
+      "name": "Official outbreak alerts and advisories",
+      "defaultDecision": "review_candidate",
+      "autoPublic": false
+    },
+    {
+      "tier": 3,
+      "name": "Official disease, prevention, and case definition pages",
+      "defaultDecision": "approved_source_only",
+      "autoPublic": false
+    },
+    {
+      "tier": 4,
+      "name": "Peer-reviewed public-health literature and agency reports",
+      "defaultDecision": "review_candidate",
+      "autoPublic": false
+    },
+    {
+      "tier": 5,
+      "name": "Biodiversity and reservoir ecology sources",
+      "defaultDecision": "review_candidate",
+      "autoPublic": false
+    },
+    {
+      "tier": 6,
+      "name": "News, search, and social discovery signals",
+      "defaultDecision": "discovery_only",
+      "autoPublic": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "cdc-nndss-weekly-socrata",
+      "tier": 1,
+      "title": "CDC NNDSS Weekly Data Socrata endpoint",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://data.cdc.gov/resource/x9gk-5huc.json",
+      "sourceType": "Provisional weekly surveillance dataset",
+      "candidateUse": "Internal weekly review candidates for HPS and non-HPS hantavirus rows.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Requires NNDSS weekly display rule before public display. Do not show geocode or treat as live/local/final counts.",
+      "status": "active_candidate"
+    },
+    {
+      "id": "who-don-index",
+      "tier": 2,
+      "title": "WHO Disease Outbreak News index",
+      "publisher": "World Health Organization",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news",
+      "sourceType": "Official outbreak notice index",
+      "candidateUse": "Discovery of official hantavirus DON items.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Extracted DON links require event-specific human review before any public alert update.",
+      "status": "active_candidate"
+    },
+    {
+      "id": "paho-documents-index",
+      "tier": 2,
+      "title": "PAHO documents index",
+      "publisher": "Pan American Health Organization",
+      "url": "https://www.paho.org/en/documents",
+      "sourceType": "Official document index",
+      "candidateUse": "Discovery of PAHO epidemiological alerts and regional updates.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Only official hantavirus-specific documents should be promoted after review.",
+      "status": "candidate_backlog"
+    },
+    {
+      "id": "paho-news-index",
+      "tier": 2,
+      "title": "PAHO news index",
+      "publisher": "Pan American Health Organization",
+      "url": "https://www.paho.org/en/news",
+      "sourceType": "Official news index",
+      "candidateUse": "Discovery of official PAHO hantavirus response updates.",
+      "publicUseAllowed": false,
+      "reviewNeed": "News items are official only when published by PAHO; still require event-specific limitations.",
+      "status": "candidate_backlog"
+    },
+    {
+      "id": "ecdc-publications-index",
+      "tier": 2,
+      "title": "ECDC publications and data index",
+      "publisher": "European Centre for Disease Prevention and Control",
+      "url": "https://www.ecdc.europa.eu/en/publications-data",
+      "sourceType": "Official publications index",
+      "candidateUse": "Discovery of ECDC annual reports, rapid assessments, and disease updates.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Each result must be reviewed for syndrome/geography differences before public use.",
+      "status": "candidate_backlog"
+    },
+    {
+      "id": "utah-hantavirus-disease-page",
+      "tier": 3,
+      "title": "Utah hantavirus disease page",
+      "publisher": "Utah Department of Health and Human Services",
+      "url": "https://epi.utah.gov/hantavirus/",
+      "sourceType": "State disease page",
+      "candidateUse": "Potential Utah state page citation and future state landing page source.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Verify current URL, content, and safe state-level wording before use.",
+      "status": "candidate_backlog"
+    },
+    {
+      "id": "oregon-hantavirus-disease-page",
+      "tier": 3,
+      "title": "Oregon hantavirus disease page",
+      "publisher": "Oregon Health Authority",
+      "url": "https://www.oregon.gov/oha/PH/DISEASESCONDITIONS/DISEASESAZ/Pages/hantavirus.aspx",
+      "sourceType": "State disease page",
+      "candidateUse": "Potential Oregon state page citation and future state landing page source.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Verify current URL, content, and safe state-level wording before use.",
+      "status": "candidate_backlog"
+    },
+    {
+      "id": "washington-hantavirus-disease-page",
+      "tier": 3,
+      "title": "Washington hantavirus disease page",
+      "publisher": "Washington State Department of Health",
+      "url": "https://doh.wa.gov/you-and-your-family/illness-and-disease-z/hantavirus",
+      "sourceType": "State disease page",
+      "candidateUse": "Potential Washington state page citation and future state landing page source.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Verify current URL, content, and safe state-level wording before use.",
+      "status": "candidate_backlog"
+    },
+    {
+      "id": "minnesota-hantavirus-disease-page",
+      "tier": 3,
+      "title": "Minnesota hantavirus disease page",
+      "publisher": "Minnesota Department of Health",
+      "url": "https://www.health.state.mn.us/diseases/hantavirus/index.html",
+      "sourceType": "State disease page",
+      "candidateUse": "Potential Minnesota source citation and future regional context.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Verify current URL, content, and safe state-level wording before use.",
+      "status": "candidate_backlog"
+    },
+    {
+      "id": "gbif-reservoir-ecology-api",
+      "tier": 5,
+      "title": "GBIF species and occurrence APIs",
+      "publisher": "Global Biodiversity Information Facility",
+      "url": "https://api.gbif.org/v1",
+      "sourceType": "Biodiversity occurrence API",
+      "candidateUse": "Broad reservoir ecology review candidates for host species context.",
+      "publicUseAllowed": false,
+      "reviewNeed": "License/attribution and aggregate-only display rules required before public use. No raw points.",
+      "status": "active_candidate"
+    }
+  ]
+}
