@@ -1,0 +1,293 @@
+{
+  "generatedAt": "2026-05-11T15:54:10Z",
+  "reportDate": "2026-05-11",
+  "reviewStatus": "candidate_discovery_only",
+  "autoPublic": false,
+  "policy": "Tavily discovery output is not public data. Human review is required before any public JSON or page copy changes.",
+  "searchBatches": [
+    {
+      "id": "global-official-alerts",
+      "query": "hantavirus official outbreak alert WHO PAHO ECDC 2026",
+      "domains": [
+        "who.int",
+        "paho.org",
+        "ecdc.europa.eu"
+      ],
+      "tier": 2,
+      "defaultStatus": "review_candidate"
+    },
+    {
+      "id": "cdc-surveillance",
+      "query": "hantavirus surveillance reported cases CDC NNDSS 2026",
+      "domains": [
+        "cdc.gov",
+        "data.cdc.gov"
+      ],
+      "tier": 1,
+      "defaultStatus": "review_candidate"
+    },
+    {
+      "id": "canada-official",
+      "query": "hantavirus Canada official public health surveillance 2026",
+      "domains": [
+        "canada.ca",
+        "publichealthontario.ca",
+        "bccdc.ca",
+        "alberta.ca"
+      ],
+      "tier": 2,
+      "defaultStatus": "review_candidate"
+    },
+    {
+      "id": "us-state-health",
+      "query": "hantavirus state health department official alert 2026",
+      "domains": [
+        "nmhealth.org",
+        "doh.wa.gov",
+        "cdph.ca.gov",
+        "azdhs.gov",
+        "cdphe.colorado.gov",
+        "health.state.mn.us",
+        "oregon.gov",
+        "epi.utah.gov"
+      ],
+      "tier": 2,
+      "defaultStatus": "review_candidate"
+    },
+    {
+      "id": "south-america-official",
+      "query": "hantavirus Andes virus official health ministry Argentina Chile 2026",
+      "domains": [
+        "argentina.gob.ar",
+        "minsal.cl",
+        "www.gob.cl",
+        "paho.org"
+      ],
+      "tier": 2,
+      "defaultStatus": "review_candidate"
+    },
+    {
+      "id": "europe-official",
+      "query": "hantavirus Europe official surveillance ECDC national public health 2026",
+      "domains": [
+        "ecdc.europa.eu",
+        "thl.fi",
+        "folkhalsomyndigheten.se",
+        "rki.de",
+        "gov.uk"
+      ],
+      "tier": 2,
+      "defaultStatus": "review_candidate"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "argentina-bolet-n-epidemiol-gico-nacional-n-785-se-48-a-o-2025",
+      "title": "Boletín Epidemiológico Nacional N°785, SE 48, Año 2025",
+      "url": "https://www.argentina.gob.ar/sites/default/files/2025/01/ben-785-se-48-vf.pdf",
+      "domain": "argentina.gob.ar",
+      "discoveryBatch": "south-america-official",
+      "tier": 4,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official PDF/report candidate",
+      "candidateUse": "Candidate for manual PDF review and source-linked context.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Requires PDF extraction, table/date review, language review where needed, and safe summary rules.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Argentina official-data pipeline candidate after Spanish PDF extraction and review."
+    },
+    {
+      "id": "canada-surveillance-of-hantavirus-related-diseases",
+      "title": "Surveillance of hantavirus related diseases",
+      "url": "https://www.canada.ca/en/public-health/services/diseases/hantaviruses/surveillance-hantavirus-related-diseases.html",
+      "domain": "canada.ca",
+      "discoveryBatch": "canada-official",
+      "tier": 1,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official surveillance dataset or surveillance page",
+      "candidateUse": "Internal review candidate for surveillance context or future reviewed snapshots.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Requires display rule before public use. Do not treat provisional rows as live/final/local case counts.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Canada historical surveillance context candidate."
+    },
+    {
+      "id": "canada-risks-of-a-hantavirus-infection",
+      "title": "Risks of a hantavirus infection",
+      "url": "https://www.canada.ca/en/public-health/services/diseases/hantaviruses/risks-hantavirus-infection.html",
+      "domain": "canada.ca",
+      "discoveryBatch": "canada-official",
+      "tier": 2,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official public health source candidate",
+      "candidateUse": "Candidate for human review and possible source registry/backlog expansion.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Verify official publisher, publication date, disease context, geography, and safe public wording before use.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Canada page candidate and MV Hondius related context."
+    },
+    {
+      "id": "canada-interdepartmental-media-update-hantavirus-may-10-2026",
+      "title": "Interdepartmental Media Update – Hantavirus - May 10, 2026",
+      "url": "https://www.canada.ca/en/global-affairs/news/2026/05/interdepartmental-media-update--hantavirus---may-10-2026.html",
+      "domain": "canada.ca",
+      "discoveryBatch": "canada-official",
+      "tier": 2,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official outbreak alert or public health update",
+      "candidateUse": "Candidate for reviewed official alert/event timeline after deduplication.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Deduplicate against existing event records and avoid travel advice, patient locations, or live-risk claims.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "MV Hondius Canada response timeline candidate."
+    },
+    {
+      "id": "data-cdc-nndss-weekly-data-socrata-endpoint",
+      "title": "CDC NNDSS Weekly Data Socrata endpoint",
+      "url": "https://data.cdc.gov/resource/x9gk-5huc.json",
+      "domain": "data.cdc.gov",
+      "discoveryBatch": "cdc-surveillance",
+      "tier": 1,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official surveillance dataset or surveillance page",
+      "candidateUse": "Internal review candidate for surveillance context or future reviewed snapshots.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Requires display rule before public use. Do not treat provisional rows as live/final/local case counts.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Internal weekly review candidates for HPS and non-HPS hantavirus rows."
+    },
+    {
+      "id": "doh-washington-epitrends-april-2025-hantavirus-issue",
+      "title": "Washington epiTRENDS April 2025 hantavirus issue",
+      "url": "https://doh.wa.gov/sites/default/files/2025-04/420-002-epitrends2025-04.pdf",
+      "domain": "doh.wa.gov",
+      "discoveryBatch": "us-state-health",
+      "tier": 4,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official PDF/report candidate",
+      "candidateUse": "Candidate for manual PDF review and source-linked context.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Requires PDF extraction, table/date review, language review where needed, and safe summary rules.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Washington state page and annual case context candidate."
+    },
+    {
+      "id": "ecdc-cruise-ship-hantavirus-outbreak-ecdc-response-activated",
+      "title": "Cruise ship hantavirus outbreak: ECDC response activated",
+      "url": "https://www.ecdc.europa.eu/en/news-events/cruise-ship-hantavirus-outbreak-ecdc-response-activated",
+      "domain": "ecdc.europa.eu",
+      "discoveryBatch": "global-official-alerts",
+      "tier": 2,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official outbreak alert or public health update",
+      "candidateUse": "Candidate for reviewed official alert/event timeline after deduplication.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Deduplicate against existing event records and avoid travel advice, patient locations, or live-risk claims.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "MV Hondius event timeline candidate."
+    },
+    {
+      "id": "ecdc-ecdc-guidance-for-passengers-linked-to-andes-hantavirus-outbreak-on-crui",
+      "title": "ECDC guidance for passengers linked to Andes hantavirus outbreak on cruise ship",
+      "url": "https://www.ecdc.europa.eu/en/news-events/ecdc-publishes-guidance-management-passengers-linked-andes-hantavirus-outbreak-cruise",
+      "domain": "ecdc.europa.eu",
+      "discoveryBatch": "europe-official",
+      "tier": 2,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official outbreak alert or public health update",
+      "candidateUse": "Candidate for reviewed official alert/event timeline after deduplication.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Deduplicate against existing event records and avoid travel advice, patient locations, or live-risk claims.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "MV Hondius event timeline and public-health response context."
+    },
+    {
+      "id": "stacks-cdc-stacks-nndss-weekly-hps-table",
+      "title": "CDC Stacks NNDSS weekly HPS table",
+      "url": "https://stacks.cdc.gov/view/cdc/256226",
+      "domain": "stacks.cdc.gov",
+      "discoveryBatch": "cdc-surveillance",
+      "tier": 1,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official surveillance dataset or surveillance page",
+      "candidateUse": "Internal review candidate for surveillance context or future reviewed snapshots.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Requires display rule before public use. Do not treat provisional rows as live/final/local case counts.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Internal review candidate for weekly Hantavirus pulmonary syndrome tables and NNDSS field semantics."
+    },
+    {
+      "id": "stacks-cdc-stacks-nndss-weekly-non-hps-hantavirus-table",
+      "title": "CDC Stacks NNDSS weekly non-HPS hantavirus table",
+      "url": "https://stacks.cdc.gov/view/cdc/251471",
+      "domain": "stacks.cdc.gov",
+      "discoveryBatch": "cdc-surveillance",
+      "tier": 1,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official surveillance dataset or surveillance page",
+      "candidateUse": "Internal review candidate for surveillance context or future reviewed snapshots.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Requires display rule before public use. Do not treat provisional rows as live/final/local case counts.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Internal review candidate for non-HPS hantavirus weekly table semantics."
+    },
+    {
+      "id": "who-who-disease-outbreak-news-index",
+      "title": "WHO Disease Outbreak News index",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news",
+      "domain": "who.int",
+      "discoveryBatch": "global-official-alerts",
+      "tier": 2,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official outbreak alert or public health update",
+      "candidateUse": "Candidate for reviewed official alert/event timeline after deduplication.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Deduplicate against existing event records and avoid travel advice, patient locations, or live-risk claims.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Discovery of official hantavirus DON items."
+    },
+    {
+      "id": "who-who-hantavirus-outbreak-toolbox",
+      "title": "WHO Hantavirus Outbreak Toolbox",
+      "url": "https://www.who.int/emergencies/outbreak-toolkit/disease-outbreak-toolboxes/hantavirus-outbreak-toolbox",
+      "domain": "who.int",
+      "discoveryBatch": "global-official-alerts",
+      "tier": 2,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official outbreak alert or public health update",
+      "candidateUse": "Candidate for reviewed official alert/event timeline after deduplication.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Deduplicate against existing event records and avoid travel advice, patient locations, or live-risk claims.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Methodology taxonomy, outbreak glossary, and source registry expansion."
+    },
+    {
+      "id": "www1-paho-historical-americas-hantavirus-report-1998",
+      "title": "PAHO historical Americas hantavirus report, 1998",
+      "url": "https://www1.paho.org/english/gov/ce/ce122_14.pdf",
+      "domain": "www1.paho.org",
+      "discoveryBatch": "south-america-official",
+      "tier": 4,
+      "status": "known_backlog_candidate",
+      "sourceType": "Official PDF/report candidate",
+      "candidateUse": "Candidate for manual PDF review and source-linked context.",
+      "publicUseAllowed": false,
+      "reviewNeed": "Requires PDF extraction, table/date review, language review where needed, and safe summary rules.",
+      "knownBacklog": true,
+      "score": null,
+      "snippet": "Historical Americas context and country source discovery."
+    }
+  ]
+}

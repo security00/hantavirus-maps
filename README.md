@@ -90,7 +90,7 @@ Page content lives in `lib/page-content.ts`.
 
 FAQ content lives in `lib/faq.ts`.
 
-## Internal source checker and human review
+## Internal source checker, Tavily discovery, and human review
 
 Draft source checks can be generated with:
 
@@ -99,6 +99,23 @@ python3 scripts/check_hantavirus_sources.py
 ```
 
 The checker uses only Python stdlib, reads `data/sources/source-registry.json`, checks selected official/reliable endpoints, and writes `reports/source-check-YYYY-MM-DD.md`. Treat all report findings as internal review candidates only. The script must not update public JSON data, publish live/local risk claims, or replace human review.
+
+Tavily-powered candidate discovery can be generated with:
+
+```bash
+# Live discovery requires TAVILY_API_KEY in the environment.
+npm run discover:sources
+
+# Test report generation without live Tavily calls.
+npm run discover:sources -- --dry-run
+```
+
+The discovery script writes:
+
+- `reports/tavily-source-candidates-YYYY-MM-DD.md`
+- `data/sources/tavily-candidates-YYYY-MM-DD.json`
+
+Tavily is used only for discovery and extraction. It is not a trust authority. Generated candidates must not be auto-published into public map data, alerts, source registry, or page copy.
 
 Human review is required before candidate data is promoted into public JSON snapshots or public page copy:
 
