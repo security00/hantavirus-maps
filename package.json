@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "generate:event-markdown": "node scripts/generate-event-markdown.mjs",
+    "generate:geo-markdown": "node scripts/generate-geo-markdown.mjs",
     "validate:seo": "node scripts/validate-seo.mjs"
   },
   "dependencies": {

@@ -53,6 +53,15 @@ export function rawEventPath(id) {
   return `/raw/event/${id}.md`;
 }
 
+
+export function rawSourcePath(id) {
+  return `/raw/source/${id}.md`;
+}
+
+export function rawWherePath(slug) {
+  return `/raw/where/${slug}.md`;
+}
+
 export function absoluteUrl(path) {
   return new URL(path, SITE_URL).toString();
 }

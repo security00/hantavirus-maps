@@ -268,6 +268,14 @@ export function absoluteUrl(path: string) {
   return new URL(path, SITE_URL).toString();
 }
 
+function rawSourcePath(id: string) {
+  return `/raw/source/${id}.md`;
+}
+
+function rawWherePath(slug: string) {
+  return `/raw/where/${slug}.md`;
+}
+
 
 const SOURCE_ROUTES: SiteRoute[] = SOURCE_PAGE_IDS.map((id) => ({
   path: sourcePath(id),
@@ -304,4 +312,20 @@ const EVENT_ROUTES: SiteRoute[] = EVENT_PAGE_IDS.flatMap((id) => [
   },
 ]);
 
-export const ALL_SITE_ROUTES: SiteRoute[] = [...SITE_ROUTES, ...SOURCE_ROUTES, ...WHERE_ROUTES, ...EVENT_ROUTES];
+const RAW_SOURCE_ROUTES: SiteRoute[] = SOURCE_PAGE_IDS.map((id) => ({
+  path: rawSourcePath(id),
+  title: `Raw Source Markdown: ${id}`,
+  description: `Markdown shadow source record for ${id}.`,
+  priority: 0.24,
+  changeFrequency: "monthly",
+}));
+
+const RAW_WHERE_ROUTES: SiteRoute[] = WHERE_PAGE_SLUGS.map((slug) => ({
+  path: rawWherePath(slug),
+  title: `Raw Location Markdown: ${slug}`,
+  description: `Markdown shadow location record for ${slug}.`,
+  priority: 0.24,
+  changeFrequency: "monthly",
+}));
+
+export const ALL_SITE_ROUTES: SiteRoute[] = [...SITE_ROUTES, ...SOURCE_ROUTES, ...WHERE_ROUTES, ...EVENT_ROUTES, ...RAW_SOURCE_ROUTES, ...RAW_WHERE_ROUTES];

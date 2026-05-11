@@ -104,6 +104,17 @@ export default async function SourcePage({ params }: { params: Promise<PageParam
 
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.7fr_0.3fr] lg:px-8">
         <div className="space-y-10">
+          <section aria-labelledby="answer-ready-summary" className="rounded-lg border border-emerald-300/20 bg-emerald-300/[0.08] p-5">
+            <p className="text-sm font-semibold text-emerald-100">Answer-ready summary</p>
+            <h2 id="answer-ready-summary" className="mt-2 text-2xl font-semibold">How to cite this source page</h2>
+            <p className="mt-4 leading-8 text-slate-200">
+              Hantavirus Maps uses {source.publisher} material as reviewed public health context for map records. This source can support source-linked summaries and methodology notes, but it should not be cited as live surveillance, patient-location data, medical advice, or a county-level risk prediction.
+            </p>
+            <div className="mt-5 rounded-md border border-white/10 bg-slate-950/70 p-4 text-sm leading-7 text-slate-300">
+              Suggested citation: Hantavirus Maps, “{source.title},” reviewed {source.reviewedDate}, {`https://hantavirusmaps.org${sourcePath(source.id)}`}.
+            </div>
+          </section>
+
           <section aria-labelledby="source-summary" className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
             <h2 id="source-summary" className="text-2xl font-semibold">Source summary</h2>
             <dl className="mt-5 grid gap-4 sm:grid-cols-2">

@@ -8,6 +8,8 @@ import {
   absoluteUrl,
   eventPath,
   rawEventPath,
+  rawSourcePath,
+  rawWherePath,
   sourcePath,
   wherePath,
 } from './seo-constants.mjs';
@@ -66,6 +68,8 @@ function expectedMachinePaths() {
     ...WHERE_PAGE_SLUGS.map(wherePath),
     ...EVENT_PAGE_IDS.map(eventPath),
     ...EVENT_PAGE_IDS.map(rawEventPath),
+    ...SOURCE_PAGE_IDS.map(rawSourcePath),
+    ...WHERE_PAGE_SLUGS.map(rawWherePath),
   ];
 }
 
@@ -75,6 +79,24 @@ function validateStaticRawMarkdown() {
     const content = readRequired(relativePath);
     expectIncludes(relativePath, content, `id: "${id}"`);
     expectIncludes(relativePath, content, `${SITE_URL}${eventPath(id)}`);
+    expectIncludes(relativePath, content, '## Safe interpretation');
+  }
+
+  for (const id of SOURCE_PAGE_IDS) {
+    const relativePath = `public/raw/source/${id}.md`;
+    const content = readRequired(relativePath);
+    expectIncludes(relativePath, content, `id: "${id}"`);
+    expectIncludes(relativePath, content, `${SITE_URL}${sourcePath(id)}`);
+    expectIncludes(relativePath, content, '## Answer-ready summary');
+    expectIncludes(relativePath, content, '## Safe interpretation');
+  }
+
+  for (const slug of WHERE_PAGE_SLUGS) {
+    const relativePath = `public/raw/where/${slug}.md`;
+    const content = readRequired(relativePath);
+    expectIncludes(relativePath, content, `slug: "${slug}"`);
+    expectIncludes(relativePath, content, `${SITE_URL}${wherePath(slug)}`);
+    expectIncludes(relativePath, content, '## Answer-ready summary');
     expectIncludes(relativePath, content, '## Safe interpretation');
   }
 }
@@ -122,12 +144,18 @@ function validateBuildOutput() {
     const html = readOut(`source/${id}.html`);
     expectIncludes(`out/source/${id}.html`, html, 'source-breadcrumb-json-ld');
     expectIncludes(`out/source/${id}.html`, html, 'source-dataset-json-ld');
+    expectIncludes(`out/source/${id}.html`, html, 'Answer-ready summary');
+    const raw = readOut(`raw/source/${id}.md`);
+    expectIncludes(`out/raw/source/${id}.md`, raw, '## Answer-ready summary');
   }
 
   for (const slug of WHERE_PAGE_SLUGS) {
     const html = readOut(`where/${slug}.html`);
     expectIncludes(`out/where/${slug}.html`, html, 'where-breadcrumb-json-ld');
     expectIncludes(`out/where/${slug}.html`, html, 'where-dataset-json-ld');
+    expectIncludes(`out/where/${slug}.html`, html, 'Answer-ready summary');
+    const raw = readOut(`raw/where/${slug}.md`);
+    expectIncludes(`out/raw/where/${slug}.md`, raw, '## Answer-ready summary');
   }
 }
 

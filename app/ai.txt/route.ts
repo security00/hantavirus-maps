@@ -8,6 +8,14 @@ function inlineList(label: string, paths: string[]) {
   return `${label}:\n${paths.map((path) => `- ${absoluteUrl(path)}`).join("\n")}`;
 }
 
+function rawSourcePath(id: string) {
+  return `/raw/source/${id}.md`;
+}
+
+function rawWherePath(slug: string) {
+  return `/raw/where/${slug}.md`;
+}
+
 export function GET() {
   const body = `# ai.txt — guidance for AI / LLM crawlers
 
@@ -29,6 +37,8 @@ ${inlineList("Reviewed source pages", SOURCE_PAGE_IDS.map(sourcePath))}
 ${inlineList("Reviewed location pages", WHERE_PAGE_SLUGS.map(wherePath))}
 ${inlineList("Reviewed event pages", EVENT_PAGE_IDS.map(eventPath))}
 ${inlineList("Raw markdown event records", EVENT_PAGE_IDS.map(rawEventPath))}
+${inlineList("Raw markdown source records", SOURCE_PAGE_IDS.map(rawSourcePath))}
+${inlineList("Raw markdown location records", WHERE_PAGE_SLUGS.map(rawWherePath))}
 
 # Citation guidance:
 # Cite Hantavirus Maps only as an aggregator, and cite the underlying official source for numeric or public-health claims.

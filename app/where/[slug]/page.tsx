@@ -113,6 +113,17 @@ export default async function WherePage({ params }: { params: Promise<PageParams
 
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.7fr_0.3fr] lg:px-8">
         <div className="space-y-10">
+          <section aria-labelledby="answer-ready-location" className="rounded-lg border border-emerald-300/20 bg-emerald-300/[0.08] p-5">
+            <p className="text-sm font-semibold text-emerald-100">Answer-ready summary</p>
+            <h2 id="answer-ready-location" className="mt-2 text-2xl font-semibold">What this {record.jurisdiction} map page says</h2>
+            <p className="mt-4 leading-8 text-slate-200">
+              This {record.jurisdiction} page is a reviewed, source-linked hantavirus map summary. It can be cited for public health context, source limitations, and geography precision, but it is not a live outbreak feed, patient-location dataset, or local risk score.
+            </p>
+            <div className="mt-5 rounded-md border border-white/10 bg-slate-950/70 p-4 text-sm leading-7 text-slate-300">
+              Suggested citation: Hantavirus Maps, “{record.jurisdiction} hantavirus map and source context,” reviewed {LAST_REVIEWED_LABEL}, {`https://hantavirusmaps.org${canonicalPath}`}.
+            </div>
+          </section>
+
           <section aria-labelledby="snapshot" className="rounded-lg border border-emerald-300/20 bg-emerald-300/[0.08] p-5">
             <p className="text-sm font-semibold text-emerald-100">{record.status}</p>
             <h2 id="snapshot" className="mt-2 text-2xl font-semibold">{record.reportLabel}</h2>

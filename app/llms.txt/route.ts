@@ -8,11 +8,21 @@ function listItems(paths: string[]) {
   return paths.map((path) => `- ${absoluteUrl(path)}`).join("\n");
 }
 
+function rawSourcePath(id: string) {
+  return `/raw/source/${id}.md`;
+}
+
+function rawWherePath(slug: string) {
+  return `/raw/where/${slug}.md`;
+}
+
 export function GET() {
   const sourcePages = SOURCE_PAGE_IDS.map(sourcePath);
   const wherePages = WHERE_PAGE_SLUGS.map(wherePath);
   const eventPages = EVENT_PAGE_IDS.map(eventPath);
   const rawEventPages = EVENT_PAGE_IDS.map(rawEventPath);
+  const rawSourcePages = SOURCE_PAGE_IDS.map(rawSourcePath);
+  const rawWherePages = WHERE_PAGE_SLUGS.map(rawWherePath);
 
   const body = `# Hantavirus Maps
 
@@ -52,6 +62,14 @@ ${listItems(eventPages)}
 ## Raw markdown event records
 
 ${listItems(rawEventPages)}
+
+## Raw markdown source records
+
+${listItems(rawSourcePages)}
+
+## Raw markdown location records
+
+${listItems(rawWherePages)}
 
 ## Data policy
 

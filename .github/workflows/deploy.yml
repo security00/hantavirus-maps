@@ -17,6 +17,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run generate:event-markdown
+          npm run generate:geo-markdown
       - run: npm run build
       - run: npm run validate:seo
       - name: Deploy Worker

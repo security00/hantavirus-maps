@@ -60,6 +60,34 @@ const wherePaths = Object.fromEntries(
   ]),
 );
 
+const rawSourcePaths = Object.fromEntries(
+  SOURCE_PAGE_IDS.map((id) => [
+    `/raw/source/${id}.md`,
+    {
+      get: {
+        operationId: `getRawSourceMarkdown_${id.replaceAll("-", "_")}`,
+        summary: `Raw markdown source record: ${id}`,
+        description: "Plain markdown shadow for source notes, LLM retrieval, and citation systems.",
+        responses: { "200": { description: "Markdown source record", content: { "text/markdown": { schema: { type: "string" } } } } },
+      },
+    },
+  ]),
+);
+
+const rawWherePaths = Object.fromEntries(
+  WHERE_PAGE_SLUGS.map((slug) => [
+    `/raw/where/${slug}.md`,
+    {
+      get: {
+        operationId: `getRawWhereMarkdown_${slug.replaceAll("-", "_")}`,
+        summary: `Raw markdown location record: ${slug}`,
+        description: "Plain markdown shadow for location notes, LLM retrieval, and citation systems.",
+        responses: { "200": { description: "Markdown location record", content: { "text/markdown": { schema: { type: "string" } } } } },
+      },
+    },
+  ]),
+);
+
 export function GET() {
   return Response.json(
     {
@@ -140,6 +168,8 @@ export function GET() {
         ...sourcePaths,
         ...wherePaths,
         ...eventPaths,
+        ...rawSourcePaths,
+        ...rawWherePaths,
       },
       components: {
         schemas: {
