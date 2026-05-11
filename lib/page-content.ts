@@ -512,21 +512,51 @@ export const CONTENT_PAGES = {
     keyPoints: [
       "Every map record points to source IDs in the registry.",
       "The site separates reported cases, official alerts, and reservoir evidence.",
-      "The site avoids county-level CDC case claims, real-time tracking claims, and exact risk scores."
+      "The site avoids county-level CDC case claims, real-time tracking claims, and exact risk scores.",
+      "Reviewed-only feeds and outbreak notes publish source review updates, not unverified case rumors."
     ],
     sections: [
+      {
+        heading: "Source taxonomy",
+        body: [
+          "Primary public health sources include CDC, WHO, PAHO/WHO, ECDC, and state or national health departments. These sources are preferred for case definitions, official alerts, prevention guidance, and public surveillance summaries.",
+          "Supporting scientific or ecology sources may be used for reservoir context, but they are not converted into case counts, infected-animal maps, or exact local risk claims."
+        ],
+        bullets: [
+          "Reported case summaries: official surveillance or agency summary pages, usually state-level or country-level.",
+          "Official alerts: reviewed agency notices about selected events, outbreaks, or public health advisories.",
+          "Reservoir ecology: host and habitat context that explains where exposure can be biologically plausible, not where human cases are occurring."
+        ]
+      },
       {
         heading: "Inclusion rules",
         body: [
           "Preferred sources are CDC, WHO, PAHO/WHO, ECDC, state health departments, and peer-reviewed CDC publications.",
-          "A source must be public, linkable, and clear enough to summarize without guessing."
+          "A source must be public, linkable, and clear enough to summarize without guessing.",
+          "Each public map or guide page should be able to trace its claims back to one or more source IDs in the registry."
+        ]
+      },
+      {
+        heading: "Review workflow",
+        body: [
+          "New candidate sources are first treated as review material. They can be recorded in internal reports or reviewed-only feeds before they are promoted into public data snapshots.",
+          "A source is promoted only when the wording, geography, time period, limitations, and agency status are clear enough to summarize conservatively.",
+          "If a source changes, becomes unavailable, or introduces uncertainty, public copy should prefer the limitation over an unsupported inference."
         ]
       },
       {
         heading: "Exclusion rules",
         body: [
           "The MVP excludes rumor-based reports, unsourced social posts, scraped news-only case maps, and unsupported county-level precision.",
-          "Reservoir ecology is never converted into exact human risk."
+          "Reservoir ecology is never converted into exact human risk.",
+          "The site does not publish patient locations, suspected cases from unofficial media, travel-clearance advice, or live current-case counters."
+        ]
+      },
+      {
+        heading: "Feed and tracker limits",
+        body: [
+          "The reviewed RSS and JSON feeds are site-update feeds. They may announce reviewed official-source notes, methodology updates, and new educational pages.",
+          "They are not live surveillance feeds, public health reporting systems, emergency notification services, or complete outbreak datasets."
         ]
       }
     ],
@@ -617,7 +647,8 @@ export const CONTENT_PAGES = {
       {
         heading: "Cookies and analytics",
         body: [
-          "The current static site does not require user accounts or login cookies. If analytics, advertising, or consent tools are added later, this policy should be updated before those tools are enabled.",
+          "The current static site does not require user accounts or login cookies. It uses Google Analytics and Microsoft Clarity to understand aggregate site usage, page performance, and usability patterns.",
+          "Analytics providers may process technical information such as page URL, device/browser information, approximate location derived from network data, interaction events, and cookie or similar identifiers according to their own policies.",
           "Third-party map tiles and external links may be requested by your browser when you use the interactive map or open source links. Those providers may process requests under their own policies."
         ]
       },
