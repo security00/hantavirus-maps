@@ -119,6 +119,7 @@ function classifySource(url, title, batch) {
   const rejectionReasons = [];
   const isSearchOrIndex = lower.includes('/search') || lower.includes('cbrowse') || parsed.searchParams.has('s') || parsed.searchParams.has('page') || lower.includes('news/?') || lower.includes('/news/?');
   const isMinsalGeneralStatement = domain === 'minsal.cl' && lower.includes('declaracion-ministerio-de-salud');
+  const isNmHealthLocalOldNews = domain === 'nmhealth.org' && lower.includes('/news/safety/2026/3/') && !lower.includes('hondius') && !lower.includes('cruise');
   const isDataset = lower.includes('data.cdc.gov') || lower.includes('nndss') || lower.includes('surveillance');
   const isPdf = lower.includes('.pdf');
   const isAlert = lower.includes('don') || lower.includes('outbreak') || lower.includes('alert') || lower.includes('news');
@@ -139,6 +140,12 @@ function classifySource(url, title, batch) {
   if (isMinsalGeneralStatement) {
     weakSignals.push('General Ministry statement without specific 2026 case data; keep as background only, not Tavily candidate evidence.');
     rejectionReasons.push('Rejected by review rule: Minsal page lacks specific 2026 case/event data for this candidate queue.');
+    reviewPriority = 'low';
+  }
+
+  if (isNmHealthLocalOldNews) {
+    weakSignals.push('Local state news item is outside the current 2026 MV Hondius cruise-monitoring focus.');
+    rejectionReasons.push('Rejected by review rule: remove non-cruise New Mexico local old-news candidates from the 2026 cruise-monitoring queue.');
     reviewPriority = 'low';
   }
 
