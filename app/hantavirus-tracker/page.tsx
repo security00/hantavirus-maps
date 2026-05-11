@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { InternalLinkCluster } from "@/components/InternalLinkCluster";
 import { MapPanel } from "@/components/MapPanel";
 import { SourceList } from "@/components/SourceList";
 import { collectSourceIds, getAlerts, getCaseDataset, getReservoirDataset } from "@/lib/data";
@@ -154,6 +155,20 @@ export default function HantavirusTrackerPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <InternalLinkCluster
+            title="Tracker index: sources, places and event records"
+            intro="These links connect the tracker to the reviewed data products behind the map: source pages, location pages, event pages, and raw markdown records for citation systems."
+            compact
+            sourceLimit={8}
+            whereLimit={8}
+            eventLimit={8}
+          />
         </div>
       </section>
 

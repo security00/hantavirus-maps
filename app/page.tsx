@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { FAQ_ITEMS } from "@/lib/faq";
 
+import { InternalLinkCluster } from "@/components/InternalLinkCluster";
 import { MapPanel } from "@/components/MapPanel";
 import { SourceList } from "@/components/SourceList";
 import {
@@ -230,6 +231,19 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <InternalLinkCluster
+            title="Reviewed hantavirus map index"
+            intro="Jump from the homepage into reviewed source notes, location summaries, event records, raw markdown files, and machine-readable data without relying on unreviewed search snippets."
+            sourceLimit={8}
+            whereLimit={8}
+            eventLimit={6}
+          />
         </div>
       </section>
 

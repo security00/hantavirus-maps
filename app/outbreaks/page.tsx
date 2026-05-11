@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { SourceList } from "@/components/SourceList";
 import { formatDateLabel, getAlerts } from "@/lib/data";
+import { getEventRecords } from "@/lib/event-pages";
 import { LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 export const metadata: Metadata = {
@@ -49,6 +50,7 @@ const explainerRules = [
 
 export default function OutbreaksPage() {
   const alerts = getAlerts().filter((alert) => selectedAlertIds.includes(alert.id));
+  const eventRecords = getEventRecords().filter((event) => event.type === "official-alert");
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
@@ -132,6 +134,38 @@ export default function OutbreaksPage() {
                 </article>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="reviewed-event-records">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-semibold text-emerald-200">Event records</p>
+            <h2 id="reviewed-event-records" className="mt-2 text-3xl font-semibold">
+              Citation-ready reviewed event pages
+            </h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              Each reviewed event has a human page plus a raw markdown shadow for AI retrieval and citation systems.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {eventRecords.map((event) => (
+              <article key={event.id} className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+                <p className="text-xs font-semibold text-slate-400">{event.date} · {event.geography}</p>
+                <h3 className="mt-2 text-lg font-semibold text-white">{event.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{event.summary}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Link href={event.canonicalPath} className="rounded-md border border-emerald-300/35 px-3 py-2 text-xs font-semibold text-emerald-100 hover:border-emerald-200 hover:text-white">
+                    Event page
+                  </Link>
+                  <Link href={event.rawPath} className="rounded-md border border-white/10 px-3 py-2 text-xs font-semibold text-slate-200 hover:border-emerald-300/50 hover:text-white">
+                    Raw markdown
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
