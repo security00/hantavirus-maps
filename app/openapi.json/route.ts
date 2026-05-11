@@ -109,6 +109,13 @@ export function GET() {
             },
           },
         },
+        "/openapi.json": {
+          get: {
+            operationId: "getOpenApi",
+            summary: "OpenAPI description for all machine-readable discovery endpoints",
+            responses: { "200": { description: "OpenAPI JSON document" } },
+          },
+        },
         "/llms.txt": {
           get: {
             operationId: "getLlmsTxt",

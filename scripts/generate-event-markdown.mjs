@@ -6,23 +6,7 @@ const alerts = JSON.parse(fs.readFileSync(path.join(root, 'data/alerts/official-
 const cases = JSON.parse(fs.readFileSync(path.join(root, 'data/cases/us-state-historical.json'), 'utf8')).records;
 const sources = JSON.parse(fs.readFileSync(path.join(root, 'data/sources/source-registry.json'), 'utf8')).sources;
 
-const SITE_URL = 'https://hantavirusmaps.org';
-const eventIds = [
-  'who-don600-2026-cruise',
-  'canada-mv-hondius-2026',
-  'ecdc-mv-hondius-response-2026',
-  'paho-alert-2025-americas',
-  'nmdoh-2026-santa-fe',
-  'adhs-2024-increased-activity',
-  'utah-mv-hondius-2026',
-  'united-states-cdc-1993-2023',
-  'canada-phac-1994-2026',
-  'argentina-ben-source-linked-2025',
-];
-
-function eventPath(id) {
-  return `/event/${id}/`;
-}
+import { EVENT_PAGE_IDS, SITE_URL, eventPath } from './seo-constants.mjs';
 
 function sourceById(id) {
   return sources.find((source) => source.id === id);
@@ -71,7 +55,7 @@ function toEvents() {
     ],
   }));
 
-  return [...alertRecords, ...caseRecords].filter((event) => eventIds.includes(event.id));
+  return [...alertRecords, ...caseRecords].filter((event) => EVENT_PAGE_IDS.includes(event.id));
 }
 
 function renderMarkdown(event) {
@@ -133,4 +117,4 @@ fs.mkdirSync(outDir, { recursive: true });
 for (const event of toEvents()) {
   fs.writeFileSync(path.join(outDir, `${event.id}.md`), renderMarkdown(event));
 }
-console.log(`Wrote ${eventIds.length} raw event markdown files to public/raw/event`);
+console.log(`Wrote ${EVENT_PAGE_IDS.length} raw event markdown files to public/raw/event`);

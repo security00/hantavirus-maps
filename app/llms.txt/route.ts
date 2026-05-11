@@ -23,6 +23,7 @@ export function GET() {
 - Reviewed map snapshots: ${absoluteUrl("/data/map-snapshots.json")}
 - Reviewed source registry: ${absoluteUrl("/data/sources.json")}
 - OpenAPI description: ${absoluteUrl("/openapi.json")}
+- LLM crawler manifest: ${absoluteUrl("/llms.txt")}
 - XML sitemap: ${absoluteUrl("/sitemap.xml")}
 - AI crawler guidance: ${absoluteUrl("/ai.txt")}
 - RSS feed: ${absoluteUrl("/feed.xml")}

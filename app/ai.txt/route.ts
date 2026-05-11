@@ -20,6 +20,7 @@ Dataset: ${absoluteUrl("/data/map-snapshots.json")}
 Sources: ${absoluteUrl("/data/sources.json")}
 OpenAPI: ${absoluteUrl("/openapi.json")}
 Manifest: ${absoluteUrl("/llms.txt")}
+AI crawler guidance: ${absoluteUrl("/ai.txt")}
 Sitemap: ${absoluteUrl("/sitemap.xml")}
 Methodology: ${absoluteUrl("/sources-methodology/")}
 
