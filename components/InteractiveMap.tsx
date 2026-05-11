@@ -103,22 +103,43 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
           <LayersControl.Overlay checked name="Official public health alerts">
             <LayerGroup>
               {alertMarkers.map(({ alert, position }) => (
-                <CircleMarker
-                  key={alert.id}
-                  center={position}
-                  radius={12}
-                  pathOptions={{ color: "#fecaca", fillColor: "#ef4444", fillOpacity: 0.96, opacity: 1, weight: 3 }}
-                >
-                  <Tooltip direction="top" offset={[0, -10]} opacity={0.95}>
-                    Click for official alert details
-                  </Tooltip>
-                  <Popup className="dark-map-popup" maxWidth={380} minWidth={280} closeButton>
-                    <PopupCard title={alert.title} label={`${alert.agency} · ${alert.date}`} sourceIds={alert.sourceIds} sourcesById={sourcesById}>
-                      <p>{alert.summary}</p>
-                      <p className="popup-limit">{alert.riskLanguage}</p>
-                    </PopupCard>
-                  </Popup>
-                </CircleMarker>
+                <LayerGroup key={alert.id}>
+                  <CircleMarker
+                    center={position}
+                    radius={24}
+                    interactive={false}
+                    pathOptions={{
+                      className: "alert-pulse-ring",
+                      color: "#fb7185",
+                      fillColor: "#ef4444",
+                      fillOpacity: 0.18,
+                      opacity: 0.82,
+                      weight: 2
+                    }}
+                  />
+                  <CircleMarker
+                    center={position}
+                    radius={12}
+                    pathOptions={{
+                      className: "alert-glow-marker",
+                      color: "#fecaca",
+                      fillColor: "#ef4444",
+                      fillOpacity: 0.96,
+                      opacity: 1,
+                      weight: 3
+                    }}
+                  >
+                    <Tooltip direction="top" offset={[0, -10]} opacity={0.95}>
+                      Click for official alert details
+                    </Tooltip>
+                    <Popup className="dark-map-popup" maxWidth={380} minWidth={280} closeButton>
+                      <PopupCard title={alert.title} label={`${alert.agency} · ${alert.date}`} sourceIds={alert.sourceIds} sourcesById={sourcesById}>
+                        <p>{alert.summary}</p>
+                        <p className="popup-limit">{alert.riskLanguage}</p>
+                      </PopupCard>
+                    </Popup>
+                  </CircleMarker>
+                </LayerGroup>
               ))}
             </LayerGroup>
           </LayersControl.Overlay>
