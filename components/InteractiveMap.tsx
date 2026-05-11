@@ -193,6 +193,10 @@ function PopupCard({
       <p className="popup-label">{label}</p>
       <strong>{title}</strong>
       <div className="popup-body">{children}</div>
+      <div className="popup-next-actions">
+        <a href="/hantavirus-tracker/">Read tracker guide</a>
+        <a href="/sources-methodology/">How to read sources</a>
+      </div>
       <div className="popup-sources">
         {sourceIds.slice(0, 3).map((sourceId) => {
           const source = sourcesById[sourceId];

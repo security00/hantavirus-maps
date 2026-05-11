@@ -196,6 +196,23 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             />
           </div>
 
+          <section className="mt-4 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.06] p-4" aria-labelledby="map-next-steps">
+            <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">After using the map</p>
+                <h2 id="map-next-steps" className="mt-1 text-lg font-semibold text-white">Choose the next answer you need</h2>
+              </div>
+              <p className="max-w-xl text-sm leading-6 text-slate-300">
+                Visitors are already clicking and dragging the map. These shortcuts turn that interaction into a clearer reading path.
+              </p>
+            </div>
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              <MapNextStep href="/where/united-states/" label="Check the U.S. map by state" detail="See source-linked state and regional context." />
+              <MapNextStep href="/outbreaks/" label="Review official alerts" detail="Follow reviewed WHO, ECDC, PAHO/WHO, CDC, and health department notices." />
+              <MapNextStep href="/prevention/cleaning-mouse-droppings/" label="Need cleanup guidance?" detail="Read practical prevention steps for droppings, nests, and enclosed spaces." />
+            </div>
+          </section>
+
           <div className="mt-4 grid gap-3 md:grid-cols-3">
             <MapMetric label="U.S. case geography" value="State-level" detail="CDC public limit" />
             <MapMetric label="Alert policy" value="Official only" detail="No rumor scraping" />
@@ -264,5 +281,17 @@ function MapMetric({ label, value, detail }: { label: string; value: string; det
       <p className="mt-2 text-lg font-semibold text-white">{value}</p>
       <p className="mt-1 text-sm text-slate-400">{detail}</p>
     </div>
+  );
+}
+
+function MapNextStep({ href, label, detail }: { href: string; label: string; detail: string }) {
+  return (
+    <Link
+      href={href}
+      className="rounded-lg border border-white/10 bg-slate-950/70 p-4 transition hover:border-emerald-300/50 hover:bg-slate-900"
+    >
+      <span className="text-sm font-semibold text-emerald-100">{label}</span>
+      <span className="mt-2 block text-sm leading-6 text-slate-400">{detail}</span>
+    </Link>
   );
 }

@@ -388,3 +388,26 @@ label {
 .leaflet-control-attribution a {
   color: #bbf7d0 !important;
 }
+
+
+.popup-next-actions {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.popup-next-actions a {
+  display: block;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 8px;
+  padding: 7px 9px;
+  color: #a7f3d0;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.popup-next-actions a:hover {
+  border-color: rgba(167, 243, 208, 0.75);
+  color: #ffffff;
+}
