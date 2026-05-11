@@ -1,3 +1,4 @@
+import { EVENT_PAGE_IDS, eventPath, rawEventPath } from "@/lib/event-pages";
 import { SOURCE_PAGE_IDS, WHERE_PAGE_SLUGS, sourcePath, wherePath } from "@/lib/programmatic-pages";
 
 export const SITE_URL = "https://hantavirusmaps.org";
@@ -284,4 +285,23 @@ const WHERE_ROUTES: SiteRoute[] = WHERE_PAGE_SLUGS.map((slug) => ({
   changeFrequency: "monthly",
 }));
 
-export const ALL_SITE_ROUTES: SiteRoute[] = [...SITE_ROUTES, ...SOURCE_ROUTES, ...WHERE_ROUTES];
+
+
+const EVENT_ROUTES: SiteRoute[] = EVENT_PAGE_IDS.flatMap((id) => [
+  {
+    path: eventPath(id),
+    title: `Reviewed Event: ${id}`,
+    description: `Reviewed event record for ${id} with source links and safe-use limits.`,
+    priority: 0.62,
+    changeFrequency: "weekly" as const,
+  },
+  {
+    path: rawEventPath(id),
+    title: `Raw Event Markdown: ${id}`,
+    description: `Markdown shadow record for ${id}.`,
+    priority: 0.28,
+    changeFrequency: "weekly" as const,
+  },
+]);
+
+export const ALL_SITE_ROUTES: SiteRoute[] = [...SITE_ROUTES, ...SOURCE_ROUTES, ...WHERE_ROUTES, ...EVENT_ROUTES];
