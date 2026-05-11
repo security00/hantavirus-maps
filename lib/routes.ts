@@ -1,7 +1,7 @@
 export const SITE_URL = "https://hantavirusmaps.org";
 export const SITE_HOST = "hantavirusmaps.org";
-export const LAST_REVIEWED_ISO = "2026-05-10";
-export const LAST_REVIEWED_LABEL = "May 10, 2026";
+export const LAST_REVIEWED_ISO = "2026-05-11";
+export const LAST_REVIEWED_LABEL = "May 11, 2026";
 export const SUPPORT_EMAIL = "support@hantavirusmaps.org";
 
 export type RouteFrequency = "weekly" | "monthly" | "yearly";
@@ -173,6 +173,42 @@ export const SITE_ROUTES: SiteRoute[] = [
     description:
       "How Hantavirus Maps reviews sources, separates data layers, and avoids unsupported precision.",
     priority: 0.7,
+    changeFrequency: "monthly"
+  },
+
+  {
+    path: "/llms.txt",
+    title: "LLM Manifest",
+    description: "LLM crawler manifest for Hantavirus Maps reviewed public data and citation guidance.",
+    priority: 0.3,
+    changeFrequency: "monthly"
+  },
+  {
+    path: "/ai.txt",
+    title: "AI Crawler Guidance",
+    description: "AI crawler guidance for citing Hantavirus Maps safely and accurately.",
+    priority: 0.3,
+    changeFrequency: "monthly"
+  },
+  {
+    path: "/data/map-snapshots.json",
+    title: "Reviewed Map Snapshots JSON",
+    description: "Machine-readable reviewed public map snapshots for Hantavirus Maps.",
+    priority: 0.35,
+    changeFrequency: "weekly"
+  },
+  {
+    path: "/data/sources.json",
+    title: "Reviewed Sources JSON",
+    description: "Machine-readable reviewed source registry for Hantavirus Maps.",
+    priority: 0.35,
+    changeFrequency: "weekly"
+  },
+  {
+    path: "/openapi.json",
+    title: "OpenAPI Description",
+    description: "OpenAPI description for Hantavirus Maps public data endpoints.",
+    priority: 0.32,
     changeFrequency: "monthly"
   },
   {
