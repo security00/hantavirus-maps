@@ -244,7 +244,7 @@ function excerpt(value, max = 420) {
   return text.length > max ? `${text.slice(0, max - 1)}…` : text;
 }
 
-function summarizeCandidates(candidates) {
+function summarizeCandidates(candidates, rejectedCount = 0) {
   const summary = {
     total: candidates.length,
     newCount: candidates.filter((candidate) => !candidate.knownBacklog).length,
@@ -252,15 +252,15 @@ function summarizeCandidates(candidates) {
     highPriorityCount: candidates.filter((candidate) => candidate.reviewPriority === 'high').length,
     lowPriorityCount: candidates.filter((candidate) => candidate.reviewPriority === 'low').length,
     weakCount: candidates.filter((candidate) => candidate.weakSignals?.length).length,
-    rejectedCount: candidates.filter((candidate) => candidate.rejected).length,
+    rejectedCount,
     domains: [...new Set(candidates.map((candidate) => candidate.domain))].sort()
   };
   return summary;
 }
 
-function buildMarkdown({ reportDate, generatedAt, dryRun, searchRuns, candidates, knownUrlCount, extractCount }) {
+function buildMarkdown({ reportDate, generatedAt, dryRun, searchRuns, candidates, knownUrlCount, extractCount, rejectedCount = 0 }) {
   const lines = [];
-  const summary = summarizeCandidates(candidates);
+  const summary = summarizeCandidates(candidates, rejectedCount);
   lines.push(`# Tavily Source Candidate Discovery - ${reportDate}`);
   lines.push('');
   lines.push(`Generated: ${generatedAt}`);
@@ -460,9 +460,8 @@ async function main() {
     autoPublic: false,
     policy: 'Tavily discovery output is not public data. Human review is required before any public JSON or page copy changes.',
     searchBatches: trustedBatches,
-    summary: summarizeCandidates([...candidates, ...rejectedCandidates]),
-    candidates,
-    rejectedCandidates
+    summary: summarizeCandidates(candidates, rejectedCandidates.length),
+    candidates
   };
 
   const jsonPath = path.join(options.outputDir, `tavily-candidates-${options.reportDate}.json`);
@@ -473,9 +472,10 @@ async function main() {
     generatedAt,
     dryRun: options.dryRun,
     searchRuns,
-    candidates: [...candidates, ...rejectedCandidates],
+    candidates,
     knownUrlCount: knownUrls.size,
-    extractCount: extractUrls.length
+    extractCount: extractUrls.length,
+    rejectedCount: rejectedCandidates.length
   }));
 
   console.log(`Wrote ${candidates.length} candidates to ${path.relative(repoRoot, jsonPath)}`);
