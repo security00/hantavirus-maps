@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-10",
+  "lastReviewed": "2026-05-11",
   "reviewPolicy": "Use official public health agencies, peer-reviewed CDC publications, or agency-linked surveillance summaries. Prefer conservative summaries over scraped granular counts.",
   "sources": [
     {
@@ -243,6 +243,160 @@
       "sourceType": "Official response update",
       "use": "PAHO coordination context and prevention summary for the cruise-associated event.",
       "limitations": "Event-specific update; not a full surveillance dataset."
+    },
+    {
+      "id": "who-hantavirus-toolbox",
+      "title": "Hantavirus Outbreak Toolbox",
+      "publisher": "World Health Organization",
+      "url": "https://www.who.int/emergencies/outbreak-toolkit/disease-outbreak-toolboxes/hantavirus-outbreak-toolbox",
+      "publicationDate": "2026",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "Outbreak toolbox and reference collection",
+      "use": "WHO reference collection for surveillance case definitions, outbreak tools, and linked PAHO/CDC guidance.",
+      "limitations": "Toolbox definitions and resources are context-specific; local and national agencies remain authoritative for event reporting."
+    },
+    {
+      "id": "cdc-stacks-nndss-hps-week17-2026",
+      "title": "Hantavirus pulmonary syndrome (Week 17) weekly NNDSS table",
+      "publisher": "CDC Stacks / National Notifiable Diseases Surveillance System",
+      "url": "https://stacks.cdc.gov/view/cdc/256226",
+      "publicationDate": "2026-05-02",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "Provisional weekly surveillance table",
+      "use": "Source-linked evidence for weekly NNDSS provisional HPS table availability and provisional-data limitations.",
+      "limitations": "Weekly NNDSS data are provisional, voluntarily submitted, and subject to reconciliation; this project does not publish provisional weekly counts as live map data."
+    },
+    {
+      "id": "cdc-stacks-nndss-nonhps-week53-2026",
+      "title": "Hantavirus infection, non-HPS (Week 53) weekly NNDSS table",
+      "publisher": "CDC Stacks / National Notifiable Diseases Surveillance System",
+      "url": "https://stacks.cdc.gov/view/cdc/251471",
+      "publicationDate": "2026-01-03",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "Provisional weekly surveillance table",
+      "use": "Source-linked evidence for non-HPS hantavirus weekly NNDSS table availability and provisional-data limitations.",
+      "limitations": "Not used here for public map counts until a weekly NNDSS display rule is approved."
+    },
+    {
+      "id": "wa-doh-hantavirus",
+      "title": "Hantavirus",
+      "publisher": "Washington State Department of Health",
+      "url": "https://doh.wa.gov/you-and-your-family/illness-and-disease-z/hantavirus",
+      "publicationDate": "2026",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "State health department disease page",
+      "use": "Washington state-level hantavirus context, annual range statement, prevention guidance, and source-linked state page.",
+      "limitations": "Annual range and prevention context are state-level; this project does not infer county risk or current local case counts."
+    },
+    {
+      "id": "wa-doh-epitrends-2025",
+      "title": "epiTRENDS April 2025: Hantavirus Infection",
+      "publisher": "Washington State Department of Health",
+      "url": "https://doh.wa.gov/sites/default/files/2025-04/420-002-epitrends2025-04.pdf",
+      "publicationDate": "2025-04",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "State epidemiology report",
+      "use": "Washington background report with notifiable status, national context, exposure reminders, and approximate annual case context.",
+      "limitations": "PDF report is background context; county exposure notes are not converted into a county map."
+    },
+    {
+      "id": "canada-risk-2026",
+      "title": "Risks of a hantavirus infection",
+      "publisher": "Government of Canada",
+      "url": "https://www.canada.ca/en/public-health/services/diseases/hantaviruses/risks-hantavirus-infection.html",
+      "publicationDate": "2026-05-08",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "National risk and current situation page",
+      "use": "Canada cumulative confirmed infection context and MV Hondius risk wording from an official national page.",
+      "limitations": "Canada cumulative statement is not a live case feed; outbreak-specific risk language should not be generalized beyond the official context."
+    },
+    {
+      "id": "canada-surveillance-hantavirus",
+      "title": "Surveillance of hantavirus related diseases",
+      "publisher": "Public Health Agency of Canada / Government of Canada",
+      "url": "https://www.canada.ca/en/public-health/services/diseases/hantaviruses/surveillance-hantavirus-related-diseases.html",
+      "publicationDate": "2015-07-14",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "National surveillance overview",
+      "use": "Canada surveillance history and National Microbiology Laboratory role.",
+      "limitations": "Older page; use newer Government of Canada pages for current cumulative statements."
+    },
+    {
+      "id": "canada-case-definition-hps",
+      "title": "National case definition: Hantavirus pulmonary syndrome",
+      "publisher": "Government of Canada",
+      "url": "https://www.canada.ca/en/public-health/services/diseases/hantaviruses/health-professionals-treating-hantavirus-infection/national-case-definition.html",
+      "publicationDate": "2019-02-07",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "National case definition",
+      "use": "Canada confirmed-case notification and surveillance case-definition context.",
+      "limitations": "For surveillance classification, not clinical decision support for individual readers."
+    },
+    {
+      "id": "canada-mv-hondius-update-2026",
+      "title": "Interdepartmental Media Update – Hantavirus - May 10, 2026",
+      "publisher": "Government of Canada / Global Affairs Canada / Public Health Agency of Canada",
+      "url": "https://www.canada.ca/en/global-affairs/news/2026/05/interdepartmental-media-update--hantavirus---may-10-2026.html",
+      "publicationDate": "2026-05-10",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "Official interdepartmental media update",
+      "use": "Canada response context for Canadian passengers linked to the MV Hondius event.",
+      "limitations": "Event-specific operational update; not travel advice or a complete outbreak dataset."
+    },
+    {
+      "id": "ecdc-cruise-response-activated-2026",
+      "title": "Cruise ship hantavirus outbreak: ECDC response activated",
+      "publisher": "European Centre for Disease Prevention and Control",
+      "url": "https://www.ecdc.europa.eu/en/news-events/cruise-ship-hantavirus-outbreak-ecdc-response-activated",
+      "publicationDate": "2026-05-06",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "Official outbreak response update",
+      "use": "ECDC response/timeline context for the cruise-associated Andes virus cluster.",
+      "limitations": "Timeline update should be deduplicated with WHO/PAHO/ECDC assessment sources."
+    },
+    {
+      "id": "ecdc-cruise-guidance-2026",
+      "title": "ECDC guidance for passengers linked to Andes hantavirus outbreak on cruise ship",
+      "publisher": "European Centre for Disease Prevention and Control",
+      "url": "https://www.ecdc.europa.eu/en/news-events/ecdc-publishes-guidance-management-passengers-linked-andes-hantavirus-outbreak-cruise",
+      "publicationDate": "2026",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "Official outbreak guidance update",
+      "use": "ECDC response context for management of passengers linked to the cruise-associated outbreak.",
+      "limitations": "Do not restate as independent travel clearance advice; cite official agencies for current guidance."
+    },
+    {
+      "id": "argentina-ben-785-2025",
+      "title": "Boletín Epidemiológico Nacional N°785, SE 48, Año 2025",
+      "publisher": "Argentina Ministry of Health / Argentina.gob.ar",
+      "url": "https://www.argentina.gob.ar/sites/default/files/2025/01/ben-785-se-48-vf.pdf?utm_source",
+      "publicationDate": "2025",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "National epidemiological bulletin",
+      "use": "Argentina official bulletin candidate for future Spanish-language surveillance extraction.",
+      "limitations": "Not yet extracted into public counts; requires Spanish table review and display rules."
+    },
+    {
+      "id": "paho-americas-historical-1998",
+      "title": "Hantavirus in the Americas historical regional report",
+      "publisher": "Pan American Health Organization",
+      "url": "https://www1.paho.org/english/gov/ce/ce122_14.pdf",
+      "publicationDate": "1998",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "Historical regional report",
+      "use": "Historical Americas context and source discovery for country-level surveillance history.",
+      "limitations": "Historical context only; not current surveillance data."
+    },
+    {
+      "id": "utah-mv-hondius-2026",
+      "title": "At least one passenger from Utah on board the MV Hondius",
+      "publisher": "Utah Department of Health and Human Services",
+      "url": "https://dhhs.utah.gov/featured-news/at-least-one-passenger-from-utah-on-board-the-mv-hondius/",
+      "publicationDate": "2026",
+      "reviewedDate": "2026-05-11",
+      "sourceType": "Official state response update",
+      "use": "Utah-specific official response context for a resident passenger linked to the MV Hondius outbreak response.",
+      "limitations": "Passenger-response notice only; does not indicate increased local risk or local transmission in Utah."
     }
   ]
 }

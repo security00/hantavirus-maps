@@ -1,27 +1,8 @@
 {
-  "lastReviewed": "2026-05-10",
+  "lastReviewed": "2026-05-11",
   "datasetStatus": "reviewed-sample",
   "policy": "This MVP stores source-linked summary records for explanation and map labels. It is not a complete case database, not a live feed, and not a county-precision case display.",
   "records": [
-    {
-      "id": "us-cdc-state-level-1993-2022",
-      "jurisdiction": "United States",
-      "region": "National",
-      "layer": "Reported cases",
-      "period": "1993-2022",
-      "reportedCases": 864,
-      "reportedDeaths": null,
-      "reportLabel": "CDC state-level historical summary",
-      "summary": "CDC reported 864 laboratory-confirmed hantavirus disease cases in the United States from the start of surveillance in 1993 through the end of 2022. CDC presents public geography by state and says county-level data cannot be provided publicly.",
-      "geographyPrecision": "State only",
-      "status": "Official historical surveillance summary",
-      "sourceIds": ["cdc-reported-cases", "cdc-surveillance"],
-      "limitations": [
-        "Not a real-time tracker.",
-        "CDC public map is state-level, not county-level.",
-        "Counts may differ from provisional NNDSS tables or later agency updates."
-      ]
-    },
     {
       "id": "new-mexico-nmdoh-1975-2025",
       "jurisdiction": "New Mexico",
@@ -35,8 +16,15 @@
       "summary": "NMDOH reports 142 hantavirus pulmonary syndrome cases and 55 deaths in New Mexico between 1975 and 2025. Its reviewed page also listed seven confirmed cases in 2025 and one confirmed case in 2026.",
       "geographyPrecision": "State summary with selected county mentions on the official page",
       "status": "Official state health summary",
-      "sourceIds": ["nmdoh-hantavirus", "nmdoh-2026-case", "nmdoh-2025-death"],
-      "mapPoint": { "x": 255, "y": 295 },
+      "sourceIds": [
+        "nmdoh-hantavirus",
+        "nmdoh-2026-case",
+        "nmdoh-2025-death"
+      ],
+      "mapPoint": {
+        "x": 255,
+        "y": 295
+      },
       "limitations": [
         "County mentions on the source page are not converted into a county-level map here.",
         "The current-year line is a reviewed snapshot and may change on the NMDOH site."
@@ -55,8 +43,14 @@
       "summary": "CDPH provides a hantavirus infection page with prevention guidance, an interactive story map, and a county-of-exposure PDF for reported California resident infections through 2024. This MVP links to those official products rather than extracting county values.",
       "geographyPrecision": "State page with linked county-of-exposure PDF",
       "status": "Official state health source linked",
-      "sourceIds": ["cdph-hantavirus", "cdph-occupational-2025"],
-      "mapPoint": { "x": 170, "y": 245 },
+      "sourceIds": [
+        "cdph-hantavirus",
+        "cdph-occupational-2025"
+      ],
+      "mapPoint": {
+        "x": 170,
+        "y": 245
+      },
       "limitations": [
         "No California county values are copied into this MVP.",
         "County of exposure is not the same thing as exact location of infection risk."
@@ -75,8 +69,14 @@
       "summary": "ADHS sent a July 8, 2024 HAN advisory noting increased hantavirus activity and seven human HPS cases, including three deaths, reported from three counties as of July 1, 2024.",
       "geographyPrecision": "State alert with county count but no public county map in this project",
       "status": "Official state HAN advisory",
-      "sourceIds": ["adhs-han-2024", "adhs-protocol-2025"],
-      "mapPoint": { "x": 245, "y": 320 },
+      "sourceIds": [
+        "adhs-han-2024",
+        "adhs-protocol-2025"
+      ],
+      "mapPoint": {
+        "x": 245,
+        "y": 320
+      },
       "limitations": [
         "HAN advisory values are an incident snapshot, not a complete current surveillance feed.",
         "This project does not infer current Arizona case totals from older advisories."
@@ -95,11 +95,123 @@
       "summary": "CDPHE maintains a hantavirus page with public prevention resources, provider reporting information, and a link to Colorado hantavirus data since 1993. This MVP points users to CDPHE for updated Colorado counts.",
       "geographyPrecision": "State data link",
       "status": "Official state health source linked",
-      "sourceIds": ["cdphe-hantavirus", "cdc-mmwr-denver-2018"],
-      "mapPoint": { "x": 305, "y": 255 },
+      "sourceIds": [
+        "cdphe-hantavirus",
+        "cdc-mmwr-denver-2018"
+      ],
+      "mapPoint": {
+        "x": 305,
+        "y": 255
+      },
       "limitations": [
         "This record does not copy Colorado's current data table into the MVP.",
         "A reservoir or exposure report does not establish exact ongoing risk at an address."
+      ]
+    },
+    {
+      "id": "united-states-cdc-1993-2023",
+      "jurisdiction": "United States",
+      "region": "National",
+      "layer": "Reported cases",
+      "period": "1993-2023",
+      "reportedCases": 890,
+      "reportedDeaths": null,
+      "reportLabel": "CDC state-level historical summary through 2023",
+      "summary": "CDC reports 890 laboratory-confirmed hantavirus disease cases in the United States from the start of surveillance in 1993 through the end of 2023. CDC states public data are reported by state only and county-level data cannot be provided to protect identities.",
+      "geographyPrecision": "State only",
+      "status": "Official historical surveillance summary",
+      "sourceIds": [
+        "cdc-reported-cases",
+        "cdc-surveillance"
+      ],
+      "mapPoint": {
+        "x": 260,
+        "y": 260
+      },
+      "limitations": [
+        "Not a real-time tracker.",
+        "County-level data are not published here.",
+        "Counts may differ from provisional weekly NNDSS tables."
+      ]
+    },
+    {
+      "id": "washington-wa-doh-current-page",
+      "jurisdiction": "Washington",
+      "slug": "washington",
+      "region": "United States",
+      "layer": "Reported cases",
+      "period": "Current state page reviewed 2026-05-11",
+      "reportedCases": null,
+      "reportedDeaths": null,
+      "reportLabel": "Washington DOH state-level source linked",
+      "summary": "Washington State Department of Health says hantavirus is notifiable in Washington and that typically one to five cases are reported each year. This record links to the official state page and epiTRENDS report rather than copying a county table.",
+      "geographyPrecision": "State source link and annual range statement",
+      "status": "Official state health source linked",
+      "sourceIds": [
+        "wa-doh-hantavirus",
+        "wa-doh-epitrends-2025"
+      ],
+      "mapPoint": {
+        "x": 185,
+        "y": 175
+      },
+      "limitations": [
+        "Annual range statements are not a current case count.",
+        "No county risk map is inferred from state source text."
+      ]
+    },
+    {
+      "id": "canada-phac-1994-2026",
+      "jurisdiction": "Canada",
+      "slug": "canada",
+      "region": "North America",
+      "layer": "Reported cases",
+      "period": "1994-2026-05-01",
+      "reportedCases": 168,
+      "reportedDeaths": null,
+      "reportLabel": "Government of Canada cumulative confirmed infections",
+      "summary": "Government of Canada states that, as of May 1, 2026, the National Microbiology Laboratory had confirmed 168 hantavirus infections in Canada since active surveillance began in 1994. Older PHAC surveillance pages provide historical surveillance context.",
+      "geographyPrecision": "National summary",
+      "status": "Official national public health source linked",
+      "sourceIds": [
+        "canada-risk-2026",
+        "canada-surveillance-hantavirus",
+        "canada-case-definition-hps"
+      ],
+      "mapPoint": {
+        "x": 240,
+        "y": 145
+      },
+      "limitations": [
+        "This is a national cumulative statement, not a live case feed.",
+        "Do not compare directly with U.S. HPS-only or provisional weekly tables without methodology notes."
+      ]
+    },
+    {
+      "id": "argentina-ben-source-linked-2025",
+      "jurisdiction": "Argentina",
+      "slug": "argentina",
+      "region": "South America",
+      "layer": "Reported cases",
+      "period": "2025 bulletin source linked",
+      "reportedCases": null,
+      "reportedDeaths": null,
+      "reportLabel": "Argentina national epidemiological bulletin linked",
+      "summary": "Argentina.gob.ar publishes national epidemiological bulletins that include hantavirus as a monitored event. This project links the reviewed bulletin candidate as a source for future Spanish-language table extraction, without copying current counts into the public map.",
+      "geographyPrecision": "National bulletin source linked",
+      "status": "Official national bulletin source linked",
+      "sourceIds": [
+        "argentina-ben-785-2025",
+        "paho-americas-historical-1998",
+        "paho-alert-2025"
+      ],
+      "mapPoint": {
+        "x": 345,
+        "y": 500
+      },
+      "limitations": [
+        "No Argentina case table has been extracted into this MVP.",
+        "Spanish bulletin tables require a separate human review before public counts."
       ]
     }
   ]

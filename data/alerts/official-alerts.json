@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-10",
+  "lastReviewed": "2026-05-11",
   "datasetStatus": "reviewed-sample",
   "policy": "Official alerts are selected source-linked public health notices. They are not a complete surveillance dataset and should not be read as a live outbreak map.",
   "alerts": [
@@ -14,8 +14,15 @@
       "severityLabel": "Official international notice",
       "summary": "WHO reported a cruise-associated hantavirus cluster involving Andes virus and assessed the global population risk as low while investigations and contact tracing continued.",
       "riskLanguage": "Event-specific. Does not indicate a general local U.S. risk map or a live local case service.",
-      "sourceIds": ["who-don600-2026", "paho-cruise-2026", "ecdc-cruise-2026"],
-      "mapPoint": { "x": 500, "y": 445 }
+      "sourceIds": [
+        "who-don600-2026",
+        "paho-cruise-2026",
+        "ecdc-cruise-2026"
+      ],
+      "mapPoint": {
+        "x": 500,
+        "y": 445
+      }
     },
     {
       "id": "paho-alert-2025-americas",
@@ -28,8 +35,13 @@
       "severityLabel": "Regional surveillance alert",
       "summary": "PAHO/WHO issued an alert after increases in reported hantavirus infections during 2025 in endemic countries of the Americas, particularly the Southern Cone, and urged strengthened surveillance and risk reduction.",
       "riskLanguage": "Regional aggregate context. It should not be read as a neighborhood-level or travel-specific risk prediction.",
-      "sourceIds": ["paho-alert-2025"],
-      "mapPoint": { "x": 405, "y": 480 }
+      "sourceIds": [
+        "paho-alert-2025"
+      ],
+      "mapPoint": {
+        "x": 405,
+        "y": 480
+      }
     },
     {
       "id": "nmdoh-2026-santa-fe",
@@ -42,8 +54,14 @@
       "severityLabel": "State case notice",
       "summary": "NMDOH reported a Santa Fe County resident hospitalized with HPS who had recovered, and reminded residents to air out cabins, sheds, garages, and other spaces before spring cleaning.",
       "riskLanguage": "Single official state notice. It does not create a county-level active risk map.",
-      "sourceIds": ["nmdoh-2026-case", "nmdoh-hantavirus"],
-      "mapPoint": { "x": 265, "y": 285 }
+      "sourceIds": [
+        "nmdoh-2026-case",
+        "nmdoh-hantavirus"
+      ],
+      "mapPoint": {
+        "x": 265,
+        "y": 285
+      }
     },
     {
       "id": "adhs-2024-increased-activity",
@@ -56,8 +74,14 @@
       "severityLabel": "Provider advisory",
       "summary": "ADHS advised healthcare providers to consider hantavirus in compatible illness with rodent exposure after increased 2024 activity.",
       "riskLanguage": "Provider-oriented advisory. Values in the notice are a point-in-time snapshot.",
-      "sourceIds": ["adhs-han-2024", "adhs-protocol-2025"],
-      "mapPoint": { "x": 245, "y": 320 }
+      "sourceIds": [
+        "adhs-han-2024",
+        "adhs-protocol-2025"
+      ],
+      "mapPoint": {
+        "x": 245,
+        "y": 320
+      }
     },
     {
       "id": "cdph-2025-workplace-prevention",
@@ -70,8 +94,79 @@
       "severityLabel": "Prevention notice",
       "summary": "CDPH highlighted worker risk in jobs that involve rodents or enclosed structures where deer mice may have infested, including parks, campgrounds, and maintenance work.",
       "riskLanguage": "Prevention-oriented notice. It is not a case-count alert.",
-      "sourceIds": ["cdph-occupational-2025", "cdph-hantavirus"],
-      "mapPoint": { "x": 170, "y": 245 }
+      "sourceIds": [
+        "cdph-occupational-2025",
+        "cdph-hantavirus"
+      ],
+      "mapPoint": {
+        "x": 170,
+        "y": 245
+      }
+    },
+    {
+      "id": "canada-mv-hondius-2026",
+      "title": "Canada response to MV Hondius Andes hantavirus event",
+      "agency": "Government of Canada / PHAC / Global Affairs Canada",
+      "date": "2026-05-10",
+      "geography": "Canada / MV Hondius passenger response",
+      "layer": "Public health alerts",
+      "status": "Official interdepartmental update",
+      "severityLabel": "Official response update",
+      "summary": "Canadian federal agencies described coordination with public health partners for Canadian passengers linked to the MV Hondius Andes hantavirus event, including monitoring and isolation protocols for returning travellers.",
+      "riskLanguage": "Event-specific official response context. It is not a Canada-wide live case counter or travel clearance service.",
+      "sourceIds": [
+        "canada-mv-hondius-update-2026",
+        "canada-risk-2026",
+        "who-don600-2026",
+        "ecdc-cruise-2026"
+      ],
+      "mapPoint": {
+        "x": 235,
+        "y": 160
+      }
+    },
+    {
+      "id": "utah-mv-hondius-2026",
+      "title": "Utah resident passenger linked to MV Hondius response",
+      "agency": "Utah Department of Health and Human Services",
+      "date": "2026-05",
+      "geography": "Utah, United States / MV Hondius passenger response",
+      "layer": "Public health alerts",
+      "status": "Official state response update",
+      "severityLabel": "State response update",
+      "summary": "Utah DHHS stated at least one Utah resident was a passenger on the MV Hondius and said this did not increase hantavirus risk to the Utah population while state and federal officials coordinated monitoring.",
+      "riskLanguage": "Passenger-response notice only. It does not indicate local spread in Utah or a general Utah risk map.",
+      "sourceIds": [
+        "utah-mv-hondius-2026",
+        "who-don600-2026",
+        "ecdc-cruise-2026"
+      ],
+      "mapPoint": {
+        "x": 235,
+        "y": 255
+      }
+    },
+    {
+      "id": "ecdc-mv-hondius-response-2026",
+      "title": "ECDC cruise ship hantavirus response and passenger guidance updates",
+      "agency": "European Centre for Disease Prevention and Control",
+      "date": "2026-05-06",
+      "geography": "Europe / international MV Hondius response",
+      "layer": "Public health alerts",
+      "status": "Official risk assessment and response updates",
+      "severityLabel": "European response update",
+      "summary": "ECDC published a risk assessment and follow-up response updates for the cruise-associated Andes hantavirus cluster, coordinating with national authorities, WHO, and reference laboratories.",
+      "riskLanguage": "International event timeline context. It is not a complete European surveillance dataset or live outbreak feed.",
+      "sourceIds": [
+        "ecdc-cruise-2026",
+        "ecdc-cruise-response-activated-2026",
+        "ecdc-cruise-guidance-2026",
+        "who-don600-2026"
+      ],
+      "mapPoint": {
+        "x": 510,
+        "y": 190
+      }
     }
   ]
 }
