@@ -1,3 +1,5 @@
+import { SOURCE_PAGE_IDS, WHERE_PAGE_SLUGS, sourcePath, wherePath } from "@/lib/programmatic-pages";
+
 export const SITE_URL = "https://hantavirusmaps.org";
 export const SITE_HOST = "hantavirusmaps.org";
 export const LAST_REVIEWED_ISO = "2026-05-11";
@@ -264,3 +266,22 @@ export const SITE_ROUTES: SiteRoute[] = [
 export function absoluteUrl(path: string) {
   return new URL(path, SITE_URL).toString();
 }
+
+
+const SOURCE_ROUTES: SiteRoute[] = SOURCE_PAGE_IDS.map((id) => ({
+  path: sourcePath(id),
+  title: `Reviewed Source: ${id}`,
+  description: `Reviewed source note for ${id} and its Hantavirus Maps publication limits.`,
+  priority: 0.58,
+  changeFrequency: "monthly",
+}));
+
+const WHERE_ROUTES: SiteRoute[] = WHERE_PAGE_SLUGS.map((slug) => ({
+  path: wherePath(slug),
+  title: `Hantavirus Map: ${slug}`,
+  description: `Reviewed source-linked hantavirus map context for ${slug}.`,
+  priority: 0.66,
+  changeFrequency: "monthly",
+}));
+
+export const ALL_SITE_ROUTES: SiteRoute[] = [...SITE_ROUTES, ...SOURCE_ROUTES, ...WHERE_ROUTES];
