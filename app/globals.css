@@ -482,3 +482,85 @@ label {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+html,
+body {
+  max-inline-size: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+  .interactive-map {
+    block-size: min(52vh, 430px);
+    min-block-size: 300px;
+  }
+
+  .interactive-map-loading {
+    block-size: min(52vh, 430px);
+    min-block-size: 300px;
+  }
+
+  .layer-toggle {
+    font-size: 0.78rem;
+    min-height: 40px;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .map-quick-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .map-quick-actions a {
+    font-size: 0.78rem;
+    min-height: 40px;
+    padding: 0.6rem 0.5rem;
+  }
+}
+
+header nav {
+  scrollbar-width: none;
+}
+
+header nav::-webkit-scrollbar {
+  display: none;
+}
+
+.leaflet-container,
+.leaflet-pane,
+.leaflet-map-pane,
+.leaflet-tile-pane,
+.leaflet-overlay-pane,
+.leaflet-marker-pane,
+.leaflet-shadow-pane,
+.leaflet-tooltip-pane,
+.leaflet-popup-pane {
+  max-inline-size: none;
+}
+
+@media (max-width: 640px) {
+  .leaflet-control-attribution {
+    max-inline-size: calc(100vw - 24px) !important;
+    white-space: normal !important;
+  }
+
+  .leaflet-control-attribution a,
+  .leaflet-control-attribution span {
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 640px) {
+  main,
+  header,
+  section,
+  .map-panel,
+  .interactive-map-shell,
+  .interactive-map,
+  .leaflet-container {
+    max-inline-size: 100vw;
+  }
+
+  .leaflet-control-container {
+    max-inline-size: 100%;
+  }
+}

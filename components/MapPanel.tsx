@@ -130,32 +130,39 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
   return (
     <section className="map-panel overflow-hidden rounded-lg border border-white/10 bg-slate-900 shadow-2xl shadow-slate-950/70">
       <div className="grid gap-0 xl:grid-cols-[1fr_360px]">
-        <div className="p-4 sm:p-6">
-          <div className="flex flex-col gap-4 border-b border-white/10 pb-5 md:flex-row md:items-start md:justify-between">
+        <div className="p-2 sm:p-6">
+          <div className="flex flex-col gap-3 border-b border-white/10 pb-3 sm:gap-4 sm:pb-5 md:flex-row md:items-start md:justify-between">
             <div>
-              <p className="text-sm font-semibold text-emerald-200">Reviewed public health map</p>
-              <Heading className="mt-2 max-w-4xl text-3xl font-semibold leading-tight text-white sm:text-5xl">
-                Hantavirus map and hantavirus tracker for cases, alerts and risk areas
+              <p className="text-xs font-semibold text-emerald-200 sm:text-sm">Reviewed public health map</p>
+              <Heading className="mt-1 max-w-4xl text-2xl font-semibold leading-tight text-white sm:mt-2 sm:text-5xl">
+                Hantavirus map and tracker
               </Heading>
-              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
-                Use this hantavirus map and reviewed hantavirus tracker to explore source-linked state case summaries,
-                selected official alerts, and rodent reservoir regions on a free OpenStreetMap layer. It is not live local surveillance
-                and does not publish county-precision cases.
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300 sm:mt-4 sm:text-base sm:leading-7">
+                Source-linked case summaries, selected official alerts, and reservoir regions. Not live local surveillance or county-precision case tracking.
               </p>
             </div>
-            <div className="grid shrink-0 gap-2 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.08] p-4 text-sm">
+            <div className="grid shrink-0 gap-1 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.08] p-3 text-xs sm:gap-2 sm:p-4 sm:text-sm">
               <span className="font-semibold text-emerald-100">Source check</span>
               <span className="text-slate-200">{LAST_REVIEWED_LABEL}</span>
             </div>
           </div>
 
-          <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_300px] lg:items-start">
+          <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-slate-950 sm:mt-5">
+            <InteractiveMapLoader
+              casePoints={casePoints}
+              alertPoints={alertPoints}
+              reservoirs={reservoirs}
+              sourcesById={sourcesById}
+            />
+          </div>
+
+          <div className="mt-3 grid gap-4 lg:grid-cols-[1fr_300px] lg:items-start">
             <div className="rounded-lg border border-white/10 bg-white/[0.035] p-4">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-sm font-semibold text-white">Map legend</p>
                   <p className="mt-1 text-xs leading-5 text-slate-400">
-                    Toggle layers below. Click any colored marker or circle for source notes and limits.
+                    Click any colored marker or circle for source notes and limits.
                   </p>
                 </div>
                 <Link
@@ -173,27 +180,18 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             </div>
 
             <div className="grid gap-2 text-xs text-slate-400">
-              <span className="rounded-md border border-white/10 px-2 py-1">Pin numbers or circles are source summaries, not confirmed local case counts</span>
+              <span className="rounded-md border border-white/10 px-2 py-1">Markers are source summaries, not confirmed local case counts</span>
               <span className="rounded-md border border-white/10 px-2 py-1">CDC public U.S. case precision is state-level</span>
               <span className="rounded-md border border-white/10 px-2 py-1">Reservoir presence is not human infection risk</span>
             </div>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-4">
             <MapQuickActions />
           </div>
 
           <div className="mt-3 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.06] px-3 py-2 text-xs font-semibold leading-5 text-emerald-50 sm:hidden">
-            Drag the map, pinch to zoom, or tap a colored marker. Use the quick links above if you are looking for a state, Canada, alerts, or sources.
-          </div>
-
-          <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-slate-950">
-            <InteractiveMapLoader
-              casePoints={casePoints}
-              alertPoints={alertPoints}
-              reservoirs={reservoirs}
-              sourcesById={sourcesById}
-            />
+            Drag the map, pinch to zoom, or tap a colored marker. Use quick links if you are looking for a state, Canada, alerts, or sources.
           </div>
 
           <section className="mt-4 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.06] p-4" aria-labelledby="map-next-steps">
