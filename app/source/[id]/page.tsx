@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 
 import { getAlerts, getCaseRecords, getReservoirs, getSourceById } from "@/lib/data";
 import { SOURCE_PAGE_IDS, sourcePath } from "@/lib/programmatic-pages";
 import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { breadcrumbJsonLd, sourceArticleJsonLd, sourceDatasetJsonLd } from "@/lib/structured-data";
 
 type PageParams = { id: string };
 
@@ -49,9 +51,19 @@ export default async function SourcePage({ params }: { params: Promise<PageParam
 
   const linked = linkedMapUse(source.id);
   const linkedCount = linked.cases.length + linked.alerts.length + linked.reservoirs.length;
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: "Sources and methodology", path: "/sources-methodology/" },
+    { name: source.title, path: sourcePath(source.id) },
+  ]);
+  const articleJsonLd = sourceArticleJsonLd(source, sourcePath(source.id));
+  const datasetJsonLd = sourceDatasetJsonLd(source, sourcePath(source.id));
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <Script id="source-breadcrumb-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <Script id="source-article-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <Script id="source-dataset-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd) }} />
       <section className="border-b border-white/10 bg-slate-950 px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-start">
           <div>

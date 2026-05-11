@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 
 import { SourceList } from "@/components/SourceList";
 import { EVENT_PAGE_IDS, eventPath, getEventRecord } from "@/lib/event-pages";
 import { LAST_REVIEWED_LABEL, absoluteUrl } from "@/lib/routes";
+import { breadcrumbJsonLd, eventArticleJsonLd, eventClaimReviewJsonLd, eventDatasetJsonLd } from "@/lib/structured-data";
 
 type PageParams = { id: string };
 
@@ -37,8 +39,21 @@ export default async function EventPage({ params }: { params: Promise<PageParams
 
   if (!event) notFound();
 
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: "Outbreaks", path: "/outbreaks/" },
+    { name: event.title, path: event.canonicalPath },
+  ]);
+  const articleJsonLd = eventArticleJsonLd(event);
+  const datasetJsonLd = eventDatasetJsonLd(event);
+  const claimReviewJsonLd = eventClaimReviewJsonLd(event);
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <Script id="event-breadcrumb-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <Script id="event-article-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <Script id="event-dataset-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd) }} />
+      <Script id="event-claim-review-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(claimReviewJsonLd) }} />
       <section className="border-b border-white/10 bg-slate-950 px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-start">
           <div>

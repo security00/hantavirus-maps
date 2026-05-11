@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 
 import { SourceList } from "@/components/SourceList";
 import { getAlerts, getCaseRecords } from "@/lib/data";
 import { WHERE_PAGE_SLUGS, wherePath } from "@/lib/programmatic-pages";
 import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { breadcrumbJsonLd, whereArticleJsonLd, whereDatasetJsonLd } from "@/lib/structured-data";
 
 type PageParams = { slug: string };
 
@@ -56,9 +58,20 @@ export default async function WherePage({ params }: { params: Promise<PageParams
   }
 
   const relatedAlerts = getRelatedAlerts(record.jurisdiction);
+  const canonicalPath = wherePath(resolvedParams.slug);
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: "Where", path: "/where-is-hantavirus-found/" },
+    { name: record.jurisdiction, path: canonicalPath },
+  ]);
+  const articleJsonLd = whereArticleJsonLd(record, canonicalPath);
+  const datasetJsonLd = whereDatasetJsonLd(record, canonicalPath);
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <Script id="where-breadcrumb-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <Script id="where-article-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <Script id="where-dataset-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd) }} />
       <section className="border-b border-white/10 bg-slate-950 px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-start">
           <div>
