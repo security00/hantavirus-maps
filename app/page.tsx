@@ -189,11 +189,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <section className="px-4 py-5 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <MapPanel home />
-        </div>
-      </section>
+      <MapPanel home immersive />
 
       <section className="border-y border-white/10 bg-white/[0.03] px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto mb-6 max-w-7xl">

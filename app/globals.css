@@ -117,6 +117,21 @@ label {
   inline-size: 100%;
 }
 
+.immersive-map-panel .interactive-map-shell,
+.immersive-map-panel .interactive-map,
+.immersive-map-panel .interactive-map-loading {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.immersive-map-panel .interactive-map-note {
+  bottom: 0;
+  inline-size: 100%;
+  left: 0;
+  position: absolute;
+  z-index: 500;
+}
+
 .interactive-map-loading {
   align-items: center;
   block-size: clamp(420px, 58vw, 640px);
