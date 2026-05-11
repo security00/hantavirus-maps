@@ -191,41 +191,26 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <section className="overflow-hidden border-b border-white/10 bg-slate-950 px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch">
-          <div className="flex flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/[0.035] p-5 shadow-2xl shadow-slate-950/40 lg:p-6">
-            <div>
-              <p className="text-sm font-semibold text-emerald-200">Reviewed public health map</p>
-              <h1 className="mt-3 max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                Hantavirus map, tracker and official-source updates
-              </h1>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300">
-                See the reviewed map immediately, then use the latest official-source cards to understand what each alert or case summary can — and cannot — prove.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/hantavirus-tracker/" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
-                  Read tracker guide
-                </Link>
-                <Link href="/sources-methodology/" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
-                  Review methodology
-                </Link>
-              </div>
-            </div>
-            <div className="grid gap-3">
-              {alerts.slice(0, 2).map((alert) => (
-                <article key={alert.id} className="rounded-xl border border-white/10 bg-slate-950/70 p-4">
-                  <p className="text-xs font-semibold text-amber-100">
-                    {formatDateLabel(alert.date)} · {alert.agency}
-                  </p>
-                  <h2 className="mt-2 text-base font-semibold text-white">{alert.title}</h2>
-                  <Link href={`/event/${alert.id}/`} className="mt-3 inline-flex text-sm font-semibold text-emerald-200 hover:text-white">
-                    Read reviewed event →
-                  </Link>
-                </article>
-              ))}
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto mb-6 max-w-4xl text-center">
+            <p className="text-sm font-semibold text-emerald-200">Reviewed public health map</p>
+            <h1 className="mt-3 text-4xl font-semibold leading-tight text-white sm:text-6xl">
+              Hantavirus map and official-source tracker
+            </h1>
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
+              Explore reviewed case summaries, official alerts, and reservoir ecology on an interactive map. This is educational context — not live surveillance, patient locations, or county-level risk prediction.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Link href="/hantavirus-tracker/" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
+                Read tracker guide
+              </Link>
+              <Link href="/sources-methodology/" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+                Review methodology
+              </Link>
             </div>
           </div>
 
-          <div id="interactive-map" className="min-h-[560px] overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-slate-950/60">
+          <div id="interactive-map" className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-slate-950/60">
             <MapPanel home />
           </div>
         </div>
@@ -248,6 +233,34 @@ export default function Home() {
       </section>
 
 
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="latest-official-alerts">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-semibold text-emerald-200">Latest reviewed notices</p>
+            <h2 id="latest-official-alerts" className="mt-2 text-3xl font-semibold">
+              Latest official-source updates
+            </h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              These cards summarize the newest reviewed alerts behind the map. They are point-in-time official notices, not live case counts.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {alerts.slice(0, 3).map((alert) => (
+              <article key={alert.id} className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+                <p className="text-sm font-semibold text-amber-100">
+                  {formatDateLabel(alert.date)} · {alert.agency}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold text-white">{alert.title}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{alert.summary}</p>
+                <Link href={`/event/${alert.id}/`} className="mt-5 inline-flex rounded-md border border-emerald-300/35 px-4 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white">
+                  Read reviewed event
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="seo-use-cases">
         <div className="mx-auto max-w-7xl">
