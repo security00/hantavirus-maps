@@ -113,7 +113,10 @@ function slugify(value) {
 
 function classifySource(url, title, batch) {
   const domain = domainOf(url);
+  const parsed = new URL(url);
   const lower = `${url} ${title}`.toLowerCase();
+  const weakSignals = [];
+  const isSearchOrIndex = lower.includes('/search') || lower.includes('cbrowse') || parsed.searchParams.has('s') || parsed.searchParams.has('page') || lower.includes('news/?') || lower.includes('/news/?');
   const isDataset = lower.includes('data.cdc.gov') || lower.includes('nndss') || lower.includes('surveillance');
   const isPdf = lower.includes('.pdf');
   const isAlert = lower.includes('don') || lower.includes('outbreak') || lower.includes('alert') || lower.includes('news');
@@ -123,17 +126,25 @@ function classifySource(url, title, batch) {
   let sourceType = 'Official public health source candidate';
   let candidateUse = 'Candidate for human review and possible source registry/backlog expansion.';
   let reviewNeed = 'Verify official publisher, publication date, disease context, geography, and safe public wording before use.';
+  let reviewPriority = 'medium';
+
+  if (isSearchOrIndex) {
+    weakSignals.push('Search/index/listing page; prefer the underlying official article, dataset, or report URL.');
+    reviewPriority = 'low';
+  }
 
   if (isDataset) {
     tier = 1;
     sourceType = 'Official surveillance dataset or surveillance page';
     candidateUse = 'Internal review candidate for surveillance context or future reviewed snapshots.';
     reviewNeed = 'Requires display rule before public use. Do not treat provisional rows as live/final/local case counts.';
+    reviewPriority = isSearchOrIndex ? 'low' : 'high';
   } else if (isAlert) {
     tier = 2;
     sourceType = 'Official outbreak alert or public health update';
     candidateUse = 'Candidate for reviewed official alert/event timeline after deduplication.';
     reviewNeed = 'Deduplicate against existing event records and avoid travel advice, patient locations, or live-risk claims.';
+    reviewPriority = isSearchOrIndex ? 'low' : 'high';
   } else if (isGuidance) {
     tier = 3;
     sourceType = 'Official disease, prevention, case definition, or methodology page';
@@ -146,7 +157,7 @@ function classifySource(url, title, batch) {
     reviewNeed = 'Requires PDF extraction, table/date review, language review where needed, and safe summary rules.';
   }
 
-  return { domain, tier, sourceType, candidateUse, reviewNeed };
+  return { domain, tier, sourceType, candidateUse, reviewNeed, reviewPriority, weakSignals };
 }
 
 async function readJson(filePath, fallback) {
@@ -224,8 +235,22 @@ function excerpt(value, max = 420) {
   return text.length > max ? `${text.slice(0, max - 1)}…` : text;
 }
 
+function summarizeCandidates(candidates) {
+  const summary = {
+    total: candidates.length,
+    newCount: candidates.filter((candidate) => !candidate.knownBacklog).length,
+    knownCount: candidates.filter((candidate) => candidate.knownBacklog).length,
+    highPriorityCount: candidates.filter((candidate) => candidate.reviewPriority === 'high').length,
+    lowPriorityCount: candidates.filter((candidate) => candidate.reviewPriority === 'low').length,
+    weakCount: candidates.filter((candidate) => candidate.weakSignals?.length).length,
+    domains: [...new Set(candidates.map((candidate) => candidate.domain))].sort()
+  };
+  return summary;
+}
+
 function buildMarkdown({ reportDate, generatedAt, dryRun, searchRuns, candidates, knownUrlCount, extractCount }) {
   const lines = [];
+  const summary = summarizeCandidates(candidates);
   lines.push(`# Tavily Source Candidate Discovery - ${reportDate}`);
   lines.push('');
   lines.push(`Generated: ${generatedAt}`);
@@ -246,7 +271,35 @@ function buildMarkdown({ reportDate, generatedAt, dryRun, searchRuns, candidates
   lines.push(`- Search batches: ${searchRuns.length}`);
   lines.push(`- Unique candidates found: ${candidates.length}`);
   lines.push(`- URLs sent to extraction: ${extractCount}`);
+  lines.push(`- New candidates: ${summary.newCount}`);
+  lines.push(`- Known backlog candidates: ${summary.knownCount}`);
+  lines.push(`- High-priority review candidates: ${summary.highPriorityCount}`);
+  lines.push(`- Low-priority / weak candidates: ${summary.lowPriorityCount}`);
+  lines.push(`- Candidates with weak signals: ${summary.weakCount}`);
+  lines.push(`- Domains: ${summary.domains.map((domain) => `\`${domain}\``).join(', ') || 'n/a'}`);
   lines.push('');
+  lines.push('## Human review digest');
+  lines.push('');
+  const highPriority = candidates.filter((candidate) => candidate.reviewPriority === 'high').slice(0, 8);
+  if (highPriority.length) {
+    lines.push('High-priority official candidates to inspect first:');
+    lines.push('');
+    for (const candidate of highPriority) {
+      lines.push(`- **${candidate.title}** — ${candidate.domain} — ${candidate.url}`);
+    }
+  } else {
+    lines.push('No high-priority candidates were detected in this run.');
+  }
+  lines.push('');
+  const weakCandidates = candidates.filter((candidate) => candidate.weakSignals?.length).slice(0, 8);
+  if (weakCandidates.length) {
+    lines.push('Weak candidates / likely index pages:');
+    lines.push('');
+    for (const candidate of weakCandidates) {
+      lines.push(`- **${candidate.title}** — ${candidate.domain} — ${candidate.weakSignals.join(' ')}`);
+    }
+    lines.push('');
+  }
   lines.push('## Search batches');
   lines.push('');
   for (const run of searchRuns) {
@@ -275,7 +328,9 @@ function buildMarkdown({ reportDate, generatedAt, dryRun, searchRuns, candidates
     lines.push(`- Candidate tier: ${candidate.tier}`);
     lines.push(`- Candidate status: \`${candidate.status}\``);
     lines.push(`- Source type: ${candidate.sourceType}`);
+    lines.push(`- Review priority: ${candidate.reviewPriority}`);
     lines.push(`- Already in backlog: ${candidate.knownBacklog ? 'yes' : 'no'}`);
+    if (candidate.weakSignals?.length) lines.push(`- Weak signals: ${candidate.weakSignals.join(' ')}`);
     lines.push(`- Safe candidate use: ${candidate.candidateUse}`);
     lines.push(`- Review need: ${candidate.reviewNeed}`);
     lines.push(`- Public use allowed now: ${candidate.publicUseAllowed ? 'yes' : 'no'}`);
@@ -348,6 +403,8 @@ async function main() {
           candidateUse: classification.candidateUse,
           publicUseAllowed: false,
           reviewNeed: classification.reviewNeed,
+          reviewPriority: classification.reviewPriority,
+          weakSignals: classification.weakSignals,
           knownBacklog: knownUrls.has(url),
           score: result.score ?? null,
           snippet: excerpt(result.content ?? result.snippet ?? result.raw_content ?? '')
@@ -356,7 +413,8 @@ async function main() {
     }
   }
 
-  const candidates = [...byUrl.values()].sort((a, b) => Number(a.knownBacklog) - Number(b.knownBacklog) || a.domain.localeCompare(b.domain));
+  const priorityRank = { high: 0, medium: 1, low: 2 };
+  const candidates = [...byUrl.values()].sort((a, b) => priorityRank[a.reviewPriority] - priorityRank[b.reviewPriority] || Number(a.knownBacklog) - Number(b.knownBacklog) || a.domain.localeCompare(b.domain));
   const extractUrls = candidates.filter((candidate) => !candidate.knownBacklog).slice(0, options.extractTop).map((candidate) => candidate.url);
 
   if (!options.dryRun && extractUrls.length) {
@@ -386,6 +444,7 @@ async function main() {
     autoPublic: false,
     policy: 'Tavily discovery output is not public data. Human review is required before any public JSON or page copy changes.',
     searchBatches: trustedBatches,
+    summary: summarizeCandidates(candidates),
     candidates
   };
 

@@ -72,10 +72,34 @@ jobs:
           git push --force-with-lease origin "$BRANCH"
 
           BODY_FILE="/tmp/source-discovery-pr.md"
+          SUMMARY_JSON="data/sources/tavily-candidates-${DISCOVERY_DATE}.json"
+          TOTAL="$(node -e "const d=require('./${SUMMARY_JSON}'); console.log(d.summary?.total ?? d.candidates.length)")"
+          NEW_COUNT="$(node -e "const d=require('./${SUMMARY_JSON}'); console.log(d.summary?.newCount ?? d.candidates.filter(c=>!c.knownBacklog).length)")"
+          HIGH_COUNT="$(node -e "const d=require('./${SUMMARY_JSON}'); console.log(d.summary?.highPriorityCount ?? d.candidates.filter(c=>c.reviewPriority==='high').length)")"
+          WEAK_COUNT="$(node -e "const d=require('./${SUMMARY_JSON}'); console.log(d.summary?.weakCount ?? d.candidates.filter(c=>c.weakSignals?.length).length)")"
+          TOP_CANDIDATES="$(node -e "const d=require('./${SUMMARY_JSON}'); console.log(d.candidates.filter(c=>c.reviewPriority==='high').slice(0,5).map(c=>'- '+c.title+' — '+c.domain).join('\\n') || '- No high-priority candidates detected')")"
+          WEAK_CANDIDATES="$(node -e "const d=require('./${SUMMARY_JSON}'); console.log(d.candidates.filter(c=>c.weakSignals?.length).slice(0,5).map(c=>'- '+c.title+' — '+c.weakSignals.join(' ')).join('\\n') || '- No weak/index-page candidates detected')")"
           cat > "$BODY_FILE" <<EOF
           ## Tavily source discovery candidate report
 
           Generated candidate-only source discovery files for ${DISCOVERY_DATE}.
+
+          ### Review summary
+
+          - Total candidates: ${TOTAL}
+          - New candidates: ${NEW_COUNT}
+          - High-priority official candidates: ${HIGH_COUNT}
+          - Weak/index-page candidates: ${WEAK_COUNT}
+
+          ### Inspect first
+
+          ${TOP_CANDIDATES}
+
+          ### Likely weak candidates
+
+          ${WEAK_CANDIDATES}
+
+          ### Files
 
           - Report: \`reports/tavily-source-candidates-${DISCOVERY_DATE}.md\`
           - JSON: \`data/sources/tavily-candidates-${DISCOVERY_DATE}.json\`
