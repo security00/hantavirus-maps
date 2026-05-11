@@ -23,8 +23,9 @@ export function Footer() {
             rodent exposure or have trouble breathing, contact healthcare or
             emergency services.
           </p>
-          <p className="mt-3 text-sm text-slate-400">
-            Source registry last reviewed {LAST_REVIEWED_LABEL}. Contact: {" "}
+          <p className="mt-3 text-sm leading-6 text-slate-400">
+            Reviewed sources include WHO, CDC, ECDC, PAHO/WHO, and official national,
+            regional, and state public health departments. Source registry last reviewed {LAST_REVIEWED_LABEL}. Contact: {" "}
             <a className="text-emerald-200 hover:text-white" href={`mailto:${SUPPORT_EMAIL}`}>
               {SUPPORT_EMAIL}
             </a>

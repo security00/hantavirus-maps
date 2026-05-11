@@ -196,6 +196,34 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section className="border-y border-white/10 bg-slate-900/70 px-4 py-10 sm:px-6 lg:px-8" aria-labelledby="reviewed-data-sources">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.32fr_0.68fr] lg:items-start">
+          <div>
+            <p className="text-sm font-semibold text-emerald-200">Reviewed data sources</p>
+            <h2 id="reviewed-data-sources" className="mt-2 text-3xl font-semibold">
+              Built from official public health sources
+            </h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              Each map record links back to its source and states what the source can and cannot prove.
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+            {[
+              "WHO",
+              "CDC",
+              "ECDC",
+              "PAHO/WHO",
+              "Official health departments",
+            ].map((source) => (
+              <div key={source} className="rounded-lg border border-white/10 bg-white/[0.04] p-4 text-center text-sm font-semibold text-white">
+                {source}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-white/10 bg-white/[0.03] px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto mb-6 max-w-7xl">
           <p className="max-w-4xl text-base leading-7 text-slate-300">
