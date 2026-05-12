@@ -295,22 +295,21 @@ const WHERE_ROUTES: SiteRoute[] = WHERE_PAGE_SLUGS.map((slug) => ({
 
 
 
-const EVENT_ROUTES: SiteRoute[] = EVENT_PAGE_IDS.flatMap((id) => [
-  {
-    path: eventPath(id),
-    title: `Reviewed Event: ${id}`,
-    description: `Reviewed event record for ${id} with source links and safe-use limits.`,
-    priority: 0.62,
-    changeFrequency: "weekly" as const,
-  },
-  {
-    path: rawEventPath(id),
-    title: `Raw Event Markdown: ${id}`,
-    description: `Markdown shadow record for ${id}.`,
-    priority: 0.28,
-    changeFrequency: "weekly" as const,
-  },
-]);
+const EVENT_ROUTES: SiteRoute[] = EVENT_PAGE_IDS.map((id) => ({
+  path: eventPath(id),
+  title: `Reviewed Event: ${id}`,
+  description: `Reviewed event record for ${id} with source links and safe-use limits.`,
+  priority: 0.62,
+  changeFrequency: "weekly" as const,
+}));
+
+const RAW_EVENT_ROUTES: SiteRoute[] = EVENT_PAGE_IDS.map((id) => ({
+  path: rawEventPath(id),
+  title: `Raw Event Markdown: ${id}`,
+  description: `Markdown shadow event record for ${id}.`,
+  priority: 0.28,
+  changeFrequency: "weekly",
+}));
 
 const RAW_SOURCE_ROUTES: SiteRoute[] = SOURCE_PAGE_IDS.map((id) => ({
   path: rawSourcePath(id),
@@ -328,4 +327,8 @@ const RAW_WHERE_ROUTES: SiteRoute[] = WHERE_PAGE_SLUGS.map((slug) => ({
   changeFrequency: "monthly",
 }));
 
-export const ALL_SITE_ROUTES: SiteRoute[] = [...SITE_ROUTES, ...SOURCE_ROUTES, ...WHERE_ROUTES, ...EVENT_ROUTES, ...RAW_SOURCE_ROUTES, ...RAW_WHERE_ROUTES];
+export const GOOGLE_SITEMAP_ROUTES: SiteRoute[] = [...SITE_ROUTES, ...SOURCE_ROUTES, ...WHERE_ROUTES, ...EVENT_ROUTES];
+
+export const MACHINE_READABLE_ROUTES: SiteRoute[] = [...RAW_EVENT_ROUTES, ...RAW_SOURCE_ROUTES, ...RAW_WHERE_ROUTES];
+
+export const ALL_SITE_ROUTES: SiteRoute[] = [...GOOGLE_SITEMAP_ROUTES, ...MACHINE_READABLE_ROUTES];

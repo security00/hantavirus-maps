@@ -57,20 +57,29 @@ function expectJson(relativePath) {
   }
 }
 
-function expectedMachinePaths() {
+function googleSitemapPaths() {
   return [
     '/data/map-snapshots.json',
     '/data/sources.json',
     '/openapi.json',
     '/llms.txt',
     '/ai.txt',
-        ...SOURCE_PAGE_IDS.map(sourcePath),
+    ...SOURCE_PAGE_IDS.map(sourcePath),
     ...WHERE_PAGE_SLUGS.map(wherePath),
     ...EVENT_PAGE_IDS.map(eventPath),
+  ];
+}
+
+function rawMarkdownPaths() {
+  return [
     ...EVENT_PAGE_IDS.map(rawEventPath),
     ...SOURCE_PAGE_IDS.map(rawSourcePath),
     ...WHERE_PAGE_SLUGS.map(rawWherePath),
   ];
+}
+
+function expectedMachinePaths() {
+  return [...googleSitemapPaths(), ...rawMarkdownPaths()];
 }
 
 function validateStaticRawMarkdown() {
@@ -109,9 +118,20 @@ function validateBuildOutput() {
   expectJson('data/map-snapshots.json');
   expectJson('data/sources.json');
 
+  for (const sitemapPath of googleSitemapPaths()) {
+    const url = absoluteUrl(sitemapPath);
+    expectIncludes('out/sitemap.xml', sitemap, url);
+  }
+
+  for (const rawPath of rawMarkdownPaths()) {
+    const url = absoluteUrl(rawPath);
+    if (sitemap.includes(url)) {
+      fail(`out/sitemap.xml should not include raw markdown path ${url}`);
+    }
+  }
+
   for (const machinePath of expectedMachinePaths()) {
     const url = absoluteUrl(machinePath);
-    expectIncludes('out/sitemap.xml', sitemap, url);
     expectIncludes('out/llms.txt', llms, url);
     if (!machinePath.startsWith('/feed.')) {
       expectIncludes('out/ai.txt', ai, url);
@@ -170,4 +190,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`validate:seo passed: ${expectedMachinePaths().length} machine paths and ${EVENT_PAGE_IDS.length} raw markdown records checked.`);
+console.log(`validate:seo passed: ${googleSitemapPaths().length} sitemap paths, ${rawMarkdownPaths().length} raw markdown paths, and ${expectedMachinePaths().length} machine paths checked.`);

@@ -11,6 +11,7 @@ const sourceLabels: Record<string, string> = {
   "ecdc-cruise-2026": "ECDC cruise assessment",
   "paho-alert-2025": "PAHO Americas alert",
   "canada-risk-2026": "Canada current situation",
+  "florida-health-hps": "Florida DOH HPS",
   "wa-doh-hantavirus": "Washington DOH",
   "nmdoh-hantavirus": "New Mexico DOH",
   "cdph-hantavirus": "California CDPH",
@@ -24,6 +25,7 @@ const whereLabels: Record<string, string> = {
   "arizona": "Arizona",
   "colorado": "Colorado",
   "washington": "Washington",
+  "florida": "Florida",
   "canada": "Canada",
   "argentina": "Argentina",
 };

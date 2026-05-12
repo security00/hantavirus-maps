@@ -163,11 +163,12 @@ export default function HantavirusTrackerPage() {
         <div className="mx-auto max-w-7xl">
           <InternalLinkCluster
             title="Tracker index: sources, places and event records"
-            intro="These links connect the tracker to the reviewed data products behind the map: source pages, location pages, event pages, and raw markdown records for citation systems."
+            intro="These links connect the tracker to the reviewed human-facing data products behind the map: source pages, location pages, and event pages. Raw markdown records stay available through llms.txt, ai.txt, and openapi.json rather than the Google sitemap."
             compact
             sourceLimit={8}
             whereLimit={8}
             eventLimit={8}
+            showRaw={false}
           />
         </div>
       </section>
