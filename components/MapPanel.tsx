@@ -191,12 +191,37 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             Drag the map, pinch to zoom, or tap a colored marker. Use quick links if you are looking for a state, Canada, alerts, or sources.
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-3 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.06] p-3">
-            <Link prefetch={false} href="/where/united-states" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">U.S. map by state</Link>
-            <Link prefetch={false} href="/outbreaks" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Official alerts</Link>
-            <Link prefetch={false} href="/prevention/cleaning-mouse-droppings" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Cleanup guidance</Link>
-            <Link prefetch={false} href="/sources-methodology" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Sources and limits</Link>
-          </div>
+          <section className="mt-4 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.06] p-4" aria-labelledby="map-exploration-steps">
+            <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">Explore in 3 steps</p>
+                <h2 id="map-exploration-steps" className="mt-1 text-lg font-semibold text-white">Click a marker, check its source, then choose a detail page</h2>
+              </div>
+              <p className="max-w-xl text-sm leading-6 text-slate-300">
+                This keeps the map useful without turning the homepage into a long report. Each shortcut opens a focused page with sources and limits.
+              </p>
+            </div>
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              <Link prefetch={false} href="/hantavirus-risk-map" className="rounded-lg border border-white/10 bg-slate-950/70 p-4 transition hover:border-emerald-300/50 hover:bg-slate-900">
+                <span className="text-sm font-semibold text-emerald-100">1. What does this marker mean?</span>
+                <span className="mt-2 block text-sm leading-6 text-slate-400">Compare reported cases, official alerts, and reservoir ecology before reading risk.</span>
+              </Link>
+              <Link prefetch={false} href="/outbreaks" className="rounded-lg border border-white/10 bg-slate-950/70 p-4 transition hover:border-emerald-300/50 hover:bg-slate-900">
+                <span className="text-sm font-semibold text-emerald-100">2. Is there an official alert?</span>
+                <span className="mt-2 block text-sm leading-6 text-slate-400">Review selected WHO, ECDC, PAHO/WHO, CDC, and health department notices.</span>
+              </Link>
+              <Link prefetch={false} href="/where/florida" className="rounded-lg border border-white/10 bg-slate-950/70 p-4 transition hover:border-emerald-300/50 hover:bg-slate-900">
+                <span className="text-sm font-semibold text-emerald-100">3. Need regional context?</span>
+                <span className="mt-2 block text-sm leading-6 text-slate-400">Start with Florida, Canada, Washington, or the U.S. state map pages.</span>
+              </Link>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link prefetch={false} href="/where/united-states" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">U.S. map by state</Link>
+              <Link prefetch={false} href="/where/canada" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Canada map context</Link>
+              <Link prefetch={false} href="/prevention/cleaning-mouse-droppings" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Cleanup guidance</Link>
+              <Link prefetch={false} href="/sources-methodology" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Sources and limits</Link>
+            </div>
+          </section>
         </div>
 
 

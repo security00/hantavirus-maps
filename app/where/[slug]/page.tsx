@@ -11,6 +11,19 @@ import { breadcrumbJsonLd, whereArticleJsonLd, whereDatasetJsonLd } from "@/lib/
 
 type PageParams = { slug: string };
 
+const focusedGuides: Record<string, { heading: string; body: string; href: string; label: string }[]> = {
+  canada: [
+    { heading: "Start with national context", body: "Use PHAC and Government of Canada language for cumulative confirmed infections, travel-related notices, and public-health limits before reading local risk claims.", href: "/source/canada-risk-2026", label: "Open Canada risk source" },
+    { heading: "Check event-specific notices", body: "For the MV Hondius cluster, treat Canada notices as passenger-response context, not a Canada-wide live case counter.", href: "/event/canada-mv-hondius-2026", label: "Read Canada event note" },
+    { heading: "Compare with the risk map", body: "Use the risk-map explainer to separate official alerts from ecological context and historical summaries.", href: "/hantavirus-risk-map", label: "Read risk-map rules" }
+  ],
+  florida: [
+    { heading: "Start with DOH language", body: "Use Florida Department of Health disease-page wording for HPS, rodent exposure routes, and prevention context before reading any live-risk claim.", href: "/source/florida-health-hps", label: "Open Florida DOH source" },
+    { heading: "Read reservoir context carefully", body: "Florida reservoir notes support ecology context, not a county-by-county case map or a current exposure forecast.", href: "/hantavirus-risk-map", label: "Read risk-map rules" },
+    { heading: "Move to prevention if exposure is practical", body: "If the user question is about droppings, nests, enclosed spaces, or cleanup, prevention guidance is a better next step than more map browsing.", href: "/prevention/cleaning-mouse-droppings", label: "Read cleanup guidance" }
+  ]
+};
+
 function titleCaseSlug(slug: string) {
   return slug.split("-").map((part) => part[0].toUpperCase() + part.slice(1)).join(" ");
 }
@@ -71,6 +84,7 @@ export default async function WherePage({ params }: { params: Promise<PageParams
   }
 
   const relatedAlerts = getRelatedAlerts(record.jurisdiction);
+  const focusedGuide = focusedGuides[resolvedParams.slug] ?? [];
   const canonicalPath = wherePath(resolvedParams.slug);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", path: "/" },
@@ -162,6 +176,24 @@ export default async function WherePage({ params }: { params: Promise<PageParams
               <p className="rounded-md border border-white/10 bg-white/[0.04] p-4 leading-7 text-slate-200">For current public health action, use the linked official agency sources and local health authorities.</p>
             </div>
           </section>
+
+          {focusedGuide.length > 0 && (
+            <section aria-labelledby="focused-guide" className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+              <p className="text-sm font-semibold text-emerald-200">Keep exploring</p>
+              <h2 id="focused-guide" className="mt-2 text-2xl font-semibold">Best next steps for {record.jurisdiction}</h2>
+              <div className="mt-5 grid gap-4 md:grid-cols-3">
+                {focusedGuide.map((item) => (
+                  <article key={item.heading} className="rounded-lg border border-white/10 bg-slate-950/70 p-4">
+                    <h3 className="text-base font-semibold text-white">{item.heading}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-300">{item.body}</p>
+                    <Link prefetch={false} href={item.href} className="mt-4 inline-flex text-sm font-semibold text-emerald-200 hover:text-white">
+                      {item.label} →
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
 
           <section aria-labelledby="limits">
             <p className="text-sm font-semibold text-emerald-200">Limits</p>
