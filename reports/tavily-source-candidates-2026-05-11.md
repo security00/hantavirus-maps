@@ -23,7 +23,7 @@ Generated: 2026-05-11T18:08:11Z
 - High-priority review candidates: 5
 - Low-priority / weak candidates: 0
 - Candidates with weak signals: 0
-- Rejected/noise candidates removed from queue: 2
+- Rejected/noise candidates marked `rejected: true`: 2
 - Domains: `canada.ca`, `cdc.gov`, `ecdc.europa.eu`, `iris.paho.org`, `mma.gob.cl`, `stacks.cdc.gov`, `thl.fi`, `who.int`
 
 ## Human review digest
@@ -175,7 +175,7 @@ High-priority official candidates to inspect first:
 - Review priority: medium
 - Already in backlog: no
 - Safe candidate use: Candidate for manual PDF review and source-linked context.
-- Review need: Requires PDF extraction, table/date review, language review where needed, and safe summary rules.
+- Review need: Strict section-scoped extraction only: verify and extract only the hantavirus cruise-ship section; ignore Mpox and MERS-CoV sections to avoid data pollution.
 - Public use allowed now: no
 - Tavily score: 0.69249696
 - Snippet: In March 2026, 80 mpox clade I cases were reported by 10 countries. In March 2026, 22 mpox clade II cases were reported by seven countries. Hantavirus disease outbreak on cruise ship - South Atlantic - 2026 Overview: Update (data cut off 10:00 AM) Updates on new reported cases. Geographical distribution of confirmed cases of MERS-CoV by reporting country, April 2012 - April 2026. In March 2026, 80 mpox clade I cases…
@@ -187,13 +187,14 @@ High-priority official candidates to inspect first:
 - Discovery batch: south-america-official
 - Candidate ID: `iris-pdf-164th-session-of-the-executive-committee-iris-paho`
 - Candidate tier: 2
-- Candidate status: `review_candidate`
+- Candidate status: `rejected`
 - Source type: Official public health source candidate
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for human review and possible source registry/backlog expansion.
-- Review need: Verify official publisher, publication date, disease context, geography, and safe public wording before use.
+- Safe candidate use: Rejected noise; do not ingest into public data or source registry.
+- Review need: Rejected by human review: broad PAHO governance/executive committee PDF; snippet is political/social context, not actionable hantavirus disease data.
 - Public use allowed now: no
+- Rejection reasons: Broad PAHO governance/executive committee PDF; snippet is political/social context, not actionable hantavirus disease data.
 - Tavily score: 0.06151994
 - Snippet: Our Region faces a number of political, social, and economic challenges. I choose to focus on what we have in common: our desire for freedom, for justice,
 
@@ -204,13 +205,14 @@ High-priority official candidates to inspect first:
 - Discovery batch: south-america-official
 - Candidate ID: `mma-pdf-tercera-comunicaci-n-nacional-de-chile-ante-la-convenci-n-marco`
 - Candidate tier: 4
-- Candidate status: `review_candidate`
+- Candidate status: `rejected`
 - Source type: Official PDF/report candidate
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for manual PDF review and source-linked context.
-- Review need: Requires PDF extraction, table/date review, language review where needed, and safe summary rules.
+- Safe candidate use: Rejected noise; do not ingest into public data or source registry.
+- Review need: Rejected by human review: 2016-era climate change report for the UN; no current hantavirus surveillance relevance.
 - Public use allowed now: no
+- Rejection reasons: 2016-era climate change report for the UN; no current hantavirus surveillance relevance.
 - Tavily score: 0.032629862
 - Snippet: 497 3a Comunicación Nacional de Chile ante la CMNUCC - Ministerio del Medio Ambiente 497 Anexos Ámbito Iniciativa Donante/Organizador Tipo de apoyo recibido Recursos financieros Creación de capacidad y asistencia técnica Transferencia de tecnología Programas que cuentan con apoyo internacional en recursos financieros M MRV de la Zona Verde de Santiago (2016) CAF • M Valorización energética de residuos orgánicos/ Pro…
 
@@ -251,6 +253,6 @@ High-priority official candidates to inspect first:
 ## Next manual-review steps
 
 1. Open each new candidate URL and verify publisher/date/content directly.
-2. Assign one review outcome: `approved_public_snapshot`, `approved_source_only`, `review_candidate`, or `rejected`.
+2. Keep Candidates 7 and 8 rejected; manually verify CDC/WHO links before promotion. Assign remaining candidates one review outcome: `approved_public_snapshot`, `approved_source_only`, `review_candidate`, or `rejected`.
 3. Only after review, update public JSON or page copy in a separate commit.
 4. Run `npm run lint`, `npm run build`, and `npm run validate:seo` before deploy.
