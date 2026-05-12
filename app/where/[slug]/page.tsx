@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { SourceList } from "@/components/SourceList";
 import { getAlerts, getCaseRecords } from "@/lib/data";
 import { WHERE_PAGE_SLUGS, wherePath } from "@/lib/programmatic-pages";
-import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 import { breadcrumbJsonLd, whereArticleJsonLd, whereDatasetJsonLd } from "@/lib/structured-data";
 
 type PageParams = { slug: string };
@@ -105,7 +105,7 @@ export default async function WherePage({ params }: { params: Promise<PageParams
           <aside className="rounded-lg border border-amber-200/25 bg-amber-200/[0.08] p-5">
             <p className="text-sm font-semibold text-amber-100">Precision limit</p>
             <p className="mt-3 text-sm leading-6 text-amber-50/[0.88]">
-              Reviewed {LAST_REVIEWED_LABEL}. This page does not publish patient locations, county-level current risk, or diagnosis/treatment guidance.
+              Updated map/source snapshot: <time dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>. This page does not publish patient locations, county-level current risk, or diagnosis/treatment guidance.
             </p>
           </aside>
         </div>
@@ -120,7 +120,7 @@ export default async function WherePage({ params }: { params: Promise<PageParams
               This {record.jurisdiction} page is a reviewed, source-linked hantavirus map summary. It can be cited for public health context, source limitations, and geography precision, but it is not a live outbreak feed, patient-location dataset, or local risk score.
             </p>
             <div className="mt-5 rounded-md border border-white/10 bg-slate-950/70 p-4 text-sm leading-7 text-slate-300">
-              Suggested citation: Hantavirus Maps, “{record.jurisdiction} hantavirus map and source context,” reviewed {LAST_REVIEWED_LABEL}, {`https://hantavirusmaps.org${canonicalPath}`}.
+              Suggested citation: Hantavirus Maps, “{record.jurisdiction} hantavirus map and source context,” updated {LAST_REVIEWED_LABEL}, {`https://hantavirusmaps.org${canonicalPath}`}.
             </div>
           </section>
 

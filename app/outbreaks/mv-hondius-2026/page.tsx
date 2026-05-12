@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SourceList } from "@/components/SourceList";
-import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 export const metadata: Metadata = {
   title: "MV Hondius 2026 Hantavirus Cluster: Official Source Explainer",
@@ -137,7 +137,7 @@ export default function MvHondiusOutbreakPage() {
           <aside className="rounded-lg border border-amber-200/25 bg-amber-200/[0.08] p-5">
             <p className="text-sm font-semibold text-amber-100">Important limit</p>
             <p className="mt-3 text-sm leading-6 text-amber-50/[0.88]">
-              Reviewed {LAST_REVIEWED_LABEL}. This is not a live timeline, not a
+              Updated map/source snapshot: <time dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>. This is not a live timeline, not a
               current case tracker, not exact local risk, and not medical advice.
               Use official agencies and healthcare professionals for current
               instructions.

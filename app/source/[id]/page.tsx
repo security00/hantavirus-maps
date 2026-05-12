@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 import { getAlerts, getCaseRecords, getReservoirs, getSourceById } from "@/lib/data";
 import { SOURCE_PAGE_IDS, sourcePath } from "@/lib/programmatic-pages";
-import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 import { breadcrumbJsonLd, sourceArticleJsonLd, sourceDatasetJsonLd } from "@/lib/structured-data";
 
 type PageParams = { id: string };
@@ -96,7 +96,7 @@ export default async function SourcePage({ params }: { params: Promise<PageParam
           <aside className="rounded-lg border border-amber-200/25 bg-amber-200/[0.08] p-5">
             <p className="text-sm font-semibold text-amber-100">Publication boundary</p>
             <p className="mt-3 text-sm leading-6 text-amber-50/[0.88]">
-              Reviewed {LAST_REVIEWED_LABEL}. This is a source note for map context, not medical advice, diagnosis, live surveillance, or a patient-location record.
+              Updated map/source snapshot: <time dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>. This is a source note for map context, not medical advice, diagnosis, live surveillance, or a patient-location record.
             </p>
           </aside>
         </div>

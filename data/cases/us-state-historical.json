@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-11",
+  "lastReviewed": "2026-05-12",
   "datasetStatus": "reviewed-sample",
   "policy": "This MVP stores source-linked summary records for explanation and map labels. It is not a complete case database, not a live feed, and not a county-precision case display.",
   "records": [
@@ -140,7 +140,7 @@
       "slug": "washington",
       "region": "United States",
       "layer": "Reported cases",
-      "period": "Current state page reviewed 2026-05-11",
+      "period": "Current state page reviewed 2026-05-12",
       "reportedCases": null,
       "reportedDeaths": null,
       "reportLabel": "Washington DOH state-level source linked",

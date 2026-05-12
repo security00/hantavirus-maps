@@ -5,7 +5,7 @@ import { InternalLinkCluster } from "@/components/InternalLinkCluster";
 import { MapPanel } from "@/components/MapPanel";
 import { SourceList } from "@/components/SourceList";
 import { collectSourceIds, getAlerts, getCaseDataset, getReservoirDataset } from "@/lib/data";
-import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 export const metadata: Metadata = {
   title: "Hantavirus Tracker: Reviewed Map, Cases, Alerts and Reservoirs",
@@ -99,7 +99,7 @@ export default function HantavirusTrackerPage() {
           <aside className="rounded-lg border border-amber-200/25 bg-amber-200/[0.08] p-5">
             <p className="text-sm font-semibold text-amber-100">Important limit</p>
             <p className="mt-3 text-sm leading-6 text-amber-50/[0.88]">
-              Reviewed {LAST_REVIEWED_LABEL}. This page is educational only. It does not provide
+              Updated map/source snapshot: <time dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>. This page is educational only. It does not provide
               diagnosis, emergency guidance, patient locations, real-time infection counts, or
               exact risk for a home, county, workplace, campsite, or trip.
             </p>

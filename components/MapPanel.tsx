@@ -11,7 +11,7 @@ import {
   getSourceRegistry,
   getSourcesByIds
 } from "@/lib/data";
-import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 type MapPanelProps = {
   home?: boolean;
@@ -68,7 +68,7 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             </div>
 
             <div className="grid max-w-4xl gap-3 sm:grid-cols-3">
-              <MapMetric label="U.S. case geography" value="State-level" detail="CDC public limit" />
+              <MapMetric label="Updated map snapshot" value={LAST_REVIEWED_LABEL} detail="Reviewed official sources" />
               <MapMetric label="Alert policy" value="Official only" detail="No rumor scraping" />
               <MapMetric label="Reservoir layer" value="Ecology" detail="Not infected animals" />
             </div>
@@ -78,8 +78,8 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             <section className="rounded-2xl border border-emerald-300/20 bg-slate-950/78 p-4 shadow-2xl shadow-slate-950/60 backdrop-blur-md">
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">Source check</p>
-                  <p className="mt-1 text-lg font-semibold text-white">{LAST_REVIEWED_LABEL}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">Updated map snapshot</p>
+                  <time className="mt-1 block text-lg font-semibold text-white" dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>
                 </div>
                 <Link
                   href="/sources-methodology/"
@@ -142,8 +142,9 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
               </p>
             </div>
             <div className="grid shrink-0 gap-1 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.08] p-3 text-xs sm:gap-2 sm:p-4 sm:text-sm">
-              <span className="font-semibold text-emerald-100">Source check</span>
-              <span className="text-slate-200">{LAST_REVIEWED_LABEL}</span>
+              <span className="font-semibold text-emerald-100">Updated map snapshot</span>
+              <time className="text-slate-200" dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>
+              <span className="text-[11px] leading-4 text-emerald-50/80">Official-source review refreshed as new alerts and source candidates are checked.</span>
             </div>
           </div>
 
@@ -180,7 +181,7 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             </div>
 
             <div className="grid gap-2 text-xs text-slate-400">
-              <span className="rounded-md border border-white/10 px-2 py-1">Markers are source summaries, not confirmed local case counts</span>
+              <span className="rounded-md border border-white/10 px-2 py-1">Updated map snapshot: {LAST_REVIEWED_LABEL}</span>
               <span className="rounded-md border border-white/10 px-2 py-1">CDC public U.S. case precision is state-level</span>
               <span className="rounded-md border border-white/10 px-2 py-1">Reservoir presence is not human infection risk</span>
             </div>

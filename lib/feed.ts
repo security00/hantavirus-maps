@@ -15,6 +15,15 @@ export const FEED_DESCRIPTION =
 
 export const reviewedFeedItems: ReviewedFeedItem[] = [
   {
+    id: "map-snapshot-refresh-2026-05-12",
+    title: "Hantavirus map snapshot and source review date refreshed",
+    url: absoluteUrl("/data/map-snapshots.json"),
+    datePublished: "2026-05-12T05:50:00Z",
+    summary:
+      "Updated visible map snapshot dates, sitemap lastmod, JSON feed timestamp, and structured data dateModified fields after reviewing the latest official-source candidate queue. Still not a live case feed.",
+    tags: ["site-update", "map-snapshot", "source-review", "structured-data"],
+  },
+  {
     id: "site-hantavirus-overview-2026-05-10",
     title: "Hantavirus disease overview added",
     url: absoluteUrl("/hantavirus/"),

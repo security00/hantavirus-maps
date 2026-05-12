@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SourceList } from "@/components/SourceList";
 import { formatDateLabel, getAlerts } from "@/lib/data";
 import { getEventRecords } from "@/lib/event-pages";
-import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 export const metadata: Metadata = {
   title: "Hantavirus Outbreak Explainers: Official Source Notes",
@@ -91,7 +91,7 @@ export default function OutbreaksPage() {
           <aside className="rounded-lg border border-amber-200/25 bg-amber-200/[0.08] p-5">
             <p className="text-sm font-semibold text-amber-100">Reviewed source notes</p>
             <p className="mt-3 text-sm leading-6 text-amber-50/[0.88]">
-              Reviewed {LAST_REVIEWED_LABEL}. This page is an official-source event
+              Updated map/source snapshot: <time dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>. This page is an official-source event
               explainer hub, not a live timeline, current case tracker, exact local
               risk assessment, or medical advice.
             </p>

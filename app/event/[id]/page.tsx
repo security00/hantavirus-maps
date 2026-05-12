@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 import { SourceList } from "@/components/SourceList";
 import { EVENT_PAGE_IDS, eventPath, getEventRecord } from "@/lib/event-pages";
-import { LAST_REVIEWED_LABEL, absoluteUrl } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL, absoluteUrl } from "@/lib/routes";
 import { breadcrumbJsonLd, eventArticleJsonLd, eventClaimReviewJsonLd, eventDatasetJsonLd } from "@/lib/structured-data";
 
 type PageParams = { id: string };
@@ -75,7 +75,7 @@ export default async function EventPage({ params }: { params: Promise<PageParams
           <aside className="rounded-lg border border-amber-200/25 bg-amber-200/[0.08] p-5">
             <p className="text-sm font-semibold text-amber-100">Safe-use boundary</p>
             <p className="mt-3 text-sm leading-6 text-amber-50/[0.88]">
-              Reviewed {LAST_REVIEWED_LABEL}. This is not live surveillance, not a local risk prediction, not patient-location tracking, and not medical advice.
+              Updated map/source snapshot: <time dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>. This is not live surveillance, not a local risk prediction, not patient-location tracking, and not medical advice.
             </p>
           </aside>
         </div>

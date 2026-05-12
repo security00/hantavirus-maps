@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { LAST_REVIEWED_LABEL, SUPPORT_EMAIL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL, SUPPORT_EMAIL } from "@/lib/routes";
 
 const footerLinks = [
   { href: "/about/", label: "About Us" },
@@ -25,7 +25,7 @@ export function Footer() {
           </p>
           <p className="mt-3 text-sm leading-6 text-slate-400">
             Reviewed sources include WHO, CDC, ECDC, PAHO/WHO, and official national,
-            regional, and state public health departments. Source registry last reviewed {LAST_REVIEWED_LABEL}. Contact: {" "}
+            regional, and state public health departments. Updated map/source snapshot: <time dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>. Contact: {" "}
             <a className="text-emerald-200 hover:text-white" href={`mailto:${SUPPORT_EMAIL}`}>
               {SUPPORT_EMAIL}
             </a>

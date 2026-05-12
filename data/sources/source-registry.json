@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-11",
+  "lastReviewed": "2026-05-12",
   "reviewPolicy": "Use official public health agencies, peer-reviewed CDC publications, or agency-linked surveillance summaries. Prefer conservative summaries over scraped granular counts.",
   "sources": [
     {
@@ -19,7 +19,7 @@
       "publisher": "Centers for Disease Control and Prevention",
       "url": "https://www.cdc.gov/hantavirus/php/surveillance/index.html",
       "publicationDate": "2025-06-30",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Surveillance guidance",
       "use": "Explains national notifiable condition reporting and surveillance definitions.",
       "limitations": "Surveillance case definitions are for public health classification and are not clinical diagnostic guidance for individual patients."
@@ -195,7 +195,7 @@
       "publisher": "European Centre for Disease Prevention and Control",
       "url": "https://www.ecdc.europa.eu/en/publications-data/hantavirus-associated-cluster-illness-cruise-ship-ecdc-assessment-and",
       "publicationDate": "2026-05-06",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Rapid assessment",
       "use": "Official European assessment of a 2026 multi-country cruise-associated cluster.",
       "limitations": "Rapid assessments can change as investigations continue."
@@ -217,7 +217,7 @@
       "publisher": "World Health Organization",
       "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600",
       "publicationDate": "2026-05-08",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Disease Outbreak News",
       "use": "Official international notice for the 2026 cruise-associated Andes virus cluster.",
       "limitations": "Event-specific notice; not global live surveillance."
@@ -250,7 +250,7 @@
       "publisher": "World Health Organization",
       "url": "https://www.who.int/emergencies/outbreak-toolkit/disease-outbreak-toolboxes/hantavirus-outbreak-toolbox",
       "publicationDate": "2026",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Outbreak toolbox and reference collection",
       "use": "WHO reference collection for surveillance case definitions, outbreak tools, and linked PAHO/CDC guidance.",
       "limitations": "Toolbox definitions and resources are context-specific; local and national agencies remain authoritative for event reporting."
@@ -261,7 +261,7 @@
       "publisher": "CDC Stacks / National Notifiable Diseases Surveillance System",
       "url": "https://stacks.cdc.gov/view/cdc/256226",
       "publicationDate": "2026-05-02",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Provisional weekly surveillance table",
       "use": "Source-linked evidence for weekly NNDSS provisional HPS table availability and provisional-data limitations.",
       "limitations": "Weekly NNDSS data are provisional, voluntarily submitted, and subject to reconciliation; this project does not publish provisional weekly counts as live map data."
@@ -272,7 +272,7 @@
       "publisher": "CDC Stacks / National Notifiable Diseases Surveillance System",
       "url": "https://stacks.cdc.gov/view/cdc/251471",
       "publicationDate": "2026-01-03",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Provisional weekly surveillance table",
       "use": "Source-linked evidence for non-HPS hantavirus weekly NNDSS table availability and provisional-data limitations.",
       "limitations": "Not used here for public map counts until a weekly NNDSS display rule is approved."
@@ -283,7 +283,7 @@
       "publisher": "Washington State Department of Health",
       "url": "https://doh.wa.gov/you-and-your-family/illness-and-disease-z/hantavirus",
       "publicationDate": "2026",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "State health department disease page",
       "use": "Washington state-level hantavirus context, annual range statement, prevention guidance, and source-linked state page.",
       "limitations": "Annual range and prevention context are state-level; this project does not infer county risk or current local case counts."
@@ -294,7 +294,7 @@
       "publisher": "Washington State Department of Health",
       "url": "https://doh.wa.gov/sites/default/files/2025-04/420-002-epitrends2025-04.pdf",
       "publicationDate": "2025-04",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "State epidemiology report",
       "use": "Washington background report with notifiable status, national context, exposure reminders, and approximate annual case context.",
       "limitations": "PDF report is background context; county exposure notes are not converted into a county map."
@@ -305,7 +305,7 @@
       "publisher": "Government of Canada",
       "url": "https://www.canada.ca/en/public-health/services/diseases/hantaviruses/risks-hantavirus-infection.html",
       "publicationDate": "2026-05-08",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "National risk and current situation page",
       "use": "Canada cumulative confirmed infection context and MV Hondius risk wording from an official national page.",
       "limitations": "Canada cumulative statement is not a live case feed; outbreak-specific risk language should not be generalized beyond the official context."
@@ -316,7 +316,7 @@
       "publisher": "Public Health Agency of Canada / Government of Canada",
       "url": "https://www.canada.ca/en/public-health/services/diseases/hantaviruses/surveillance-hantavirus-related-diseases.html",
       "publicationDate": "2015-07-14",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "National surveillance overview",
       "use": "Canada surveillance history and National Microbiology Laboratory role.",
       "limitations": "Older page; use newer Government of Canada pages for current cumulative statements."
@@ -327,7 +327,7 @@
       "publisher": "Government of Canada",
       "url": "https://www.canada.ca/en/public-health/services/diseases/hantaviruses/health-professionals-treating-hantavirus-infection/national-case-definition.html",
       "publicationDate": "2019-02-07",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "National case definition",
       "use": "Canada confirmed-case notification and surveillance case-definition context.",
       "limitations": "For surveillance classification, not clinical decision support for individual readers."
@@ -338,7 +338,7 @@
       "publisher": "Government of Canada / Global Affairs Canada / Public Health Agency of Canada",
       "url": "https://www.canada.ca/en/global-affairs/news/2026/05/interdepartmental-media-update--hantavirus---may-10-2026.html",
       "publicationDate": "2026-05-10",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Official interdepartmental media update",
       "use": "Canada response context for Canadian passengers linked to the MV Hondius event.",
       "limitations": "Event-specific operational update; not travel advice or a complete outbreak dataset."
@@ -349,7 +349,7 @@
       "publisher": "European Centre for Disease Prevention and Control",
       "url": "https://www.ecdc.europa.eu/en/news-events/cruise-ship-hantavirus-outbreak-ecdc-response-activated",
       "publicationDate": "2026-05-06",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Official outbreak response update",
       "use": "ECDC response/timeline context for the cruise-associated Andes virus cluster.",
       "limitations": "Timeline update should be deduplicated with WHO/PAHO/ECDC assessment sources."
@@ -360,7 +360,7 @@
       "publisher": "European Centre for Disease Prevention and Control",
       "url": "https://www.ecdc.europa.eu/en/news-events/ecdc-publishes-guidance-management-passengers-linked-andes-hantavirus-outbreak-cruise",
       "publicationDate": "2026",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Official outbreak guidance update",
       "use": "ECDC response context for management of passengers linked to the cruise-associated outbreak.",
       "limitations": "Do not restate as independent travel clearance advice; cite official agencies for current guidance."
@@ -371,7 +371,7 @@
       "publisher": "Argentina Ministry of Health / Argentina.gob.ar",
       "url": "https://www.argentina.gob.ar/sites/default/files/2025/01/ben-785-se-48-vf.pdf?utm_source",
       "publicationDate": "2025",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "National epidemiological bulletin",
       "use": "Argentina official bulletin candidate for future Spanish-language surveillance extraction.",
       "limitations": "Not yet extracted into public counts; requires Spanish table review and display rules."
@@ -382,7 +382,7 @@
       "publisher": "Pan American Health Organization",
       "url": "https://www1.paho.org/english/gov/ce/ce122_14.pdf",
       "publicationDate": "1998",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Historical regional report",
       "use": "Historical Americas context and source discovery for country-level surveillance history.",
       "limitations": "Historical context only; not current surveillance data."
@@ -393,7 +393,7 @@
       "publisher": "Utah Department of Health and Human Services",
       "url": "https://dhhs.utah.gov/featured-news/at-least-one-passenger-from-utah-on-board-the-mv-hondius/",
       "publicationDate": "2026",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Official state response update",
       "use": "Utah-specific official response context for a resident passenger linked to the MV Hondius outbreak response.",
       "limitations": "Passenger-response notice only; does not indicate increased local risk or local transmission in Utah."
@@ -404,7 +404,7 @@
       "publisher": "World Health Organization",
       "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599",
       "publicationDate": "2026-05-04",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Disease Outbreak News",
       "use": "Initial WHO Disease Outbreak News notice for the 2026 MV Hondius cruise-associated Andes virus cluster.",
       "limitations": "Superseded by DON600 for updated case totals; use for timeline context only, not as a separate outbreak count."
@@ -415,7 +415,7 @@
       "publisher": "Argentina Ministry of Health / Argentina.gob.ar",
       "url": "https://www.argentina.gob.ar/noticias/salud-sostiene-y-refuerza-la-vigilancia-epidemiologica-de-hantavirus-en-el-pais",
       "publicationDate": "2026-05-07",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Official national health ministry update",
       "use": "Argentina national context for 2026 hantavirus notifications and public health surveillance coordination related to the MV Hondius event.",
       "limitations": "Spanish-language official update. Counts are national notification snapshots and are not live case feeds, patient locations, or local risk predictions."
@@ -426,7 +426,7 @@
       "publisher": "Public Health Agency of Canada / Government of Canada",
       "url": "https://www.canada.ca/en/public-health/news/2026/05/remarks-from-the-chief-public-health-officer.html",
       "publicationDate": "2026-05",
-      "reviewedDate": "2026-05-11",
+      "reviewedDate": "2026-05-12",
       "sourceType": "Official public health remarks",
       "use": "Canada risk-assessment and passenger-response context for the MV Hondius Andes hantavirus cluster.",
       "limitations": "Operational public health statement; not a Canada-wide case counter or travel clearance service."

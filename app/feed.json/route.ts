@@ -1,5 +1,5 @@
 import { FEED_DESCRIPTION, FEED_TITLE, feedUpdatedIso, reviewedFeedItems } from "@/lib/feed";
-import { SITE_URL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, SITE_URL } from "@/lib/routes";
 
 export const dynamic = "force-static";
 
@@ -27,6 +27,7 @@ export function GET() {
     {
       headers: {
         "content-type": "application/feed+json; charset=utf-8",
+        "last-modified": new Date(`${LAST_REVIEWED_ISO}T00:00:00Z`).toUTCString(),
       },
     },
   );

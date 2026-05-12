@@ -4,7 +4,7 @@ import { SourceList } from "@/components/SourceList";
 import { getStateCaseRecord } from "@/lib/data";
 import type { ContentPageData } from "@/lib/page-content";
 import { getRouteForPath } from "@/lib/page-content";
-import { LAST_REVIEWED_LABEL } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 type ContentPageProps = {
   page: ContentPageData;
@@ -32,8 +32,8 @@ export function ContentPage({ page }: ContentPageProps) {
             <p className="text-sm font-semibold text-amber-100">Educational use only</p>
             <p className="mt-3 text-sm leading-6 text-amber-50/[0.85]">
               This page is not medical advice, diagnosis, emergency guidance, or a
-              professional public health determination. Source snapshot reviewed{" "}
-              {LAST_REVIEWED_LABEL}.
+              professional public health determination. Updated map/source snapshot:{" "}
+              <time dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>.
             </p>
           </aside>
         </div>

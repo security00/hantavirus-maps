@@ -1,6 +1,6 @@
 import type { CaseRecord, SourceRecord } from "@/lib/data";
 import type { EventPageRecord } from "@/lib/event-pages";
-import { SITE_URL, absoluteUrl } from "@/lib/routes";
+import { LAST_REVIEWED_ISO, SITE_URL, absoluteUrl } from "@/lib/routes";
 
 export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
   return {
@@ -55,7 +55,7 @@ export function eventArticleJsonLd(event: EventPageRecord) {
     description: event.summary,
     url: absoluteUrl(event.canonicalPath),
     datePublished: event.date,
-    dateModified: "2026-05-11",
+    dateModified: LAST_REVIEWED_ISO,
     author: { "@type": "Organization", name: "Hantavirus Maps", url: SITE_URL },
     publisher: { "@type": "Organization", name: "Hantavirus Maps", url: SITE_URL },
     isAccessibleForFree: true,
@@ -95,7 +95,7 @@ export function eventDatasetJsonLd(event: EventPageRecord) {
     url: absoluteUrl(event.canonicalPath),
     license: "https://creativecommons.org/licenses/by/4.0/",
     creator: { "@type": "Organization", name: "Hantavirus Maps", url: SITE_URL },
-    dateModified: "2026-05-11",
+    dateModified: LAST_REVIEWED_ISO,
     spatialCoverage: { "@type": "Place", name: event.geography },
     variableMeasured: event.metrics.map((metric) => metric.label),
     distribution: [
@@ -114,7 +114,7 @@ export function whereDatasetJsonLd(record: CaseRecord, path: string) {
     url: absoluteUrl(path),
     license: "https://creativecommons.org/licenses/by/4.0/",
     creator: { "@type": "Organization", name: "Hantavirus Maps", url: SITE_URL },
-    dateModified: "2026-05-11",
+    dateModified: LAST_REVIEWED_ISO,
     spatialCoverage: { "@type": "Place", name: record.jurisdiction },
     temporalCoverage: record.period,
     variableMeasured: ["Reported cases", "Geography precision", "Source limitations"],
@@ -130,7 +130,7 @@ export function whereArticleJsonLd(record: CaseRecord, path: string) {
     headline: `${record.jurisdiction} hantavirus map and source context`,
     description: record.summary,
     url: absoluteUrl(path),
-    dateModified: "2026-05-11",
+    dateModified: LAST_REVIEWED_ISO,
     author: { "@type": "Organization", name: "Hantavirus Maps", url: SITE_URL },
     publisher: { "@type": "Organization", name: "Hantavirus Maps", url: SITE_URL },
     about: [{ "@type": "MedicalCondition", name: "Hantavirus disease" }, { "@type": "Place", name: record.jurisdiction }],

@@ -19,7 +19,7 @@ import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL, SITE_URL, SUPPORT_EMAIL } from 
 export const metadata: Metadata = {
   title: "Hantavirus Map and Tracker: Cases, Alerts, Risk Areas",
   description:
-    "A source-linked hantavirus map and reviewed tracker for historical case summaries, official alerts, rodent reservoir regions, prevention, symptoms, and methodology limits.",
+    "Updated source-linked hantavirus map and reviewed tracker for historical case summaries, official alerts, rodent reservoir regions, prevention, symptoms, and methodology limits.",
   alternates: {
     canonical: "/",
   },
@@ -233,8 +233,8 @@ export default function Home() {
           </p>
         </div>
         <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-4">
-          <TrustStat label="Latest source check" value={LAST_REVIEWED_LABEL} />
-          <TrustStat label="Data policy" value="Reviewed only" />
+          <TrustStat label="Updated map snapshot" value={LAST_REVIEWED_LABEL} />
+          <TrustStat label="Source check cadence" value="Reviewed as alerts change" />
           <TrustStat label="CDC U.S. precision" value="State-level" />
           <TrustStat label="Medical use" value="Educational only" />
         </div>
