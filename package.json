@@ -12,7 +12,8 @@
     "validate:seo": "node scripts/validate-seo.mjs",
     "discover:sources": "node scripts/discover-source-candidates.mjs",
     "check:audit-urls": "node scripts/check-audit-urls.mjs",
-    "check:meta": "node scripts/check-meta-length.mjs"
+    "check:meta": "node scripts/check-meta-length.mjs",
+    "check:dataset-license": "node scripts/check-dataset-license.mjs"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",

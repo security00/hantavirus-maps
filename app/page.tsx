@@ -112,6 +112,7 @@ const datasetJsonLd = {
   creator: {
     "@id": `${SITE_URL}/#organization`,
   },
+  license: "https://creativecommons.org/licenses/by/4.0/",
   dateModified: LAST_REVIEWED_ISO,
   isAccessibleForFree: true,
   keywords: [
