@@ -120,6 +120,10 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
   );
   const featuredCases = caseMarkers.slice(0, 4);
   const featuredAlerts = alertMarkers.slice(0, 3);
+  const jumpTo = (nextFocus: MapFocus) => {
+    setFocus(nextFocus);
+    setHasInteracted(true);
+  };
 
   return (
     <div className="interactive-map-shell">
@@ -254,16 +258,16 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
         </div>
         <div className="map-command-actions" aria-label="Featured map markers">
           {featuredAlerts.map(({ alert }) => (
-            <button key={alert.id} type="button" className="map-jump map-jump-alert" onClick={() => setFocus({ type: "alert", id: alert.id })}>
+            <button key={alert.id} type="button" className="map-jump map-jump-alert" onClick={() => jumpTo({ type: "alert", id: alert.id })}>
               {alert.geography.split(" /")[0]}
             </button>
           ))}
           {featuredCases.map(({ record }) => (
-            <button key={record.id} type="button" className="map-jump map-jump-case" onClick={() => setFocus({ type: "case", id: record.id })}>
+            <button key={record.id} type="button" className="map-jump map-jump-case" onClick={() => jumpTo({ type: "case", id: record.id })}>
               {record.jurisdiction}
             </button>
           ))}
-          <button type="button" className="map-jump map-jump-reservoir" onClick={() => setFocus({ type: "reservoir", id: "deer-mouse-sin-nombre" })}>
+          <button type="button" className="map-jump map-jump-reservoir" onClick={() => jumpTo({ type: "reservoir", id: "deer-mouse-sin-nombre" })}>
             Deer mouse ecology
           </button>
         </div>
