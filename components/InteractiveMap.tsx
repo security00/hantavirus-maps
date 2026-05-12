@@ -251,11 +251,14 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
               ))}
         </LayerGroup>
       </MapContainer>
-      <div className="map-command-panel" aria-label="Map shortcuts and guidance">
-        <div>
-          <p className="map-command-eyebrow">Explore the reviewed layers</p>
-          <p className="map-command-title">Jump to a source-linked marker</p>
-        </div>
+      <details className="map-command-panel" aria-label="Map shortcuts and guidance">
+        <summary className="map-command-summary">
+          <span>
+            <span className="map-command-eyebrow">Explore layers</span>
+            <span className="map-command-title">Jump to marker</span>
+          </span>
+          <span className="map-command-count">{featuredAlerts.length + featuredCases.length + 1}</span>
+        </summary>
         <div className="map-command-actions" aria-label="Featured map markers">
           {featuredAlerts.map(({ alert }) => (
             <button key={alert.id} type="button" className="map-jump map-jump-alert" onClick={() => jumpTo({ type: "alert", id: alert.id })}>
@@ -271,7 +274,7 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
             Deer mouse ecology
           </button>
         </div>
-      </div>
+      </details>
       {!hasInteracted && (
         <div className="map-tap-hint" role="status">
           Tap a marker, use the jump buttons, or pinch/drag the map. Every popup includes source links and limits.
