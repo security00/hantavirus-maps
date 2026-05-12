@@ -3,7 +3,7 @@ type: "source-page"
 id: "nmdoh-hantavirus"
 title: "Hantavirus Pulmonary Syndrome"
 publisher: "New Mexico Department of Health"
-canonical: "https://hantavirusmaps.org/source/nmdoh-hantavirus/"
+canonical: "https://hantavirusmaps.org/source/nmdoh-hantavirus"
 license: "CC-BY-4.0"
 ---
 
@@ -39,4 +39,4 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Cite this page
 
-https://hantavirusmaps.org/source/nmdoh-hantavirus/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/source/nmdoh-hantavirus (accessed YYYY-MM-DD)

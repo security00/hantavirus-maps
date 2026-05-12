@@ -38,15 +38,15 @@ export const EVENT_PAGE_IDS = [
 ];
 
 export function sourcePath(id) {
-  return `/source/${id}/`;
+  return `/source/${id}`;
 }
 
 export function wherePath(slug) {
-  return `/where/${slug}/`;
+  return `/where/${slug}`;
 }
 
 export function eventPath(id) {
-  return `/event/${id}/`;
+  return `/event/${id}`;
 }
 
 export function rawEventPath(id) {

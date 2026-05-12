@@ -7,11 +7,11 @@ import { getEventRecords } from "@/lib/event-pages";
 import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Outbreak Explainers: Official Source Notes",
+  title: "Hantavirus Outbreak Explainers",
   description:
     "Conservative official-source hantavirus outbreak explainers and reviewed source notes, with links to the outbreak map and tracker.",
   alternates: {
-    canonical: "/outbreaks/",
+    canonical: "/outbreaks",
   },
 };
 
@@ -19,11 +19,11 @@ const selectedAlertIds = ["who-don600-2026-cruise", "paho-alert-2025-americas"];
 
 const alertLinks: Record<string, { href: string; label: string }> = {
   "who-don600-2026-cruise": {
-    href: "/outbreaks/mv-hondius-2026/",
+    href: "/outbreaks/mv-hondius-2026",
     label: "Read the event explainer",
   },
   "paho-alert-2025-americas": {
-    href: "/south-america/",
+    href: "/south-america",
     label: "Read South America context",
   },
 };
@@ -68,19 +68,19 @@ export default function OutbreaksPage() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
-                href="/hantavirus-outbreak-map/"
+                href="/hantavirus-outbreak-map"
                 className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
               >
                 Open outbreak map
               </Link>
               <Link
-                href="/hantavirus-tracker/"
+                href="/hantavirus-tracker"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
                 Open tracker
               </Link>
               <Link
-                href="/outbreaks/mv-hondius-2026/"
+                href="/outbreaks/mv-hondius-2026"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
                 MV Hondius 2026 explainer

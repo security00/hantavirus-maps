@@ -36,19 +36,19 @@ export async function generateMetadata({ params }: { params: Promise<PageParams>
   const resolvedParams = await params;
   const record = getWhereRecord(resolvedParams.slug);
   const specialTitles: Record<string, string> = {
-    canada: "Hantavirus Map Canada: PHAC and Official Source Context",
-    florida: "Hantavirus Florida Map: DOH Source and Reservoir Context",
-    washington: "Hantavirus Washington Map: DOH Source and Case Context",
+    canada: "Hantavirus Map Canada: PHAC Source Context",
+    florida: "Hantavirus Florida Map: DOH Source Context",
+    washington: "Washington Hantavirus Map: DOH Context",
   };
   const specialDescriptions: Record<string, string> = {
-    canada: "Reviewed hantavirus map Canada context using PHAC and Government of Canada sources, with limits on confirmed infections, travel notices, geography, and live surveillance claims.",
-    florida: "Reviewed hantavirus Florida map context using Florida Department of Health sources, reservoir ecology, prevention language, and limits on live case-count claims.",
-    washington: "Reviewed hantavirus Washington map context using Washington State Department of Health sources, annual range language, prevention context, and local-risk limits.",
+    canada: "Reviewed Canada hantavirus map context from PHAC and Government of Canada sources, with geography and live-surveillance limits.",
+    florida: "Reviewed Florida hantavirus map context from DOH sources, reservoir ecology, prevention language, and live-count limits.",
+    washington: "Reviewed Washington hantavirus map context from DOH sources, annual range language, prevention notes, and local-risk limits.",
   };
   const title = specialTitles[resolvedParams.slug]
-    ?? (record ? `${record.jurisdiction} Hantavirus Map and Source Context` : `${titleCaseSlug(resolvedParams.slug)} Hantavirus Map`);
+    ?? (record ? `${record.jurisdiction} Hantavirus Map Context` : `${titleCaseSlug(resolvedParams.slug)} Hantavirus Map`);
   const description = specialDescriptions[resolvedParams.slug]
-    ?? `Reviewed source-linked hantavirus map context for ${record?.jurisdiction ?? titleCaseSlug(resolvedParams.slug)}, with limits on case counts, geography precision, and live surveillance claims.`;
+    ?? `Reviewed hantavirus map context for ${record?.jurisdiction ?? titleCaseSlug(resolvedParams.slug)}, with case-count, geography, and live-surveillance limits.`;
 
   return {
     title,
@@ -74,7 +74,7 @@ export default async function WherePage({ params }: { params: Promise<PageParams
   const canonicalPath = wherePath(resolvedParams.slug);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", path: "/" },
-    { name: "Where", path: "/where-is-hantavirus-found/" },
+    { name: "Where", path: "/where-is-hantavirus-found" },
     { name: record.jurisdiction, path: canonicalPath },
   ]);
   const articleJsonLd = whereArticleJsonLd(record, canonicalPath);
@@ -111,10 +111,10 @@ export default async function WherePage({ params }: { params: Promise<PageParams
               </p>
             )}
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/hantavirus-tracker/" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
+              <Link href="/hantavirus-tracker" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
                 Open tracker
               </Link>
-              <Link href="/sources-methodology/" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+              <Link href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
                 Review methodology
               </Link>
             </div>

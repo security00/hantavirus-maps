@@ -2,13 +2,13 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/#interactive-map", label: "Map" },
-  { href: "/hantavirus-tracker/", label: "Tracker" },
-  { href: "/united-states/", label: "United States" },
-  { href: "/hantavirus-risk-map/", label: "Risk" },
-  { href: "/hantavirus-outbreak-map/", label: "Alerts" },
-  { href: "/prevention/", label: "Prevention" },
-  { href: "/sources-methodology/", label: "Sources" },
-  { href: "/faq/", label: "FAQ" }
+  { href: "/hantavirus-tracker", label: "Tracker" },
+  { href: "/united-states", label: "United States" },
+  { href: "/hantavirus-risk-map", label: "Risk" },
+  { href: "/hantavirus-outbreak-map", label: "Alerts" },
+  { href: "/prevention", label: "Prevention" },
+  { href: "/sources-methodology", label: "Sources" },
+  { href: "/faq", label: "FAQ" }
 ];
 
 export function Header() {

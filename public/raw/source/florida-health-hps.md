@@ -3,7 +3,7 @@ type: "source-page"
 id: "florida-health-hps"
 title: "Hantavirus Pulmonary Syndrome"
 publisher: "Florida Department of Health"
-canonical: "https://hantavirusmaps.org/source/florida-health-hps/"
+canonical: "https://hantavirusmaps.org/source/florida-health-hps"
 license: "CC-BY-4.0"
 ---
 
@@ -39,4 +39,4 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Cite this page
 
-https://hantavirusmaps.org/source/florida-health-hps/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/source/florida-health-hps (accessed YYYY-MM-DD)

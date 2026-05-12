@@ -3,7 +3,7 @@ type: "source-page"
 id: "ecdc-cruise-2026"
 title: "Hantavirus-associated cluster of illness on a cruise ship: ECDC assessment and recommendations"
 publisher: "European Centre for Disease Prevention and Control"
-canonical: "https://hantavirusmaps.org/source/ecdc-cruise-2026/"
+canonical: "https://hantavirusmaps.org/source/ecdc-cruise-2026"
 license: "CC-BY-4.0"
 ---
 
@@ -42,4 +42,4 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Cite this page
 
-https://hantavirusmaps.org/source/ecdc-cruise-2026/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/source/ecdc-cruise-2026 (accessed YYYY-MM-DD)

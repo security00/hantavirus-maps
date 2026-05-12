@@ -3,7 +3,7 @@ type: "source-page"
 id: "argentina-ben-785-2025"
 title: "Boletín Epidemiológico Nacional N°785, SE 48, Año 2025"
 publisher: "Argentina Ministry of Health / Argentina.gob.ar"
-canonical: "https://hantavirusmaps.org/source/argentina-ben-785-2025/"
+canonical: "https://hantavirusmaps.org/source/argentina-ben-785-2025"
 license: "CC-BY-4.0"
 ---
 
@@ -39,4 +39,4 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Cite this page
 
-https://hantavirusmaps.org/source/argentina-ben-785-2025/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/source/argentina-ben-785-2025 (accessed YYYY-MM-DD)

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Frequently asked questions about Hantavirus Maps, source-linked layers, official alerts, reservoir ecology, and medical limitations.",
   alternates: {
-    canonical: "/faq/",
+    canonical: "/faq",
   },
 };
 
@@ -58,7 +58,7 @@ export default function FAQPage() {
         </div>
         <div className="mx-auto mt-8 flex max-w-7xl flex-wrap gap-3">
           <Link
-            href="/sources-methodology/"
+            href="/sources-methodology"
             className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
           >
             Review sources and methodology

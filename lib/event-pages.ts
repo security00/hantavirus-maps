@@ -33,7 +33,7 @@ export const EVENT_PAGE_IDS = [
 ] as const;
 
 export function eventPath(id: string) {
-  return `/event/${id}/`;
+  return `/event/${id}`;
 }
 
 export function rawEventPath(id: string) {

@@ -5,7 +5,7 @@ title: "Hantavirus pulmonary syndrome alert in the Americas Region"
 geography: "Americas Region, especially Southern Cone countries"
 date: "2025-12-19"
 status: "Regional epidemiological alert"
-canonical: "https://hantavirusmaps.org/event/paho-alert-2025-americas/"
+canonical: "https://hantavirusmaps.org/event/paho-alert-2025-americas"
 license: "CC-BY-4.0"
 ---
 
@@ -40,6 +40,6 @@ This record is a reviewed public health map note. It is not live surveillance, m
 
 ## Cite this record
 
-https://hantavirusmaps.org/event/paho-alert-2025-americas/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/event/paho-alert-2025-americas (accessed YYYY-MM-DD)
 
 Dataset: https://hantavirusmaps.org/data/map-snapshots.json

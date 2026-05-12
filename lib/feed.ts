@@ -26,7 +26,7 @@ export const reviewedFeedItems: ReviewedFeedItem[] = [
   {
     id: "site-hantavirus-overview-2026-05-10",
     title: "Hantavirus disease overview added",
-    url: absoluteUrl("/hantavirus/"),
+    url: absoluteUrl("/hantavirus"),
     datePublished: "2026-05-10T22:54:00Z",
     summary:
       "Educational overview covering what hantavirus is, HPS vs HFRS, transmission, symptoms, prevention, cleanup, and diagnosis/treatment boundaries. Not medical advice or live surveillance.",
@@ -35,7 +35,7 @@ export const reviewedFeedItems: ReviewedFeedItem[] = [
   {
     id: "site-outbreak-explainers-2026-05-10",
     title: "Official-source outbreak explainer pages added",
-    url: absoluteUrl("/outbreaks/"),
+    url: absoluteUrl("/outbreaks"),
     datePublished: "2026-05-10T21:35:00Z",
     summary:
       "Added reviewed outbreak notes and MV Hondius 2026 event explainer pages using official-source framing. These pages are not live timelines, current case trackers, or exact local risk maps.",
@@ -44,7 +44,7 @@ export const reviewedFeedItems: ReviewedFeedItem[] = [
   {
     id: "who-don600-2026-cruise-reviewed",
     title: "WHO cruise-associated hantavirus cluster note reviewed",
-    url: absoluteUrl("/outbreaks/mv-hondius-2026/"),
+    url: absoluteUrl("/outbreaks/mv-hondius-2026"),
     datePublished: "2026-05-08T00:00:00Z",
     summary:
       "Reviewed source note for WHO Disease Outbreak News on the 2026 cruise-associated hantavirus cluster involving Andes virus. Event-specific context only; not a live local case service.",
@@ -53,7 +53,7 @@ export const reviewedFeedItems: ReviewedFeedItem[] = [
   {
     id: "paho-alert-2025-americas-reviewed",
     title: "PAHO/WHO Americas hantavirus alert reviewed",
-    url: absoluteUrl("/south-america/"),
+    url: absoluteUrl("/south-america"),
     datePublished: "2025-12-19T00:00:00Z",
     summary:
       "Reviewed regional PAHO/WHO hantavirus pulmonary syndrome alert for the Americas, especially Southern Cone countries. Regional context only; not neighborhood-level or travel-specific risk prediction.",

@@ -5,11 +5,11 @@ import { SourceList } from "@/components/SourceList";
 import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "MV Hondius 2026 Hantavirus Cluster: Official Source Explainer",
+  title: "MV Hondius 2026 Hantavirus Cluster",
   description:
     "Reviewed official-source notes for the 2026 cruise-associated hantavirus cluster, with clear limits on live tracking, local risk, and medical advice.",
   alternates: {
-    canonical: "/outbreaks/mv-hondius-2026/",
+    canonical: "/outbreaks/mv-hondius-2026",
   },
 };
 
@@ -65,32 +65,32 @@ const reviewedNotes = [
 
 const relatedPages = [
   {
-    href: "/outbreaks/",
+    href: "/outbreaks",
     title: "Outbreak Explainers",
     body: "Index of selected official-source outbreak notes.",
   },
   {
-    href: "/hantavirus-outbreak-map/",
+    href: "/hantavirus-outbreak-map",
     title: "Outbreak Map",
     body: "Map context for official alerts and source limits.",
   },
   {
-    href: "/hantavirus-tracker/",
+    href: "/hantavirus-tracker",
     title: "Hantavirus Tracker",
     body: "Reviewed map layers for cases, alerts, reservoirs, and prevention.",
   },
   {
-    href: "/south-america/",
+    href: "/south-america",
     title: "South America Context",
     body: "Andes virus and PAHO/WHO regional context.",
   },
   {
-    href: "/europe/",
+    href: "/europe",
     title: "Europe Context",
     body: "ECDC surveillance and rapid-assessment context.",
   },
   {
-    href: "/sources-methodology/",
+    href: "/sources-methodology",
     title: "Sources and Methodology",
     body: "Review rules and precision limits for this static site.",
   },
@@ -114,19 +114,19 @@ export default function MvHondiusOutbreakPage() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
-                href="/outbreaks/"
+                href="/outbreaks"
                 className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
               >
                 Back to outbreak notes
               </Link>
               <Link
-                href="/hantavirus-outbreak-map/"
+                href="/hantavirus-outbreak-map"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
                 Open outbreak map
               </Link>
               <Link
-                href="/hantavirus-tracker/"
+                href="/hantavirus-tracker"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
                 Open tracker

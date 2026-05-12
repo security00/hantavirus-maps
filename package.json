@@ -10,7 +10,9 @@
     "generate:event-markdown": "node scripts/generate-event-markdown.mjs",
     "generate:geo-markdown": "node scripts/generate-geo-markdown.mjs",
     "validate:seo": "node scripts/validate-seo.mjs",
-    "discover:sources": "node scripts/discover-source-candidates.mjs"
+    "discover:sources": "node scripts/discover-source-candidates.mjs",
+    "check:audit-urls": "node scripts/check-audit-urls.mjs",
+    "check:meta": "node scripts/check-meta-length.mjs"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",

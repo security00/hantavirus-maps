@@ -42,10 +42,10 @@ export function GET() {
 ## Human-facing hub pages
 
 - Homepage map dashboard: ${SITE_URL}
-- Hantavirus tracker guide: ${absoluteUrl("/hantavirus-tracker/")}
-- Sources and methodology: ${absoluteUrl("/sources-methodology/")}
-- Outbreak explainers: ${absoluteUrl("/outbreaks/")}
-- Where hantavirus is found: ${absoluteUrl("/where-is-hantavirus-found/")}
+- Hantavirus tracker guide: ${absoluteUrl("/hantavirus-tracker")}
+- Sources and methodology: ${absoluteUrl("/sources-methodology")}
+- Outbreak explainers: ${absoluteUrl("/outbreaks")}
+- Where hantavirus is found: ${absoluteUrl("/where-is-hantavirus-found")}
 
 ## Reviewed source pages
 

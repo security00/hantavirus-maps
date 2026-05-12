@@ -3,7 +3,7 @@ type: "source-page"
 id: "cdc-surveillance"
 title: "Hantavirus Case Definition and Reporting"
 publisher: "Centers for Disease Control and Prevention"
-canonical: "https://hantavirusmaps.org/source/cdc-surveillance/"
+canonical: "https://hantavirusmaps.org/source/cdc-surveillance"
 license: "CC-BY-4.0"
 ---
 
@@ -39,4 +39,4 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Cite this page
 
-https://hantavirusmaps.org/source/cdc-surveillance/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/source/cdc-surveillance (accessed YYYY-MM-DD)

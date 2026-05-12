@@ -30,7 +30,7 @@ OpenAPI: ${absoluteUrl("/openapi.json")}
 Manifest: ${absoluteUrl("/llms.txt")}
 AI crawler guidance: ${absoluteUrl("/ai.txt")}
 Sitemap: ${absoluteUrl("/sitemap.xml")}
-Methodology: ${absoluteUrl("/sources-methodology/")}
+Methodology: ${absoluteUrl("/sources-methodology")}
 
 # Discovery lists:
 ${inlineList("Reviewed source pages", SOURCE_PAGE_IDS.map(sourcePath))}

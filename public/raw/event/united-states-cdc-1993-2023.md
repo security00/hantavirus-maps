@@ -5,7 +5,7 @@ title: "United States hantavirus source-linked case summary"
 geography: "United States / National"
 date: "1993-2023"
 status: "Official historical surveillance summary"
-canonical: "https://hantavirusmaps.org/event/united-states-cdc-1993-2023/"
+canonical: "https://hantavirusmaps.org/event/united-states-cdc-1993-2023"
 license: "CC-BY-4.0"
 ---
 
@@ -37,10 +37,10 @@ This record is a reviewed public health map note. It is not live surveillance, m
 ## Sources
 
 - Centers for Disease Control and Prevention: [Reported Cases of Hantavirus Disease](https://www.cdc.gov/hantavirus/data-research/cases/index.html) — reviewed 2026-05-10; use: U.S. historical case context and the state-only geography limitation.
-- Centers for Disease Control and Prevention: [Hantavirus Case Definition and Reporting](https://www.cdc.gov/hantavirus/php/surveillance/index.html) — reviewed 2026-05-11; use: Explains national notifiable condition reporting and surveillance definitions.
+- Centers for Disease Control and Prevention: [Hantavirus Case Definition and Reporting](https://www.cdc.gov/hantavirus/php/surveillance/index.html) — reviewed 2026-05-12; use: Explains national notifiable condition reporting and surveillance definitions.
 
 ## Cite this record
 
-https://hantavirusmaps.org/event/united-states-cdc-1993-2023/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/event/united-states-cdc-1993-2023 (accessed YYYY-MM-DD)
 
 Dataset: https://hantavirusmaps.org/data/map-snapshots.json

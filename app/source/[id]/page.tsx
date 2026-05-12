@@ -22,13 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<PageParams>
     return {};
   }
 
-  const isCdcReportedCases = source.id === "cdc-reported-cases";
-
   return {
-    title: isCdcReportedCases ? "CDC Hantavirus Map Source: Reported Cases and Limits" : `${source.publisher}: ${source.title} | Hantavirus Maps Source`,
-    description: isCdcReportedCases
-      ? "How Hantavirus Maps uses CDC reported hantavirus case summaries, including state-level public precision and limits on county-level or live risk claims."
-      : `Reviewed source note for ${source.title}, including how Hantavirus Maps uses it and what limits apply.`,
+    title: `Reviewed Source: ${source.id}`,
+    description: `How Hantavirus Maps uses ${source.publisher} source material, with public map limits and safe-use notes.`,
     alternates: { canonical: sourcePath(source.id) },
   };
 }
@@ -57,7 +53,7 @@ export default async function SourcePage({ params }: { params: Promise<PageParam
   const linkedCount = linked.cases.length + linked.alerts.length + linked.reservoirs.length;
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", path: "/" },
-    { name: "Sources and methodology", path: "/sources-methodology/" },
+    { name: "Sources and methodology", path: "/sources-methodology" },
     { name: source.title, path: sourcePath(source.id) },
   ]);
   const articleJsonLd = sourceArticleJsonLd(source, sourcePath(source.id));
@@ -87,7 +83,7 @@ export default async function SourcePage({ params }: { params: Promise<PageParam
               <a href={source.url} rel="noreferrer" target="_blank" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
                 Open official source
               </a>
-              <Link href="/sources-methodology/" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+              <Link href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
                 Review methodology
               </Link>
             </div>

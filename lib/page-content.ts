@@ -22,8 +22,8 @@ export type ContentPageData = {
 export const CONTENT_PAGES = {
   "united-states": {
     key: "united-states",
-    path: "/united-states/",
-    title: "Hantavirus Map by State in the United States",
+    path: "/united-states",
+    title: "U.S. Hantavirus Map by State",
     description:
       "United States hantavirus map context using CDC state-level surveillance summaries and official state health sources.",
     eyebrow: "United States",
@@ -52,15 +52,15 @@ export const CONTENT_PAGES = {
     ],
     sourceIds: ["cdc-reported-cases", "cdc-surveillance", "cdc-about"],
     relatedPaths: [
-      "/united-states/new-mexico/",
-      "/united-states/california/",
-      "/united-states/arizona/",
-      "/united-states/colorado/"
+      "/united-states/new-mexico",
+      "/united-states/california",
+      "/united-states/arizona",
+      "/united-states/colorado"
     ]
   },
   "new-mexico": {
     key: "new-mexico",
-    path: "/united-states/new-mexico/",
+    path: "/united-states/new-mexico",
     title: "New Mexico Hantavirus Map and Case Context",
     description:
       "New Mexico hantavirus map context with NMDOH source links, historical case summary, and prevention notes.",
@@ -89,12 +89,12 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["nmdoh-hantavirus", "nmdoh-2026-case", "nmdoh-2025-death"],
-    relatedPaths: ["/united-states/", "/deer-mouse-hantavirus-map/", "/prevention/"]
+    relatedPaths: ["/united-states", "/deer-mouse-hantavirus-map", "/prevention"]
   },
   california: {
     key: "california",
-    path: "/united-states/california/",
-    title: "California Hantavirus Map and Source Context",
+    path: "/united-states/california",
+    title: "California Hantavirus Map",
     description:
       "California hantavirus map context linking to CDPH prevention, surveillance, and occupational health resources.",
     eyebrow: "United States / California",
@@ -122,12 +122,12 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdph-hantavirus", "cdph-occupational-2025", "cdc-rodent-cleanup"],
-    relatedPaths: ["/united-states/", "/prevention/cleaning-mouse-droppings/", "/deer-mouse-hantavirus-map/"]
+    relatedPaths: ["/united-states", "/prevention/cleaning-mouse-droppings", "/deer-mouse-hantavirus-map"]
   },
   arizona: {
     key: "arizona",
-    path: "/united-states/arizona/",
-    title: "Arizona Hantavirus Map and Public Health Alerts",
+    path: "/united-states/arizona",
+    title: "Arizona Hantavirus Map",
     description:
       "Arizona hantavirus map context with ADHS Health Alert Network and investigation protocol sources.",
     eyebrow: "United States / Arizona",
@@ -155,12 +155,12 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["adhs-han-2024", "adhs-protocol-2025", "cdc-about"],
-    relatedPaths: ["/united-states/", "/symptoms/", "/prevention/"]
+    relatedPaths: ["/united-states", "/symptoms", "/prevention"]
   },
   colorado: {
     key: "colorado",
-    path: "/united-states/colorado/",
-    title: "Colorado Hantavirus Map and Public Health Sources",
+    path: "/united-states/colorado",
+    title: "Colorado Hantavirus Map",
     description:
       "Colorado hantavirus map context with CDPHE prevention, reporting, and state data links.",
     eyebrow: "United States / Colorado",
@@ -187,11 +187,11 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdphe-hantavirus", "cdc-mmwr-denver-2018", "cdc-prevention"],
-    relatedPaths: ["/united-states/", "/prevention/cleaning-mouse-droppings/", "/where-is-hantavirus-found/"]
+    relatedPaths: ["/united-states", "/prevention/cleaning-mouse-droppings", "/where-is-hantavirus-found"]
   },
   europe: {
     key: "europe",
-    path: "/europe/",
+    path: "/europe",
     title: "Europe Hantavirus Map and ECDC Context",
     description:
       "European hantavirus map context focused on ECDC surveillance, bank vole ecology, and HFRS limitations.",
@@ -219,12 +219,12 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["ecdc-2023-aer", "ecdc-factsheet", "ecdc-cruise-2026"],
-    relatedPaths: ["/where-is-hantavirus-found/", "/hantavirus-outbreak-map/", "/sources-methodology/"]
+    relatedPaths: ["/where-is-hantavirus-found", "/hantavirus-outbreak-map", "/sources-methodology"]
   },
   "south-america": {
     key: "south-america",
-    path: "/south-america/",
-    title: "South America Hantavirus Map and Andes Virus Context",
+    path: "/south-america",
+    title: "South America Hantavirus Map",
     description:
       "South America hantavirus map context with PAHO/WHO alerts, Southern Cone surveillance, and Andes virus notes.",
     eyebrow: "South America",
@@ -251,11 +251,11 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["paho-alert-2025", "who-factsheet-2026", "who-don600-2026"],
-    relatedPaths: ["/hantavirus-outbreak-map/", "/where-is-hantavirus-found/", "/sources-methodology/"]
+    relatedPaths: ["/hantavirus-outbreak-map", "/where-is-hantavirus-found", "/sources-methodology"]
   },
   "hantavirus-risk-map": {
     key: "hantavirus-risk-map",
-    path: "/hantavirus-risk-map/",
+    path: "/hantavirus-risk-map",
     title: "Hantavirus Risk Map: What the Layers Mean",
     description:
       "How to read hantavirus risk map layers without confusing ecological risk, reported cases, and official alerts.",
@@ -287,12 +287,12 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdc-reported-cases", "cdc-prevention", "cdc-rodent-cleanup"],
-    relatedPaths: ["/hantavirus-tracker/", "/where/canada/", "/where/florida/", "/where/washington/", "/sources-methodology/", "/hantavirus-outbreak-map/", "/prevention/"]
+    relatedPaths: ["/hantavirus-tracker", "/where/canada", "/where/florida", "/where/washington", "/sources-methodology", "/hantavirus-outbreak-map", "/prevention"]
   },
   "hantavirus-outbreak-map": {
     key: "hantavirus-outbreak-map",
-    path: "/hantavirus-outbreak-map/",
-    title: "Hantavirus Outbreak Map: Official Alerts and Limits",
+    path: "/hantavirus-outbreak-map",
+    title: "Hantavirus Outbreak Map",
     description:
       "A conservative explanation of hantavirus outbreak map sources, official alerts, and why this is not live surveillance.",
     eyebrow: "Official alerts",
@@ -319,11 +319,11 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["who-don600-2026", "ecdc-cruise-2026", "paho-cruise-2026", "paho-alert-2025"],
-    relatedPaths: ["/outbreaks/", "/south-america/", "/europe/", "/sources-methodology/"]
+    relatedPaths: ["/outbreaks", "/south-america", "/europe", "/sources-methodology"]
   },
   "deer-mouse-hantavirus-map": {
     key: "deer-mouse-hantavirus-map",
-    path: "/deer-mouse-hantavirus-map/",
+    path: "/deer-mouse-hantavirus-map",
     title: "Deer Mouse Hantavirus Map",
     description:
       "Deer mouse hantavirus map context for Sin Nombre virus, reservoir ecology, and U.S. risk interpretation.",
@@ -351,11 +351,11 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdc-about", "cdc-eid-reservoir-table", "nmdoh-hantavirus", "cdph-hantavirus"],
-    relatedPaths: ["/hantavirus-risk-map/", "/prevention/cleaning-mouse-droppings/", "/where-is-hantavirus-found/"]
+    relatedPaths: ["/hantavirus-risk-map", "/prevention/cleaning-mouse-droppings", "/where-is-hantavirus-found"]
   },
   "where-is-hantavirus-found": {
     key: "where-is-hantavirus-found",
-    path: "/where-is-hantavirus-found/",
+    path: "/where-is-hantavirus-found",
     title: "Where Is Hantavirus Found?",
     description:
       "Plain-English geography of hantavirus in the Americas, Europe, Asia, and selected reservoir regions.",
@@ -382,11 +382,11 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdc-reported-cases", "ecdc-factsheet", "paho-alert-2025", "who-factsheet-2026"],
-    relatedPaths: ["/united-states/", "/europe/", "/south-america/"]
+    relatedPaths: ["/united-states", "/europe", "/south-america"]
   },
   symptoms: {
     key: "symptoms",
-    path: "/symptoms/",
+    path: "/symptoms",
     title: "Hantavirus Symptoms: Educational Overview",
     description:
       "Educational overview of hantavirus symptoms with clear medical disclaimer and source links.",
@@ -414,11 +414,11 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdc-about", "cdc-surveillance", "cdc-prevention"],
-    relatedPaths: ["/prevention/", "/prevention/cleaning-mouse-droppings/", "/sources-methodology/"]
+    relatedPaths: ["/prevention", "/prevention/cleaning-mouse-droppings", "/sources-methodology"]
   },
   prevention: {
     key: "prevention",
-    path: "/prevention/",
+    path: "/prevention",
     title: "Hantavirus Prevention",
     description:
       "General hantavirus prevention education based on CDC and state public health guidance.",
@@ -446,14 +446,14 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdc-prevention", "cdc-rodent-cleanup", "cdph-hantavirus", "nmdoh-hantavirus"],
-    relatedPaths: ["/prevention/cleaning-mouse-droppings/", "/symptoms/", "/deer-mouse-hantavirus-map/"]
+    relatedPaths: ["/prevention/cleaning-mouse-droppings", "/symptoms", "/deer-mouse-hantavirus-map"]
   },
   "cleaning-mouse-droppings": {
     key: "cleaning-mouse-droppings",
-    path: "/prevention/cleaning-mouse-droppings/",
-    title: "Cleaning Mouse Droppings and Hantavirus: CDC-Based Safety Steps",
+    path: "/prevention/cleaning-mouse-droppings",
+    title: "Cleaning Mouse Droppings Safely",
     description:
-      "CDC-based educational guidance for cleaning mouse droppings, urine, nests, dead rodents, vehicles, and heavy contamination while reducing hantavirus-related dust exposure.",
+      "CDC-based educational guidance for cleaning mouse droppings, nests, dead rodents, vehicles, and heavy contamination while reducing dust exposure.",
     eyebrow: "Prevention / Cleaning",
     intro:
       "People searching for cleaning mouse droppings and hantavirus usually need practical safety steps. This page summarizes CDC-based public guidance for reducing dust exposure from rodent urine, droppings, nests, and contaminated materials, then links back to official sources for full details.",
@@ -501,11 +501,11 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdc-rodent-cleanup", "cdc-prevention", "cdph-hantavirus", "nmdoh-hantavirus"],
-    relatedPaths: ["/prevention/", "/symptoms/", "/hantavirus/", "/deer-mouse-hantavirus-map/", "/sources-methodology/"]
+    relatedPaths: ["/prevention", "/symptoms", "/hantavirus", "/deer-mouse-hantavirus-map", "/sources-methodology"]
   },
   "sources-methodology": {
     key: "sources-methodology",
-    path: "/sources-methodology/",
+    path: "/sources-methodology",
     title: "Sources and Methodology",
     description:
       "How Hantavirus Maps reviews sources, separates data layers, and avoids unsupported precision.",
@@ -571,11 +571,11 @@ export const CONTENT_PAGES = {
       "ecdc-factsheet",
       "paho-alert-2025"
     ],
-    relatedPaths: ["/about/", "/", "/hantavirus-risk-map/"]
+    relatedPaths: ["/about", "/", "/hantavirus-risk-map"]
   },
   about: {
     key: "about",
-    path: "/about/",
+    path: "/about",
     title: "About Us - Hantavirus Maps",
     description:
       "About Hantavirus Maps, an educational source-linked public health map and data explanation project.",
@@ -616,11 +616,11 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: ["cdc-reported-cases", "cdc-prevention", "who-factsheet-2026"],
-    relatedPaths: ["/sources-methodology/", "/privacy-policy/", "/terms-of-use/"]
+    relatedPaths: ["/sources-methodology", "/privacy-policy", "/terms-of-use"]
   },
   privacyPolicy: {
     key: "privacyPolicy",
-    path: "/privacy-policy/",
+    path: "/privacy-policy",
     title: "Privacy Policy",
     description:
       "Privacy policy for Hantavirus Maps, including analytics, cookies, external links, and contact information.",
@@ -669,11 +669,11 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: [],
-    relatedPaths: ["/about/", "/terms-of-use/", "/sources-methodology/"]
+    relatedPaths: ["/about", "/terms-of-use", "/sources-methodology"]
   },
   termsOfUse: {
     key: "termsOfUse",
-    path: "/terms-of-use/",
+    path: "/terms-of-use",
     title: "Terms of Use",
     description:
       "Terms of use for Hantavirus Maps, including educational-use limits, medical disclaimer, and source limitations.",
@@ -722,7 +722,7 @@ export const CONTENT_PAGES = {
       }
     ],
     sourceIds: [],
-    relatedPaths: ["/privacy-policy/", "/about/", "/sources-methodology/"]
+    relatedPaths: ["/privacy-policy", "/about", "/sources-methodology"]
   }
 } satisfies Record<string, ContentPageData>;
 

@@ -5,7 +5,7 @@ title: "Canada hantavirus source-linked case summary"
 geography: "Canada / North America"
 date: "1994-2026-05-01"
 status: "Official national public health source linked"
-canonical: "https://hantavirusmaps.org/event/canada-phac-1994-2026/"
+canonical: "https://hantavirusmaps.org/event/canada-phac-1994-2026"
 license: "CC-BY-4.0"
 ---
 
@@ -36,12 +36,12 @@ This record is a reviewed public health map note. It is not live surveillance, m
 
 ## Sources
 
-- Government of Canada: [Risks of a hantavirus infection](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/risks-hantavirus-infection.html) — reviewed 2026-05-11; use: Canada cumulative confirmed infection context and MV Hondius risk wording from an official national page.
-- Public Health Agency of Canada / Government of Canada: [Surveillance of hantavirus related diseases](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/surveillance-hantavirus-related-diseases.html) — reviewed 2026-05-11; use: Canada surveillance history and National Microbiology Laboratory role.
-- Government of Canada: [National case definition: Hantavirus pulmonary syndrome](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/health-professionals-treating-hantavirus-infection/national-case-definition.html) — reviewed 2026-05-11; use: Canada confirmed-case notification and surveillance case-definition context.
+- Government of Canada: [Risks of a hantavirus infection](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/risks-hantavirus-infection.html) — reviewed 2026-05-12; use: Canada cumulative confirmed infection context and MV Hondius risk wording from an official national page.
+- Public Health Agency of Canada / Government of Canada: [Surveillance of hantavirus related diseases](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/surveillance-hantavirus-related-diseases.html) — reviewed 2026-05-12; use: Canada surveillance history and National Microbiology Laboratory role.
+- Government of Canada: [National case definition: Hantavirus pulmonary syndrome](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/health-professionals-treating-hantavirus-infection/national-case-definition.html) — reviewed 2026-05-12; use: Canada confirmed-case notification and surveillance case-definition context.
 
 ## Cite this record
 
-https://hantavirusmaps.org/event/canada-phac-1994-2026/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/event/canada-phac-1994-2026 (accessed YYYY-MM-DD)
 
 Dataset: https://hantavirusmaps.org/data/map-snapshots.json

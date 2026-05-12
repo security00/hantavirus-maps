@@ -5,11 +5,11 @@ import { SourceList } from "@/components/SourceList";
 import { LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "What Is Hantavirus? Educational Disease Overview",
+  title: "What Is Hantavirus? Disease Overview",
   description:
-    "Conservative, source-linked hantavirus overview covering HPS, HFRS, transmission, geography, symptoms, prevention, cleanup, diagnosis limits, treatment boundaries, and map context.",
+    "Source-linked hantavirus overview covering HPS, HFRS, transmission, geography, symptoms, prevention, cleanup, and limits.",
   alternates: {
-    canonical: "/hantavirus/",
+    canonical: "/hantavirus",
   },
 };
 
@@ -92,11 +92,11 @@ const overviewSections = [
 ];
 
 const relatedLinks = [
-  { href: "/symptoms/", label: "Symptoms overview" },
-  { href: "/prevention/", label: "Prevention" },
-  { href: "/prevention/cleaning-mouse-droppings/", label: "Cleaning mouse droppings" },
-  { href: "/hantavirus-tracker/", label: "Hantavirus tracker" },
-  { href: "/sources-methodology/", label: "Sources and methodology" },
+  { href: "/symptoms", label: "Symptoms overview" },
+  { href: "/prevention", label: "Prevention" },
+  { href: "/prevention/cleaning-mouse-droppings", label: "Cleaning mouse droppings" },
+  { href: "/hantavirus-tracker", label: "Hantavirus tracker" },
+  { href: "/sources-methodology", label: "Sources and methodology" },
 ];
 
 export default function HantavirusOverviewPage() {

@@ -3,7 +3,7 @@ type: "source-page"
 id: "wa-doh-hantavirus"
 title: "Hantavirus"
 publisher: "Washington State Department of Health"
-canonical: "https://hantavirusmaps.org/source/wa-doh-hantavirus/"
+canonical: "https://hantavirusmaps.org/source/wa-doh-hantavirus"
 license: "CC-BY-4.0"
 ---
 
@@ -39,4 +39,4 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Cite this page
 
-https://hantavirusmaps.org/source/wa-doh-hantavirus/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/source/wa-doh-hantavirus (accessed YYYY-MM-DD)

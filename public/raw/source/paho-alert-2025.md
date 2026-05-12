@@ -3,7 +3,7 @@ type: "source-page"
 id: "paho-alert-2025"
 title: "Epidemiological Alert Hantavirus Pulmonary Syndrome in Americas Region - 19 December 2025"
 publisher: "Pan American Health Organization / World Health Organization"
-canonical: "https://hantavirusmaps.org/source/paho-alert-2025/"
+canonical: "https://hantavirusmaps.org/source/paho-alert-2025"
 license: "CC-BY-4.0"
 ---
 
@@ -39,4 +39,4 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Cite this page
 
-https://hantavirusmaps.org/source/paho-alert-2025/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/source/paho-alert-2025 (accessed YYYY-MM-DD)

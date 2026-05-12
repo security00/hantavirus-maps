@@ -119,7 +119,7 @@ function classifySource(url, title, batch) {
   const rejectionReasons = [];
   const isSearchOrIndex = lower.includes('/search') || lower.includes('cbrowse') || parsed.searchParams.has('s') || parsed.searchParams.has('page') || lower.includes('news/?') || lower.includes('/news/?');
   const isMinsalGeneralStatement = domain === 'minsal.cl' && lower.includes('declaracion-ministerio-de-salud');
-  const isNmHealthLocalOldNews = domain === 'nmhealth.org' && lower.includes('/news/safety/2026/3/') && !lower.includes('hondius') && !lower.includes('cruise');
+  const isNmHealthLocalOldNews = domain === 'nmhealth.org' && lower.includes('/news/safety/2026/3') && !lower.includes('hondius') && !lower.includes('cruise');
   const isDataset = lower.includes('data.cdc.gov') || lower.includes('nndss') || lower.includes('surveillance');
   const isPdf = lower.includes('.pdf');
   const isAlert = lower.includes('don') || lower.includes('outbreak') || lower.includes('alert') || lower.includes('news');

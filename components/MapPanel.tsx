@@ -53,13 +53,13 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
-                  href="/hantavirus-tracker/"
+                  href="/hantavirus-tracker"
                   className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
                 >
                   Open tracker guide
                 </Link>
                 <Link
-                  href="/sources-methodology/"
+                  href="/sources-methodology"
                   className="rounded-md border border-white/20 bg-white/[0.06] px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/60"
                 >
                   Review sources
@@ -82,7 +82,7 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
                   <time className="mt-1 block text-lg font-semibold text-white" dateTime={LAST_REVIEWED_ISO}>{LAST_REVIEWED_LABEL}</time>
                 </div>
                 <Link
-                  href="/sources-methodology/"
+                  href="/sources-methodology"
                   className="rounded-md border border-emerald-300/35 px-3 py-2 text-xs font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white"
                 >
                   Methodology
@@ -167,7 +167,7 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
                   </p>
                 </div>
                 <Link
-                  href="/sources-methodology/"
+                  href="/sources-methodology"
                   className="inline-flex rounded-md border border-emerald-300/35 px-3 py-2 text-xs font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white"
                 >
                   Show sources
@@ -206,9 +206,9 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
               </p>
             </div>
             <div className="mt-4 grid gap-3 md:grid-cols-3">
-              <MapNextStep href="/where/united-states/" label="Check the U.S. map by state" detail="See source-linked state and regional context." />
-              <MapNextStep href="/outbreaks/" label="Review official alerts" detail="Follow reviewed WHO, ECDC, PAHO/WHO, CDC, and health department notices." />
-              <MapNextStep href="/prevention/cleaning-mouse-droppings/" label="Need cleanup guidance?" detail="Read practical prevention steps for droppings, nests, and enclosed spaces." />
+              <MapNextStep href="/where/united-states" label="Check the U.S. map by state" detail="See source-linked state and regional context." />
+              <MapNextStep href="/outbreaks" label="Review official alerts" detail="Follow reviewed WHO, ECDC, PAHO/WHO, CDC, and health department notices." />
+              <MapNextStep href="/prevention/cleaning-mouse-droppings" label="Need cleanup guidance?" detail="Read practical prevention steps for droppings, nests, and enclosed spaces." />
             </div>
           </section>
 
@@ -242,7 +242,7 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             <section className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
               <div className="flex items-center justify-between gap-3">
                 <h2 className="text-sm font-semibold text-white">Source transparency</h2>
-                <Link href="/sources-methodology/" className="text-xs font-semibold text-emerald-200 hover:text-white">
+                <Link href="/sources-methodology" className="text-xs font-semibold text-emerald-200 hover:text-white">
                   Show all
                 </Link>
               </div>
@@ -260,7 +260,7 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
                 ))}
               </div>
               <Link
-                href="/faq/"
+                href="/faq"
                 className="mt-4 inline-flex rounded-md bg-emerald-300 px-3 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
               >
                 Read map FAQ

@@ -2,7 +2,7 @@
 type: "where-page"
 slug: "florida"
 title: "Florida hantavirus map and source context"
-canonical: "https://hantavirusmaps.org/where/florida/"
+canonical: "https://hantavirusmaps.org/where/florida"
 license: "CC-BY-4.0"
 ---
 
@@ -41,4 +41,4 @@ This page does not publish patient locations, county-level current risk, or diag
 
 ## Cite this page
 
-https://hantavirusmaps.org/where/florida/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/where/florida (accessed YYYY-MM-DD)

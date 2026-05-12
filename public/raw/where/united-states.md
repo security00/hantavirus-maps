@@ -2,7 +2,7 @@
 type: "where-page"
 slug: "united-states"
 title: "United States hantavirus map and source context"
-canonical: "https://hantavirusmaps.org/where/united-states/"
+canonical: "https://hantavirusmaps.org/where/united-states"
 license: "CC-BY-4.0"
 ---
 
@@ -40,4 +40,4 @@ This page does not publish patient locations, county-level current risk, or diag
 
 ## Cite this page
 
-https://hantavirusmaps.org/where/united-states/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/where/united-states (accessed YYYY-MM-DD)

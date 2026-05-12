@@ -3,7 +3,7 @@ type: "source-page"
 id: "cdph-hantavirus"
 title: "Hantavirus Infection"
 publisher: "California Department of Public Health"
-canonical: "https://hantavirusmaps.org/source/cdph-hantavirus/"
+canonical: "https://hantavirusmaps.org/source/cdph-hantavirus"
 license: "CC-BY-4.0"
 ---
 
@@ -39,4 +39,4 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Cite this page
 
-https://hantavirusmaps.org/source/cdph-hantavirus/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/source/cdph-hantavirus (accessed YYYY-MM-DD)

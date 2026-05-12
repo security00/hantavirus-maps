@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 const eventPaths = Object.fromEntries(
   EVENT_PAGE_IDS.flatMap((id) => [
     [
-      `/event/${id}/`,
+      `/event/${id}`,
       {
         get: {
           operationId: `getEventPage_${id.replaceAll("-", "_")}`,
@@ -34,7 +34,7 @@ const eventPaths = Object.fromEntries(
 
 const sourcePaths = Object.fromEntries(
   SOURCE_PAGE_IDS.map((id) => [
-    `/source/${id}/`,
+    `/source/${id}`,
     {
       get: {
         operationId: `getSourcePage_${id.replaceAll("-", "_")}`,
@@ -48,7 +48,7 @@ const sourcePaths = Object.fromEntries(
 
 const wherePaths = Object.fromEntries(
   WHERE_PAGE_SLUGS.map((slug) => [
-    `/where/${slug}/`,
+    `/where/${slug}`,
     {
       get: {
         operationId: `getWherePage_${slug.replaceAll("-", "_")}`,
@@ -98,7 +98,7 @@ export function GET() {
         summary: "Reviewed official-source hantavirus map snapshots and source registry.",
         description:
           "Public educational dataset for reviewed map summaries, official alerts, reservoir ecology context, and source metadata. Not live surveillance, not medical advice, and not patient-location tracking.",
-        termsOfService: absoluteUrl("/terms-of-use/"),
+        termsOfService: absoluteUrl("/terms-of-use"),
         contact: {
           name: "Hantavirus Maps",
           email: "support@hantavirusmaps.org",

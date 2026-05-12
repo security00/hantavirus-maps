@@ -28,9 +28,9 @@ export type SourcePageId = (typeof SOURCE_PAGE_IDS)[number];
 export type WherePageSlug = (typeof WHERE_PAGE_SLUGS)[number];
 
 export function sourcePath(id: string) {
-  return `/source/${id}/`;
+  return `/source/${id}`;
 }
 
 export function wherePath(slug: string) {
-  return `/where/${slug}/`;
+  return `/where/${slug}`;
 }

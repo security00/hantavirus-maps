@@ -2,7 +2,7 @@
 type: "where-page"
 slug: "washington"
 title: "Washington hantavirus map and source context"
-canonical: "https://hantavirusmaps.org/where/washington/"
+canonical: "https://hantavirusmaps.org/where/washington"
 license: "CC-BY-4.0"
 ---
 
@@ -40,4 +40,4 @@ This page does not publish patient locations, county-level current risk, or diag
 
 ## Cite this page
 
-https://hantavirusmaps.org/where/washington/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/where/washington (accessed YYYY-MM-DD)

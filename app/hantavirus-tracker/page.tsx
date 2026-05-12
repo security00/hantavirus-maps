@@ -8,11 +8,11 @@ import { collectSourceIds, getAlerts, getCaseDataset, getReservoirDataset } from
 import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Tracker: Reviewed Map, Cases, Alerts and Reservoirs",
+  title: "Hantavirus Tracker: Map, Cases and Alerts",
   description:
-    "A source-linked hantavirus tracker for reviewed map layers: historical case summaries, official outbreak alerts, rodent reservoir ecology, and prevention guidance.",
+    "Source-linked hantavirus tracker for reviewed case summaries, official alerts, reservoir ecology, and prevention guidance.",
   alternates: {
-    canonical: "/hantavirus-tracker/",
+    canonical: "/hantavirus-tracker",
   },
 };
 
@@ -20,32 +20,32 @@ const intents = [
   {
     title: "Where has hantavirus appeared?",
     body: "Use the map to start with reviewed country, region, and state-level context, then open source links for official detail.",
-    href: "/where-is-hantavirus-found/",
+    href: "/where-is-hantavirus-found",
   },
   {
     title: "Does my state or region have historical cases?",
     body: "The U.S. layer follows public state-level limitations and links to CDC and state health department records.",
-    href: "/united-states/",
+    href: "/united-states",
   },
   {
     title: "Are there recent official outbreak notices?",
     body: "Official-source outbreak explainers summarize selected WHO, PAHO/WHO, ECDC, CDC, and state public health notices with limitations.",
-    href: "/outbreaks/",
+    href: "/outbreaks",
   },
   {
     title: "Which rodents and environments matter?",
     body: "Reservoir ecology pages explain host-virus context without turning animal range into exact human risk.",
-    href: "/deer-mouse-hantavirus-map/",
+    href: "/deer-mouse-hantavirus-map",
   },
   {
     title: "How do I reduce risk while cleaning rodent contamination?",
     body: "Prevention pages summarize CDC-style wet-cleaning guidance and escalation for heavy or workplace exposures.",
-    href: "/prevention/cleaning-mouse-droppings/",
+    href: "/prevention/cleaning-mouse-droppings",
   },
   {
     title: "How is this different from news signals or risk models?",
     body: "Methodology pages separate reviewed case summaries, official alerts, reservoir ecology, and unreviewed news signals.",
-    href: "/sources-methodology/",
+    href: "/sources-methodology",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function HantavirusTrackerPage() {
                 Open map dashboard
               </Link>
               <Link
-                href="/sources-methodology/"
+                href="/sources-methodology"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
                 Review methodology

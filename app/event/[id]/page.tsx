@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<PageParams>
   if (!event) return {};
 
   return {
-    title: `${event.title} | Hantavirus Maps Event`,
-    description: `Reviewed source-linked event note for ${event.geography}. Not live surveillance, not patient-location tracking, and not medical advice.`,
+    title: `Event: ${event.id}`,
+    description: `Reviewed source-linked event note for ${event.geography}. Not live surveillance or patient-location tracking.`,
     alternates: { canonical: eventPath(event.id) },
     openGraph: {
       title: event.title,
@@ -41,7 +41,7 @@ export default async function EventPage({ params }: { params: Promise<PageParams
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", path: "/" },
-    { name: "Outbreaks", path: "/outbreaks/" },
+    { name: "Outbreaks", path: "/outbreaks" },
     { name: event.title, path: event.canonicalPath },
   ]);
   const articleJsonLd = eventArticleJsonLd(event);
@@ -67,7 +67,7 @@ export default async function EventPage({ params }: { params: Promise<PageParams
               <Link href="/data/map-snapshots.json" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
                 Open dataset
               </Link>
-              <Link href="/sources-methodology/" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+              <Link href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
                 Methodology
               </Link>
             </div>

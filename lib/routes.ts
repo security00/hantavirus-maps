@@ -27,7 +27,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "weekly"
   },
   {
-    path: "/hantavirus-tracker/",
+    path: "/hantavirus-tracker",
     title: "Hantavirus Tracker: Reviewed Map, Cases, Alerts and Reservoirs",
     description:
       "A source-linked hantavirus tracker for reviewed map layers: historical case summaries, official outbreak alerts, rodent reservoir ecology, and prevention guidance.",
@@ -35,7 +35,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "weekly"
   },
   {
-    path: "/hantavirus/",
+    path: "/hantavirus",
     title: "What Is Hantavirus? Educational Disease Overview",
     description:
       "A conservative, source-linked hantavirus disease overview covering HPS, HFRS, transmission, geography, symptoms, prevention, cleanup, diagnosis limits, treatment boundaries, and map context.",
@@ -43,7 +43,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/united-states/",
+    path: "/united-states",
     title: "Hantavirus Map by State in the United States",
     description:
       "United States hantavirus map context using CDC state-level surveillance summaries and official state health sources.",
@@ -51,7 +51,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/united-states/new-mexico/",
+    path: "/united-states/new-mexico",
     title: "New Mexico Hantavirus Map and Case Context",
     description:
       "New Mexico hantavirus map context with NMDOH source links, historical case summary, and prevention notes.",
@@ -59,7 +59,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/united-states/california/",
+    path: "/united-states/california",
     title: "California Hantavirus Map and Source Context",
     description:
       "California hantavirus map context linking to CDPH prevention, surveillance, and occupational health resources.",
@@ -67,7 +67,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/united-states/arizona/",
+    path: "/united-states/arizona",
     title: "Arizona Hantavirus Map and Public Health Alerts",
     description:
       "Arizona hantavirus map context with ADHS Health Alert Network and investigation protocol sources.",
@@ -75,7 +75,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/united-states/colorado/",
+    path: "/united-states/colorado",
     title: "Colorado Hantavirus Map and Public Health Sources",
     description:
       "Colorado hantavirus map context with CDPHE prevention, reporting, and state data links.",
@@ -83,7 +83,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/europe/",
+    path: "/europe",
     title: "Europe Hantavirus Map and ECDC Context",
     description:
       "European hantavirus map context focused on ECDC surveillance, bank vole ecology, and HFRS limitations.",
@@ -91,7 +91,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/south-america/",
+    path: "/south-america",
     title: "South America Hantavirus Map and Andes Virus Context",
     description:
       "South America hantavirus map context with PAHO/WHO alerts, Southern Cone surveillance, and Andes virus notes.",
@@ -99,7 +99,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/hantavirus-risk-map/",
+    path: "/hantavirus-risk-map",
     title: "Hantavirus Risk Map: What the Layers Mean",
     description:
       "How to read hantavirus risk map layers without confusing ecological risk, reported cases, and official alerts.",
@@ -107,7 +107,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/hantavirus-outbreak-map/",
+    path: "/hantavirus-outbreak-map",
     title: "Hantavirus Outbreak Map: Official Alerts and Limits",
     description:
       "A conservative explanation of hantavirus outbreak map sources, official alerts, and why this is not live surveillance.",
@@ -115,7 +115,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "weekly"
   },
   {
-    path: "/outbreaks/",
+    path: "/outbreaks",
     title: "Hantavirus Outbreak Explainers: Official Source Notes",
     description:
       "Conservative official-source hantavirus outbreak explainers and reviewed source notes, with links to the outbreak map and tracker.",
@@ -123,7 +123,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "weekly"
   },
   {
-    path: "/outbreaks/mv-hondius-2026/",
+    path: "/outbreaks/mv-hondius-2026",
     title: "MV Hondius 2026 Hantavirus Cluster: Official Source Explainer",
     description:
       "Reviewed official-source notes for the 2026 cruise-associated hantavirus cluster, with clear limits on live tracking, local risk, and medical advice.",
@@ -131,7 +131,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "weekly"
   },
   {
-    path: "/deer-mouse-hantavirus-map/",
+    path: "/deer-mouse-hantavirus-map",
     title: "Deer Mouse Hantavirus Map",
     description:
       "Deer mouse hantavirus map context for Sin Nombre virus, reservoir ecology, and U.S. risk interpretation.",
@@ -139,7 +139,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/where-is-hantavirus-found/",
+    path: "/where-is-hantavirus-found",
     title: "Where Is Hantavirus Found?",
     description:
       "Plain-English geography of hantavirus in the Americas, Europe, Asia, and selected reservoir regions.",
@@ -147,7 +147,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/symptoms/",
+    path: "/symptoms",
     title: "Hantavirus Symptoms: Educational Overview",
     description:
       "Educational overview of hantavirus symptoms with clear medical disclaimer and source links.",
@@ -155,7 +155,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/prevention/",
+    path: "/prevention",
     title: "Hantavirus Prevention",
     description:
       "General hantavirus prevention education based on CDC and state public health guidance.",
@@ -163,7 +163,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/prevention/cleaning-mouse-droppings/",
+    path: "/prevention/cleaning-mouse-droppings",
     title: "Cleaning Mouse Droppings Safely",
     description:
       "Educational cleanup steps for mouse droppings and rodent contamination based on CDC guidance.",
@@ -171,7 +171,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/sources-methodology/",
+    path: "/sources-methodology",
     title: "Sources and Methodology",
     description:
       "How Hantavirus Maps reviews sources, separates data layers, and avoids unsupported precision.",
@@ -231,7 +231,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "weekly"
   },
   {
-    path: "/faq/",
+    path: "/faq",
     title: "Hantavirus Map FAQ",
     description:
       "Frequently asked questions about how to read the Hantavirus Maps source-linked layers, alerts, limitations, and medical disclaimers.",
@@ -239,7 +239,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "monthly"
   },
   {
-    path: "/about/",
+    path: "/about",
     title: "About Us - Hantavirus Maps",
     description:
       "About Hantavirus Maps, an educational source-linked public health map and data explanation project.",
@@ -247,7 +247,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "yearly"
   },
   {
-    path: "/privacy-policy/",
+    path: "/privacy-policy",
     title: "Privacy Policy",
     description:
       "Privacy policy for Hantavirus Maps, including analytics, cookies, external links, and contact information.",
@@ -255,7 +255,7 @@ export const SITE_ROUTES: SiteRoute[] = [
     changeFrequency: "yearly"
   },
   {
-    path: "/terms-of-use/",
+    path: "/terms-of-use",
     title: "Terms of Use",
     description:
       "Terms of use for Hantavirus Maps, including educational-use limits, medical disclaimer, and source limitations.",

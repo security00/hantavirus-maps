@@ -3,11 +3,11 @@ import Link from "next/link";
 import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL, SUPPORT_EMAIL } from "@/lib/routes";
 
 const footerLinks = [
-  { href: "/about/", label: "About Us" },
-  { href: "/sources-methodology/", label: "Sources" },
-  { href: "/privacy-policy/", label: "Privacy Policy" },
-  { href: "/terms-of-use/", label: "Terms of Use" },
-  { href: "/prevention/cleaning-mouse-droppings/", label: "Cleaning droppings" }
+  { href: "/about", label: "About Us" },
+  { href: "/sources-methodology", label: "Sources" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/terms-of-use", label: "Terms of Use" },
+  { href: "/prevention/cleaning-mouse-droppings", label: "Cleaning droppings" }
 ];
 
 export function Footer() {

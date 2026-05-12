@@ -162,7 +162,7 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                       label="Reported case summary"
                       sourceIds={record.sourceIds}
                       sourcesById={sourcesById}
-                      primaryHref={record.slug ? `/where/${record.slug}/` : "/where/united-states/"}
+                      primaryHref={record.slug ? `/where/${record.slug}` : "/where/united-states"}
                       primaryLabel={`Open ${record.jurisdiction} map page`}
                     >
                       <p>{record.reportLabel}</p>
@@ -211,7 +211,7 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                         label={`${alert.agency} · ${alert.date}`}
                         sourceIds={alert.sourceIds}
                         sourcesById={sourcesById}
-                        primaryHref="/outbreaks/"
+                        primaryHref="/outbreaks"
                         primaryLabel="Open official alerts"
                       >
                         <p>{alert.summary}</p>
@@ -240,7 +240,7 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                       label={reservoir.scientificName}
                       sourceIds={reservoir.sourceIds}
                       sourcesById={sourcesById}
-                      primaryHref="/deer-mouse-hantavirus-map/"
+                      primaryHref="/deer-mouse-hantavirus-map"
                       primaryLabel="Read reservoir map guide"
                     >
                       <p>{reservoir.summary}</p>
@@ -308,8 +308,8 @@ function PopupCard({
       <div className="popup-body">{children}</div>
       <div className="popup-next-actions">
         <a href={primaryHref}>{primaryLabel}</a>
-        <a href="/hantavirus-tracker/">Read tracker guide</a>
-        <a href="/sources-methodology/">How to read sources</a>
+        <a href="/hantavirus-tracker">Read tracker guide</a>
+        <a href="/sources-methodology">How to read sources</a>
       </div>
       <div className="popup-sources">
         {sourceIds.slice(0, 3).map((sourceId) => {

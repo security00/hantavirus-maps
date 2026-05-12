@@ -3,7 +3,7 @@ type: "source-page"
 id: "canada-risk-2026"
 title: "Risks of a hantavirus infection"
 publisher: "Government of Canada"
-canonical: "https://hantavirusmaps.org/source/canada-risk-2026/"
+canonical: "https://hantavirusmaps.org/source/canada-risk-2026"
 license: "CC-BY-4.0"
 ---
 
@@ -40,4 +40,4 @@ No patient address or exact exposure point is published from this source. Provis
 
 ## Cite this page
 
-https://hantavirusmaps.org/source/canada-risk-2026/ (accessed YYYY-MM-DD)
+https://hantavirusmaps.org/source/canada-risk-2026 (accessed YYYY-MM-DD)
