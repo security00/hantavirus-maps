@@ -24,7 +24,9 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
   const latestAlerts = getAlerts().slice(0, 3);
   const reservoirs = getReservoirs();
   const sourceIds = collectSourceIds([...casePoints, ...alertPoints, ...reservoirs]);
-  const sources = getSourcesByIds(sourceIds).slice(0, 4);
+  const sources = getSourcesByIds(sourceIds)
+    .filter((source, index, allSources) => allSources.findIndex((candidate) => candidate.publisher === source.publisher) === index)
+    .slice(0, 4);
   const sourcesById = Object.fromEntries(getSourceRegistry().sources.map((source) => [source.id, source]));
   const Heading = home ? "h1" : "h2";
 
