@@ -120,7 +120,56 @@ label {
 
 .immersive-map-panel .interactive-map-shell,
 .immersive-map-panel .interactive-map,
-.immersive-map-panel .interactive-map-loading {
+.immersive-map-panel 
+.interactive-map-placeholder {
+  align-items: center;
+  background:
+    radial-gradient(circle at 28% 28%, rgba(52, 211, 153, 0.2), transparent 34%),
+    radial-gradient(circle at 64% 54%, rgba(239, 68, 68, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+  block-size: clamp(420px, 58vw, 640px);
+  border: 0;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  inline-size: 100%;
+  justify-content: center;
+  padding: 1rem;
+  text-align: left;
+}
+
+.interactive-map-placeholder-card {
+  background: rgba(2, 6, 23, 0.82);
+  border: 1px solid rgba(52, 211, 153, 0.28);
+  border-radius: 18px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+  display: grid;
+  gap: 0.45rem;
+  max-inline-size: 360px;
+  padding: 1.1rem;
+}
+
+.interactive-map-placeholder-eyebrow {
+  color: #a7f3d0;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.interactive-map-placeholder-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.interactive-map-placeholder-copy {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.interactive-map-loading {
   block-size: 100%;
   inline-size: 100%;
 }

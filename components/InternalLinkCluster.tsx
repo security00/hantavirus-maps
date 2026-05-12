@@ -77,11 +77,11 @@ export function InternalLinkCluster({
         <LinkGroup title="Event records" description="Reviewed event/case records with citation-safe summaries.">
           {events.map((event) => (
             <div key={event.id} className="rounded-md border border-white/10 bg-white/[0.035] p-3">
-              <Link href={event.canonicalPath} className="text-sm font-semibold leading-6 text-slate-100 hover:text-emerald-200">
+              <Link prefetch={false} href={event.canonicalPath} className="text-sm font-semibold leading-6 text-slate-100 hover:text-emerald-200">
                 {event.title}
               </Link>
               {showRaw && (
-                <Link href={event.rawPath} className="mt-2 block text-xs font-semibold text-emerald-200 hover:text-white">
+                <Link prefetch={false} href={event.rawPath} className="mt-2 block text-xs font-semibold text-emerald-200 hover:text-white">
                   Raw markdown →
                 </Link>
               )}
@@ -105,7 +105,7 @@ function LinkGroup({ title, description, children }: { title: string; descriptio
 
 function LinkItem({ href, label }: { href: string; label: string }) {
   return (
-    <Link href={href} className="rounded-md border border-white/10 px-3 py-2 text-sm text-slate-200 transition hover:border-emerald-300/50 hover:text-white">
+    <Link prefetch={false} href={href} className="rounded-md border border-white/10 px-3 py-2 text-sm text-slate-200 transition hover:border-emerald-300/50 hover:text-white">
       {label}
     </Link>
   );

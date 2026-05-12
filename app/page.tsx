@@ -256,27 +256,27 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-            <Link href="/where/canada" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+            <Link prefetch={false} href="/where/canada" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
               <span className="text-sm font-semibold text-emerald-200">Hantavirus map Canada</span>
               <span className="mt-3 block text-xl font-semibold text-white">Canada source-linked map context</span>
               <span className="mt-3 block leading-7 text-slate-300">Reviewed PHAC and Government of Canada context for confirmed infections, travel notices, and public health limits.</span>
             </Link>
-            <Link href="/where/florida" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+            <Link prefetch={false} href="/where/florida" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
               <span className="text-sm font-semibold text-emerald-200">Hantavirus Florida map</span>
               <span className="mt-3 block text-xl font-semibold text-white">Florida DOH and reservoir context</span>
               <span className="mt-3 block leading-7 text-slate-300">Florida Department of Health source context and cotton-rat reservoir notes without live county or case-count claims.</span>
             </Link>
-            <Link href="/where/washington" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+            <Link prefetch={false} href="/where/washington" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
               <span className="text-sm font-semibold text-emerald-200">Hantavirus Washington map</span>
               <span className="mt-3 block text-xl font-semibold text-white">Washington DOH source context</span>
               <span className="mt-3 block leading-7 text-slate-300">Washington annual range and prevention source links without turning state text into a county risk map.</span>
             </Link>
-            <Link href="/hantavirus-risk-map" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+            <Link prefetch={false} href="/hantavirus-risk-map" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
               <span className="text-sm font-semibold text-emerald-200">Hantavirus risk map</span>
               <span className="mt-3 block text-xl font-semibold text-white">How to read risk layers</span>
               <span className="mt-3 block leading-7 text-slate-300">Separate reported cases, official alerts, and reservoir ecology before reading any local risk claim.</span>
             </Link>
-            <Link href="/hantavirus-tracker" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+            <Link prefetch={false} href="/hantavirus-tracker" className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
               <span className="text-sm font-semibold text-emerald-200">Hantavirus live map?</span>
               <span className="mt-3 block text-xl font-semibold text-white">Updated, not live surveillance</span>
               <span className="mt-3 block leading-7 text-slate-300">Follow recent reviewed official-source updates while keeping clear that this is not a live infection counter.</span>
@@ -304,7 +304,7 @@ export default function Home() {
                 </p>
                 <h3 className="mt-3 text-xl font-semibold text-white">{alert.title}</h3>
                 <p className="mt-3 leading-7 text-slate-300">{alert.summary}</p>
-                <Link href={`/event/${alert.id}`} className="mt-5 inline-flex rounded-md border border-emerald-300/35 px-4 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white">
+                <Link prefetch={false} href={`/event/${alert.id}`} className="mt-5 inline-flex rounded-md border border-emerald-300/35 px-4 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white">
                   Read reviewed event
                 </Link>
               </article>
@@ -417,7 +417,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <Link
+          <Link prefetch={false}
             href="/faq"
             className="mt-6 inline-flex rounded-md border border-emerald-300/35 px-4 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white"
           >
@@ -448,25 +448,25 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <SourceList sourceIds={sourceIds} compact />
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
+            <Link prefetch={false}
               href="/hantavirus-tracker"
               className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
             >
               Open hantavirus tracker guide
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/outbreaks"
               className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
             >
               Review official outbreak notes
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/united-states"
               className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
             >
               View U.S. state context
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/prevention"
               className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
             >

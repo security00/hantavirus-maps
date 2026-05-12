@@ -111,10 +111,10 @@ export default async function WherePage({ params }: { params: Promise<PageParams
               </p>
             )}
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/hantavirus-tracker" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
+              <Link prefetch={false} href="/hantavirus-tracker" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
                 Open tracker
               </Link>
-              <Link href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+              <Link prefetch={false} href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
                 Review methodology
               </Link>
             </div>
@@ -202,7 +202,7 @@ export default async function WherePage({ params }: { params: Promise<PageParams
               <p>Reservoir ecology is context, not proof of infected animals or human cases.</p>
             </div>
           </section>
-          <Link href="/data/map-snapshots.json" className="block rounded-lg border border-white/10 bg-white/[0.04] p-5 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300/50">
+          <Link prefetch={false} href="/data/map-snapshots.json" className="block rounded-lg border border-white/10 bg-white/[0.04] p-5 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300/50">
             Open machine-readable map data →
           </Link>
         </aside>

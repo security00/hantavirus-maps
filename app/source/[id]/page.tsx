@@ -83,7 +83,7 @@ export default async function SourcePage({ params }: { params: Promise<PageParam
               <a href={source.url} rel="noreferrer" target="_blank" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
                 Open official source
               </a>
-              <Link href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+              <Link prefetch={false} href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
                 Review methodology
               </Link>
             </div>
@@ -176,7 +176,7 @@ export default async function SourcePage({ params }: { params: Promise<PageParam
               Source pages explain why a record is included and prevent map readers from over-interpreting official public health material.
             </p>
           </section>
-          <Link href="/data/sources.json" className="block rounded-lg border border-white/10 bg-white/[0.04] p-5 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300/50">
+          <Link prefetch={false} href="/data/sources.json" className="block rounded-lg border border-white/10 bg-white/[0.04] p-5 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300/50">
             Open machine-readable source registry →
           </Link>
         </aside>

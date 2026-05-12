@@ -81,13 +81,13 @@ export default function HantavirusTrackerPage() {
               prevention guidance. It is not live infection tracking or exact local risk scoring.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link
+              <Link prefetch={false}
                 href="/"
                 className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
               >
                 Open map dashboard
               </Link>
-              <Link
+              <Link prefetch={false}
                 href="/sources-methodology"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
@@ -127,7 +127,7 @@ export default function HantavirusTrackerPage() {
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {intents.map((intent) => (
-              <Link
+              <Link prefetch={false}
                 key={intent.title}
                 href={intent.href}
                 className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/45 hover:bg-white/[0.07]"

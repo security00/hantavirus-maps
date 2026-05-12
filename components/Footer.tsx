@@ -35,7 +35,7 @@ export function Footer() {
 
         <div className="flex flex-wrap items-start gap-2 lg:justify-end">
           {footerLinks.map((item) => (
-            <Link
+            <Link prefetch={false}
               key={item.href}
               href={item.href}
               className="rounded-md border border-white/10 px-3 py-2 text-sm text-slate-300 transition hover:border-emerald-300/50 hover:text-white"

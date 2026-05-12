@@ -122,7 +122,7 @@ export function ContentPage({ page }: ContentPageProps) {
               <h2 className="text-lg font-semibold">Related Pages</h2>
               <div className="mt-4 grid gap-2">
                 {relatedRoutes.map((route) => (
-                  <Link
+                  <Link prefetch={false}
                     key={route.path}
                     href={route.path}
                     className="rounded-md border border-white/10 px-3 py-3 text-sm text-slate-200 transition hover:border-emerald-300/50 hover:text-white"

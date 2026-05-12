@@ -14,7 +14,7 @@ export function MapQuickActions() {
   return (
     <nav aria-label="Map quick paths" className="map-quick-actions">
       {actions.map((action) => (
-        <Link key={action.href} href={action.href}>
+        <Link prefetch={false} key={action.href} href={action.href}>
           {action.label}
         </Link>
       ))}

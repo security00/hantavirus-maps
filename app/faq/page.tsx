@@ -57,13 +57,13 @@ export default function FAQPage() {
           ))}
         </div>
         <div className="mx-auto mt-8 flex max-w-7xl flex-wrap gap-3">
-          <Link
+          <Link prefetch={false}
             href="/sources-methodology"
             className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
           >
             Review sources and methodology
           </Link>
-          <Link
+          <Link prefetch={false}
             href="/"
             className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
           >

@@ -169,7 +169,7 @@ export default function HantavirusOverviewPage() {
             <h2 className="text-lg font-semibold">Related Pages</h2>
             <div className="mt-4 grid gap-2">
               {relatedLinks.map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="rounded-md border border-white/10 px-3 py-3 text-sm text-slate-200 transition hover:border-emerald-300/50 hover:text-white"

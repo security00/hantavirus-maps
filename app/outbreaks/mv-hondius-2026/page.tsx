@@ -113,19 +113,19 @@ export default function MvHondiusOutbreakPage() {
               source notes.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link
+              <Link prefetch={false}
                 href="/outbreaks"
                 className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
               >
                 Back to outbreak notes
               </Link>
-              <Link
+              <Link prefetch={false}
                 href="/hantavirus-outbreak-map"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
                 Open outbreak map
               </Link>
-              <Link
+              <Link prefetch={false}
                 href="/hantavirus-tracker"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
@@ -212,7 +212,7 @@ export default function MvHondiusOutbreakPage() {
             </h2>
             <div className="mt-5 grid gap-4 md:grid-cols-2">
               {relatedPages.map((page) => (
-                <Link
+                <Link prefetch={false}
                   key={page.href}
                   href={page.href}
                   className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-emerald-300/45 hover:bg-white/[0.07]"

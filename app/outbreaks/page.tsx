@@ -67,19 +67,19 @@ export default function OutbreaksPage() {
               surveillance, exact local risk, or medical advice.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link
+              <Link prefetch={false}
                 href="/hantavirus-outbreak-map"
                 className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
               >
                 Open outbreak map
               </Link>
-              <Link
+              <Link prefetch={false}
                 href="/hantavirus-tracker"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
                 Open tracker
               </Link>
-              <Link
+              <Link prefetch={false}
                 href="/outbreaks/mv-hondius-2026"
                 className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50"
               >
@@ -124,7 +124,7 @@ export default function OutbreaksPage() {
                   <p className="mt-3 leading-7 text-slate-300">{alert.summary}</p>
                   <p className="mt-3 text-sm leading-6 text-slate-500">{alert.riskLanguage}</p>
                   {link && (
-                    <Link
+                    <Link prefetch={false}
                       href={link.href}
                       className="mt-5 inline-flex rounded-md border border-emerald-300/35 px-4 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white"
                     >
@@ -157,10 +157,10 @@ export default function OutbreaksPage() {
                 <h3 className="mt-2 text-lg font-semibold text-white">{event.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-300">{event.summary}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <Link href={event.canonicalPath} className="rounded-md border border-emerald-300/35 px-3 py-2 text-xs font-semibold text-emerald-100 hover:border-emerald-200 hover:text-white">
+                  <Link prefetch={false} href={event.canonicalPath} className="rounded-md border border-emerald-300/35 px-3 py-2 text-xs font-semibold text-emerald-100 hover:border-emerald-200 hover:text-white">
                     Event page
                   </Link>
-                  <Link href={event.rawPath} className="rounded-md border border-white/10 px-3 py-2 text-xs font-semibold text-slate-200 hover:border-emerald-300/50 hover:text-white">
+                  <Link prefetch={false} href={event.rawPath} className="rounded-md border border-white/10 px-3 py-2 text-xs font-semibold text-slate-200 hover:border-emerald-300/50 hover:text-white">
                     Raw markdown
                   </Link>
                 </div>

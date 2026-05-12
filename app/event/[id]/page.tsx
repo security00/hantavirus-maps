@@ -61,13 +61,13 @@ export default async function EventPage({ params }: { params: Promise<PageParams
             <h1 className="mt-3 max-w-4xl text-4xl font-semibold leading-tight sm:text-5xl">{event.title}</h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">{event.summary}</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href={event.rawPath} className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
+              <Link prefetch={false} href={event.rawPath} className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
                 Open markdown record
               </Link>
-              <Link href="/data/map-snapshots.json" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+              <Link prefetch={false} href="/data/map-snapshots.json" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
                 Open dataset
               </Link>
-              <Link href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
+              <Link prefetch={false} href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
                 Methodology
               </Link>
             </div>
@@ -116,7 +116,7 @@ export default async function EventPage({ params }: { params: Promise<PageParams
             <h2 className="text-lg font-semibold">LLM-friendly record</h2>
             <p className="mt-4 text-sm leading-6 text-slate-300">Each event page has a markdown shadow for retrieval systems and AI crawlers.</p>
           </section>
-          <Link href={event.rawPath} className="block rounded-lg border border-white/10 bg-white/[0.04] p-5 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300/50">
+          <Link prefetch={false} href={event.rawPath} className="block rounded-lg border border-white/10 bg-white/[0.04] p-5 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300/50">
             Open raw markdown →
           </Link>
         </aside>
