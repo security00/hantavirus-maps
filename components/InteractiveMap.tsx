@@ -3,7 +3,7 @@
 import "leaflet/dist/leaflet.css";
 
 import L from "leaflet";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { CircleMarker, LayerGroup, MapContainer, Popup, TileLayer, Tooltip, useMap, useMapEvents } from "react-leaflet";
 
 import type { CaseRecord, OfficialAlert, ReservoirRecord, SourceRecord } from "@/lib/data";
@@ -85,8 +85,13 @@ function FitMap({ points }: { points: LatLng[] }) {
 }
 
 export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesById }: InteractiveMapProps) {
+  const shellRef = useRef<HTMLDivElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const dragRef = useRef<{ pointerId: number; startX: number; startY: number; originX: number; originY: number } | null>(null);
   const [focus, setFocus] = useState<MapFocus | null>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [isCommandOpen, setIsCommandOpen] = useState(false);
+  const [commandPosition, setCommandPosition] = useState({ x: 12, y: 12 });
   const caseMarkers = useMemo(
     () => casePoints
       .filter((record): record is CaseRecord & { mapPoint: NonNullable<CaseRecord["mapPoint"]> } => Boolean(record.mapPoint))
@@ -124,9 +129,51 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
     setFocus(nextFocus);
     setHasInteracted(true);
   };
+  const clampCommandPosition = (x: number, y: number) => {
+    const shell = shellRef.current;
+    const panel = panelRef.current;
+
+    if (!shell || !panel) return { x, y };
+
+    const maxX = Math.max(12, shell.clientWidth - panel.offsetWidth - 12);
+    const maxY = Math.max(12, shell.clientHeight - panel.offsetHeight - 64);
+
+    return {
+      x: Math.min(Math.max(12, x), maxX),
+      y: Math.min(Math.max(12, y), maxY),
+    };
+  };
+  const handleCommandDragStart = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.button !== 0) return;
+
+    event.preventDefault();
+    event.currentTarget.setPointerCapture(event.pointerId);
+    dragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      originX: commandPosition.x,
+      originY: commandPosition.y,
+    };
+  };
+  const handleCommandDragMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+
+    if (!drag || drag.pointerId !== event.pointerId) return;
+
+    setCommandPosition(clampCommandPosition(
+      drag.originX + event.clientX - drag.startX,
+      drag.originY + event.clientY - drag.startY
+    ));
+  };
+  const handleCommandDragEnd = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (dragRef.current?.pointerId === event.pointerId) {
+      dragRef.current = null;
+    }
+  };
 
   return (
-    <div className="interactive-map-shell">
+    <div ref={shellRef} className="interactive-map-shell">
       <MapContainer
         center={DEFAULT_CENTER}
         zoom={2}
@@ -251,30 +298,59 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
               ))}
         </LayerGroup>
       </MapContainer>
-      <details className="map-command-panel" aria-label="Map shortcuts and guidance">
-        <summary className="map-command-summary">
-          <span>
+      <div
+        ref={panelRef}
+        className={`map-command-panel${isCommandOpen ? " is-open" : ""}`}
+        style={{ left: commandPosition.x, top: commandPosition.y }}
+        aria-label="Map shortcuts and guidance"
+      >
+        <div
+          className="map-command-summary"
+          onPointerDown={handleCommandDragStart}
+          onPointerMove={handleCommandDragMove}
+          onPointerUp={handleCommandDragEnd}
+          onPointerCancel={handleCommandDragEnd}
+        >
+          <span className="map-command-grip" aria-hidden="true">⋮⋮</span>
+          <span className="map-command-copy">
             <span className="map-command-eyebrow">Explore layers</span>
             <span className="map-command-title">Jump to marker</span>
           </span>
           <span className="map-command-count">{featuredAlerts.length + featuredCases.length + 1}</span>
-        </summary>
-        <div className="map-command-actions" aria-label="Featured map markers">
-          {featuredAlerts.map(({ alert }) => (
-            <button key={alert.id} type="button" className="map-jump map-jump-alert" onClick={() => jumpTo({ type: "alert", id: alert.id })}>
-              {alert.geography.split(" /")[0]}
-            </button>
-          ))}
-          {featuredCases.map(({ record }) => (
-            <button key={record.id} type="button" className="map-jump map-jump-case" onClick={() => jumpTo({ type: "case", id: record.id })}>
-              {record.jurisdiction}
-            </button>
-          ))}
-          <button type="button" className="map-jump map-jump-reservoir" onClick={() => jumpTo({ type: "reservoir", id: "deer-mouse-sin-nombre" })}>
-            Deer mouse ecology
+          <button
+            type="button"
+            className="map-command-toggle"
+            aria-expanded={isCommandOpen}
+            aria-controls="map-command-actions"
+            onPointerDown={(event) => event.stopPropagation()}
+            onClick={() => {
+              setIsCommandOpen((open) => !open);
+              window.requestAnimationFrame(() => {
+                setCommandPosition((position) => clampCommandPosition(position.x, position.y));
+              });
+            }}
+          >
+            {isCommandOpen ? "Hide" : "Open"}
           </button>
         </div>
-      </details>
+        {isCommandOpen && (
+          <div id="map-command-actions" className="map-command-actions" aria-label="Featured map markers">
+            {featuredAlerts.map(({ alert }) => (
+              <button key={alert.id} type="button" className="map-jump map-jump-alert" onClick={() => jumpTo({ type: "alert", id: alert.id })}>
+                {alert.geography.split(" /")[0]}
+              </button>
+            ))}
+            {featuredCases.map(({ record }) => (
+              <button key={record.id} type="button" className="map-jump map-jump-case" onClick={() => jumpTo({ type: "case", id: record.id })}>
+                {record.jurisdiction}
+              </button>
+            ))}
+            <button type="button" className="map-jump map-jump-reservoir" onClick={() => jumpTo({ type: "reservoir", id: "deer-mouse-sin-nombre" })}>
+              Deer mouse ecology
+            </button>
+          </div>
+        )}
+      </div>
       {!hasInteracted && (
         <div className="map-tap-hint" role="status">
           Tap a marker, use the jump buttons, or pinch/drag the map. Every popup includes source links and limits.

@@ -158,42 +158,44 @@ label {
   border: 1px solid rgba(52, 211, 153, 0.26);
   border-radius: 14px;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-  inline-size: min(260px, calc(100% - 1.5rem));
-  inset-block-start: 0.75rem;
-  inset-inline-start: 0.75rem;
+  inline-size: min(288px, calc(100% - 1.5rem));
   padding: 0.55rem;
   position: absolute;
   z-index: 520;
 }
 
-.map-command-panel[open] {
-  inline-size: min(360px, calc(100% - 1.5rem));
+.map-command-panel.is-open {
+  inline-size: min(380px, calc(100% - 1.5rem));
 }
 
 .map-command-summary {
   align-items: center;
-  cursor: pointer;
+  cursor: grab;
   display: flex;
-  gap: 0.7rem;
+  gap: 0.55rem;
   justify-content: space-between;
   list-style: none;
+  touch-action: none;
+  user-select: none;
 }
 
-.map-command-summary::-webkit-details-marker {
-  display: none;
+.map-command-summary:active {
+  cursor: grabbing;
 }
 
-.map-command-summary::after {
+.map-command-grip {
   color: #a7f3d0;
-  content: "▾";
-  font-size: 0.75rem;
+  flex: 0 0 auto;
+  font-size: 1rem;
   font-weight: 900;
-  transform: rotate(-90deg);
-  transition: transform 150ms ease;
+  letter-spacing: -0.32em;
+  opacity: 0.76;
+  transform: rotate(90deg);
 }
 
-.map-command-panel[open] .map-command-summary::after {
-  transform: rotate(0deg);
+.map-command-copy {
+  flex: 1 1 auto;
+  min-inline-size: 0;
 }
 
 .map-command-eyebrow {
@@ -212,6 +214,9 @@ label {
   font-size: 0.82rem;
   font-weight: 850;
   margin: 0.1rem 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .map-command-count {
@@ -221,12 +226,32 @@ label {
   border-radius: 999px;
   color: #d1fae5;
   display: inline-flex;
+  flex: 0 0 auto;
   font-size: 0.72rem;
   font-weight: 900;
   justify-content: center;
   min-block-size: 1.45rem;
   min-inline-size: 1.45rem;
   padding: 0 0.35rem;
+}
+
+.map-command-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: #ecfdf5;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  font-weight: 900;
+  min-block-size: 1.8rem;
+  padding: 0.28rem 0.55rem;
+}
+
+.map-command-toggle:hover,
+.map-command-toggle:focus-visible {
+  border-color: rgba(167, 243, 208, 0.58);
+  outline: none;
 }
 
 .map-command-actions {
