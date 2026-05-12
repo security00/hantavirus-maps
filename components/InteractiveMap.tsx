@@ -3,8 +3,8 @@
 import "leaflet/dist/leaflet.css";
 
 import L from "leaflet";
-import { useEffect, useMemo } from "react";
-import { CircleMarker, LayerGroup, MapContainer, Popup, TileLayer, Tooltip, useMap } from "react-leaflet";
+import { useEffect, useMemo, useState } from "react";
+import { CircleMarker, LayerGroup, MapContainer, Popup, TileLayer, Tooltip, useMap, useMapEvents } from "react-leaflet";
 
 import type { CaseRecord, OfficialAlert, ReservoirRecord, SourceRecord } from "@/lib/data";
 
@@ -16,6 +16,11 @@ type InteractiveMapProps = {
 };
 
 type LatLng = [number, number];
+
+type MapFocus =
+  | { type: "case"; id: string }
+  | { type: "alert"; id: string }
+  | { type: "reservoir"; id: string };
 
 const DEFAULT_CENTER: LatLng = [24, -34];
 
@@ -33,6 +38,33 @@ function svgPointToLatLng(point: { x: number; y: number }): LatLng {
   const lat = 90 - point.y * (180 / 620);
 
   return [lat, lng];
+}
+
+function FocusMap({ focus, lookup }: { focus: MapFocus | null; lookup: Record<string, LatLng> }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!focus) return;
+
+    const position = lookup[`${focus.type}:${focus.id}`];
+
+    if (!position) return;
+
+    map.flyTo(position, Math.max(map.getZoom(), 4), { duration: 0.65 });
+  }, [focus, lookup, map]);
+
+  return null;
+}
+
+function InteractionTracker({ onInteract }: { onInteract: () => void }) {
+  useMapEvents({
+    click: onInteract,
+    dragstart: onInteract,
+    zoomstart: onInteract,
+    popupopen: onInteract,
+  });
+
+  return null;
 }
 
 function FitMap({ points }: { points: LatLng[] }) {
@@ -53,6 +85,8 @@ function FitMap({ points }: { points: LatLng[] }) {
 }
 
 export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesById }: InteractiveMapProps) {
+  const [focus, setFocus] = useState<MapFocus | null>(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const caseMarkers = useMemo(
     () => casePoints
       .filter((record): record is CaseRecord & { mapPoint: NonNullable<CaseRecord["mapPoint"]> } => Boolean(record.mapPoint))
@@ -76,6 +110,16 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
     () => [...caseMarkers.map((marker) => marker.position), ...alertMarkers.map((marker) => marker.position)],
     [caseMarkers, alertMarkers]
   );
+  const focusLookup = useMemo(
+    () => Object.fromEntries([
+      ...caseMarkers.map((marker) => [`case:${marker.record.id}`, marker.position] as const),
+      ...alertMarkers.map((marker) => [`alert:${marker.alert.id}`, marker.position] as const),
+      ...reservoirMarkers.map((marker) => [`reservoir:${marker.reservoir.id}`, marker.region.center] as const),
+    ]),
+    [alertMarkers, caseMarkers, reservoirMarkers]
+  );
+  const featuredCases = caseMarkers.slice(0, 4);
+  const featuredAlerts = alertMarkers.slice(0, 3);
 
   return (
     <div className="interactive-map-shell">
@@ -94,6 +138,8 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
         />
         <FitMap points={fitPoints} />
+        <FocusMap focus={focus} lookup={focusLookup} />
+        <InteractionTracker onInteract={() => setHasInteracted(true)} />
 
         <LayerGroup>
               {caseMarkers.map(({ record, position }) => (
@@ -107,7 +153,14 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                     Click for {record.jurisdiction} source summary
                   </Tooltip>
                   <Popup className="dark-map-popup" maxWidth={360} minWidth={260} closeButton>
-                    <PopupCard title={record.jurisdiction} label="Reported case summary" sourceIds={record.sourceIds} sourcesById={sourcesById}>
+                    <PopupCard
+                      title={record.jurisdiction}
+                      label="Reported case summary"
+                      sourceIds={record.sourceIds}
+                      sourcesById={sourcesById}
+                      primaryHref={record.slug ? `/where/${record.slug}/` : "/where/united-states/"}
+                      primaryLabel={`Open ${record.jurisdiction} map page`}
+                    >
                       <p>{record.reportLabel}</p>
                       <p>{record.summary}</p>
                       <p className="popup-limit">Precision: {record.geographyPrecision}</p>
@@ -149,7 +202,14 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                       Click for official alert details
                     </Tooltip>
                     <Popup className="dark-map-popup" maxWidth={380} minWidth={280} closeButton>
-                      <PopupCard title={alert.title} label={`${alert.agency} · ${alert.date}`} sourceIds={alert.sourceIds} sourcesById={sourcesById}>
+                      <PopupCard
+                        title={alert.title}
+                        label={`${alert.agency} · ${alert.date}`}
+                        sourceIds={alert.sourceIds}
+                        sourcesById={sourcesById}
+                        primaryHref="/outbreaks/"
+                        primaryLabel="Open official alerts"
+                      >
                         <p>{alert.summary}</p>
                         <p className="popup-limit">{alert.riskLanguage}</p>
                       </PopupCard>
@@ -171,7 +231,14 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
                     Click for {reservoir.commonName} ecology note
                   </Tooltip>
                   <Popup className="dark-map-popup" maxWidth={380} minWidth={280} closeButton>
-                    <PopupCard title={reservoir.commonName} label={reservoir.scientificName} sourceIds={reservoir.sourceIds} sourcesById={sourcesById}>
+                    <PopupCard
+                      title={reservoir.commonName}
+                      label={reservoir.scientificName}
+                      sourceIds={reservoir.sourceIds}
+                      sourcesById={sourcesById}
+                      primaryHref="/deer-mouse-hantavirus-map/"
+                      primaryLabel="Read reservoir map guide"
+                    >
                       <p>{reservoir.summary}</p>
                       <p className="popup-limit">{reservoir.limitations[0]}</p>
                     </PopupCard>
@@ -180,8 +247,34 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
               ))}
         </LayerGroup>
       </MapContainer>
+      <div className="map-command-panel" aria-label="Map shortcuts and guidance">
+        <div>
+          <p className="map-command-eyebrow">Explore the reviewed layers</p>
+          <p className="map-command-title">Jump to a source-linked marker</p>
+        </div>
+        <div className="map-command-actions" aria-label="Featured map markers">
+          {featuredAlerts.map(({ alert }) => (
+            <button key={alert.id} type="button" className="map-jump map-jump-alert" onClick={() => setFocus({ type: "alert", id: alert.id })}>
+              {alert.geography.split(" /")[0]}
+            </button>
+          ))}
+          {featuredCases.map(({ record }) => (
+            <button key={record.id} type="button" className="map-jump map-jump-case" onClick={() => setFocus({ type: "case", id: record.id })}>
+              {record.jurisdiction}
+            </button>
+          ))}
+          <button type="button" className="map-jump map-jump-reservoir" onClick={() => setFocus({ type: "reservoir", id: "deer-mouse-sin-nombre" })}>
+            Deer mouse ecology
+          </button>
+        </div>
+      </div>
+      {!hasInteracted && (
+        <div className="map-tap-hint" role="status">
+          Tap a marker, use the jump buttons, or pinch/drag the map. Every popup includes source links and limits.
+        </div>
+      )}
       <p className="interactive-map-note">
-        Free Leaflet/CARTO dark map MVP. Click any colored marker or reservoir circle for source-linked text, limits, and official links. Not live case locations or exact local risk.
+        Free Leaflet/CARTO dark map MVP. Markers are reviewed source summaries, not live case locations or exact local risk.
       </p>
     </div>
   );
@@ -192,12 +285,16 @@ function PopupCard({
   label,
   sourceIds,
   sourcesById,
+  primaryHref,
+  primaryLabel,
   children
 }: {
   title: string;
   label: string;
   sourceIds: string[];
   sourcesById: Record<string, SourceRecord>;
+  primaryHref: string;
+  primaryLabel: string;
   children: React.ReactNode;
 }) {
   return (
@@ -206,6 +303,7 @@ function PopupCard({
       <strong>{title}</strong>
       <div className="popup-body">{children}</div>
       <div className="popup-next-actions">
+        <a href={primaryHref}>{primaryLabel}</a>
         <a href="/hantavirus-tracker/">Read tracker guide</a>
         <a href="/sources-methodology/">How to read sources</a>
       </div>
