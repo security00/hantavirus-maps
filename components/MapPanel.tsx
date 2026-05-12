@@ -3,13 +3,11 @@ import Link from "next/link";
 import { InteractiveMapLoader } from "@/components/InteractiveMapLoader";
 import { MapQuickActions } from "@/components/MapQuickActions";
 import {
-  collectSourceIds,
   formatDateLabel,
   getAlerts,
   getCaseRecords,
   getReservoirs,
-  getSourceRegistry,
-  getSourcesByIds
+  getSourceRegistry
 } from "@/lib/data";
 import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL } from "@/lib/routes";
 
@@ -23,10 +21,6 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
   const alertPoints = getAlerts().filter((alert) => alert.mapPoint);
   const latestAlerts = getAlerts().slice(0, 3);
   const reservoirs = getReservoirs();
-  const sourceIds = collectSourceIds([...casePoints, ...alertPoints, ...reservoirs]);
-  const sources = getSourcesByIds(sourceIds)
-    .filter((source, index, allSources) => allSources.findIndex((candidate) => candidate.publisher === source.publisher) === index)
-    .slice(0, 4);
   const sourcesById = Object.fromEntries(getSourceRegistry().sources.map((source) => [source.id, source]));
   const Heading = home ? "h1" : "h2";
 
@@ -131,7 +125,7 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
 
   return (
     <section className="map-panel overflow-hidden rounded-lg border border-white/10 bg-slate-900 shadow-2xl shadow-slate-950/70">
-      <div className="grid gap-0 xl:grid-cols-[1fr_360px]">
+      <div>
         <div className="p-2 sm:p-6">
           <div className="flex flex-col gap-3 border-b border-white/10 pb-3 sm:gap-4 sm:pb-5 md:flex-row md:items-start md:justify-between">
             <div>
@@ -197,79 +191,15 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             Drag the map, pinch to zoom, or tap a colored marker. Use quick links if you are looking for a state, Canada, alerts, or sources.
           </div>
 
-          <section className="mt-4 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.06] p-4" aria-labelledby="map-next-steps">
-            <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">After using the map</p>
-                <h2 id="map-next-steps" className="mt-1 text-lg font-semibold text-white">Choose the next answer you need</h2>
-              </div>
-              <p className="max-w-xl text-sm leading-6 text-slate-300">
-                Visitors are already clicking and dragging the map. These shortcuts turn that interaction into a clearer reading path.
-              </p>
-            </div>
-            <div className="mt-4 grid gap-3 md:grid-cols-3">
-              <MapNextStep href="/where/united-states" label="Check the U.S. map by state" detail="See source-linked state and regional context." />
-              <MapNextStep href="/outbreaks" label="Review official alerts" detail="Follow reviewed WHO, ECDC, PAHO/WHO, CDC, and health department notices." />
-              <MapNextStep href="/prevention/cleaning-mouse-droppings" label="Need cleanup guidance?" detail="Read practical prevention steps for droppings, nests, and enclosed spaces." />
-            </div>
-          </section>
-
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
-            <MapMetric label="U.S. case geography" value="State-level" detail="CDC public limit" />
-            <MapMetric label="Alert policy" value="Official only" detail="No rumor scraping" />
-            <MapMetric label="Reservoir layer" value="Ecology" detail="Not infected animals" />
+          <div className="mt-4 flex flex-wrap gap-3 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.06] p-3">
+            <Link prefetch={false} href="/where/united-states" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">U.S. map by state</Link>
+            <Link prefetch={false} href="/outbreaks" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Official alerts</Link>
+            <Link prefetch={false} href="/prevention/cleaning-mouse-droppings" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Cleanup guidance</Link>
+            <Link prefetch={false} href="/sources-methodology" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Sources and limits</Link>
           </div>
         </div>
 
-        <aside className="border-t border-white/10 bg-slate-950/[0.72] p-4 sm:p-6 xl:border-l xl:border-t-0">
-          <div className="space-y-5">
-            <section>
-              <p className="text-sm font-semibold text-emerald-200">Recent official alerts</p>
-              <div className="mt-3 grid gap-3">
-                {latestAlerts.map((alert) => (
-                  <article key={alert.id} className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <h2 className="text-sm font-semibold leading-6 text-white">{alert.title}</h2>
-                      <span className="shrink-0 rounded-md bg-amber-300/15 px-2 py-1 text-xs font-semibold text-amber-100">
-                        {formatDateLabel(alert.date)}
-                      </span>
-                    </div>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">{alert.summary}</p>
-                    <p className="mt-2 text-xs leading-5 text-slate-500">{alert.riskLanguage}</p>
-                  </article>
-                ))}
-              </div>
-            </section>
 
-            <section className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
-              <div className="flex items-center justify-between gap-3">
-                <h2 className="text-sm font-semibold text-white">Source transparency</h2>
-                <Link prefetch={false} href="/sources-methodology" className="text-xs font-semibold text-emerald-200 hover:text-white">
-                  Show all
-                </Link>
-              </div>
-              <div className="mt-3 grid gap-2">
-                {sources.map((source) => (
-                  <a
-                    key={source.id}
-                    href={source.url}
-                    rel="noreferrer"
-                    target="_blank"
-                    className="rounded-md border border-white/10 px-3 py-2 text-sm text-slate-300 transition hover:border-emerald-300/50 hover:text-white"
-                  >
-                    {source.publisher}
-                  </a>
-                ))}
-              </div>
-              <Link prefetch={false}
-                href="/faq"
-                className="mt-4 inline-flex rounded-md bg-emerald-300 px-3 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
-              >
-                Read map FAQ
-              </Link>
-            </section>
-          </div>
-        </aside>
       </div>
     </section>
   );
@@ -282,17 +212,5 @@ function MapMetric({ label, value, detail }: { label: string; value: string; det
       <p className="mt-2 text-lg font-semibold text-white">{value}</p>
       <p className="mt-1 text-sm text-slate-400">{detail}</p>
     </div>
-  );
-}
-
-function MapNextStep({ href, label, detail }: { href: string; label: string; detail: string }) {
-  return (
-    <Link prefetch={false}
-      href={href}
-      className="rounded-lg border border-white/10 bg-slate-950/70 p-4 transition hover:border-emerald-300/50 hover:bg-slate-900"
-    >
-      <span className="text-sm font-semibold text-emerald-100">{label}</span>
-      <span className="mt-2 block text-sm leading-6 text-slate-400">{detail}</span>
-    </Link>
   );
 }
