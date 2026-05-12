@@ -35,9 +35,9 @@ This page does not publish patient locations, county-level current risk, or diag
 
 ## Sources
 
-- Government of Canada: [Risks of a hantavirus infection](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/risks-hantavirus-infection.html) — reviewed 2026-05-11; use: Canada cumulative confirmed infection context and MV Hondius risk wording from an official national page.
-- Public Health Agency of Canada / Government of Canada: [Surveillance of hantavirus related diseases](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/surveillance-hantavirus-related-diseases.html) — reviewed 2026-05-11; use: Canada surveillance history and National Microbiology Laboratory role.
-- Government of Canada: [National case definition: Hantavirus pulmonary syndrome](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/health-professionals-treating-hantavirus-infection/national-case-definition.html) — reviewed 2026-05-11; use: Canada confirmed-case notification and surveillance case-definition context.
+- Government of Canada: [Risks of a hantavirus infection](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/risks-hantavirus-infection.html) — reviewed 2026-05-12; use: Canada cumulative confirmed infection context and MV Hondius risk wording from an official national page.
+- Public Health Agency of Canada / Government of Canada: [Surveillance of hantavirus related diseases](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/surveillance-hantavirus-related-diseases.html) — reviewed 2026-05-12; use: Canada surveillance history and National Microbiology Laboratory role.
+- Government of Canada: [National case definition: Hantavirus pulmonary syndrome](https://www.canada.ca/en/public-health/services/diseases/hantaviruses/health-professionals-treating-hantavirus-infection/national-case-definition.html) — reviewed 2026-05-12; use: Canada confirmed-case notification and surveillance case-definition context.
 
 ## Cite this page
 

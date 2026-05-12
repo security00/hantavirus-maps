@@ -20,7 +20,7 @@ Hantavirus Maps uses Argentina Ministry of Health / Argentina.gob.ar material as
 | Publisher | Argentina Ministry of Health / Argentina.gob.ar |
 | Source type | National epidemiological bulletin |
 | Publication date | 2025 |
-| Reviewed date | 2026-05-11 |
+| Reviewed date | 2026-05-12 |
 | External URL | https://www.argentina.gob.ar/sites/default/files/2025/01/ben-785-se-48-vf.pdf?utm_source |
 
 ## How this source is used

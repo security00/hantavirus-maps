@@ -1,4 +1,4 @@
-import { SITE_ROUTES, SUPPORT_EMAIL } from "@/lib/routes";
+import { ALL_SITE_ROUTES, SUPPORT_EMAIL } from "@/lib/routes";
 
 export type PageSection = {
   heading: string;
@@ -265,26 +265,29 @@ export const CONTENT_PAGES = {
     keyPoints: [
       "Reported cases are surveillance summaries, not predictions.",
       "Official alerts are selected agency notices, not complete datasets.",
-      "Reservoir regions show host ecology, not infected animals or exact human risk."
+      "Reservoir regions show host ecology, not infected animals or exact human risk.",
+      "Searches for a live hantavirus map should be interpreted as a need for recently reviewed official-source context, not a live infection counter."
     ],
     sections: [
       {
         heading: "What this map can do",
         body: [
           "It can show where official sources provide historical case context, current public health notices, and known reservoir ecology.",
-          "It can help readers find the right official source faster."
+          "It can help readers find the right official source faster.",
+          "It can answer searches like hantavirus risk map, hantavirus map Canada, hantavirus Florida map, and hantavirus Washington map with clear source boundaries."
         ]
       },
       {
         heading: "What this map cannot do",
         body: [
           "It cannot tell whether a specific cabin, workplace, campsite, county, or home has contaminated rodent material.",
-          "It cannot diagnose symptoms or replace emergency, clinical, public health, or occupational safety advice."
+          "It cannot diagnose symptoms or replace emergency, clinical, public health, or occupational safety advice.",
+          "It cannot provide live case counts, patient locations, or real-time infection tracking, even when the page is updated frequently."
         ]
       }
     ],
     sourceIds: ["cdc-reported-cases", "cdc-prevention", "cdc-rodent-cleanup"],
-    relatedPaths: ["/sources-methodology/", "/hantavirus-outbreak-map/", "/prevention/"]
+    relatedPaths: ["/hantavirus-tracker/", "/where/canada/", "/where/florida/", "/where/washington/", "/sources-methodology/", "/hantavirus-outbreak-map/", "/prevention/"]
   },
   "hantavirus-outbreak-map": {
     key: "hantavirus-outbreak-map",
@@ -730,5 +733,5 @@ export function getContentPage(key: ContentPageKey) {
 }
 
 export function getRouteForPath(path: string) {
-  return SITE_ROUTES.find((route) => route.path === path);
+  return ALL_SITE_ROUTES.find((route) => route.path === path);
 }

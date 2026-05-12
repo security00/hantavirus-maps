@@ -135,6 +135,34 @@
       ]
     },
     {
+      "id": "florida-health-hps-context",
+      "jurisdiction": "Florida",
+      "slug": "florida",
+      "region": "United States",
+      "layer": "Reported cases",
+      "period": "Current state page reviewed 2026-05-12",
+      "reportedCases": null,
+      "reportedDeaths": null,
+      "reportLabel": "Florida DOH state-level source linked",
+      "summary": "Florida Department of Health publishes a hantavirus pulmonary syndrome page describing rodent exposure routes, prevention context, and HPS risk language. This map page links to Florida sources and reservoir context instead of publishing a live Florida case counter or county map.",
+      "geographyPrecision": "State source link and reservoir context",
+      "status": "Official state health source linked",
+      "sourceIds": [
+        "florida-health-hps",
+        "florida-health-plague-hantavirus-note",
+        "cdc-eid-reservoir-table"
+      ],
+      "mapPoint": {
+        "x": 315,
+        "y": 355
+      },
+      "limitations": [
+        "This is source-linked Florida context, not a real-time case total.",
+        "No county or city risk map is inferred from state disease-page text.",
+        "Reservoir context does not prove infected animals or human cases at a property."
+      ]
+    },
+    {
       "id": "washington-wa-doh-current-page",
       "jurisdiction": "Washington",
       "slug": "washington",

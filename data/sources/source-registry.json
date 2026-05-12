@@ -430,6 +430,28 @@
       "sourceType": "Official public health remarks",
       "use": "Canada risk-assessment and passenger-response context for the MV Hondius Andes hantavirus cluster.",
       "limitations": "Operational public health statement; not a Canada-wide case counter or travel clearance service."
+    },
+    {
+      "id": "florida-health-hps",
+      "title": "Hantavirus Pulmonary Syndrome",
+      "publisher": "Florida Department of Health",
+      "url": "https://www.floridahealth.gov/diseases-and-conditions/disease/hantavirus-pulmonary-syndrome/",
+      "publicationDate": "2026",
+      "reviewedDate": "2026-05-12",
+      "sourceType": "State health department disease page",
+      "use": "Florida-specific public health context for HPS, rodent exposure routes, prevention language, and source-linked state page support.",
+      "limitations": "State disease page and prevention context only; this project does not infer live Florida case counts, county risk, or local exposure locations."
+    },
+    {
+      "id": "florida-health-plague-hantavirus-note",
+      "title": "Plague page note on hantavirus in Florida rodents",
+      "publisher": "Florida Department of Health",
+      "url": "https://www.floridahealth.gov/diseases-and-conditions/disease/plague/",
+      "publicationDate": "2026",
+      "reviewedDate": "2026-05-12",
+      "sourceType": "State health department context note",
+      "use": "Florida Department of Health context noting hantavirus has been identified in cotton rats in Florida, supporting reservoir-context wording for Florida map searches.",
+      "limitations": "Context note only; not a human case count, not a surveillance table, and not evidence of current local risk."
     }
   ]
 }

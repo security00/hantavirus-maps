@@ -5,6 +5,7 @@ export const SOURCE_PAGE_IDS = [
   "ecdc-cruise-2026",
   "paho-alert-2025",
   "canada-risk-2026",
+  "florida-health-hps",
   "wa-doh-hantavirus",
   "nmdoh-hantavirus",
   "cdph-hantavirus",
@@ -18,6 +19,7 @@ export const WHERE_PAGE_SLUGS = [
   "arizona",
   "colorado",
   "washington",
+  "florida",
   "canada",
   "argentina",
 ] as const;

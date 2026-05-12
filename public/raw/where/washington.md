@@ -22,7 +22,7 @@ Washington State Department of Health says hantavirus is notifiable in Washingto
 |---|---|
 | Jurisdiction | Washington |
 | Region | United States |
-| Period | Current state page reviewed 2026-05-11 |
+| Period | Current state page reviewed 2026-05-12 |
 | Reported cases | Linked official source |
 | Geography precision | State source link and annual range statement |
 | Status | Official state health source linked |
@@ -35,8 +35,8 @@ This page does not publish patient locations, county-level current risk, or diag
 
 ## Sources
 
-- Washington State Department of Health: [Hantavirus](https://doh.wa.gov/you-and-your-family/illness-and-disease-z/hantavirus) — reviewed 2026-05-11; use: Washington state-level hantavirus context, annual range statement, prevention guidance, and source-linked state page.
-- Washington State Department of Health: [epiTRENDS April 2025: Hantavirus Infection](https://doh.wa.gov/sites/default/files/2025-04/420-002-epitrends2025-04.pdf) — reviewed 2026-05-11; use: Washington background report with notifiable status, national context, exposure reminders, and approximate annual case context.
+- Washington State Department of Health: [Hantavirus](https://doh.wa.gov/you-and-your-family/illness-and-disease-z/hantavirus) — reviewed 2026-05-12; use: Washington state-level hantavirus context, annual range statement, prevention guidance, and source-linked state page.
+- Washington State Department of Health: [epiTRENDS April 2025: Hantavirus Infection](https://doh.wa.gov/sites/default/files/2025-04/420-002-epitrends2025-04.pdf) — reviewed 2026-05-12; use: Washington background report with notifiable status, national context, exposure reminders, and approximate annual case context.
 
 ## Cite this page
 

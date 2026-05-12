@@ -20,7 +20,7 @@ Hantavirus Maps uses Washington State Department of Health material as reviewed 
 | Publisher | Washington State Department of Health |
 | Source type | State health department disease page |
 | Publication date | 2026 |
-| Reviewed date | 2026-05-11 |
+| Reviewed date | 2026-05-12 |
 | External URL | https://doh.wa.gov/you-and-your-family/illness-and-disease-z/hantavirus |
 
 ## How this source is used

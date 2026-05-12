@@ -35,12 +35,20 @@ export function generateStaticParams(): PageParams[] {
 export async function generateMetadata({ params }: { params: Promise<PageParams> }): Promise<Metadata> {
   const resolvedParams = await params;
   const record = getWhereRecord(resolvedParams.slug);
-  const title = resolvedParams.slug === "canada"
-    ? "Hantavirus Map Canada: PHAC and Official Source Context"
-    : record ? `${record.jurisdiction} Hantavirus Map and Source Context` : `${titleCaseSlug(resolvedParams.slug)} Hantavirus Map`;
-  const description = resolvedParams.slug === "canada"
-    ? "Reviewed hantavirus map Canada context using PHAC and Government of Canada sources, with limits on confirmed infections, travel notices, geography, and live surveillance claims."
-    : `Reviewed source-linked hantavirus map context for ${record?.jurisdiction ?? titleCaseSlug(resolvedParams.slug)}, with limits on case counts, geography precision, and live surveillance claims.`;
+  const specialTitles: Record<string, string> = {
+    canada: "Hantavirus Map Canada: PHAC and Official Source Context",
+    florida: "Hantavirus Florida Map: DOH Source and Reservoir Context",
+    washington: "Hantavirus Washington Map: DOH Source and Case Context",
+  };
+  const specialDescriptions: Record<string, string> = {
+    canada: "Reviewed hantavirus map Canada context using PHAC and Government of Canada sources, with limits on confirmed infections, travel notices, geography, and live surveillance claims.",
+    florida: "Reviewed hantavirus Florida map context using Florida Department of Health sources, reservoir ecology, prevention language, and limits on live case-count claims.",
+    washington: "Reviewed hantavirus Washington map context using Washington State Department of Health sources, annual range language, prevention context, and local-risk limits.",
+  };
+  const title = specialTitles[resolvedParams.slug]
+    ?? (record ? `${record.jurisdiction} Hantavirus Map and Source Context` : `${titleCaseSlug(resolvedParams.slug)} Hantavirus Map`);
+  const description = specialDescriptions[resolvedParams.slug]
+    ?? `Reviewed source-linked hantavirus map context for ${record?.jurisdiction ?? titleCaseSlug(resolvedParams.slug)}, with limits on case counts, geography precision, and live surveillance claims.`;
 
   return {
     title,
@@ -90,6 +98,16 @@ export default async function WherePage({ params }: { params: Promise<PageParams
             {record.slug === "canada" && (
               <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
                 For searches such as <strong className="text-white">hantavirus map Canada</strong>, this page summarizes PHAC and Government of Canada source context while avoiding patient locations or unsupported local risk claims.
+              </p>
+            )}
+            {record.slug === "florida" && (
+              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
+                For searches such as <strong className="text-white">hantavirus Florida map</strong>, this page explains Florida Department of Health source context and southeastern reservoir ecology without claiming a live Florida case counter.
+              </p>
+            )}
+            {record.slug === "washington" && (
+              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
+                For searches such as <strong className="text-white">hantavirus Washington map</strong>, this page summarizes Washington DOH context and annual range language without publishing county-level current risk.
               </p>
             )}
             <div className="mt-6 flex flex-wrap gap-3">

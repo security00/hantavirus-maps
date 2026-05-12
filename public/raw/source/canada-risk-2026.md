@@ -20,7 +20,7 @@ Hantavirus Maps uses Government of Canada material as reviewed public health con
 | Publisher | Government of Canada |
 | Source type | National risk and current situation page |
 | Publication date | 2026-05-08 |
-| Reviewed date | 2026-05-11 |
+| Reviewed date | 2026-05-12 |
 | External URL | https://www.canada.ca/en/public-health/services/diseases/hantaviruses/risks-hantavirus-infection.html |
 
 ## How this source is used
