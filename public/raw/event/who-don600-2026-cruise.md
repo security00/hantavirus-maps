@@ -3,8 +3,8 @@ id: "who-don600-2026-cruise"
 type: "official-alert"
 title: "Hantavirus cluster linked to cruise ship travel, multi-country"
 geography: "Multi-country / Atlantic cruise-associated event"
-date: "2026-05-08"
-status: "Disease Outbreak News"
+date: "2026-05-12"
+status: "WHO Disease Outbreak News and Director-General briefing update"
 canonical: "https://hantavirusmaps.org/event/who-don600-2026-cruise"
 license: "CC-BY-4.0"
 ---
@@ -15,11 +15,11 @@ World Health Organization · Official international notice
 
 ## Summary
 
-WHO reported that, as of 8 May 2026, the MV Hondius cruise-associated Andes virus cluster included eight cases and three deaths, with six laboratory-confirmed hantavirus infections identified as Andes virus; WHO assessed the global population risk as low while investigations and contact tracing continued.
+WHO reported on 12 May 2026 that the MV Hondius cruise-associated Andes virus cluster had reached eleven reported cases, including three deaths; nine cases were confirmed as Andes virus and two were probable, with all reported cases among passengers or crew on the ship.
 
 ## Safe interpretation
 
-Event-specific international notice. It is not a live travel-risk tracker, patient-location dataset, or general local risk map.
+Event-specific international update. WHO said there was no sign at that point of a larger outbreak, while recommending active monitoring at home or in a specified quarantine facility for 42 days from last exposure. This is not a patient-location dataset, live case tracker, or general local risk map.
 
 This record is a reviewed public health map note. It is not live surveillance, medical advice, patient-location tracking, or county-level risk prediction.
 
@@ -28,14 +28,15 @@ This record is a reviewed public health map note. It is not live surveillance, m
 | Field | Value |
 |---|---|
 | Geography | Multi-country / Atlantic cruise-associated event |
-| Date / period | 2026-05-08 |
-| Status | Disease Outbreak News |
+| Date / period | 2026-05-12 |
+| Status | WHO Disease Outbreak News and Director-General briefing update |
 | Layer | Public health alerts |
 | Agency | World Health Organization |
-| Status | Disease Outbreak News |
+| Status | WHO Disease Outbreak News and Director-General briefing update |
 
 ## Sources
 
+- World Health Organization: [WHO Director-General's opening remarks at the media briefing on hantavirus – 12 May 2026](https://www.who.int/news-room/speeches/item/who-director-general-s-opening-remarks-at-the-media-briefing-on-hantavirus---12-may-2026) — reviewed 2026-05-13; use: Official WHO point-in-time update for the MV Hondius Andes virus event, including 11 reported cases, 9 confirmed Andes virus cases, 3 deaths, and 42-day monitoring guidance.
 - World Health Organization: [Hantavirus cluster linked to cruise ship travel, Multi-country](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600) — reviewed 2026-05-12; use: Official international notice for the 2026 cruise-associated Andes virus cluster.
 - World Health Organization: [Hantavirus cluster linked to cruise ship travel, Multi-country](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599) — reviewed 2026-05-12; use: Initial WHO Disease Outbreak News notice for the 2026 MV Hondius cruise-associated Andes virus cluster.
 - Pan American Health Organization: [PAHO supports the international response to hantavirus pulmonary syndrome cases linked to a cruise ship in the Atlantic](https://www.paho.org/en/news/7-5-2026-paho-supports-international-response-hantavirus-pulmonary-syndrome-cases-linked) — reviewed 2026-05-10; use: PAHO coordination context and prevention summary for the cruise-associated event.

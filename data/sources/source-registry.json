@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-12",
+  "lastReviewed": "2026-05-13",
   "reviewPolicy": "Use official public health agencies, peer-reviewed CDC publications, or agency-linked surveillance summaries. Prefer conservative summaries over scraped granular counts.",
   "sources": [
     {
@@ -221,6 +221,17 @@
       "sourceType": "Disease Outbreak News",
       "use": "Official international notice for the 2026 cruise-associated Andes virus cluster.",
       "limitations": "Event-specific notice; not global live surveillance."
+    },
+    {
+      "id": "who-dg-briefing-hantavirus-2026-05-12",
+      "title": "WHO Director-General's opening remarks at the media briefing on hantavirus – 12 May 2026",
+      "publisher": "World Health Organization",
+      "url": "https://www.who.int/news-room/speeches/item/who-director-general-s-opening-remarks-at-the-media-briefing-on-hantavirus---12-may-2026",
+      "publicationDate": "2026-05-12",
+      "reviewedDate": "2026-05-13",
+      "sourceType": "WHO briefing transcript",
+      "use": "Official WHO point-in-time update for the MV Hondius Andes virus event, including 11 reported cases, 9 confirmed Andes virus cases, 3 deaths, and 42-day monitoring guidance.",
+      "limitations": "Briefing remarks are a point-in-time operational update; they do not provide patient locations, national live surveillance, or local risk predictions."
     },
     {
       "id": "paho-alert-2025",

@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 const sourceIds = [
+  "who-dg-briefing-hantavirus-2026-05-12",
   "who-don600-2026",
   "ecdc-cruise-2026",
   "paho-cruise-2026",
@@ -22,8 +23,10 @@ const sourceIds = [
 ];
 
 const officialSourceNotes = [
-  "WHO Disease Outbreak News reported that, as of May 8, 2026, eight cases including three deaths had been reported in the cruise-associated cluster; six cases were laboratory-confirmed and identified as Andes virus.",
-  "WHO assessed the risk to the global population from this event as low and the risk for passengers and crew on the ship as moderate, while investigations and international contact tracing continued.",
+  "WHO's 12 May briefing said eleven cases had been reported in the MV Hondius cluster, including three deaths; nine of the eleven were confirmed as Andes virus and the other two were probable.",
+  "WHO said all eleven reported cases were among passengers or crew on the ship and that, at that point, there was no sign of a larger outbreak.",
+  "WHO recommended active monitoring at a specified quarantine facility or at home for 42 days from the last exposure, with symptomatic people isolated and treated immediately.",
+  "WHO Disease Outbreak News had previously reported that, as of May 8, 2026, eight cases including three deaths had been reported in the cruise-associated cluster; six cases were laboratory-confirmed and identified as Andes virus.",
   "ECDC described its May 6, 2026 assessment as preliminary for a rapidly evolving incident and summarized a Dutch-flagged cruise-ship cluster in the South Atlantic with passengers and crew from multiple countries.",
   "PAHO described support for international coordination, technical information exchange, laboratory diagnosis, clinical management, infection prevention, and control activities related to the event.",
 ];
@@ -41,6 +44,10 @@ const andesVirusNotes = [
 ];
 
 const reviewedNotes = [
+  {
+    title: "WHO 12 May briefing",
+    body: "Latest reviewed official point-in-time update for the event count, confirmation status, and 42-day monitoring recommendation.",
+  },
   {
     title: "WHO Disease Outbreak News",
     body: "Primary event notice for the May 8, 2026 point-in-time case summary, risk wording, investigation status, and contact-tracing context.",

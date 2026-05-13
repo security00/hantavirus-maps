@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-12",
+  "lastReviewed": "2026-05-13",
   "datasetStatus": "reviewed-sample",
   "policy": "Official alerts are selected source-linked public health notices focused on current event/surveillance context. They are not a complete surveillance dataset and should not be read as a live outbreak map.",
   "alerts": [
@@ -7,14 +7,15 @@
       "id": "who-don600-2026-cruise",
       "title": "Hantavirus cluster linked to cruise ship travel, multi-country",
       "agency": "World Health Organization",
-      "date": "2026-05-08",
+      "date": "2026-05-12",
       "geography": "Multi-country / Atlantic cruise-associated event",
       "layer": "Public health alerts",
-      "status": "Disease Outbreak News",
+      "status": "WHO Disease Outbreak News and Director-General briefing update",
       "severityLabel": "Official international notice",
-      "summary": "WHO reported that, as of 8 May 2026, the MV Hondius cruise-associated Andes virus cluster included eight cases and three deaths, with six laboratory-confirmed hantavirus infections identified as Andes virus; WHO assessed the global population risk as low while investigations and contact tracing continued.",
-      "riskLanguage": "Event-specific international notice. It is not a live travel-risk tracker, patient-location dataset, or general local risk map.",
+      "summary": "WHO reported on 12 May 2026 that the MV Hondius cruise-associated Andes virus cluster had reached eleven reported cases, including three deaths; nine cases were confirmed as Andes virus and two were probable, with all reported cases among passengers or crew on the ship.",
+      "riskLanguage": "Event-specific international update. WHO said there was no sign at that point of a larger outbreak, while recommending active monitoring at home or in a specified quarantine facility for 42 days from last exposure. This is not a patient-location dataset, live case tracker, or general local risk map.",
       "sourceIds": [
+        "who-dg-briefing-hantavirus-2026-05-12",
         "who-don600-2026",
         "who-don599-2026",
         "paho-cruise-2026",
