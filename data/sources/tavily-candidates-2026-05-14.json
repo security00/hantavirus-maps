@@ -82,10 +82,10 @@
   ],
   "searchBatchErrors": 0,
   "summary": {
-    "total": 27,
-    "newCount": 24,
+    "total": 24,
+    "newCount": 21,
     "knownCount": 3,
-    "highPriorityCount": 9,
+    "highPriorityCount": 8,
     "lowPriorityCount": 0,
     "weakCount": 0,
     "rejectedCount": 3,
@@ -96,7 +96,6 @@
       "cdph.ca.gov",
       "ecdc.europa.eu",
       "health.state.mn.us",
-      "iris.paho.org",
       "paho.org",
       "publichealthontario.ca",
       "stacks.cdc.gov",
@@ -217,15 +216,19 @@
       "domain": "paho.org",
       "discoveryBatch": "global-official-alerts",
       "tier": 2,
-      "status": "review_candidate",
+      "status": "rejected",
       "sourceType": "Official outbreak alert or public health update",
       "candidateUse": "Candidate for reviewed official alert/event timeline after deduplication.",
       "publicUseAllowed": false,
       "reviewNeed": "Deduplicate against existing event records and avoid travel advice, patient locations, or live-risk claims.",
-      "reviewPriority": "high",
-      "weakSignals": [],
-      "rejectionReasons": [],
-      "rejected": false,
+      "reviewPriority": "low",
+      "weakSignals": [
+        "Rejected after AI collaborator review: 2020 COVID-19/HIV PAHO page; hantavirus mention is not useful 2026 outbreak or surveillance evidence."
+      ],
+      "rejectionReasons": [
+        "Rejected after AI collaborator review: 2020 COVID-19/HIV PAHO page; hantavirus mention is not useful 2026 outbreak or surveillance evidence."
+      ],
+      "rejected": true,
       "knownBacklog": false,
       "score": 0.077190235,
       "snippet": "3. Virtual Campus for Public Health. 1. Alliance for Primary Health Care in the Americas. The following key actions addressing issues that may arise for the HIV response amid COVID-19 outbreak should be taken by governments, civil society organizations (CSOs) and networks, and PLWVIH to ensure that the response to COVID-19 is aligned with human rights principles. * There is currently no strong data to suggest that p…",
@@ -440,15 +443,19 @@
       "domain": "ecdc.europa.eu",
       "discoveryBatch": "europe-official",
       "tier": 4,
-      "status": "review_candidate",
+      "status": "rejected",
       "sourceType": "Official PDF/report candidate",
       "candidateUse": "Candidate for manual PDF review and source-linked context.",
       "publicUseAllowed": false,
       "reviewNeed": "Requires PDF extraction, table/date review, language review where needed, and safe summary rules.",
-      "reviewPriority": "medium",
-      "weakSignals": [],
-      "rejectionReasons": [],
-      "rejected": false,
+      "reviewPriority": "low",
+      "weakSignals": [
+        "Rejected after AI collaborator review: low-density ECDC weekly communicable disease report draft; primarily mpox/MERS content with only incidental hantavirus context."
+      ],
+      "rejectionReasons": [
+        "Rejected after AI collaborator review: low-density ECDC weekly communicable disease report draft; primarily mpox/MERS content with only incidental hantavirus context."
+      ],
+      "rejected": true,
       "knownBacklog": false,
       "score": 0.7060491,
       "snippet": "In March 2026, 80 mpox clade I cases were reported by 10 countries. In March 2026, 22 mpox clade II cases were reported by seven countries. Hantavirus disease outbreak on cruise ship - South Atlantic - 2026 Overview: Update (data cut off 10:00 AM) Updates on new reported cases. Geographical distribution of confirmed cases of MERS-CoV by reporting country, April 2012 - April 2026. In March 2026, 80 mpox clade I cases…"
@@ -500,15 +507,19 @@
       "domain": "iris.paho.org",
       "discoveryBatch": "south-america-official",
       "tier": 2,
-      "status": "review_candidate",
+      "status": "rejected",
       "sourceType": "Official public health source candidate",
       "candidateUse": "Candidate for human review and possible source registry/backlog expansion.",
       "publicUseAllowed": false,
       "reviewNeed": "Verify official publisher, publication date, disease context, geography, and safe public wording before use.",
-      "reviewPriority": "medium",
-      "weakSignals": [],
-      "rejectionReasons": [],
-      "rejected": false,
+      "reviewPriority": "low",
+      "weakSignals": [
+        "Rejected after AI collaborator review: generic PAHO executive committee administration document without actionable hantavirus outbreak or surveillance data."
+      ],
+      "rejectionReasons": [
+        "Rejected after AI collaborator review: generic PAHO executive committee administration document without actionable hantavirus outbreak or surveillance data."
+      ],
+      "rejected": true,
       "knownBacklog": false,
       "score": 0.10044563,
       "snippet": "consultation comprises individual assessments by senior public health officials who have a broad understanding of the national public health context. The"

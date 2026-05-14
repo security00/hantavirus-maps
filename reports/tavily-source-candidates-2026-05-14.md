@@ -40,6 +40,17 @@ High-priority official candidates to inspect first:
 - **Hantavirus cluster linked to cruise ship travel, Multi-country** — who.int — https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599
 - **Hantavirus cluster linked to cruise ship travel, Multi-country** — who.int — https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON601
 
+
+## Reviewer decisions
+
+Gemini AI collaborator review on 2026-05-14 approved the candidate report for merge after marking these items rejected before promotion:
+
+- Candidate 6 — PAHO/WHO COVID-19 and HIV page: rejected as stale/noisy 2020-era content with no actionable hantavirus surveillance value.
+- Candidate 17 — ECDC 2026-WCP-0024 draft: rejected as low-density communicable-disease roundup content, mainly mpox/MERS with only incidental hantavirus context.
+- Candidate 20 — Iris PAHO executive committee PDF: rejected as generic administrative/public-health management material without concrete hantavirus outbreak or surveillance data.
+
+These rejections keep the candidate archive intact while preventing the three noisy items from being promoted into public map data or the source registry.
+
 ## Search batches
 
 ### global-official-alerts
