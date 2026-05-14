@@ -42,17 +42,17 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             <div className="max-w-3xl rounded-2xl border border-white/10 bg-slate-950/72 p-5 shadow-2xl shadow-slate-950/70 backdrop-blur-md sm:p-7">
               <p className="text-sm font-semibold text-emerald-200">Reviewed public health map</p>
               <Heading className="mt-3 text-4xl font-semibold leading-tight text-white sm:text-6xl lg:text-7xl">
-                Hantavirus map and tracker for cases, alerts and risk areas
+                Live hantavirus map and case tracker
               </Heading>
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
-                Explore source-linked state case summaries, selected official alerts, and rodent reservoir ecology on an immersive map. This is a reviewed educational snapshot, not live local surveillance or county-precision case tracking.
+                Explore source-linked case summaries, Canada and US updates, selected official alerts, and rodent reservoir ecology on an immersive map. This is a reviewed educational snapshot, not live local surveillance or county-precision case tracking.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link prefetch={false}
                   href="/hantavirus-tracker"
                   className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
                 >
-                  Open tracker guide
+                  Open live tracker guide
                 </Link>
                 <Link prefetch={false}
                   href="/sources-methodology"
@@ -65,8 +65,8 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
 
             <div className="grid max-w-4xl gap-3 sm:grid-cols-3">
               <MapMetric label="Updated map snapshot" value={LAST_REVIEWED_LABEL} detail="Reviewed official sources" />
-              <MapMetric label="Alert policy" value="Official only" detail="No rumor scraping" />
-              <MapMetric label="Reservoir layer" value="Ecology" detail="Not infected animals" />
+              <MapMetric label="Hantavirus counter" value={String(casePoints.length + alertPoints.length)} detail="Reviewed case and alert records" />
+              <MapMetric label="Canada and US" value="Regional pages" detail="Map context by location" />
             </div>
           </div>
 
@@ -131,10 +131,10 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             <div>
               <p className="text-xs font-semibold text-emerald-200 sm:text-sm">Reviewed public health map</p>
               <Heading className="mt-1 max-w-4xl text-2xl font-semibold leading-tight text-white sm:mt-2 sm:text-5xl">
-                Hantavirus map and tracker
+                Live hantavirus map and case tracker
               </Heading>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300 sm:mt-4 sm:text-base sm:leading-7">
-                Source-linked case summaries, selected official alerts, and reservoir regions. Not live local surveillance or county-precision case tracking.
+                Track a reviewed hantavirus map snapshot with source-linked case summaries, Canada and US updates, selected official alerts, and reservoir regions. Not live local surveillance or county-precision case tracking.
               </p>
             </div>
             <div className="grid shrink-0 gap-1 rounded-lg border border-emerald-300/20 bg-emerald-300/[0.08] p-3 text-xs sm:gap-2 sm:p-4 sm:text-sm">
@@ -178,7 +178,8 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
 
             <div className="grid gap-2 text-xs text-slate-400">
               <span className="rounded-md border border-white/10 px-2 py-1">Updated map snapshot: {LAST_REVIEWED_LABEL}</span>
-              <span className="rounded-md border border-white/10 px-2 py-1">CDC public U.S. case precision is state-level</span>
+              <span className="rounded-md border border-white/10 px-2 py-1">Hantavirus counter: {casePoints.length + alertPoints.length} reviewed records</span>
+              <span className="rounded-md border border-white/10 px-2 py-1">Canada and US pages explain regional limits</span>
               <span className="rounded-md border border-white/10 px-2 py-1">Reservoir presence is not human infection risk</span>
             </div>
           </div>
@@ -195,15 +196,15 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">Explore in 3 steps</p>
-                <h2 id="map-exploration-steps" className="mt-1 text-lg font-semibold text-white">Click a marker, check its source, then choose a detail page</h2>
+                <h2 id="map-exploration-steps" className="mt-1 text-lg font-semibold text-white">Use the hantavirus tracker, check Canada or US context, then verify the source</h2>
               </div>
               <p className="max-w-xl text-sm leading-6 text-slate-300">
-                This keeps the map useful without turning the homepage into a long report. Each shortcut opens a focused page with sources and limits.
+                This keeps the map useful without turning the homepage into a long report. Each shortcut opens a focused page for live-tracker intent, Canada or US context, sources, and limits.
               </p>
             </div>
             <div className="mt-4 grid gap-3 md:grid-cols-3">
               <Link prefetch={false} href="/hantavirus-risk-map" className="rounded-lg border border-white/10 bg-slate-950/70 p-4 transition hover:border-emerald-300/50 hover:bg-slate-900">
-                <span className="text-sm font-semibold text-emerald-100">1. What does this marker mean?</span>
+                <span className="text-sm font-semibold text-emerald-100">1. What does this map marker mean?</span>
                 <span className="mt-2 block text-sm leading-6 text-slate-400">Compare reported cases, official alerts, and reservoir ecology before reading risk.</span>
               </Link>
               <Link prefetch={false} href="/outbreaks" className="rounded-lg border border-white/10 bg-slate-950/70 p-4 transition hover:border-emerald-300/50 hover:bg-slate-900">
@@ -216,8 +217,8 @@ export function MapPanel({ home = false, immersive = false }: MapPanelProps) {
               </Link>
             </div>
             <div className="mt-4 flex flex-wrap gap-3">
-              <Link prefetch={false} href="/where/united-states" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">U.S. map by state</Link>
-              <Link prefetch={false} href="/where/canada" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Canada map context</Link>
+              <Link prefetch={false} href="/where/united-states" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Hantavirus map US by state</Link>
+              <Link prefetch={false} href="/where/canada" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Hantavirus map Canada</Link>
               <Link prefetch={false} href="/prevention/cleaning-mouse-droppings" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Cleanup guidance</Link>
               <Link prefetch={false} href="/sources-methodology" className="rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-emerald-300/50">Sources and limits</Link>
             </div>

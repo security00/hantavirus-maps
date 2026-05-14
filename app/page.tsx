@@ -7,9 +7,9 @@ import { formatDateLabel, getAlerts } from "@/lib/data";
 import { LAST_REVIEWED_ISO, LAST_REVIEWED_LABEL, SITE_URL, SUPPORT_EMAIL } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Map and Tracker: Cases, Alerts, Risk Areas",
+  title: "Hantavirus Map 2026: Cases, Canada & US Tracker",
   description:
-    "Reviewed hantavirus map and tracker for case summaries, official alerts, reservoir regions, prevention, and source limits.",
+    "Track the latest hantavirus map snapshot with reviewed case summaries, Canada and US updates, official alerts, reservoir regions, and source limits.",
   alternates: {
     canonical: "/",
   },
@@ -43,7 +43,7 @@ const webApplicationJsonLd = {
     "@id": `${SITE_URL}/#organization`,
   },
   description:
-    "A reviewed, source-linked hantavirus map and tracker for public health context, official alerts, reservoir ecology, prevention, and methodology limits. It is not live surveillance, diagnosis, or exact local risk scoring.",
+    "A reviewed, source-linked hantavirus map and tracker for public health context, Canada and US updates, official alerts, reservoir ecology, prevention, and methodology limits. It is not live surveillance, diagnosis, or exact local risk scoring.",
 };
 
 const datasetJsonLd = {
@@ -63,6 +63,8 @@ const datasetJsonLd = {
   keywords: [
     "hantavirus map",
     "hantavirus tracker",
+    "hantavirus map canada",
+    "hantavirus counter",
     "official public health alerts",
     "rodent reservoir ecology",
     "reviewed source registry",
@@ -99,19 +101,19 @@ export default function Home() {
     {
       href: "/hantavirus-tracker",
       eyebrow: "Tracker",
-      title: "Reviewed updates",
-      body: "Official alerts and case-summary records without treating the site as live surveillance.",
+      title: "Live case tracker guide",
+      body: "How to read reviewed case summaries, official alerts, and the hantavirus counter without mistaking it for live surveillance.",
     },
     {
       href: "/hantavirus-risk-map",
       eyebrow: "Risk map",
-      title: "Read the layers",
-      body: "Understand the difference between reported cases, official alerts, and reservoir ecology.",
+      title: "Cases vs risk areas",
+      body: "Understand the difference between reported cases, official alerts, reservoir ecology, and local risk signals.",
     },
     {
       href: "/outbreaks",
       eyebrow: "Outbreak notes",
-      title: "Official-source explainers",
+      title: "Latest official updates",
       body: "Short event pages for selected WHO, ECDC, PAHO, Canada, and state health notices.",
     },
     {
@@ -158,10 +160,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 lg:grid-cols-[0.32fr_0.68fr] lg:items-start">
             <div>
-              <p className="text-sm font-semibold text-emerald-200">After the map</p>
-              <h2 id="home-next-paths" className="mt-2 text-3xl font-semibold">Choose the right detail page</h2>
+              <p className="text-sm font-semibold text-emerald-200">Hantavirus map shortcuts</p>
+              <h2 id="home-next-paths" className="mt-2 text-3xl font-semibold">Live tracker, Canada map, counter and risk layers</h2>
               <p className="mt-3 leading-7 text-slate-300">
-                The homepage now stays focused on the interactive map. Deeper explanations live on dedicated pages.
+                Start with the interactive map, then use focused pages for Canada and US updates, source limits, the latest reviewed alerts, and prevention context.
               </p>
             </div>
             <div className="grid gap-3 md:grid-cols-2">
@@ -175,9 +177,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-4">
+          <div className="mt-6 grid gap-4 md:grid-cols-5">
             <TrustStat label="Updated snapshot" value={LAST_REVIEWED_LABEL} />
             <TrustStat label="Source cadence" value="Reviewed as alerts change" />
+            <TrustStat label="Hantavirus counter" value="Reviewed records only" />
             <TrustStat label="U.S. precision" value="State-level" />
             <TrustStat label="Medical use" value="Educational only" />
           </div>
@@ -188,9 +191,9 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.28fr_0.72fr] lg:items-center">
           <div>
             <p className="text-sm font-semibold text-emerald-200">Popular map searches</p>
-            <h2 id="popular-location-pages" className="mt-2 text-2xl font-semibold">Location pages</h2>
+            <h2 id="popular-location-pages" className="mt-2 text-2xl font-semibold">Hantavirus map Canada, US and regional pages</h2>
             <p className="mt-3 leading-7 text-slate-300">
-              Use these pages for regional source context instead of adding long state explanations to the homepage.
+              Use these pages for regional source context, including Canada and US state-level map notes, instead of adding long location explanations to the homepage.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
