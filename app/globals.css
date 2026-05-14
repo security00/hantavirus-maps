@@ -768,13 +768,18 @@ label {
   }
 
   .leaflet-popup {
-    max-inline-size: calc(100vw - 20px);
+    max-inline-size: calc(100vw - 32px);
+  }
+
+  .dark-map-popup .leaflet-popup-content-wrapper {
+    inline-size: calc(100vw - 48px);
+    max-inline-size: calc(100vw - 48px);
   }
 
   .leaflet-popup-content {
     max-block-size: min(62vh, 430px);
-    max-inline-size: calc(100vw - 36px);
-    min-inline-size: min(260px, calc(100vw - 44px));
+    max-inline-size: calc(100vw - 64px);
+    min-inline-size: 0;
   }
 
   .dark-map-popup .leaflet-popup-content-wrapper {

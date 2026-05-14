@@ -381,14 +381,18 @@ function PopupViewportGuard() {
         const mapRect = map.getContainer().getBoundingClientRect();
         const popupRect = element.getBoundingClientRect();
         const padding = 16;
+        const minLeft = Math.max(mapRect.left, 0) + padding;
+        const maxRight = Math.min(mapRect.right, window.innerWidth) - padding;
+        const minTop = Math.max(mapRect.top, 0) + padding;
+        const maxBottom = Math.min(mapRect.bottom, window.innerHeight) - padding;
         let dx = 0;
         let dy = 0;
 
-        if (popupRect.left < mapRect.left + padding) dx = popupRect.left - mapRect.left - padding;
-        else if (popupRect.right > mapRect.right - padding) dx = popupRect.right - mapRect.right + padding;
+        if (popupRect.left < minLeft) dx = popupRect.left - minLeft;
+        else if (popupRect.right > maxRight) dx = popupRect.right - maxRight;
 
-        if (popupRect.top < mapRect.top + padding) dy = popupRect.top - mapRect.top - padding;
-        else if (popupRect.bottom > mapRect.bottom - padding) dy = popupRect.bottom - mapRect.bottom + padding;
+        if (popupRect.top < minTop) dy = popupRect.top - minTop;
+        else if (popupRect.bottom > maxBottom) dy = popupRect.bottom - maxBottom;
 
         if (dx || dy) map.panBy([dx, dy], { animate: true, duration: 0.22 });
       });
