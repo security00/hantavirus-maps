@@ -1,5 +1,5 @@
+import { SITE_BUILD_TIMESTAMP } from "@/lib/build-metadata.generated";
 import { buildMapSnapshotsDataset } from "@/lib/public-data";
-import { LAST_REVIEWED_ISO } from "@/lib/routes";
 
 export const dynamic = "force-static";
 
@@ -8,7 +8,7 @@ export function GET() {
     headers: {
       "access-control-allow-origin": "*",
       "content-type": "application/json; charset=utf-8",
-      "last-modified": new Date(`${LAST_REVIEWED_ISO}T00:00:00Z`).toUTCString(),
+      "last-modified": new Date(SITE_BUILD_TIMESTAMP).toUTCString(),
     },
   });
 }

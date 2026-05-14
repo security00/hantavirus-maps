@@ -3,8 +3,8 @@ import { SOURCE_PAGE_IDS, WHERE_PAGE_SLUGS, sourcePath, wherePath } from "@/lib/
 
 export const SITE_URL = "https://hantavirusmaps.org";
 export const SITE_HOST = "hantavirusmaps.org";
-export const LAST_REVIEWED_ISO = "2026-05-13";
-export const LAST_REVIEWED_LABEL = "May 13, 2026";
+export const LAST_REVIEWED_ISO = "2026-05-14";
+export const LAST_REVIEWED_LABEL = "May 14, 2026";
 export const SUPPORT_EMAIL = "support@hantavirusmaps.org";
 
 export type RouteFrequency = "weekly" | "monthly" | "yearly";

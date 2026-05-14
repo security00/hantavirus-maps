@@ -1,3 +1,4 @@
+import { SITE_BUILD_TIMESTAMP } from "@/lib/build-metadata.generated";
 import { collectSourceIds, getAlerts, getCaseRecords, getReservoirs, getSourceRegistry, getSourcesByIds } from "@/lib/data";
 import { LAST_REVIEWED_ISO, SITE_URL, absoluteUrl } from "@/lib/routes";
 
@@ -17,7 +18,9 @@ export function buildMapSnapshotsDataset() {
     license: DATASET_LICENSE,
     attribution: "Hantavirus Maps",
     citation: `${SITE_URL}/data/map-snapshots.json (${DATASET_LICENSE})`,
-    generatedAt: LAST_REVIEWED_ISO,
+    generatedAt: SITE_BUILD_TIMESTAMP,
+    lastReviewed: LAST_REVIEWED_ISO,
+    updateCadence: "Reviewed source snapshots are rebuilt on each deployment and updated when official sources change.",
     status: DATASET_STATUS,
     policy:
       "Reviewed official-source summaries for educational map context. Not live surveillance, not medical advice, not patient locations, and not county-precision risk prediction.",
@@ -46,7 +49,9 @@ export function buildSourcesDataset() {
     license: DATASET_LICENSE,
     attribution: "Hantavirus Maps",
     citation: `${SITE_URL}/data/sources.json (${DATASET_LICENSE})`,
-    generatedAt: LAST_REVIEWED_ISO,
+    generatedAt: SITE_BUILD_TIMESTAMP,
+    lastReviewed: LAST_REVIEWED_ISO,
+    updateCadence: "Reviewed source registry is rebuilt on each deployment and updated when official sources change.",
     status: DATASET_STATUS,
     reviewPolicy: registry.reviewPolicy,
     sources: registry.sources,
