@@ -265,6 +265,10 @@ function summarizeCandidates(candidates, rejectedCount = 0) {
   return summary;
 }
 
+function searchFailureCount(searchRuns) {
+  return searchRuns.filter((run) => run.error).length;
+}
+
 function buildMarkdown({ reportDate, generatedAt, dryRun, searchRuns, candidates, knownUrlCount, extractCount, rejectedCount = 0 }) {
   const lines = [];
   const summary = summarizeCandidates(candidates, rejectedCount);
@@ -286,6 +290,7 @@ function buildMarkdown({ reportDate, generatedAt, dryRun, searchRuns, candidates
   lines.push(`- Mode: ${dryRun ? 'dry-run from existing backlog' : 'live Tavily search/extract'}`);
   lines.push(`- Known backlog URLs before run: ${knownUrlCount}`);
   lines.push(`- Search batches: ${searchRuns.length}`);
+  lines.push(`- Search batch errors: ${searchFailureCount(searchRuns)}`);
   lines.push(`- Unique candidates found: ${candidates.length}`);
   lines.push(`- URLs sent to extraction: ${extractCount}`);
   lines.push(`- New candidates: ${summary.newCount}`);
@@ -398,6 +403,11 @@ async function main() {
         searchRuns.push({ batch, results: [], error: error instanceof Error ? error.message : String(error) });
       }
     }
+
+    if (searchRuns.length && searchRuns.every((run) => run.error)) {
+      const errors = searchRuns.map((run) => `${run.batch.id}: ${run.error}`).join('\n');
+      throw new Error(`All Tavily search batches failed; discovery output would be misleading.\n${errors}`);
+    }
   }
 
   const byUrl = new Map();
@@ -467,6 +477,7 @@ async function main() {
     autoPublic: false,
     policy: 'Tavily discovery output is not public data. Human review is required before any public JSON or page copy changes.',
     searchBatches: trustedBatches,
+    searchBatchErrors: searchFailureCount(searchRuns),
     summary: summarizeCandidates(candidates, rejectedCandidates.length),
     candidates
   };

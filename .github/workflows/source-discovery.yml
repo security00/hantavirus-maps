@@ -61,7 +61,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PR_TOKEN }}
         run: |
           set -euo pipefail
-          if git diff --quiet -- reports data/sources; then
+          git add "reports/tavily-source-candidates-${DISCOVERY_DATE}.md" "data/sources/tavily-candidates-${DISCOVERY_DATE}.json"
+          if git diff --cached --quiet; then
             echo "No candidate report changes to propose."
             exit 0
           fi
@@ -70,7 +71,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BRANCH"
-          git add "reports/tavily-source-candidates-${DISCOVERY_DATE}.md" "data/sources/tavily-candidates-${DISCOVERY_DATE}.json"
           git commit -m "chore: add tavily source candidates ${DISCOVERY_DATE}"
           git push --force-with-lease origin "$BRANCH"
 
