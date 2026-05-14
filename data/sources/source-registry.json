@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-13",
+  "lastReviewed": "2026-05-14",
   "reviewPolicy": "Use official public health agencies, peer-reviewed CDC publications, or agency-linked surveillance summaries. Prefer conservative summaries over scraped granular counts.",
   "sources": [
     {
@@ -463,6 +463,72 @@
       "sourceType": "State health department context note",
       "use": "Florida Department of Health context noting hantavirus has been identified in cotton rats in Florida, supporting reservoir-context wording for Florida map searches.",
       "limitations": "Context note only; not a human case count, not a surveillance table, and not evidence of current local risk."
+    },
+    {
+      "id": "who-don601-2026",
+      "title": "Hantavirus cluster linked to cruise ship travel, Multi-country",
+      "publisher": "World Health Organization",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON601",
+      "publicationDate": "2026-05-13",
+      "reviewedDate": "2026-05-14",
+      "sourceType": "Disease Outbreak News",
+      "use": "Latest WHO Disease Outbreak News update for the MV Hondius Andes virus cluster, including 11 reported cases, eight confirmed Andes virus infections, two probable cases, one inconclusive case, three deaths, and low global risk assessment as of 13 May 2026.",
+      "limitations": "Event-specific point-in-time notice. It should not be treated as live surveillance, patient-location data, or a general local risk map."
+    },
+    {
+      "id": "canada-andes-media-update-2026",
+      "title": "Media update on Andes hantavirus situation",
+      "publisher": "Public Health Agency of Canada / Government of Canada",
+      "url": "https://www.canada.ca/en/public-health/news/2026/05/media-update-on-andes-hantavirus-situation.html",
+      "publicationDate": "2026-05",
+      "reviewedDate": "2026-05-14",
+      "sourceType": "Official national media update",
+      "use": "Canada passenger monitoring and self-isolation context for people linked to the MV Hondius Andes virus event, including the May 10 start point for the 21-to-42 day monitoring window.",
+      "limitations": "Operational response update for a defined exposure cohort; not a Canada-wide live case counter or travel advice service."
+    },
+    {
+      "id": "minnesota-mv-hondius-monitoring-2026",
+      "title": "Statement on monitoring a person potentially exposed to hantavirus overseas",
+      "publisher": "Minnesota Department of Health",
+      "url": "https://www.health.state.mn.us/news/pressrel/2026/statement051226.html",
+      "publicationDate": "2026-05-12",
+      "reviewedDate": "2026-05-14",
+      "sourceType": "Official state health statement",
+      "use": "Minnesota-specific monitoring context for one asymptomatic person potentially exposed overseas through the MV Hondius event, with public risk described as very low.",
+      "limitations": "Privacy-preserving monitoring statement only; it does not indicate local transmission, a confirmed Minnesota case, or increased population risk."
+    },
+    {
+      "id": "cdc-andes-exposure-guidance-2026",
+      "title": "Interim Guidance for Public Health Assessment and Management of People with Potential Exposure to Andes Virus",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/hantavirus/php/emergency-guidance/index.html",
+      "publicationDate": "2026-05-10",
+      "reviewedDate": "2026-05-14",
+      "sourceType": "Emergency public health guidance",
+      "use": "CDC risk-stratification and monitoring guidance for people potentially exposed through the MV Hondius Andes virus outbreak, including 42-day monitoring and high-risk/low-risk contact definitions.",
+      "limitations": "Guidance for public health authorities. It is not clinical advice for individual readers and may be revised as evidence changes."
+    },
+    {
+      "id": "who-hondius-disembarkation-note-2026",
+      "title": "WHO technical note for the disembarkation and onward management of passengers and crew in the context of an Andes virus-associated cluster MV Hondius cruise ship",
+      "publisher": "World Health Organization",
+      "url": "https://www.who.int/publications/m/item/who-technical-note-for-the-disembarkation-and-onward-management-of-passengers-and-crew-in-the-context-of-an-andes-virus-associated-cluster-mv-hondius-cruise-ship",
+      "publicationDate": "2026-05-10",
+      "reviewedDate": "2026-05-14",
+      "sourceType": "WHO technical note",
+      "use": "Technical context for public health, port health, and partner agencies managing disembarkation, onward travel, monitoring, and follow-up of MV Hondius passengers and crew.",
+      "limitations": "Operational technical note for authorities; do not convert into consumer travel clearance advice."
+    },
+    {
+      "id": "who-hondius-contact-management-2026",
+      "title": "Management of contacts of Andes virus (ANDV) cases from the MV Hondius cruise ship",
+      "publisher": "World Health Organization",
+      "url": "https://www.who.int/publications/m/item/management-of-contacts-of-andes-virus-(andv)-cases-fromthe-mv-hondius-cruise-ship",
+      "publicationDate": "2026-05-10",
+      "reviewedDate": "2026-05-14",
+      "sourceType": "WHO contact-management guidance",
+      "use": "WHO risk-based approach for identifying, monitoring, and managing contacts of probable or confirmed Andes virus cases from the MV Hondius event.",
+      "limitations": "Authority-facing guidance for this event. It should not be generalized into a public local-risk score or diagnosis workflow."
     }
   ]
 }

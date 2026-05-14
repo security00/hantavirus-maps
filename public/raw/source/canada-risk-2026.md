@@ -36,7 +36,7 @@ No patient address or exact exposure point is published from this source. Provis
 ## Linked map records
 
 - Case summary: Canada — Government of Canada cumulative confirmed infections
-- Official alert: Canada response to MV Hondius Andes hantavirus event — Government of Canada / PHAC / Global Affairs Canada 2026-05-10
+- Official alert: Canada response to MV Hondius Andes hantavirus event — Government of Canada / PHAC / Global Affairs Canada 2026-05-14
 
 ## Cite this page
 

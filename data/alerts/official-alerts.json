@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-13",
+  "lastReviewed": "2026-05-14",
   "datasetStatus": "reviewed-sample",
   "policy": "Official alerts are selected source-linked public health notices focused on current event/surveillance context. They are not a complete surveillance dataset and should not be read as a live outbreak map.",
   "alerts": [
@@ -7,19 +7,23 @@
       "id": "who-don600-2026-cruise",
       "title": "Hantavirus cluster linked to cruise ship travel, multi-country",
       "agency": "World Health Organization",
-      "date": "2026-05-12",
+      "date": "2026-05-13",
       "geography": "Multi-country / Atlantic cruise-associated event",
       "layer": "Public health alerts",
-      "status": "WHO Disease Outbreak News and Director-General briefing update",
+      "status": "WHO Disease Outbreak News update",
       "severityLabel": "Official international notice",
-      "summary": "WHO reported on 12 May 2026 that the MV Hondius cruise-associated Andes virus cluster had reached eleven reported cases, including three deaths; nine cases were confirmed as Andes virus and two were probable, with all reported cases among passengers or crew on the ship.",
-      "riskLanguage": "Event-specific international update. WHO said there was no sign at that point of a larger outbreak, while recommending active monitoring at home or in a specified quarantine facility for 42 days from last exposure. This is not a patient-location dataset, live case tracker, or general local risk map.",
+      "summary": "WHO reported on 13 May 2026 that the MV Hondius cruise-associated Andes virus cluster included 11 reported cases, including three deaths; eight cases were laboratory-confirmed for Andes virus, two were probable, and one remained inconclusive and under further testing. WHO assessed the risk to the global population as low while international contact tracing and monitoring continued.",
+      "riskLanguage": "Event-specific international update. WHO assessed global population risk as low, while contacts linked to the ship and related travel were being traced and monitored. This is not a patient-location dataset, live case tracker, or general local risk map.",
       "sourceIds": [
         "who-dg-briefing-hantavirus-2026-05-12",
         "who-don600-2026",
         "who-don599-2026",
         "paho-cruise-2026",
-        "ecdc-cruise-2026"
+        "ecdc-cruise-2026",
+        "who-don601-2026",
+        "cdc-andes-exposure-guidance-2026",
+        "who-hondius-disembarkation-note-2026",
+        "who-hondius-contact-management-2026"
       ],
       "mapPoint": {
         "x": 500,
@@ -49,19 +53,22 @@
       "id": "canada-mv-hondius-2026",
       "title": "Canada response to MV Hondius Andes hantavirus event",
       "agency": "Government of Canada / PHAC / Global Affairs Canada",
-      "date": "2026-05-10",
+      "date": "2026-05-14",
       "geography": "Canada / MV Hondius passenger response",
       "layer": "Public health alerts",
-      "status": "Official interdepartmental update",
+      "status": "Official Canadian response and passenger monitoring updates",
       "severityLabel": "Official response update",
-      "summary": "Canadian federal agencies described coordination for Canadian passengers linked to the MV Hondius Andes hantavirus event, including screening, monitoring, isolation protocols, and a public risk assessment consistent with WHO that the overall risk in Canada remained low.",
-      "riskLanguage": "Event-specific official response context. Person-to-person Andes virus transmission is described as rare and requiring close, prolonged contact; this is not a Canada-wide live case counter.",
+      "summary": "Canadian federal public health updates described continued domestic and international coordination for the MV Hondius Andes hantavirus event, including self-isolation and monitoring for exposed travellers beginning on 10 May for a minimum of 21 days and up to 42 days, plus additional potentially exposed individuals in Canada.",
+      "riskLanguage": "Event-specific official response context. The monitoring window applies to defined exposure cohorts; it is not a Canada-wide live case counter or evidence of general community spread in Canada.",
       "sourceIds": [
         "canada-mv-hondius-update-2026",
         "canada-cpho-mv-hondius-2026",
         "canada-risk-2026",
         "who-don600-2026",
-        "ecdc-cruise-2026"
+        "ecdc-cruise-2026",
+        "canada-andes-media-update-2026",
+        "who-don601-2026",
+        "cdc-andes-exposure-guidance-2026"
       ],
       "mapPoint": {
         "x": 235,
@@ -130,6 +137,27 @@
       "mapPoint": {
         "x": 345,
         "y": 500
+      }
+    },
+    {
+      "id": "minnesota-mv-hondius-monitoring-2026",
+      "title": "Minnesota monitoring statement for potential MV Hondius exposure",
+      "agency": "Minnesota Department of Health",
+      "date": "2026-05-12",
+      "geography": "Minnesota, United States / overseas MV Hondius-related exposure",
+      "layer": "Public health alerts",
+      "status": "Official state monitoring statement",
+      "severityLabel": "State monitoring update",
+      "summary": "Minnesota Department of Health said it was monitoring one asymptomatic person in Minnesota who may have briefly been exposed overseas to someone from the MV Hondius cruise who tested positive for Andes virus, and emphasized that the health risk to the public remained very low.",
+      "riskLanguage": "Monitoring statement only. It does not indicate a confirmed Minnesota case, local transmission, or increased public risk in Minnesota.",
+      "sourceIds": [
+        "minnesota-mv-hondius-monitoring-2026",
+        "cdc-andes-exposure-guidance-2026",
+        "who-don601-2026"
+      ],
+      "mapPoint": {
+        "x": 270,
+        "y": 220
       }
     }
   ]
