@@ -191,6 +191,7 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
         <FitMap points={fitPoints} />
         <FocusMap focus={focus} lookup={focusLookup} />
         <InteractionTracker onInteract={() => setHasInteracted(true)} />
+        <PopupViewportGuard />
 
         <LayerGroup>
               {caseMarkers.map(({ record, position }) => (
@@ -361,6 +362,46 @@ export function InteractiveMap({ casePoints, alertPoints, reservoirs, sourcesByI
       </p>
     </div>
   );
+}
+
+function PopupViewportGuard() {
+  const map = useMap();
+
+  useEffect(() => {
+    const handlePopupOpen = (event: L.LeafletEvent) => {
+      const popup = (event as L.PopupEvent).popup;
+
+      if (!popup) return;
+
+      window.requestAnimationFrame(() => {
+        const element = popup.getElement();
+
+        if (!element) return;
+
+        const mapRect = map.getContainer().getBoundingClientRect();
+        const popupRect = element.getBoundingClientRect();
+        const padding = 16;
+        let dx = 0;
+        let dy = 0;
+
+        if (popupRect.left < mapRect.left + padding) dx = popupRect.left - mapRect.left - padding;
+        else if (popupRect.right > mapRect.right - padding) dx = popupRect.right - mapRect.right + padding;
+
+        if (popupRect.top < mapRect.top + padding) dy = popupRect.top - mapRect.top - padding;
+        else if (popupRect.bottom > mapRect.bottom - padding) dy = popupRect.bottom - mapRect.bottom + padding;
+
+        if (dx || dy) map.panBy([dx, dy], { animate: true, duration: 0.22 });
+      });
+    };
+
+    map.on("popupopen", handlePopupOpen);
+
+    return () => {
+      map.off("popupopen", handlePopupOpen);
+    };
+  }, [map]);
+
+  return null;
 }
 
 function PopupCard({
