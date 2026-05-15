@@ -156,6 +156,41 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section className="border-y border-white/10 bg-slate-900/80 px-4 py-8 sm:px-6 lg:px-8" aria-labelledby="what-this-map-shows">
+        <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[0.46fr_0.54fr] lg:items-start">
+          <div className="rounded-lg border border-emerald-300/20 bg-emerald-300/[0.08] p-5">
+            <p className="text-sm font-semibold text-emerald-100">Answer-ready summary</p>
+            <h2 id="what-this-map-shows" className="mt-2 text-3xl font-semibold">What this hantavirus map shows</h2>
+            <p className="mt-4 leading-8 text-slate-200">
+              This Hantavirus Map 2026 page is a reviewed, source-linked snapshot of selected case summaries, official public health alerts, reservoir context, and regional map pages. It is designed for searches such as <strong className="text-white">hantavirus map</strong>, <strong className="text-white">hantavirus maps</strong>, and <strong className="text-white">maps hantavirus</strong>, but it is not a live case counter, patient-location dataset, or local risk prediction.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Link prefetch={false} href="/where/canada" className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+              <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-200">Canada</span>
+              <span className="mt-2 block text-lg font-semibold text-white">Hantavirus Canada map</span>
+              <span className="mt-2 block text-sm leading-6 text-slate-300">PHAC and Government of Canada source context with monitoring limits.</span>
+            </Link>
+            <Link prefetch={false} href="/where/united-states" className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+              <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-200">United States</span>
+              <span className="mt-2 block text-lg font-semibold text-white">US hantavirus map</span>
+              <span className="mt-2 block text-sm leading-6 text-slate-300">CDC state-level case context and source precision limits.</span>
+            </Link>
+            <Link prefetch={false} href="/europe" className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+              <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-200">Europe</span>
+              <span className="mt-2 block text-lg font-semibold text-white">Europe hantavirus map</span>
+              <span className="mt-2 block text-sm leading-6 text-slate-300">ECDC surveillance context, HFRS limits, and bank vole ecology.</span>
+            </Link>
+            <Link prefetch={false} href="/hantavirus-tracker" className="rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-emerald-300/50 hover:bg-white/[0.07]">
+              <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-200">Tracker</span>
+              <span className="mt-2 block text-lg font-semibold text-white">Hantavirus tracker</span>
+              <span className="mt-2 block text-sm leading-6 text-slate-300">Reviewed alerts, case summaries, and counter context without live-surveillance claims.</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-white/10 bg-slate-900/70 px-4 py-8 sm:px-6 lg:px-8" aria-labelledby="home-next-paths">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 lg:grid-cols-[0.32fr_0.68fr] lg:items-start">
