@@ -30,6 +30,7 @@ export const EVENT_PAGE_IDS = [
   "united-states-cdc-1993-2023",
   "canada-phac-1994-2026",
   "argentina-health-vigilance-2026",
+  "minnesota-mv-hondius-monitoring-2026",
 ] as const;
 
 export function eventPath(id: string) {
