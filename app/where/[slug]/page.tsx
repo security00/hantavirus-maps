@@ -49,12 +49,12 @@ export async function generateMetadata({ params }: { params: Promise<PageParams>
   const resolvedParams = await params;
   const record = getWhereRecord(resolvedParams.slug);
   const specialTitles: Record<string, string> = {
-    canada: "Hantavirus Map Canada: PHAC Source Context",
+    canada: "Hantavirus Canada Map: PHAC Monitoring",
     florida: "Hantavirus Florida Map: DOH Source Context",
     washington: "Washington Hantavirus Map: DOH Context",
   };
   const specialDescriptions: Record<string, string> = {
-    canada: "Reviewed Canada hantavirus map context from PHAC and Government of Canada sources, with geography and live-surveillance limits.",
+    canada: "Reviewed hantavirus Canada map context from PHAC and Government of Canada sources, with monitoring limits, case-summary caveats, and source links.",
     florida: "Reviewed Florida hantavirus map context from DOH sources, reservoir ecology, prevention language, and live-count limits.",
     washington: "Reviewed Washington hantavirus map context from DOH sources, annual range language, prevention notes, and local-risk limits.",
   };
@@ -104,14 +104,14 @@ export default async function WherePage({ params }: { params: Promise<PageParams
           <div>
             <p className="text-sm font-semibold text-emerald-200">Where hantavirus is reported</p>
             <h1 className="mt-3 max-w-4xl text-4xl font-semibold leading-tight sm:text-5xl">
-              {record.jurisdiction} hantavirus map and source context
+              {record.slug === "canada" ? "Hantavirus Canada map: PHAC cases, monitoring and source limits" : `${record.jurisdiction} hantavirus map and source context`}
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
               This page gives reviewed map context for {record.jurisdiction}. It is a source-linked public health summary, not a live case counter or local risk predictor.
             </p>
             {record.slug === "canada" && (
               <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
-                For searches such as <strong className="text-white">hantavirus map Canada</strong>, this page summarizes PHAC and Government of Canada source context while avoiding patient locations or unsupported local risk claims.
+                For searches such as <strong className="text-white">hantavirus Canada map</strong>, <strong className="text-white">hantavirus map Canada</strong>, and <strong className="text-white">hantavirus monitoring map</strong>, this page summarizes PHAC and Government of Canada source context while avoiding patient locations or unsupported local risk claims.
               </p>
             )}
             {record.slug === "florida" && (
@@ -128,6 +128,11 @@ export default async function WherePage({ params }: { params: Promise<PageParams
               <Link prefetch={false} href="/hantavirus-tracker" className="rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200">
                 Open tracker
               </Link>
+              {record.slug === "canada" && (
+                <Link prefetch={false} href="/hantavirus-risk-map" className="rounded-md border border-emerald-300/35 px-4 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white">
+                  Canada monitoring map limits
+                </Link>
+              )}
               <Link prefetch={false} href="/sources-methodology" className="rounded-md border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/50">
                 Review methodology
               </Link>
@@ -147,12 +152,14 @@ export default async function WherePage({ params }: { params: Promise<PageParams
         <div className="space-y-10">
           <section aria-labelledby="answer-ready-location" className="rounded-lg border border-emerald-300/20 bg-emerald-300/[0.08] p-5">
             <p className="text-sm font-semibold text-emerald-100">Answer-ready summary</p>
-            <h2 id="answer-ready-location" className="mt-2 text-2xl font-semibold">What this {record.jurisdiction} map page says</h2>
+            <h2 id="answer-ready-location" className="mt-2 text-2xl font-semibold">{record.slug === "canada" ? "What the hantavirus Canada map shows" : `What this ${record.jurisdiction} map page says`}</h2>
             <p className="mt-4 leading-8 text-slate-200">
-              This {record.jurisdiction} page is a reviewed, source-linked hantavirus map summary. It can be cited for public health context, source limitations, and geography precision, but it is not a live outbreak feed, patient-location dataset, or local risk score.
+              {record.slug === "canada"
+                ? "This Canada page is a reviewed, source-linked hantavirus map summary based on PHAC and Government of Canada context. It helps answer Canada map and monitoring-map searches, but it is not a live outbreak feed, patient-location dataset, or local risk score."
+                : `This ${record.jurisdiction} page is a reviewed, source-linked hantavirus map summary. It can be cited for public health context, source limitations, and geography precision, but it is not a live outbreak feed, patient-location dataset, or local risk score.`}
             </p>
             <div className="mt-5 rounded-md border border-white/10 bg-slate-950/70 p-4 text-sm leading-7 text-slate-300">
-              Suggested citation: Hantavirus Maps, “{record.jurisdiction} hantavirus map and source context,” updated {LAST_REVIEWED_LABEL}, {`https://hantavirusmaps.org${canonicalPath}`}.
+              Suggested citation: Hantavirus Maps, “{record.slug === "canada" ? "hantavirus Canada map and PHAC source context" : `${record.jurisdiction} hantavirus map and source context`},” updated {LAST_REVIEWED_LABEL}, {`https://hantavirusmaps.org${canonicalPath}`}.
             </div>
           </section>
 

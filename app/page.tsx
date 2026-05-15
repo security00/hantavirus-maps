@@ -125,11 +125,11 @@ export default function Home() {
   ];
 
   const locationPaths = [
-    { href: "/where/canada", label: "Canada" },
-    { href: "/where/florida", label: "Florida" },
-    { href: "/where/washington", label: "Washington" },
-    { href: "/where/united-states", label: "United States" },
-    { href: "/where/argentina", label: "Argentina" },
+    { href: "/where/canada", label: "Canada", note: "PHAC map context · monitoring limits" },
+    { href: "/where/florida", label: "Florida", note: "DOH source context" },
+    { href: "/where/washington", label: "Washington", note: "State source context" },
+    { href: "/where/united-states", label: "United States", note: "CDC state-level map" },
+    { href: "/where/argentina", label: "Argentina", note: "Andes virus context" },
   ];
 
   return (
@@ -191,15 +191,16 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.28fr_0.72fr] lg:items-center">
           <div>
             <p className="text-sm font-semibold text-emerald-200">Popular map searches</p>
-            <h2 id="popular-location-pages" className="mt-2 text-2xl font-semibold">Hantavirus map Canada, US and regional pages</h2>
+            <h2 id="popular-location-pages" className="mt-2 text-2xl font-semibold">Hantavirus Canada map, US map and regional pages</h2>
             <p className="mt-3 leading-7 text-slate-300">
-              Use these pages for regional source context, including Canada and US state-level map notes, instead of adding long location explanations to the homepage.
+              Use these pages for regional source context, including the Canada hantavirus map, PHAC monitoring limits, and US state-level map notes, instead of adding long location explanations to the homepage.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             {locationPaths.map((path) => (
-              <Link prefetch={false} key={path.href} href={path.href} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-emerald-300/50 hover:text-white">
-                Hantavirus map {path.label}
+              <Link prefetch={false} key={path.href} href={path.href} className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-emerald-300/50 hover:text-white">
+                <span className="block">{path.label === "Canada" ? "Hantavirus Canada map" : `Hantavirus map ${path.label}`}</span>
+                <span className="mt-1 block text-xs font-normal leading-5 text-slate-400">{path.note}</span>
               </Link>
             ))}
           </div>
