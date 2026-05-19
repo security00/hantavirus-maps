@@ -17,15 +17,15 @@ Generated: 2026-05-15T09:26:01Z
 - Known backlog URLs before run: 22
 - Search batches: 6
 - Search batch errors: 0
-- Unique candidates found: 28
+- Unique candidates found: 27
 - URLs sent to extraction: 8
-- New candidates: 26
+- New candidates: 25
 - Known backlog candidates: 2
 - High-priority review candidates: 12
-- Low-priority / weak candidates: 0
-- Candidates with weak signals: 0
-- Rejected/noise candidates removed from queue: 2
-- Domains: `argentina.gob.ar`, `canada.ca`, `cdc.gov`, `cdph.ca.gov`, `ecdc.europa.eu`, `health.state.mn.us`, `iris.paho.org`, `mma.gob.cl`, `nmhealth.org`, `oregon.gov`, `paho.org`, `publichealthontario.ca`, `stacks.cdc.gov`, `who.int`
+- Low-priority / weak candidates: 1
+- Candidates with weak signals: 1
+- Rejected/noise candidates removed from queue: 3
+- Domains: `argentina.gob.ar`, `canada.ca`, `cdc.gov`, `cdph.ca.gov`, `ecdc.europa.eu`, `health.state.mn.us`, `iris.paho.org`, `nmhealth.org`, `oregon.gov`, `paho.org`, `publichealthontario.ca`, `stacks.cdc.gov`, `who.int`
 
 ## Human review digest
 
@@ -39,6 +39,12 @@ High-priority official candidates to inspect first:
 - **New Mexico's hantavirus strain is different from cruise ship outbreak ...** — nmhealth.org — https://www.nmhealth.org/news/information/2026/5/?view=2337
 - **[PDF] Andes virus in patients returning from cruise ship M/V Hondius** — oregon.gov — https://www.oregon.gov/oha/PH/PREPAREDNESS/PARTNERS/HEALTHALERTNETWORK/HAN%20Archive/2026-0508%20Clinician%20Alert%20-%20Andes%20virus%20in%20patients%20returning%20from%20cruise%20ship%20MV%20Hondius.pdf
 - **Epidemiological alerts and updates - PAHO/WHO** — paho.org — https://www.paho.org/en/epidemiological-alerts-and-updates
+
+## Reviewer cleanup notes
+
+- Rejected and removed from the queue: the Chile MMA climate-report PDF (old Candidate 22, `mma-pdf-tercera-comunicaci-n-nacional-de-chile-ante-la-convenci-n-marco`). It is a 2017 UNFCCC/climate report with a very low Tavily score and no actionable hantavirus relevance.
+- Flagged for strict paragraph filtering: Candidate 18, `ecdc-2026-wcp-0024-draft-docx`. The ECDC PDF is a multi-disease surveillance bulletin whose snippet includes mpox and MERS-CoV sections; only hantavirus or Andes virus paragraphs may be considered during manual review.
+- Preserve strain attribution during any later promotion: Andes virus cruise-ship exposure records must not be merged with routine Sin Nombre virus risk language or rodent-exposure transmission chains.
 
 ## Search batches
 
@@ -386,12 +392,16 @@ High-priority official candidates to inspect first:
 - Candidate tier: 4
 - Candidate status: `review_candidate`
 - Source type: Official PDF/report candidate
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for manual PDF review and source-linked context.
-- Review need: Requires PDF extraction, table/date review, language review where needed, and safe summary rules.
+- Safe candidate use: Candidate for manual PDF review only; not suitable for direct source-linked extraction without disease-specific paragraph filtering.
+- Review need: Use only after strict paragraph-level filtering for hantavirus or Andes virus content; discard mpox, MERS-CoV, and other non-hantavirus sections.
 - Public use allowed now: no
 - Tavily score: 0.6991933
+- Weak signals:
+  - multi-disease ECDC surveillance bulletin
+  - snippet includes mpox and MERS-CoV sections unrelated to hantavirus
+  - requires hantavirus/Andes-virus paragraph filtering before any use
 - Snippet: In March 2026, 80 mpox clade I cases were reported by 10 countries. In March 2026, 22 mpox clade II cases were reported by seven countries. Hantavirus disease outbreak on cruise ship - South Atlantic - 2026 Overview: Update (data cut off 10:00 AM) Updates on new reported cases. Geographical distribution of confirmed cases of MERS-CoV by reporting country, April 2012 - April 2026. In March 2026, 80 mpox clade I cases…
 
 ### Candidate 19 — Hantavirus-associated cluster of illness on a cruise ship - ECDC
@@ -445,24 +455,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.11429952
 - Snippet: consultation comprises individual assessments by senior public health officials who have a broad understanding of the national public health context. The
 
-### Candidate 22 — [PDF] Tercera Comunicación Nacional de Chile ante la Convención Marco ...
-
-- URL: https://mma.gob.cl/wp-content/uploads/2017/12/TCN-2016b1.pdf
-- Domain: mma.gob.cl
-- Discovery batch: south-america-official
-- Candidate ID: `mma-pdf-tercera-comunicaci-n-nacional-de-chile-ante-la-convenci-n-marco`
-- Candidate tier: 4
-- Candidate status: `review_candidate`
-- Source type: Official PDF/report candidate
-- Review priority: medium
-- Already in backlog: no
-- Safe candidate use: Candidate for manual PDF review and source-linked context.
-- Review need: Requires PDF extraction, table/date review, language review where needed, and safe summary rules.
-- Public use allowed now: no
-- Tavily score: 0.032371916
-- Snippet: 497 3a Comunicación Nacional de Chile ante la CMNUCC - Ministerio del Medio Ambiente 497 Anexos Ámbito Iniciativa Donante/Organizador Tipo de apoyo recibido Recursos financieros Creación de capacidad y asistencia técnica Transferencia de tecnología Programas que cuentan con apoyo internacional en recursos financieros M MRV de la Zona Verde de Santiago (2016) CAF • M Valorización energética de residuos orgánicos/ Pro…
-
-### Candidate 23 — [PDF] Infection Prevention and Control Precautions for Hantavirus (Andes ...
+### Candidate 22 — [PDF] Infection Prevention and Control Precautions for Hantavirus (Andes ...
 
 - URL: https://www.publichealthontario.ca/-/media/Documents/H/26/hantavirus-andes-strain-ipac-precautions.pdf?rev=c617a39a653c45f7b9e708c8415277fe&sc_lang=en&hash=5F449685A095B8FF117729C21B5FD706
 - Domain: publichealthontario.ca
@@ -479,7 +472,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.769306
 - Snippet: Infection Prevention and Control Precautions for Hantavirus (Andes Virus) 1 AT A GLANCE Infection Prevention and Control Precautions for Hantavirus (Andes Virus) Published: May 11, 2026 Purpose This document was created to support health care providers and public health units based on a rapid review of the latest available evidence. Personal Protective Equipment (PPE):5 Health care workers are to wear the following:…
 
-### Candidate 24 — Hantavirus infection, non-hantavirus pulmonary syndrome: (Week 5) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents…
+### Candidate 23 — Hantavirus infection, non-hantavirus pulmonary syndrome: (Week 5) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents…
 
 - URL: http://stacks.cdc.gov/view/cdc/252622
 - Domain: stacks.cdc.gov
@@ -496,7 +489,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.71758664
 - Snippet: U.S. flag An official website of the United States government. A .gov website belongs to an official government organization in the United States. # Hantavirus infection, non-hantavirus pulmonary syndrome: (Week 5) Weekly cases\* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending February 07, 2026. This data includes weekly cases of notifiable diseases, United States, U.S. Te…
 
-### Candidate 25 — Hantavirus pulmonary syndrome (Week 13) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending April 04, 2026
+### Candidate 24 — Hantavirus pulmonary syndrome (Week 13) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending April 04, 2026
 
 - URL: http://stacks.cdc.gov/view/cdc/255200
 - Domain: stacks.cdc.gov
@@ -513,7 +506,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.7140107
 - Snippet: U.S. flag An official website of the United States government. A .gov website belongs to an official government organization in the United States. # Hantavirus pulmonary syndrome (Week 13) Weekly cases\* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending April 04, 2026. This data includes weekly cases of notifiable diseases, United States, U.S. Territories, and Non-U.S. Resid…
 
-### Candidate 26 — Hantavirus pulmonary syndrome: (Week 2) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending January 17, 2…
+### Candidate 25 — Hantavirus pulmonary syndrome: (Week 2) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending January 17, 2…
 
 - URL: http://stacks.cdc.gov/view/cdc/252082
 - Domain: stacks.cdc.gov
@@ -530,7 +523,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.6932451
 - Snippet: U.S. flag An official website of the United States government. A .gov website belongs to an official government organization in the United States. # Hantavirus pulmonary syndrome: (Week 2) Weekly cases\* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending January 17, 2026. This data includes weekly cases of notifiable diseases, United States, U.S. Territories, and Non-U.S. Res…
 
-### Candidate 27 — Interim Guidance for Public Health Assessment and Management of People with Potential Exposure to Andes Virus
+### Candidate 26 — Interim Guidance for Public Health Assessment and Management of People with Potential Exposure to Andes Virus
 
 - URL: https://stacks.cdc.gov/view/cdc/256281
 - Domain: stacks.cdc.gov
@@ -547,7 +540,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.6399392
 - Snippet: U.S. flag An official website of the United States government. A .gov website belongs to an official government organization in the United States. A **lock** ( ) or **https://** means you've safely connected to the .gov website. # Interim Guidance for Public Health Assessment and Management of People with Potential Exposure to Andes Virus. Andes Virus Public Health Investigation Guidance and Exposure Assessment Ques…
 
-### Candidate 28 — Risks of a hantavirus infection - Canada.ca
+### Candidate 27 — Risks of a hantavirus infection - Canada.ca
 
 - URL: https://www.canada.ca/en/public-health/services/diseases/hantaviruses/risks-hantavirus-infection.html
 - Domain: canada.ca
