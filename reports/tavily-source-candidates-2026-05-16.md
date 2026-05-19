@@ -17,15 +17,15 @@ Generated: 2026-05-16T08:20:48Z
 - Known backlog URLs before run: 22
 - Search batches: 6
 - Search batch errors: 0
-- Unique candidates found: 26
+- Unique candidates found: 25
 - URLs sent to extraction: 8
-- New candidates: 26
+- New candidates: 25
 - Known backlog candidates: 0
 - High-priority review candidates: 9
-- Low-priority / weak candidates: 0
-- Candidates with weak signals: 0
-- Rejected/noise candidates removed from queue: 2
-- Domains: `argentina.gob.ar`, `canada.ca`, `cdc.gov`, `cdph.ca.gov`, `doh.wa.gov`, `ecdc.europa.eu`, `epi.minsal.cl`, `health.state.mn.us`, `iris.paho.org`, `nmhealth.org`, `paho.org`, `publichealthontario.ca`, `stacks.cdc.gov`, `who.int`
+- Low-priority / weak candidates: 3
+- Candidates with weak signals: 3
+- Rejected/noise candidates removed from queue: 3
+- Domains: `argentina.gob.ar`, `canada.ca`, `cdc.gov`, `cdph.ca.gov`, `doh.wa.gov`, `ecdc.europa.eu`, `epi.minsal.cl`, `health.state.mn.us`, `nmhealth.org`, `paho.org`, `publichealthontario.ca`, `stacks.cdc.gov`, `who.int`
 
 ## Human review digest
 
@@ -39,6 +39,13 @@ High-priority official candidates to inspect first:
 - **Epidemiological alerts and updates - PAHO/WHO** — paho.org — https://www.paho.org/en/epidemiological-alerts-and-updates
 - **Hantavirus cluster linked to cruise ship travel, Multi-country** — who.int — https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599
 - **Hantavirus - World Health Organization (WHO)** — who.int — https://www.who.int/news-room/fact-sheets/detail/hantavirus
+
+## Reviewer cleanup notes
+
+- Rejected and removed from the queue: `iris-pdf-164th-session-of-the-executive-committee-iris-paho`; the PAHO executive committee PDF has very low score and no actionable hantavirus source context.
+- Flagged for strict paragraph filtering: Candidate 17, `ecdc-2026-wcp-0024-draft-docx`; it is a multi-disease ECDC bulletin with mpox and MERS-CoV noise.
+- Flagged as discovery-only index pages: Candidate 13 (`canada-public-health-agency-of-canada`) and Candidate 19 (`ecdc-homepage-european-centre-for-disease-prevention-and-control`). Prefer their specific linked outbreak/update pages before promotion.
+- Preserve strain attribution during any later promotion: Andes virus cruise-ship exposure records must not be merged with routine Sin Nombre virus risk language or rodent-exposure transmission chains.
 
 ## Search batches
 
@@ -301,12 +308,15 @@ High-priority official candidates to inspect first:
 - Candidate tier: 2
 - Candidate status: `review_candidate`
 - Source type: Official public health source candidate
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for human review and possible source registry/backlog expansion.
-- Review need: Verify official publisher, publication date, disease context, geography, and safe public wording before use.
+- Safe candidate use: Index-page candidate for discovery only; do not promote directly into public JSON.
+- Review need: Use only as a discovery pointer. Prefer the linked PHAC briefing/update pages as review candidates.
 - Public use allowed now: no
 - Tavily score: 0.59372765
+- Weak signals:
+  - agency homepage/index page rather than a stable source document
+  - snippet points to news listings that should be reviewed as individual URLs
 - Snippet: News · Speaking Remarks for the Chief Public Health Officer 2026-05-14 11:48 · Technical briefing on the situation with regard to hantavirus 2026-05-13 14:30
 
 ### Candidate 14 — For health professionals: Hantavirus infection - Canada.ca
@@ -369,12 +379,16 @@ High-priority official candidates to inspect first:
 - Candidate tier: 4
 - Candidate status: `review_candidate`
 - Source type: Official PDF/report candidate
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for manual PDF review and source-linked context.
-- Review need: Requires PDF extraction, table/date review, language review where needed, and safe summary rules.
+- Safe candidate use: Candidate for manual PDF review only; not suitable for direct source-linked extraction without disease-specific paragraph filtering.
+- Review need: Use only after strict paragraph-level filtering for hantavirus or Andes virus content; discard mpox, MERS-CoV, and other non-hantavirus sections.
 - Public use allowed now: no
 - Tavily score: 0.70214266
+- Weak signals:
+  - multi-disease ECDC surveillance bulletin
+  - snippet includes mpox and MERS-CoV sections unrelated to hantavirus
+  - requires hantavirus/Andes-virus paragraph filtering before any use
 - Snippet: In March 2026, 80 mpox clade I cases were reported by 10 countries. In March 2026, 22 mpox clade II cases were reported by seven countries. Hantavirus disease outbreak on cruise ship - South Atlantic - 2026 Overview: Update (data cut off 10:00 AM) Updates on new reported cases. Geographical distribution of confirmed cases of MERS-CoV by reporting country, April 2012 - April 2026. In March 2026, 80 mpox clade I cases…
 
 ### Candidate 18 — Hantavirus-associated cluster of illness on a cruise ship - ECDC
@@ -403,12 +417,15 @@ High-priority official candidates to inspect first:
 - Candidate tier: 3
 - Candidate status: `review_candidate`
 - Source type: Official disease, prevention, case definition, or methodology page
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for methodology/source citation or educational page support.
-- Review need: Use as source context only unless a human reviewer promotes a specific snapshot.
+- Safe candidate use: Index-page candidate for discovery only; do not promote directly into public JSON.
+- Review need: Use only as a discovery pointer. Prefer the specific ECDC outbreak/Q&A/assessment URLs as review candidates.
 - Public use allowed now: no
 - Tavily score: 0.650934
+- Weak signals:
+  - agency homepage/index page rather than a stable source document
+  - contains unrelated front-page disease/news modules
 - Snippet: ## Global Navigation. An agency of the European Union. ## Main Navigation (desktop). ### Video: Fighting a Candida auris outbreak - healthcare workers leading the change. ### Publications and data. ### The European Respiratory Virus Surveillance Summary (ERVISS). ## Cruise ship hantavirus outbreak: ECDC response activated. ECDC has deployed an expert from the EU Health Task Force to the cruise ship affected by the A…
 
 ### Candidate 20 — [PDF] HANTAVIRUS SE 17 - BOLETÍN EPIDEMIOLÓGICO SEMANAL
@@ -428,24 +445,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.5463757
 - Snippet: En el 2025 se confirmaron 44 casos de hantavirus. Un 70 % correspondió a hombres. (n=31). Se presentó una mediana de edad de 36 años (rango: 6-74 años),
 
-### Candidate 21 — [PDF] 164th SESSION OF THE EXECUTIVE COMMITTEE - Iris Paho
-
-- URL: https://iris.paho.org/bitstreams/986f8711-c0ec-4944-99bc-0cdb5f988270/download
-- Domain: iris.paho.org
-- Discovery batch: south-america-official
-- Candidate ID: `iris-pdf-164th-session-of-the-executive-committee-iris-paho`
-- Candidate tier: 2
-- Candidate status: `review_candidate`
-- Source type: Official public health source candidate
-- Review priority: medium
-- Already in backlog: no
-- Safe candidate use: Candidate for human review and possible source registry/backlog expansion.
-- Review need: Verify official publisher, publication date, disease context, geography, and safe public wording before use.
-- Public use allowed now: no
-- Tavily score: 0.098503634
-- Snippet: consultation comprises individual assessments by senior public health officials who have a broad understanding of the national public health context. The
-
-### Candidate 22 — Hantavirus Pulmonary Syndrome | Public Health Ontario
+### Candidate 21 — Hantavirus Pulmonary Syndrome | Public Health Ontario
 
 - URL: https://www.publichealthontario.ca/en/Diseases-and-Conditions/Infectious-Diseases/Vector-Borne-Zoonotic-Diseases/Hantavirus
 - Domain: publichealthontario.ca
@@ -462,7 +462,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.4224814
 - Snippet: # Hantavirus Pulmonary Syndrome. Hantavirus pulmonary syndrome is caused by a virus found in some rodents, primarily deer mice. A person may become infected with the virus through direct or indirect contact with the saliva, urine or droppings of an infected rodent. Infection may result in severe respiratory distress and hypotension. To date, no human cases of hantavirus pulmonary syndrome have been reported in Ontar…
 
-### Candidate 23 — Hantavirus infection, non-hantavirus pulmonary syndrome: (Week 5) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents…
+### Candidate 22 — Hantavirus infection, non-hantavirus pulmonary syndrome: (Week 5) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents…
 
 - URL: http://stacks.cdc.gov/view/cdc/252622
 - Domain: stacks.cdc.gov
@@ -479,7 +479,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.71088976
 - Snippet: U.S. flag An official website of the United States government. A .gov website belongs to an official government organization in the United States. # Hantavirus infection, non-hantavirus pulmonary syndrome: (Week 5) Weekly cases\* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending February 07, 2026. This data includes weekly cases of notifiable diseases, United States, U.S. Te…
 
-### Candidate 24 — Hantavirus pulmonary syndrome (Week 13) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending April 04, 2026
+### Candidate 23 — Hantavirus pulmonary syndrome (Week 13) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending April 04, 2026
 
 - URL: http://stacks.cdc.gov/view/cdc/255200
 - Domain: stacks.cdc.gov
@@ -496,7 +496,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.70750624
 - Snippet: U.S. flag An official website of the United States government. A .gov website belongs to an official government organization in the United States. # Hantavirus pulmonary syndrome (Week 13) Weekly cases\* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending April 04, 2026. This data includes weekly cases of notifiable diseases, United States, U.S. Territories, and Non-U.S. Resid…
 
-### Candidate 25 — Hantavirus pulmonary syndrome: (Week 2) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending January 17, 2…
+### Candidate 24 — Hantavirus pulmonary syndrome: (Week 2) Weekly cases* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending January 17, 2…
 
 - URL: http://stacks.cdc.gov/view/cdc/252082
 - Domain: stacks.cdc.gov
@@ -513,7 +513,7 @@ High-priority official candidates to inspect first:
 - Tavily score: 0.68571854
 - Snippet: U.S. flag An official website of the United States government. A .gov website belongs to an official government organization in the United States. # Hantavirus pulmonary syndrome: (Week 2) Weekly cases\* of notifiable diseases, United States, U.S. Territories, and Non-U.S. Residents week ending January 17, 2026. This data includes weekly cases of notifiable diseases, United States, U.S. Territories, and Non-U.S. Res…
 
-### Candidate 26 — Interim Guidance for Public Health Assessment and Management of People with Potential Exposure to Andes Virus
+### Candidate 25 — Interim Guidance for Public Health Assessment and Management of People with Potential Exposure to Andes Virus
 
 - URL: https://stacks.cdc.gov/view/cdc/256281
 - Domain: stacks.cdc.gov
