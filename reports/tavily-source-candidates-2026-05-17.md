@@ -21,9 +21,9 @@ Generated: 2026-05-17T08:34:32Z
 - URLs sent to extraction: 8
 - New candidates: 26
 - Known backlog candidates: 2
-- High-priority review candidates: 13
-- Low-priority / weak candidates: 0
-- Candidates with weak signals: 0
+- High-priority review candidates: 12
+- Low-priority / weak candidates: 5
+- Candidates with weak signals: 5
 - Rejected/noise candidates removed from queue: 2
 - Domains: `argentina.gob.ar`, `canada.ca`, `cdc.gov`, `cdph.ca.gov`, `ecdc.europa.eu`, `epi.minsal.cl`, `health.state.mn.us`, `nmhealth.org`, `paho.org`, `publichealthontario.ca`, `stacks.cdc.gov`, `who.int`
 
@@ -39,6 +39,12 @@ High-priority official candidates to inspect first:
 - **Statement on monitoring a person potentially exposed to hantavirus overseas - MN Dept. of Health** — health.state.mn.us — https://www.health.state.mn.us/news/pressrel/2026/statement051226.html
 - **New Mexico’s hantavirus strain is different from cruise ship outbreak and does not spread between people** — nmhealth.org — https://www.nmhealth.org/news/information/2026/5/?view=2337
 - **Epidemiological alerts and updates - PAHO/WHO** — paho.org — https://www.paho.org/en/epidemiological-alerts-and-updates
+
+## Reviewer cleanup notes
+
+- Flagged as discovery-only index/listing pages: Candidate 8 (`paho-epidemiological-alerts-and-updates-paho-who`), Candidate 20 (`ecdc-annual-epidemiological-reports-aers-ecdc-european-union`), Candidate 21 (`ecdc-homepage-european-centre-for-disease-prevention-and-control`), and Candidate 23 (`nmhealth-health-emergency-management-new-mexico-department-of-health`). Prefer specific outbreak/update/guidance URLs before promotion.
+- Flagged for strict paragraph filtering: Candidate 19, `ecdc-2026-wcp-0024-draft-docx`; it is a multi-disease ECDC bulletin with mpox and MERS-CoV noise.
+- Preserve strain attribution during any later promotion: Andes virus cruise-ship exposure records must not be merged with routine Sin Nombre virus risk language or rodent-exposure transmission chains.
 
 ## Search batches
 
@@ -215,12 +221,15 @@ High-priority official candidates to inspect first:
 - Candidate tier: 2
 - Candidate status: `review_candidate`
 - Source type: Official outbreak alert or public health update
-- Review priority: high
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for reviewed official alert/event timeline after deduplication.
-- Review need: Deduplicate against existing event records and avoid travel advice, patient locations, or live-risk claims.
+- Safe candidate use: Index-page candidate for discovery only; do not promote directly into public JSON.
+- Review need: Use only as a discovery pointer. Prefer specific PAHO/WHO alert URLs before promotion.
 - Public use allowed now: no
 - Tavily score: 0.29451463
+- Weak signals:
+  - index/listing page rather than a specific outbreak source
+  - low Tavily score for this run
 - Snippet: The Epidemiological Alerts are released in order to provide information about the occurrence of international public health events.
 - Extract excerpt: # Epidemiological alerts and updates The Epidemiological Alerts are released in order to provide information about the occurrence of international public health events which have implications or could have implications for the countries and territories of the Americas; as well as recommendations issued by the Pan American Health Organization. The Epidemiological Updates are released as new information becomes availa…
 
@@ -403,12 +412,16 @@ High-priority official candidates to inspect first:
 - Candidate tier: 4
 - Candidate status: `review_candidate`
 - Source type: Official PDF/report candidate
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for manual PDF review and source-linked context.
-- Review need: Requires PDF extraction, table/date review, language review where needed, and safe summary rules.
+- Safe candidate use: Candidate for manual PDF review only; not suitable for direct source-linked extraction without disease-specific paragraph filtering.
+- Review need: Use only after strict paragraph-level filtering for hantavirus or Andes virus content; discard mpox, MERS-CoV, and other non-hantavirus sections.
 - Public use allowed now: no
 - Tavily score: 0.9983516
+- Weak signals:
+  - multi-disease ECDC surveillance bulletin
+  - snippet includes mpox and MERS-CoV sections unrelated to hantavirus
+  - requires hantavirus/Andes-virus paragraph filtering before any use
 - Snippet: In March 2026, 80 mpox clade I cases were reported by 10 countries. In March 2026, 22 mpox clade II cases were reported by seven countries. Hantavirus disease outbreak on cruise ship - South Atlantic - 2026 Overview: Update (data cut off 10:00 AM) Updates on new reported cases. Geographical distribution of confirmed cases of MERS-CoV by reporting country, April 2012 - April 2026. In March 2026, 80 mpox clade I cases…
 
 ### Candidate 20 — Annual Epidemiological Reports (AERs) - ECDC - European Union
@@ -420,12 +433,15 @@ High-priority official candidates to inspect first:
 - Candidate tier: 2
 - Candidate status: `review_candidate`
 - Source type: Official public health source candidate
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for human review and possible source registry/backlog expansion.
-- Review need: Verify official publisher, publication date, disease context, geography, and safe public wording before use.
+- Safe candidate use: Index-page candidate for discovery only; do not promote directly into public JSON.
+- Review need: Use only as a discovery pointer. Prefer specific ECDC outbreak, Q&A, assessment, or guidance URLs before promotion.
 - Public use allowed now: no
 - Tavily score: 0.99758446
+- Weak signals:
+  - ECDC report index page rather than a specific hantavirus source
+  - not specific to the MV Hondius / Andes virus event
 - Snippet: ECDC's annual surveillance reports provide a wealth of epidemiological data to support decision-making at the national level.
 
 ### Candidate 21 — Homepage | European Centre for Disease Prevention and Control
@@ -437,12 +453,15 @@ High-priority official candidates to inspect first:
 - Candidate tier: 3
 - Candidate status: `review_candidate`
 - Source type: Official disease, prevention, case definition, or methodology page
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for methodology/source citation or educational page support.
-- Review need: Use as source context only unless a human reviewer promotes a specific snapshot.
+- Safe candidate use: Index-page candidate for discovery only; do not promote directly into public JSON.
+- Review need: Use only as a discovery pointer. Prefer the specific ECDC outbreak/Q&A/assessment URLs as review candidates.
 - Public use allowed now: no
 - Tavily score: 0.99583375
+- Weak signals:
+  - agency homepage/index page rather than a stable source document
+  - contains unrelated front-page disease/news modules
 - Snippet: ## Global Navigation. An agency of the European Union. ## Main Navigation (desktop). ### The European Respiratory Virus Surveillance Summary (ERVISS). ## Cruise ship hantavirus outbreak: ECDC response activated. ECDC has deployed an expert from the EU Health Task Force to the cruise ship affected by the Andes hantavirus outbreak and published a threat assessment brief. Deadline for submissions is 18 May. Image showi…
 
 ### Candidate 22 — [PDF] HANTAVIRUS SE 17 - BOLETÍN EPIDEMIOLÓGICO SEMANAL
@@ -471,12 +490,15 @@ High-priority official candidates to inspect first:
 - Candidate tier: 2
 - Candidate status: `review_candidate`
 - Source type: Official public health source candidate
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for human review and possible source registry/backlog expansion.
-- Review need: Verify official publisher, publication date, disease context, geography, and safe public wording before use.
+- Safe candidate use: Index-page candidate for discovery only; do not promote directly into public JSON.
+- Review need: Use only as a discovery pointer. Prefer the specific NMHealth hantavirus strain notice or HAN advisory URLs before promotion.
 - Public use allowed now: no
 - Tavily score: 0.5697814
+- Weak signals:
+  - agency section/index page rather than a specific health alert
+  - snippet points to HAN advisory archive navigation
 - Snippet: New Mexico Health Alert Network (HAN) Advisories: · 2026 · 2025 · 2024 · 2023 · 2022 · 2021 · 2020.
 
 ### Candidate 24 — [PDF] Public Health Guidance for Hantavirus (Andes Virus)
