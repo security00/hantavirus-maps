@@ -22,8 +22,8 @@ Generated: 2026-05-18T10:43:16Z
 - New candidates: 23
 - Known backlog candidates: 1
 - High-priority review candidates: 11
-- Low-priority / weak candidates: 0
-- Candidates with weak signals: 0
+- Low-priority / weak candidates: 2
+- Candidates with weak signals: 2
 - Rejected/noise candidates removed from queue: 2
 - Domains: `argentina.gob.ar`, `canada.ca`, `cdc.gov`, `ecdc.europa.eu`, `epi.minsal.cl`, `health.state.mn.us`, `nmhealth.org`, `publichealthontario.ca`, `stacks.cdc.gov`, `who.int`
 
@@ -39,6 +39,12 @@ High-priority official candidates to inspect first:
 - **New Mexico’s hantavirus strain is different from cruise ship outbreak and does not spread between people** — nmhealth.org — https://www.nmhealth.org/news/information/2026/5/?view=2337
 - **Hantavirus cluster linked to cruise ship travel, Multi-country** — who.int — https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599
 - **Hantavirus cluster linked to cruise ship travel, Multi-country** — who.int — https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600
+
+## Reviewer cleanup notes
+
+- Flagged for strict paragraph filtering: Candidate 16, `ecdc-2026-wcp-0024-draft-docx`; it is a multi-disease ECDC bulletin with mpox and MERS-CoV noise.
+- Flagged as discovery-only index page: Candidate 18, `ecdc-homepage-european-centre-for-disease-prevention-and-control`. Prefer specific ECDC outbreak/update/guidance URLs before promotion.
+- Preserve strain attribution during any later promotion: Andes virus cruise-ship exposure records must not be merged with routine Sin Nombre virus risk language or rodent-exposure transmission chains.
 
 ## Search batches
 
@@ -352,12 +358,16 @@ High-priority official candidates to inspect first:
 - Candidate tier: 4
 - Candidate status: `review_candidate`
 - Source type: Official PDF/report candidate
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for manual PDF review and source-linked context.
-- Review need: Requires PDF extraction, table/date review, language review where needed, and safe summary rules.
+- Safe candidate use: Candidate for manual PDF review only; not suitable for direct source-linked extraction without disease-specific paragraph filtering.
+- Review need: Use only after strict paragraph-level filtering for hantavirus or Andes virus content; discard mpox, MERS-CoV, and other non-hantavirus sections.
 - Public use allowed now: no
 - Tavily score: 0.70483154
+- Weak signals:
+  - multi-disease ECDC surveillance bulletin
+  - snippet includes mpox and MERS-CoV sections unrelated to hantavirus
+  - requires hantavirus/Andes-virus paragraph filtering before any use
 - Snippet: In March 2026, 80 mpox clade I cases were reported by 10 countries. In March 2026, 22 mpox clade II cases were reported by seven countries. Hantavirus disease outbreak on cruise ship - South Atlantic - 2026 Overview: Update (data cut off 10:00 AM) Updates on new reported cases. Geographical distribution of confirmed cases of MERS-CoV by reporting country, April 2012 - April 2026. In March 2026, 80 mpox clade I cases…
 
 ### Candidate 17 — Threat Assessment Brief: Hantavirus-associated cluster of illness on a cruise ship: ECDC assessment and recommendations
@@ -386,12 +396,15 @@ High-priority official candidates to inspect first:
 - Candidate tier: 3
 - Candidate status: `review_candidate`
 - Source type: Official disease, prevention, case definition, or methodology page
-- Review priority: medium
+- Review priority: low
 - Already in backlog: no
-- Safe candidate use: Candidate for methodology/source citation or educational page support.
-- Review need: Use as source context only unless a human reviewer promotes a specific snapshot.
+- Safe candidate use: Index-page candidate for discovery only; do not promote directly into public JSON.
+- Review need: Use only as a discovery pointer. Prefer the specific ECDC outbreak/Q&A/assessment URLs as review candidates.
 - Public use allowed now: no
 - Tavily score: 0.6461259
+- Weak signals:
+  - agency homepage/index page rather than a stable source document
+  - contains unrelated front-page disease/news modules
 - Snippet: ## Global Navigation. An agency of the European Union. ## Main Navigation (desktop). ### The European Respiratory Virus Surveillance Summary (ERVISS). ## Cruise ship hantavirus outbreak: ECDC response activated. ECDC has deployed an expert from the EU Health Task Force to the cruise ship affected by the Andes hantavirus outbreak and published a threat assessment brief. Deadline for submissions is 18 May. Image showi…
 
 ### Candidate 19 — [PDF] HANTAVIRUS SE 17 - BOLETÍN EPIDEMIOLÓGICO SEMANAL
