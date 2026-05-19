@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-14",
+  "lastReviewed": "2026-05-19",
   "reviewPolicy": "Use official public health agencies, peer-reviewed CDC publications, or agency-linked surveillance summaries. Prefer conservative summaries over scraped granular counts.",
   "sources": [
     {
@@ -529,6 +529,116 @@
       "sourceType": "WHO contact-management guidance",
       "use": "WHO risk-based approach for identifying, monitoring, and managing contacts of probable or confirmed Andes virus cases from the MV Hondius event.",
       "limitations": "Authority-facing guidance for this event. It should not be generalized into a public local-risk score or diagnosis workflow."
+    },
+    {
+      "id": "canada-andes-media-update-presumptive-2026",
+      "title": "Media update on Andes hantavirus situation",
+      "publisher": "Public Health Agency of Canada / Government of Canada",
+      "url": "https://www.canada.ca/en/public-health/news/2026/05/media-update-on-andes-hantavirus-situation0.html",
+      "publicationDate": "2026-05-16",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Official national media update",
+      "use": "Canada update reporting that one of four high-risk monitored individuals linked to the MV Hondius event tested presumptive positive for Andes hantavirus and was transferred to hospital with isolation precautions.",
+      "limitations": "Event-specific operational update for a defined exposure cohort. It is not a Canada-wide live case counter or evidence of general community spread."
+    },
+    {
+      "id": "canada-andes-media-update-confirmed-2026",
+      "title": "Media update on Andes hantavirus situation",
+      "publisher": "Public Health Agency of Canada / Government of Canada",
+      "url": "https://www.canada.ca/en/public-health/news/2026/05/media-update-on-andes-hantavirus-situation1.html",
+      "publicationDate": "2026-05-17",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Official national media update",
+      "use": "Canada update confirming through laboratory testing a Canadian Andes hantavirus case reported by the British Columbia Provincial Health Officer among MV Hondius passengers.",
+      "limitations": "Event-specific update. All confirmed cases described in the notice were passengers or crew; do not convert this into a general Canada risk or live local surveillance marker."
+    },
+    {
+      "id": "wa-doh-mv-hondius-investigations-2026",
+      "title": "Washington health officials assisting with hantavirus investigations involving two different virus strains in two separate events",
+      "publisher": "Washington State Department of Health",
+      "url": "https://doh.wa.gov/newsroom/washington-health-officials-assisting-hantavirus-investigations-involving-two-different-virus",
+      "publicationDate": "2026-05-15",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Official state health department update",
+      "use": "Washington state update separating MV Hondius Andes-virus exposure monitoring from an unrelated local Sin Nombre hantavirus infection investigation.",
+      "limitations": "State response notice only. It does not indicate public community spread, patient locations, or a live Washington case feed."
+    },
+    {
+      "id": "cdph-andes-exposure-2026",
+      "title": "CDPH Aware of California Passengers Exposed to Andes Hantavirus Outbreak on International Cruise Ship",
+      "publisher": "California Department of Public Health",
+      "url": "https://www.cdph.ca.gov/Programs/OPA/Pages/NR26-017.aspx",
+      "publicationDate": "2026-05-08",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Official state health department update",
+      "use": "California update that CDPH was coordinating with federal and local partners after notification that California residents were aboard the MV Hondius and that local health officials were monitoring a returned passenger.",
+      "limitations": "Passenger-response update only. It is not evidence of California community transmission or a public case-location dataset."
+    },
+    {
+      "id": "oregon-andes-clinician-alert-2026",
+      "title": "Clinician Alert: Andes virus in patients returning from cruise ship M/V Hondius",
+      "publisher": "Oregon Health Authority",
+      "url": "https://www.oregon.gov/oha/PH/PREPAREDNESS/PARTNERS/HEALTHALERTNETWORK/HAN%20Archive/2026-0508%20Clinician%20Alert%20-%20Andes%20virus%20in%20patients%20returning%20from%20cruise%20ship%20MV%20Hondius.pdf",
+      "publicationDate": "2026-05-08",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Official clinician alert",
+      "use": "Oregon clinician alert describing MV Hondius Andes-virus monitoring procedures and noting that no exposed individuals had returned to Oregon at the time of the alert.",
+      "limitations": "Clinician/public-health alert only. It should not be read as an Oregon case report, local spread marker, or live risk feed."
+    },
+    {
+      "id": "ecdc-self-quarantine-2026",
+      "title": "Outbreak of Andes virus 2026 - Recommendations for self-quarantine",
+      "publisher": "European Centre for Disease Prevention and Control",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/outbreak-andes-virus-2026-recommendations-self-quarantine",
+      "publicationDate": "2026-05",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Official outbreak guidance",
+      "use": "ECDC self-quarantine recommendations for asymptomatic contacts linked to the 2026 Andes virus outbreak.",
+      "limitations": "Authority-facing/event-specific guidance. It is not a general public travel clearance rule or live surveillance source."
+    },
+    {
+      "id": "ecdc-threat-assessment-brief-2026",
+      "title": "Threat Assessment Brief: Hantavirus-associated cluster of illness on a cruise ship: ECDC assessment and recommendations",
+      "publisher": "European Centre for Disease Prevention and Control",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/threat-assessment-brief-hantavirus-associated-cluster-illness-cruise-ship-ecdc",
+      "publicationDate": "2026-05-06",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Rapid threat assessment",
+      "use": "ECDC threat assessment context for the MV Hondius cluster, including symptomatic cases, deaths, PCR results, and European response framing as of 6 May 2026.",
+      "limitations": "Preliminary rapid assessment. It may be superseded by later WHO, ECDC, or national updates and is not a complete European surveillance dataset."
+    },
+    {
+      "id": "public-health-ontario-andes-guidance-2026",
+      "title": "Public Health Guidance for Hantavirus (Andes Virus)",
+      "publisher": "Public Health Ontario",
+      "url": "https://www.publichealthontario.ca/-/media/Documents/H/26/hantavirus-andes-virus-public-health-guidance.pdf?rev=3ee4da69141348b282996056bb09a46d&la=fr",
+      "publicationDate": "2026-05-15",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Public health guidance",
+      "use": "Ontario public health guidance for identifying, assessing, and managing suspect, probable, and confirmed Andes virus cases and contacts in the MV Hondius context.",
+      "limitations": "Guidance for public health and healthcare context. It is not a public self-diagnosis guide or local risk map."
+    },
+    {
+      "id": "argentina-ben-se17-2026",
+      "title": "Actualización del Boletín Epidemiológico Nacional de la semana N° 17",
+      "publisher": "Argentina Ministry of Health / Argentina.gob.ar",
+      "url": "https://www.argentina.gob.ar/noticias/actualizacion-del-boletin-epidemiologico-nacional-de-la-semana-ndeg-17",
+      "publicationDate": "2026-05",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Official national epidemiological bulletin update",
+      "use": "Argentina BEN SE17 update confirming eight MV Hondius onboard cases, six confirmed and two probable, including three deaths, and Andes strain confirmation by reference laboratories.",
+      "limitations": "Spanish-language point-in-time bulletin summary. It is not a live case feed, patient-location map, or proof of the outbreak origin."
+    },
+    {
+      "id": "argentina-diagnostic-support-2026",
+      "title": "Argentina asiste a países europeos con insumos de diagnóstico para hantavirus",
+      "publisher": "Argentina Ministry of Health / Argentina.gob.ar",
+      "url": "https://www.argentina.gob.ar/noticias/argentina-asiste-paises-europeos-con-insumos-de-diagnostico-para-hantavirus",
+      "publicationDate": "2026-05-06",
+      "reviewedDate": "2026-05-19",
+      "sourceType": "Official national health ministry update",
+      "use": "Argentina update describing diagnostic supply and technical assistance to countries affected by the MV Hondius Andes-virus event while domestic epidemiological investigations continued.",
+      "limitations": "International cooperation and response update only. It should not be converted into local risk or patient-location claims."
     }
   ]
 }

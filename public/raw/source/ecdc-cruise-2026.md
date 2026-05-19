@@ -36,9 +36,9 @@ No patient address or exact exposure point is published from this source. Provis
 ## Linked map records
 
 - Official alert: Hantavirus cluster linked to cruise ship travel, multi-country — World Health Organization 2026-05-13
-- Official alert: Canada response to MV Hondius Andes hantavirus event — Government of Canada / PHAC / Global Affairs Canada 2026-05-14
+- Official alert: Canada response to MV Hondius Andes hantavirus event — Government of Canada / PHAC / Global Affairs Canada 2026-05-17
 - Official alert: Utah resident passenger linked to MV Hondius response — Utah Department of Health and Human Services 2026-05
-- Official alert: ECDC cruise ship hantavirus response and passenger guidance updates — European Centre for Disease Prevention and Control 2026-05-06
+- Official alert: ECDC cruise ship hantavirus response and passenger guidance updates — European Centre for Disease Prevention and Control 2026-05-17
 
 ## Cite this page
 

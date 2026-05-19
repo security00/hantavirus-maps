@@ -35,6 +35,10 @@ export const EVENT_PAGE_IDS = [
   'united-states-cdc-1993-2023',
   'canada-phac-1994-2026',
   'argentina-health-vigilance-2026',
+  'minnesota-mv-hondius-monitoring-2026',
+  'washington-mv-hondius-monitoring-2026',
+  'california-mv-hondius-monitoring-2026',
+  'oregon-mv-hondius-clinician-alert-2026',
 ];
 
 export function sourcePath(id) {

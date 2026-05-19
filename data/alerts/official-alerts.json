@@ -1,5 +1,5 @@
 {
-  "lastReviewed": "2026-05-14",
+  "lastReviewed": "2026-05-19",
   "datasetStatus": "reviewed-sample",
   "policy": "Official alerts are selected source-linked public health notices focused on current event/surveillance context. They are not a complete surveillance dataset and should not be read as a live outbreak map.",
   "alerts": [
@@ -53,13 +53,13 @@
       "id": "canada-mv-hondius-2026",
       "title": "Canada response to MV Hondius Andes hantavirus event",
       "agency": "Government of Canada / PHAC / Global Affairs Canada",
-      "date": "2026-05-14",
+      "date": "2026-05-17",
       "geography": "Canada / MV Hondius passenger response",
       "layer": "Public health alerts",
       "status": "Official Canadian response and passenger monitoring updates",
       "severityLabel": "Official response update",
-      "summary": "Canadian federal public health updates described continued domestic and international coordination for the MV Hondius Andes hantavirus event, including self-isolation and monitoring for exposed travellers beginning on 10 May for a minimum of 21 days and up to 42 days, plus additional potentially exposed individuals in Canada.",
-      "riskLanguage": "Event-specific official response context. The monitoring window applies to defined exposure cohorts; it is not a Canada-wide live case counter or evidence of general community spread in Canada.",
+      "summary": "Canadian federal public health updates described continued domestic and international coordination for the MV Hondius Andes hantavirus event. PHAC reported a presumptive positive result on 16 May among high-risk monitored individuals and confirmed by laboratory testing on 17 May a Canadian Andes hantavirus case reported by the British Columbia Provincial Health Officer among MV Hondius passengers; all confirmed cases described by PHAC were passengers or crew, and overall risk to the general population in Canada remained low.",
+      "riskLanguage": "Event-specific official response context for defined exposure cohorts. This is not a Canada-wide live case counter, evidence of general community spread, or travel clearance service.",
       "sourceIds": [
         "canada-mv-hondius-update-2026",
         "canada-cpho-mv-hondius-2026",
@@ -68,7 +68,10 @@
         "ecdc-cruise-2026",
         "canada-andes-media-update-2026",
         "who-don601-2026",
-        "cdc-andes-exposure-guidance-2026"
+        "cdc-andes-exposure-guidance-2026",
+        "canada-andes-media-update-presumptive-2026",
+        "canada-andes-media-update-confirmed-2026",
+        "public-health-ontario-andes-guidance-2026"
       ],
       "mapPoint": {
         "x": 235,
@@ -100,18 +103,20 @@
       "id": "ecdc-mv-hondius-response-2026",
       "title": "ECDC cruise ship hantavirus response and passenger guidance updates",
       "agency": "European Centre for Disease Prevention and Control",
-      "date": "2026-05-06",
+      "date": "2026-05-17",
       "geography": "Europe / international MV Hondius response",
       "layer": "Public health alerts",
       "status": "Official risk assessment and response updates",
       "severityLabel": "European response update",
-      "summary": "ECDC reported seven symptomatic people and three deaths as of 6 May 2026 in its preliminary MV Hondius risk assessment, and framed all people on the ship as close contacts under the precautionary principle while investigations continued.",
-      "riskLanguage": "Preliminary rapid-assessment context for a closed-setting cruise event. It should not be read as a complete European surveillance dataset or live outbreak feed.",
+      "summary": "ECDC materials for the MV Hondius Andes virus event include the 6 May threat assessment, response activation, passenger guidance, and self-quarantine recommendations for asymptomatic contacts. ECDC framed the cluster as a closed-setting cruise event requiring contact management and public health follow-up while investigations continued.",
+      "riskLanguage": "European response and guidance context for a specific cruise-associated Andes virus event. It should not be read as a complete European surveillance dataset, live outbreak feed, or broad travel-risk map.",
       "sourceIds": [
         "ecdc-cruise-2026",
         "ecdc-cruise-response-activated-2026",
         "ecdc-cruise-guidance-2026",
-        "who-don600-2026"
+        "who-don600-2026",
+        "ecdc-self-quarantine-2026",
+        "ecdc-threat-assessment-brief-2026"
       ],
       "mapPoint": {
         "x": 510,
@@ -122,17 +127,19 @@
       "id": "argentina-health-vigilance-2026",
       "title": "Argentina reinforces hantavirus surveillance after MV Hondius cluster",
       "agency": "Argentina Ministry of Health",
-      "date": "2026-05-07",
+      "date": "2026-05-17",
       "geography": "Argentina / national surveillance coordination",
       "layer": "Public health alerts",
       "status": "Official national health ministry update",
       "severityLabel": "National surveillance update",
-      "summary": "Argentina’s Ministry of Health said national and jurisdictional epidemiology teams reviewed the MV Hondius outbreak, strengthened surveillance actions, and reported 42 hantavirus cases notified in Argentina so far in 2026 and 101 confirmed notifications since epidemiological week 27 of 2025.",
-      "riskLanguage": "National surveillance snapshot and response coordination only. It is not a live Argentina case feed, patient-location map, or local risk prediction.",
+      "summary": "Argentina official updates and BEN SE17 described the MV Hondius investigation, including eight onboard cases at that point, six confirmed and two probable, with three deaths; reference laboratories confirmed Andes strain findings. Argentina also reported diagnostic-supply and technical-assistance support for affected countries while domestic epidemiological investigation continued.",
+      "riskLanguage": "Argentina national surveillance and response context only. The BEN and ministry updates are point-in-time official summaries, not live local case feeds, patient-location data, or proof of outbreak origin.",
       "sourceIds": [
         "argentina-health-vigilance-2026",
         "who-don600-2026",
-        "paho-cruise-2026"
+        "paho-cruise-2026",
+        "argentina-ben-se17-2026",
+        "argentina-diagnostic-support-2026"
       ],
       "mapPoint": {
         "x": 345,
@@ -158,6 +165,69 @@
       "mapPoint": {
         "x": 270,
         "y": 220
+      }
+    },
+    {
+      "id": "washington-mv-hondius-monitoring-2026",
+      "title": "Washington separates MV Hondius Andes exposure monitoring from unrelated Sin Nombre event",
+      "agency": "Washington State Department of Health",
+      "date": "2026-05-15",
+      "geography": "Washington, United States / MV Hondius exposure monitoring",
+      "layer": "Public health alerts",
+      "status": "Official state health department update",
+      "severityLabel": "State response update",
+      "summary": "Washington DOH said it was assisting with two separate hantavirus-related investigations: three King County residents potentially exposed to Andes virus linked to the MV Hondius event, and a separate unrelated local hantavirus infection. DOH emphasized that the virus strains and exposure circumstances were different and not connected, and that public risk remained very low.",
+      "riskLanguage": "State response update only. Andes virus exposure monitoring and routine Sin Nombre virus risk must remain separated; this is not a Washington live case feed, patient-location dataset, or evidence of local Andes virus spread.",
+      "sourceIds": [
+        "wa-doh-mv-hondius-investigations-2026",
+        "cdc-andes-exposure-guidance-2026",
+        "who-don601-2026"
+      ],
+      "mapPoint": {
+        "x": 205,
+        "y": 205
+      }
+    },
+    {
+      "id": "california-mv-hondius-monitoring-2026",
+      "title": "California monitoring passengers linked to MV Hondius Andes virus exposure",
+      "agency": "California Department of Public Health",
+      "date": "2026-05-08",
+      "geography": "California, United States / MV Hondius passenger monitoring",
+      "layer": "Public health alerts",
+      "status": "Official state health department update",
+      "severityLabel": "State response update",
+      "summary": "CDPH said it was coordinating with federal and local health partners after notification that California residents were aboard the MV Hondius. CDPH described daily symptom monitoring for a returned passenger and noted that at least one other California resident remained aboard the ship, while public risk in California was extremely low.",
+      "riskLanguage": "Passenger-response update only. It does not indicate California community transmission, patient locations, or a general local risk increase.",
+      "sourceIds": [
+        "cdph-andes-exposure-2026",
+        "cdc-andes-exposure-guidance-2026",
+        "who-don600-2026"
+      ],
+      "mapPoint": {
+        "x": 205,
+        "y": 310
+      }
+    },
+    {
+      "id": "oregon-mv-hondius-clinician-alert-2026",
+      "title": "Oregon clinician alert for possible MV Hondius Andes virus exposures",
+      "agency": "Oregon Health Authority",
+      "date": "2026-05-08",
+      "geography": "Oregon, United States / clinician alert and monitoring readiness",
+      "layer": "Public health alerts",
+      "status": "Official clinician alert",
+      "severityLabel": "State clinician alert",
+      "summary": "Oregon Health Authority issued a clinician alert on Andes virus in patients returning from the MV Hondius cruise event. The alert said no exposed individuals had returned to Oregon at that time and that any exposed individuals returning to Oregon would be actively monitored for symptoms through 42 days after last exposure.",
+      "riskLanguage": "Clinician/public-health readiness notice only. It is not an Oregon case report, local transmission marker, or live public risk feed.",
+      "sourceIds": [
+        "oregon-andes-clinician-alert-2026",
+        "cdc-andes-exposure-guidance-2026",
+        "who-don600-2026"
+      ],
+      "mapPoint": {
+        "x": 198,
+        "y": 252
       }
     }
   ]
